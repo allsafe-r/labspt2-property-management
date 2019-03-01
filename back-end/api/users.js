@@ -42,8 +42,8 @@ router.get('/tenants', (req, res) => {
 	});
 });
 
-router.post('/', (req, res) => {
-	const { newUser } = req.body;
+router.post('/', (req, res, next) => {
+	const newUser = req.body;
 	db
 		.createUser(newUser)
 		.then((ids) => {
@@ -55,6 +55,26 @@ router.post('/', (req, res) => {
 				.catch((err) => {
 					res.status(500).json({ error: `${err}` });
 				});
+		})
+		.catch((err) => {
+			next('h500', err);
+		});
+});
+
+router.put('/:id', (req, res, next) => {
+	const { id } = req.params;
+	const edit = req.body;
+
+	db
+		.editUser(id, edit)
+		.then((updated) => {
+			if (updated) {
+				res.status(200).json({
+					message: 'User updated'
+				});
+			} else {
+				res.status(404).json({ errorMessage: 'That user seems to be missing!' });
+			}
 		})
 		.catch((err) => {
 			next('h500', err);
