@@ -29,6 +29,10 @@ function getAdmins() {
 	return db('users').then((res) => res.filter((user) => user.isAdmin == true));
 }
 
+function getUsers() {
+	return db('users');
+}
+
 function getTenant() {
 	return db('users').then((res) => res.filter((user) => user.isAdmin == false));
 }
