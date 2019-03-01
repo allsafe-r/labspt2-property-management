@@ -73,11 +73,27 @@ router.put('/:id', (req, res, next) => {
 					message: 'User updated'
 				});
 			} else {
-				res.status(404).json({ errorMessage: 'That user seems to be missing!' });
+				res.status(404).json({ error: 'That user seems to be missing!' });
 			}
 		})
 		.catch((err) => {
 			next('h500', err);
+		});
+});
+
+router.delete('/:id', (req, res) => {
+	const { id } = req.params;
+	db
+		.deleteUser(id)
+		.then((user) => {
+			if (user) {
+				res.status(202).json({ message: 'User deleted' });
+			} else {
+				res.status(404).json({ error: 'That user seems to be missing!' });
+			}
+		})
+		.catch((err) => {
+			res.status(500).json({ error: `${err}` });
 		});
 });
 

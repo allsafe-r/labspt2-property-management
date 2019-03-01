@@ -6,7 +6,8 @@ module.exports = {
 	findByUserName,
 	getAdmins,
 	editUser,
-	getTenants
+	getTenants,
+	deleteUser
 };
 
 function createUser(user) {
@@ -35,4 +36,8 @@ function getUsers() {
 
 function getTenants() {
 	return db('users').then((res) => res.filter((user) => user.isAdmin == false));
+}
+
+function deleteUser(id) {
+	return db('users').where({ id }).first().del();
 }
