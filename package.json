@@ -1,29 +1,30 @@
 {
-  "name": "labspt2-property-management",
-  "version": "1.0.0",
-  "description": "",
-  "main": "knexfile.js",
-  "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^6.2.0",
-    "express": "^4.16.4",
-    "helmet": "^3.15.1",
-    "knex": "^0.16.3",
-    "pg": "^7.8.1",
-    "sqlite3": "^4.0.6"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Lambda-School-Labs/labspt2-property-management.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Lambda-School-Labs/labspt2-property-management/issues"
-  },
-  "homepage": "https://github.com/Lambda-School-Labs/labspt2-property-management#readme"
+	"name": "labspt2-property-management",
+	"version": "1.0.0",
+	"description": "",
+	"main": "knexfile.js",
+	"dependencies": {
+		"cors": "^2.8.5",
+		"dotenv": "^6.2.0",
+		"express": "^4.16.4",
+		"helmet": "^3.15.1",
+		"knex": "^0.16.3",
+		"pg": "^7.8.1",
+		"sqlite3": "^4.0.6"
+	},
+	"devDependencies": {},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "nodemon index.js --verbose"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Lambda-School-Labs/labspt2-property-management.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Lambda-School-Labs/labspt2-property-management/issues"
+	},
+	"homepage": "https://github.com/Lambda-School-Labs/labspt2-property-management#readme"
 }
