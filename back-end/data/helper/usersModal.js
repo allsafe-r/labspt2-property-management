@@ -13,8 +13,8 @@ function createUser(user) {
 	return db('users').insert(user, 'id');
 }
 
-function findByUserName(name) {
-	return db('users').where({ name }).first();
+function findByUserName(displayName) {
+	return db('users').where({ displayName }).first();
 }
 
 function findByUserId(id) {
