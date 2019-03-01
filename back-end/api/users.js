@@ -42,4 +42,23 @@ router.get('/tenants', (req, res) => {
 	});
 });
 
+router.post('/', (req, res) => {
+	const { newUser } = req.body;
+	db
+		.createUser(newUser)
+		.then((ids) => {
+			db
+				.findByUserId(ids[0])
+				.then((newUser) => {
+					res.status(201).json({ newUser: newUser.id });
+				})
+				.catch((err) => {
+					res.status(500).json({ error: `${err}` });
+				});
+		})
+		.catch((err) => {
+			next('h500', err);
+		});
+});
+
 module.exports = router;
