@@ -6,7 +6,7 @@ module.exports = {
 	findByUserName,
 	getAdmins,
 	editUser,
-	getTenant
+	getTenants
 };
 
 function createUser(user) {
@@ -33,6 +33,6 @@ function getUsers() {
 	return db('users');
 }
 
-function getTenant() {
+function getTenants() {
 	return db('users').then((res) => res.filter((user) => user.isAdmin == false));
 }
