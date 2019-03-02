@@ -1058,6 +1058,14 @@
     recompose "0.28.0 - 0.30.0"
     warning "^4.0.1"
 
+"@material-ui/icons@^3.0.2":
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/@material-ui/icons/-/icons-3.0.2.tgz#d67a6dd1ec8312d3a88ec97944a63daeef24fe10"
+  integrity sha512-QY/3gJnObZQ3O/e6WjH+0ah2M3MOgLOzCy8HTUoUx9B6dDrS18vP7Ycw3qrDEKlB6q1KNxy6CZHm5FCauWGy2g==
+  dependencies:
+    "@babel/runtime" "^7.2.0"
+    recompose "0.28.0 - 0.30.0"
+
 "@material-ui/system@^3.0.0-alpha.0":
   version "3.0.0-alpha.2"
   resolved "https://registry.yarnpkg.com/@material-ui/system/-/system-3.0.0-alpha.2.tgz#096e80c8bb0f70aea435b9e38ea7749ee77b4e46"
@@ -9315,6 +9323,11 @@ schema-utils@^1.0.0:
     ajv "^6.1.0"
     ajv-errors "^1.0.0"
     ajv-keywords "^3.1.0"
+
+scripts@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/scripts/-/scripts-0.1.0.tgz#3eb19713b5ad1f58bc3e39ce63606d6beaa00693"
+  integrity sha1-PrGXE7WtH1i8PjnOY2Bta+qgBpM=
 
 select-hose@^2.0.0:
   version "2.0.0"
