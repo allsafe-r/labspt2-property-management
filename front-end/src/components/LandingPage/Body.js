@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Cards from './Cards';
+import HomeSection from './HomeSection';
+import Pricing from './Pricing';
 
 
 
@@ -23,6 +25,8 @@ function Body(props) {
   return (
     <div className={classes.root}>
       <Cards />
+      <HomeSection />
+      <Pricing />
     </div>
   );
 }

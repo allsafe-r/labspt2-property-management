@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-
+import Typography from '@material-ui/core/Typography';
 
 
 
@@ -27,8 +27,10 @@ function HomeSection(props) {
   const { classes } = props;
 
   return (
-    <div>
-
+    <div className="titleCenter">
+        <Typography component="h3" variant="h3" align="center" color="textPrimary" gutterBottom>
+        Take Control with One Solution
+        </Typography>
     </div>
   );
 }

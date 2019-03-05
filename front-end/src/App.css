@@ -19,6 +19,12 @@
   font-size: 30px;
   font-style:italic;
 }
+
+.titleCenter {
+  text-align: center;
+  color: darkslategrey;
+  margin-top: 55px;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
