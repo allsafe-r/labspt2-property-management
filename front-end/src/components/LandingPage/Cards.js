@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
+// import CardMedia from '@material-ui/core/CardMedia';
 
 
 
@@ -30,14 +30,10 @@ function Cards(props) {
   return (
       <div class="flex-cards">
     <Card className={classes.card}>
+    
       <CardContent>
-      <CardMedia
-          className={classes.media}
-          image="./buy.png"
-          title="Paella dish"
-        />
         <div class="card-title">
-            Easy to Use
+            Simple
         </div>
       </CardContent>
     </Card>
@@ -46,7 +42,7 @@ function Cards(props) {
         
         <CardContent>
         <div class="card-title">
-            Easy to Use
+            Affordable
         </div>
       </CardContent>
     </Card>
@@ -55,7 +51,7 @@ function Cards(props) {
     <Card className={classes.card}>
         <CardContent>
         <div class="card-title">
-            Easy to Use
+            Scalable
         </div>
       </CardContent>
     </Card>
