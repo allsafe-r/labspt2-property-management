@@ -6,7 +6,6 @@ import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import StarIcon from '@material-ui/icons/StarBorder';
 import Typography from '@material-ui/core/Typography';
@@ -75,7 +74,7 @@ const tiers = [
     description: [
       '1 Property Manager',
       '100 properties',
-      '15 Tenent Accounts',
+      '250 Tenent Accounts',
       'Email support',
     ],
     buttonText: 'Get started',
@@ -87,7 +86,7 @@ const tiers = [
     description: [
         '10 Property Managers',
         'Unlimited properties',
-        '15 Tenent Accounts',
+        'Unlimited Tenent Accounts',
         'Email support',
     ],
     buttonText: 'Contact us',
