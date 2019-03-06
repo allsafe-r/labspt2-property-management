@@ -7,7 +7,8 @@ module.exports = {
 	getAdmins,
 	editUser,
 	getTenants,
-	deleteUser
+	deleteUser,
+	getUsers
 };
 
 function createUser(user) {
