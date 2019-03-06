@@ -31,7 +31,7 @@ function createProperty(property) {
 }
 
 function deleteProperty(houseId) {
-	return db('properties').where({ id }).del();
+	return db('properties').where({ houseId }).del();
 }
 
 function editProperty(houseId, property) {
