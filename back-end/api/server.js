@@ -3,7 +3,7 @@ const helmet = require('helmet');
 const cors = require('cors');
 const users = require('./users.js');
 const properties = require('./properties.js');
-const workOrders = require('./workOrders.js');
+const workOrders = require('./workorders.js');
 const server = express();
 
 server.use(express.json(), cors(), helmet());
