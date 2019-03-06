@@ -1,0 +1,17 @@
+.sideMenu-container {
+  border: 1px solid blue;
+  display: flex;
+  flex-direction: column;
+  width: 15%;
+
+  padding: 25px;
+  height: 100vh;
+}
+
+.side-menu {
+  font-size: 1.5em;
+}
+
+.side-menu ul li {
+  padding-top: 8px;
+}
