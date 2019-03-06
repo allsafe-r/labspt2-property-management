@@ -6,7 +6,8 @@ module.exports = {
 	findByWorkOrderId,
 	getWorkOrders,
 	editWorkOrder,
-	findWorkOrderByPropertyId
+	findWorkOrderByPropertyId,
+	deleteWorkOrder
 };
 
 function createWorkOrder(order) {
@@ -31,4 +32,8 @@ function editWorkOrder(id, order) {
 
 function getWorkOrders() {
 	return db('workOrders');
+}
+
+function deleteWorkOrder(id) {
+	return db('workOrders').where({ id }).first().del();
 }
