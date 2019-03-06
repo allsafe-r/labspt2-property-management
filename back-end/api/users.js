@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../data/helper/userModal');
+const db = require('../data/helper/usersModal');
 
 router.get('/', (req, res) => {
 	db.getUsers().then((users) =>
