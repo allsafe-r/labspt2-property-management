@@ -3,11 +3,9 @@ const router = express.Router();
 const db = require('../data/helper/usersModal');
 
 router.get('/', (req, res) => {
-	db.getUsers().then((users) =>
-		res.status(200).json(users).catch((err) => {
-			res.status(500).json({ error: `${err}` });
-		})
-	);
+	db.getUsers().then((users) => res.status(200).json(users)).catch((err) => {
+		res.status(500).json({ error: `${err}` });
+	});
 });
 
 router.get('/admins', (req, res) => {
