@@ -14,6 +14,12 @@ router.get('/admins', (req, res) => {
 	});
 });
 
+router.get('/tenants', (req, res) => {
+	db.getTenants().then((tenants) => res.status(200).json(tenants)).catch((err) => {
+		res.status(500).json({ error: `${err}` });
+	});
+});
+
 router.get('/:id', (req, res) => {
 	const { id } = req.params;
 	db
@@ -28,14 +34,6 @@ router.get('/:id', (req, res) => {
 		.catch((err) => {
 			res.status(500).json({ error: `${err}` });
 		});
-});
-
-router.get('/tenants', (req, res) => {
-	db.getTenants().then((tenants) => {
-		res.status(200).json(tenants).catch((err) => {
-			res.status(500).json({ error: `${err}` });
-		});
-	});
 });
 
 router.post('/', (req, res, next) => {
