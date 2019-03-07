@@ -4,7 +4,7 @@ import React, { Component } from "react";
 
 const workorderCard = (props) => {
 
-
+const inputs = ["Pending" , "In Progress", "Completed"]
 
     return (
         <div className="property-card">
@@ -17,7 +17,15 @@ const workorderCard = (props) => {
         <h1>{this.props.work.description}</h1>
         <h1>{this.props.work.phone}</h1>
         <h1>{this.props.work.unsupervisedEntry}</h1>
-        <h1>{this.props.work.status}</h1>
+        
+            inputs.map((value), i) => (
+                <div key={i}>
+                <input type="radio" name="status" value = {value} onChange='#' checked={this.props.work.status === value} />
+            )
+        }
+
+
+        
 
       </div>
     )
