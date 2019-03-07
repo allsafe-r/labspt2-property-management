@@ -20,7 +20,7 @@ router.get('/:id', (req, res) => {
 		.findByWorkOrderId(id)
 		.then((workorder) => {
 			if (workorder) {
-				res.status(200).json(user);
+				res.status(200).json(workorder);
 			} else {
 				res.status(404).json({ error: 'workorder not found' });
 			}
