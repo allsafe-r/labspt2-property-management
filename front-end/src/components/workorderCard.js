@@ -2,9 +2,17 @@ import React, { Component } from "react";
 
 
 
-const workorderCard = () => {
+const workorderCard = (props) => {
     return (
-        <h1>Hi</h1>
+        <div className="property-card">
+        <div className="buttons-container">
+          <button>Edit</button>
+          <button>Delete</button>
+        </div>
+        <h1>Address</h1>
+        <h1>Name</h1>
+        <h1>Date</h1>
+      </div>
     )
 }
 

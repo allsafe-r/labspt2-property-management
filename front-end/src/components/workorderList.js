@@ -2,9 +2,14 @@ import React, { Component } from "react";
 
 import workorderCard from "./workorderCard";
 
-const workorderList = () => {
+const workorderList = (props) => {
     return (
-        <h1>Hi</h1>
+        <div className="workorderlist">
+        {this.props.workorders.map(work => (
+            <workorderCard key={work.id} work={work} />
+        ))}
+        </div>
+      </div>
     )
 }
 
