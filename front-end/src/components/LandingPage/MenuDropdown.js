@@ -6,7 +6,6 @@ import toRenderProps from 'recompose/toRenderProps';
 import withState from 'recompose/withState';
 import MenuIcon from '@material-ui/icons/Menu';
 
-
 const WithState = toRenderProps(withState('anchorEl', 'updateAnchorEl', null));
 
 function MenuDropdown() {
