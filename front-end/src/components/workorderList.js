@@ -11,17 +11,18 @@ export default class WorkorderList extends Component  {
         };
     }
 
-   /* componentDidMount(){
+    componentDidMount(){
         axios
-        .get('/api/workorders')
+        .get('https://tenantly-back-end.herokuapp.com/workorders')
         .then(response => {
             this.setState(() => ({workorders: response.data}));
         })
         .catch(error => {
             console.error('Server Error', error);
         });
+        
     }
-    */
+    
 
 
 
