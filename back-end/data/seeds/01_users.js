@@ -3,7 +3,8 @@ exports.seed = function(knex, Promise) {
 		return knex('users').insert([
 			{
 				name: 'Lee',
-				is_admin: 'hardCodePassword1',
+				password: 'hardCodePassword1',
+				is_admin: true,
 				email: 'lee@tenantly.com',
 				phone: '203-555-1234',
 				displayName: 'Lee',
@@ -14,7 +15,8 @@ exports.seed = function(knex, Promise) {
 			},
 			{
 				name: 'Matt',
-				is_admin: 'hardCodePassword1',
+				password: 'hardCodePassword1',
+				is_admin: true,
 				email: 'matt@tenantly.com',
 				phone: '203-555-1234',
 				displayName: 'Matt',
@@ -25,7 +27,8 @@ exports.seed = function(knex, Promise) {
 			},
 			{
 				name: 'Victor',
-				is_admin: 'hardCodePassword1',
+				password: 'hardCodePassword1',
+				is_admin: true,
 				email: 'victor@tenantly.com',
 				phone: '203-555-1234',
 				displayName: 'Victor',
@@ -36,7 +39,8 @@ exports.seed = function(knex, Promise) {
 			},
 			{
 				name: 'Kyle',
-				is_admin: 'hardCodePassword1',
+				is_admin: false,
+				password: 'hardCodePassword1',
 				email: 'kyle@tenantly.com',
 				phone: '203-555-1234',
 				displayName: 'Kyle',
