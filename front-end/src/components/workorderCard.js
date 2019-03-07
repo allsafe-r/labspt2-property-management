@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from 'axios';
 
 
-export default class WorkorderCard extends Component {
+export default class Workordercard extends Component {
     
         constructor(props){
         super(props);
@@ -24,9 +24,9 @@ inputs = ["Pending" , "In Progress", "Completed"]
 statushandler = (update, e) => {
     
 
-this.setState({
+ this.setState({
     status: e.target.value
-})
+});
          
 let  updatedworkorder = {
     
@@ -36,10 +36,12 @@ let  updatedworkorder = {
           description: this.state.description,
           phone: this.state.phone,
           status: this.state.status 
-}        
+}       
 
-    axios
-      .put(`https://tenantly-back-end.herokuapp.com/properties/${this.props.key}`, this.state)
+this.work.status = this.state.status;
+
+    /*axios
+      .put(`https://tenantly-back-end.herokuapp.com/properties/${this.props.key}`, updatedworkorder)
       .then(response => {
       console.log('success')
         })
@@ -47,6 +49,7 @@ let  updatedworkorder = {
       .catch(error => {
         console.log(error);
       });
+      */
       
 }
 
@@ -63,9 +66,9 @@ let  updatedworkorder = {
         <h1>{this.props.work.phone}</h1>
         <h1>{this.props.work.unsupervisedEntry}</h1>
         
-           { this.inputs.map((value, i) => (
+           { this.inputs.map((values, i) => (
                 <div key={i}>
-                <input type="radio" name="status" value={value} onChange={this.statushandler(value)} checked={this.state.status === value} />
+                <h1>{values}</h1><input type="radio" name={values} value={values} checked={this.state.status === values} />
                 </div>
             ))}
            
