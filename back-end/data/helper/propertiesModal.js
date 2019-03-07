@@ -4,11 +4,21 @@ module.exports = {
 	getPropertiesByOwner,
 	getPropertiesByTen1,
 	getPropertiesByTen2,
+	getProperties,
+	findByPropertyId,
 	createProperty,
 	deleteProperty,
 	getProperty,
 	editProperty
 };
+
+function getProperties() {
+	return db('properties');
+}
+
+function findByPropertyId(houseId) {
+	return db('properties').where({ houseId }).first();
+}
 
 function getPropertiesByTen1(id) {
 	return db('property').then((res) => res.filter((prop) => prop.tenant1 == id));
@@ -27,7 +37,7 @@ function getProperty(houseId) {
 }
 
 function createProperty(property) {
-	return db('properties').insert(property, 'id');
+	return db('properties').insert(property, 'houseId');
 }
 
 function deleteProperty(houseId) {
