@@ -2,7 +2,7 @@ exports.up = function(knex, Promise) {
 	return knex.schema.createTable('users', (table) => {
 		table.increments();
 		table.string('name').notNullable();
-		table.boolean('is_admin').notNullable().defaultTo(false);
+		table.boolean('isAdmin').notNullable().defaultTo(false);
 		table.string('email').notNullable();
 		table.string('phone').notNullable();
 		table.string('displayName').notNullable();

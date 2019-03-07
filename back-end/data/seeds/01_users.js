@@ -3,7 +3,7 @@ exports.seed = function(knex, Promise) {
 		return knex('users').insert([
 			{
 				name: 'Lee',
-				is_admin: true,
+				isAdmin: true,
 				email: 'lee@tenantly.com',
 				phone: '203-555-1234',
 				displayName: 'Lee',
@@ -14,7 +14,7 @@ exports.seed = function(knex, Promise) {
 			},
 			{
 				name: 'Matt',
-				is_admin: true,
+				isAdmin: true,
 				email: 'matt@tenantly.com',
 				phone: '203-555-1234',
 				displayName: 'Matt',
@@ -25,7 +25,7 @@ exports.seed = function(knex, Promise) {
 			},
 			{
 				name: 'Victor',
-				is_admin: true,
+				isAdmin: true,
 				email: 'victor@tenantly.com',
 				phone: '203-555-1234',
 				displayName: 'Victor',
@@ -36,7 +36,7 @@ exports.seed = function(knex, Promise) {
 			},
 			{
 				name: 'Kyle',
-				is_admin: false,
+				isAdmin: false,
 				email: 'kyle@tenantly.com',
 				phone: '203-555-1234',
 				displayName: 'Kyle',
