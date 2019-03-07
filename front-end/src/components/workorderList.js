@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import axios from 'axios';
-import workorderCard from "./workorderCard";
+import WorkorderCard from "./workorderCard";
 
-export default class workorderList extends Component  {
+export default class WorkorderList extends Component  {
 
     constructor(props){
         super(props);
@@ -11,7 +11,7 @@ export default class workorderList extends Component  {
         };
     }
 
-    componentDidMount(){
+   /* componentDidMount(){
         axios
         .get('/api/workorders')
         .then(response => {
@@ -21,6 +21,7 @@ export default class workorderList extends Component  {
             console.error('Server Error', error);
         });
     }
+    */
 
 
 

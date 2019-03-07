@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 
 
-const workorderCard = (props) => {
+const WorkorderCard = (props) => {
 
 const inputs = ["Pending" , "In Progress", "Completed"]
 
@@ -18,17 +18,19 @@ const inputs = ["Pending" , "In Progress", "Completed"]
         <h1>{this.props.work.phone}</h1>
         <h1>{this.props.work.unsupervisedEntry}</h1>
         
-            inputs.map((value), i) => (
+           { inputs.map((value, i) => (
                 <div key={i}>
-                <input type="radio" name="status" value = {value} onChange='#' checked={this.props.work.status === value} />
+                <input type="radio" name="status" value={value} onChange='#' checked={this.props.work.status === value} />
+                </div>
             )
-        }
-
+           )
+           }
+</div>
 
         
 
-      </div>
+      
     )
 }
 
-export default workorderCard;
+export default WorkorderCard;
