@@ -1,3 +1,4 @@
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -132,3 +133,48 @@ table {
   display: flex;
   flex-direction: row;
 }
+
+.hero-image {
+  background: url('./assets/images/condo.jpg') center / cover;
+  height: 400px;
+}
+
+.MuiSvgIcon-root-79 {
+  color:white;
+}
+
+.flex-cards {
+  margin:0 200px;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 300px;
+}
+
+.card-title {
+  text-align: center;
+  font-size: 30px;
+  font-style:italic;
+}
+
+.titleCenter {
+  text-align: center;
+  color: darkslategrey;
+  margin-top: 55px;
+}
+
+.showcase {
+  background: url('./assets/images/showcase.png') center / cover;
+  margin: 50px;
+  height:300px;
+}
+
+.textSection {
+  margin: 50px;
+  text-align: center;
+  padding: 60px;
+  font-size: 20px;
+}
+
+.sectionHome {
+  padding-top: 60px;
+  padding-bottom: 60px;}
