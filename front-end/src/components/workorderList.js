@@ -12,33 +12,13 @@ export default class Workorderlist extends Component  {
     }
 
     componentDidMount(){
-        /*axios
-        .get('https://tenantly-back-end.herokuapp.com/workorders')
-        .then(response => { */
-            this.setState(() =>({workorders: [
-			{
-			    id: 1,
-				property: 1,
-				tenant: 2,
-				description: 'Air conditioner does not blow cold air!',
-				phone: '415-555-6132',
-				unsupervisedEntry: true,
-				status: 'Pending'
-			},
-			{
-			    id: 2,
-				property: 2,
-				tenant: 3,
-				description: 'None of the toilets flush!',
-				phone: '202-555-6132',
-				unsupervisedEntry: true,
-				status: 'Completed'
-			}
-		]}));          //({workorders: response.data}));
-        /*})
+        axios
+        .get('https://tenantly-backend-2.herokuapp.com/workorders')
+        .then(response => this.setState({workorders: response.data}))
+        
         .catch(error => {
             console.error('Server Error', error);
-        }); */
+        }); 
         
     }
     
