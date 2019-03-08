@@ -4,7 +4,7 @@ const db = require('../data/helper/workOrderModal');
 
 //GET all workorders
 
-router.get('/api/workorders', (req, res) => {
+router.get('/', (req, res) => {
 	db.getWorkOrders().then((workorders) =>
 		res.status(200).json(workorders).catch((err) => {
 			res.status(500).json({ error: `${err}` });
@@ -14,13 +14,13 @@ router.get('/api/workorders', (req, res) => {
 
 //GET work orders by ID
 
-router.get('/api/workorders/:id', (req, res) => {
+router.get('/:id', (req, res) => {
 	const { id } = req.params;
 	db
 		.findByWorkOrderId(id)
 		.then((workorder) => {
 			if (workorder) {
-				res.status(200).json(user);
+				res.status(200).json(workorder);
 			} else {
 				res.status(404).json({ error: 'workorder not found' });
 			}
@@ -32,7 +32,7 @@ router.get('/api/workorders/:id', (req, res) => {
 
 //POST new workorder
 
-router.post('/api/workorders', (req, res, next) => {
+router.post('/workorders', (req, res, next) => {
 	const newWorkorder = req.body;
 	db
 		.createWorkOrder(newWorkorder)
@@ -53,7 +53,7 @@ router.post('/api/workorders', (req, res, next) => {
 
 //update(PUT) existing workorder using the id
 
-router.put('/api/workorder/:id', (req, res, next) => {
+router.put('/:id', (req, res, next) => {
 	const { id } = req.params;
 	const edit = req.body;
 
@@ -75,7 +75,7 @@ router.put('/api/workorder/:id', (req, res, next) => {
 
 //DELETE existing work order by using ID
 
-router.delete('/api/workorder/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
 	const { id } = req.params;
 	db
 		.deleteWorkOrder(id)
