@@ -11,6 +11,7 @@ class App extends Component {
         <header class="hero-image">
           <Menu />
           <Body />
+          
   
           
         </header>
