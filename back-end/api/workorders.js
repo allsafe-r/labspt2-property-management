@@ -32,7 +32,7 @@ router.get('/:id', (req, res) => {
 
 //POST new workorder
 
-router.post('/workorders', (req, res, next) => {
+router.post('/', (req, res, next) => {
 	const newWorkorder = req.body;
 	db
 		.createWorkOrder(newWorkorder)
