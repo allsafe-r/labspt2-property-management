@@ -13,7 +13,7 @@ export default class Workorderlist extends Component  {
 
     componentDidMount(){
         axios
-        .get('https://tenantly-backend-2.herokuapp.com/workorders')
+        .get('https://tenantly-back.herokuapp.com/workorders')
         .then(response => this.setState({workorders: response.data}))
         
         .catch(error => {
