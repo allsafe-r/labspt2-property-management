@@ -6,7 +6,7 @@ import StripeCheckout from "react-stripe-checkout";
 class App extends Component {
   constructor(props) {
     super(props);
-
+    this.onToken = this.onToken.bind(this);
 
   }
 
@@ -15,7 +15,9 @@ class App extends Component {
 
   }
 
-
+  onToken(token) {
+    console.log('onToken',token)
+  }
 
   render() {
     return (
