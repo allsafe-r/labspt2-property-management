@@ -22,8 +22,17 @@ const Stripe = () => {
         });
     };
     return (
-    
-            <h1> Hello </h1>
+      <StripeCheckout
+      label="Go Premium" 
+      name="Tenantly, LLC"
+      description="Upgrade to a premium account today."
+      panelLabel="Go Premium" 
+      amount={999} 
+      token={onToken}
+      stripeKey={publishableKey}
+      image="https://i.ibb.co/L1sx35T/sd.jpg"
+      billingAddress={false}
+    />
         );
       };
 
