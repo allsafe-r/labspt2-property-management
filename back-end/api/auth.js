@@ -5,13 +5,18 @@ const router = express.Router();
 router.get(
 	'/google',
 	passport.authenticate('google', {
-		scope: [ 'profile' ]
+		scope: [ 'profile', 'email' ]
 	})
 );
 
 //callback route after login
-router.get('/google/redirect', (req, res) => {
+router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
 	res.send('redirected');
+});
+
+router.get('/logout', (req, res) => {
+	req.logout();
+	res.redirect('/');
 });
 
 router.get(
