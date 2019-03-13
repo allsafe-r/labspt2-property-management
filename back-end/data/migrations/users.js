@@ -3,7 +3,7 @@ exports.up = function(knex, Promise) {
 		table.increments();
 		table.string('name').notNullable();
 		table.boolean('isAdmin').notNullable().defaultTo(false);
-		table.string('email').notNullable();
+		table.string('email').notNullable().unique();
 		table.string('phone').notNullable();
 		table.string('displayName').notNullable();
 		table.boolean('emailSubscribe').notNullable().defaultTo(false);
