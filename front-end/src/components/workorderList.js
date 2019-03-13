@@ -11,6 +11,7 @@ export default class Workorderlist extends Component  {
         };
     }
 
+//Get all work orders
     componentDidMount(){
         axios
         .get('https://tenantly-back.herokuapp.com/workorders')
@@ -27,10 +28,12 @@ export default class Workorderlist extends Component  {
 
 render(){
     return (
+        
         <div className="workorderlist">
-        {this.state.workorders.map(work => (
-            <Workordercard key={work.id} work={work} />
-        ))}
+        {/* display work order cards */}
+            {this.state.workorders.map(work => (
+                <Workordercard key={work.id} work={work} />
+            ))}
         </div>
     
     )

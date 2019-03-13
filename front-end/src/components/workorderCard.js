@@ -60,7 +60,8 @@ statushandler = (e) => {
             <h1>{this.props.work.tenant}</h1>
             <h1>{this.props.work.description}</h1>
             <h1>{this.props.work.phone}</h1>
-            <h1>{this.props.work.unsupervisedEntry}</h1>
+            <h1>Unsupervised Entry is {this.props.work.unsupervisedEntry ? 'Allowed' : 'Not Allowed'} </h1>
+            
             {/* Radio button form */}
                { this.inputs.map((values, i) => (
                     <div key={i}>
