@@ -64,7 +64,7 @@ let newWorkOrder = {
           
           <input onChange={this.inputhandler} name="number" value={this.state.number} placeholder="(555)555-5555" className="#" type='text'/> 
           <input onChange={this.inputhandler} name="unsupervisedEntry" className="#" type='checkbox'/>
-          <input name="attachimage" type='file'/>
+         {/* <input name="attachimage" type='file'/> */}
           <button type="submit" className="button-2">Save</button> 
         </form> 
       </div>             
