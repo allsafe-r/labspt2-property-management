@@ -22,7 +22,15 @@ class App extends Component {
   render() {
     return (
       <div>
-       
+        <StripeCheckout
+          token={this.onToken}
+          stripeKey="pk_test_uGZWgKZiorkYlZ8MsxYEIrA2"
+          label="Pay with 💳"
+          name="Tenantly, LLC"
+          description="Upgrade to a premium account today."
+          panelLabel="Go Premium" 
+          image="https://i.ibb.co/L1sx35T/sd.jpg"
+        />
 
       </div>
     );
