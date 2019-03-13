@@ -9,7 +9,7 @@ router.get('/facebook', (req, res) => {
 	console.log(res);
 });
 
-router.get('/google', (req, res) => {
+router.get('/github', (req, res) => {
 	console.log(res);
 });
 
