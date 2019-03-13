@@ -8,7 +8,8 @@ module.exports = {
 	editUser,
 	getTenants,
 	deleteUser,
-	getUsers
+	getUsers,
+	findByUserEmail
 };
 
 function createUser(user) {
@@ -21,6 +22,10 @@ function findByUserName(displayName) {
 
 function findByUserId(id) {
 	return db('users').where({ id }).first();
+}
+
+function findByUserEmail(email) {
+	return db('users').where({ email }).first();
 }
 
 function editUser(id, updated) {
