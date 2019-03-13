@@ -4,6 +4,7 @@ const cors = require('cors');
 const users = require('./users.js');
 const properties = require('./properties.js');
 const workOrders = require('./workorders.js');
+const passportSetup = require('./config/passport-setup');
 const auth = require('./auth.js');
 const server = express();
 
