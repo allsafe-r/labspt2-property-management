@@ -1,8 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-import styled from 'styled-components'
 import Wave from './Wave';
-import Card from './Card';
 import '../general.css'
 
 
