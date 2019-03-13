@@ -7,7 +7,7 @@ export default class Workordercard extends Component {
         constructor(props){
         super(props);
         this.state = {
-          id: props.key,
+          id: props.work.id,
           property: props.work.property,
           tenant: props.work.tenant,
           description: props.work.description,
@@ -25,6 +25,7 @@ inputs = ["Pending" , "In Progress", "Completed"]
 statushandler = (e) => {
     
 
+
  this.setState({
     status: e.target.value
 });
@@ -36,13 +37,13 @@ let  updatedworkorder = {
           description: this.state.description,
           phone: this.state.phone,
           unsupervisedEntry: this.state.unsupervisedEntry,
-          status: "Completed"
+          status: e.target.value
 }       
 
 
 
     axios
-      .put(`https://tenantly-back.herokuapp.com/workorders/1`, updatedworkorder)
+      .put(`https://tenantly-back.herokuapp.com/workorders/${this.state.id}`, updatedworkorder)
       .then(response => {
       console.log('success')
         })
@@ -69,7 +70,7 @@ let  updatedworkorder = {
         
            { this.inputs.map((values, i) => (
                 <div key={i}>
-                <h1>{values}</h1><input type="radio" name={values} onChange={this.statushandler} value={values} key={i} checked={this.state.status === values} />
+                <h1>{values}</h1><input type="radio" name={values} onChange={this.statushandler} value={values} checked={this.state.status === values} />
                 </div>
             ))}
            
