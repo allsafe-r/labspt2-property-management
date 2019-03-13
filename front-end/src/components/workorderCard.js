@@ -40,7 +40,7 @@ let  updatedworkorder = {
 
 this.work.status = this.state.status;
 
-    /*axios
+    axios
       .put(`https://tenantly-back-end.herokuapp.com/properties/${this.props.key}`, updatedworkorder)
       .then(response => {
       console.log('success')
@@ -49,7 +49,7 @@ this.work.status = this.state.status;
       .catch(error => {
         console.log(error);
       });
-      */
+      
       
 }
 
