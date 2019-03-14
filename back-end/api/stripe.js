@@ -24,6 +24,15 @@ const stripeChargeCallback = res => (stripeErr, stripeRes) => {
       message: 'Stripe server is running.',
       timestamp: new Date().toISOString(),
     });
+  
+router.post("/", (req, res) => {
+    const body = {
+      source: req.body.token.id,
+      amount: req.body.amount,
+      currency: "usd"
+    };
+    stripe.charges.create(body, stripeChargeCallback(res));
+});
   return router;
 });
 
