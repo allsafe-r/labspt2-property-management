@@ -32,7 +32,7 @@ class Register extends Component {
 				this.props.history.push('/login');
 			})
 			.catch((err) => {
-				res.json({ Error: err });
+				console.log({ Error: err });
 			});
 	};
 
@@ -42,16 +42,6 @@ class Register extends Component {
 				<div>
 					<button onClick={this.isAdmin}>I am a landlord</button>
 					<button onClick={this.isNotAdmin}>I am a tenant</button>
-				</div>
-				<div>
-					<input
-						placeholder="Enter password"
-						name="password"
-						value={this.state.password}
-						onChange={this.onChange}
-						type="password"
-						required
-					/>
 				</div>
 				<div>
 					<input
