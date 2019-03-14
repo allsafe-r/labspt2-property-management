@@ -2,7 +2,8 @@ exports.seed = function(knex, Promise) {
 	return knex('users').del().then(function() {
 		return knex('users').insert([
 			{
-				name: 'Lee',
+				username: 'Lee',
+				password: process.env.password,
 				isAdmin: true,
 				email: 'lee@tenantly.com',
 				phone: '203-555-1234',
@@ -13,7 +14,8 @@ exports.seed = function(knex, Promise) {
 				application: ''
 			},
 			{
-				name: 'Matt',
+				username: 'Matt',
+				password: process.env.password,
 				isAdmin: true,
 				email: 'matt@tenantly.com',
 				phone: '203-555-1234',
@@ -24,7 +26,8 @@ exports.seed = function(knex, Promise) {
 				application: ''
 			},
 			{
-				name: 'Victor',
+				username: 'Victor',
+				password: process.env.password,
 				isAdmin: true,
 				email: 'victor@tenantly.com',
 				phone: '203-555-1234',
@@ -35,7 +38,8 @@ exports.seed = function(knex, Promise) {
 				application: ''
 			},
 			{
-				name: 'Kyle',
+				username: 'Kyle',
+				password: process.env.password,
 				isAdmin: false,
 				email: 'kyle@tenantly.com',
 				phone: '203-555-1234',
