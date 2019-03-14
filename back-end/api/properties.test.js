@@ -3,6 +3,7 @@ const expect = require('chai').expect;
 const app = ('https://tenantly-back.herokuapp.com');
 const db = require('../data/dbConfig.js');
 
+// Testing Get Request for Properties
 describe('Property Route Tests', () => {
     describe('get /', () => {
         it('responds with 200', function(done) {
@@ -12,7 +13,7 @@ describe('Property Route Tests', () => {
             .end(done);
         }) 
      });
-
+    //  Testing Get Request for Properties by ID
      describe('Get Property by ID', () => {
         it('responds with 200', function(done) {
             request(app)
@@ -21,7 +22,7 @@ describe('Property Route Tests', () => {
             .end(done);
         })
     });
-
+    // Testing Post for Properties
     describe('Post property', function () {
         it('responds with 201', function(done) {
             request(app)
@@ -46,7 +47,7 @@ describe('Property Route Tests', () => {
             .end(done);
         })
     });
-
+    // Testing Put for Properties
     describe('Put property', function () {
         it('responds with 200', function(done) {
             request(app)
@@ -74,7 +75,7 @@ describe('Property Route Tests', () => {
             .end(done);
         })
     })
-
+    // Testing Delete for Properties
     describe('Delete property', function () {
         it('responds with 202', function(done) {
             request(app)
