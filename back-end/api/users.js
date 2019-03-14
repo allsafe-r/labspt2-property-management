@@ -14,6 +14,21 @@ router.get('/admins', (req, res) => {
 	});
 });
 
+//maybe not needed trying for OAuth
+router.get('/auth/google/user', (req, res) => {
+	db.findByUserEmail().then(
+		((user) => {
+			if (user) {
+				res.status(401).json({ err: 'user already created' });
+			} else {
+				db.createUser(user).then((user) => console.log(user));
+			}
+		}).catch((err) => {
+			res.status(500).json({ error: `${err}` });
+		})
+	);
+});
+
 router.get('/tenants', (req, res) => {
 	db.getTenants().then((tenants) => res.status(200).json(tenants)).catch((err) => {
 		res.status(500).json({ error: `${err}` });

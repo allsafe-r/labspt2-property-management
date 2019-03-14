@@ -13,7 +13,7 @@ module.exports = {
 };
 
 function createUser(user) {
-	return db('users').insert(user, 'id');
+	return db('users').insert(user);
 }
 
 function findByUserName(displayName) {
