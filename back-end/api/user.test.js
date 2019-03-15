@@ -66,6 +66,31 @@ describe('Users Route Tests', () => {
         })
     });
 
+    // Testing Put for Users
+    describe('Put users', function () {
+        it('responds with 200', function(done) {
+            request(app)
+            .put('/users/444')
+            .send({
+                "id": 444,
+                "name": "Henry",
+                "isAdmin": 0,
+                "email": "paco@tenantly.com",
+                "phone": "203-555-1234",
+                "displayName": "Kyle",
+                "emailSubscribe": 0,
+                "textSubscribe": 0,
+                "residence_id": 1,
+                "application": ""
+            })
+            .expect(200)
+            .expect({
+                message: 'User updated'
+            })
+            .end(done);
+        })
+    })
+
     // Testing Delete for Users
     describe('Delete user', function () {
         it('responds with 202', function(done) {
