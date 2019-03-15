@@ -8,9 +8,13 @@ import "../general.css";
 const AddTenant = () => {
   return (
     <div className="addTenant-container">
-      <TenantCard />
-      <TenantCard />
-      <InfoCard />
+      <div className="top-container">
+        <TenantCard />
+        <TenantCard />
+      </div>
+      <div>
+        <InfoCard />
+      </div>
     </div>
   );
 };

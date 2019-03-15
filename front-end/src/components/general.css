@@ -292,4 +292,10 @@ body {
 
 .addTenant-container {
   display: flex;
+  flex-direction: column;
+}
+
+.top-container {
+  display: flex;
+  flex-direction: row;
 }
