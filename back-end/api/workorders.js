@@ -36,11 +36,11 @@ router.post('/', (req, res, next) => {
 	const newWorkorder = req.body;
 	db
 		.createWorkOrder(newWorkorder)
-		.then((ids) => {
+		.then((orderIds) => {
 			db
-				.findByWorkOrderId(ids[0])
+				.findByWorkOrderId(orderIds[0])
 				.then((newWorkorder) => {
-					res.status(201).json({ newWorkorder: newWorkorder.id });
+					res.status(201).json({ newWorkorder: newWorkorder.orderIds });
 				})
 				.catch((err) => {
 					res.status(500).json({ error: `${err}` });
