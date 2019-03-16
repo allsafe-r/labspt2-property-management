@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
+
+import PropertyCard from "./propertyCard";
+
+import "../general.css";
 
 export default class propertyList extends Component {
   state = {
@@ -9,7 +13,7 @@ export default class propertyList extends Component {
 
   componentDidMount() {
     axios
-      .get("https://tenantly-back.herokuapp.com/properties")
+      .get(" http://localhost:9000/properties")
       .then(response => this.setState({ properties: response.data }))
       .catch(err => {
         console.error("Server Error", err);
@@ -18,19 +22,25 @@ export default class propertyList extends Component {
 
   render() {
     return (
-      <div className="propertiesList">
+      <div className="properties-list">
         <p className="your-properties">Properties:</p>
-        {this.state.properties.map(property => {
-          return (
-            <div className="properties" key={property.id}>
-              <Link to={`/properties/${property.id}`}>
-                <h4>{property.propertyName}</h4>
-                <hr />
-                <p>{property.propertyAddress}</p>
-              </Link>
-            </div>
-          );
-        })}
+        <div className="properties-container">
+          {this.state.properties.map(property => (
+            <PropertyCard
+              key={property.houseId}
+              name={property.propertyName}
+              address={property.propertyAddress}
+              city={property.propertyCity}
+              state={property.propertyState}
+              zipcode={property.propertyZipcode}
+              id={property.houseId}
+            />
+          ))}
+        </div>
+        <Route
+          path="/admin/view-property/:id"
+          render={() => <PropertyCard />}
+        />
       </div>
     );
   }
