@@ -1,6 +1,6 @@
 import React, { Component } from "react";
+import { Route } from "react-router-dom";
 import axios from "axios";
-import { Link, Route } from "react-router-dom";
 
 import PropertyCard from "./propertyCard";
 
@@ -37,10 +37,6 @@ export default class propertyList extends Component {
             />
           ))}
         </div>
-        <Route
-          path="/admin/view-property/:id"
-          render={() => <PropertyCard />}
-        />
       </div>
     );
   }
