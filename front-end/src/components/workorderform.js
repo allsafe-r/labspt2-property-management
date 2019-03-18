@@ -19,7 +19,7 @@ export default class Workorderform extends Component {
 
 inputhandler = (e) => {
     this.setState({
-        [e.target.name]: [e.target.value]
+        [e.target.name]: e.target.value
     })
 }
 
@@ -62,7 +62,7 @@ let newWorkOrder = {
         <form onSubmit={this.submithandler}>
           <input onChange={this.inputhandler} value={this.state.description} name="description" placeholder="Description" className='#' type='text'/>
           
-          <input onChange={this.inputhandler} name="number" value={this.state.number} placeholder="(555)555-5555" className="#" type='text'/> 
+          <input onChange={this.inputhandler} name="phone" value={this.state.phone} placeholder="(555)555-5555" className="#" type='text'/> 
           <input onChange={this.inputhandler} name="unsupervisedEntry" className="#" type='checkbox'/>
          {/* <input name="attachimage" type='file'/> */}
           <button type="submit" className="button-2">Save</button> 
