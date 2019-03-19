@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-const url =
-	process.env.editUser || this.state.isAdmin == false
-		? `localhost:9000/users/tenants/${id}`
-		: `localhost:9000/users/admins/${id}`;
+const url = process.env.editUser || `localhost:9000/users/${id}`;
 
 class Register extends Component {
 	state = {
