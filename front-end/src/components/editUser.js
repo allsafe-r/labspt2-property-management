@@ -3,12 +3,12 @@ import axios from 'axios';
 
 const url = process.env.editUser || `localhost:9000/users/${id}`;
 
-class Register extends Component {
+class editUser extends Component {
 	state = {
-		isAdmin: false,
-		email: '',
-		phone: '',
-		displayName: ''
+		isAdmin: this.props.location.state.isAdmin,
+		email: this.props.location.state.email,
+		phone: this.props.location.state.phone,
+		displayName: this.props.location.state.displayName
 	};
 
 	onChange = (e) => {
