@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
 	);
 });
 
-//GET work orders by ID
+//GET work orders by order of ID
 
 router.get('/:id', (req, res) => {
 	const { id } = req.params;
