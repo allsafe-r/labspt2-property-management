@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 
+import DeleteModal from "./deleteModal";
+
 export default class DisplayProperty extends Component {
   constructor(props) {
     super(props);
@@ -26,9 +28,31 @@ export default class DisplayProperty extends Component {
       });
   };
 
+  editProperty = e => {
+    console.log(this.props.match.params.id);
+    this.props.history.push(`/edit/${this.props.match.params.id}`);
+  };
+
+  deleteProperty = () => {
+    console.log(this.props.match.params.id);
+
+    this.props.delete(this.props.match.params.id);
+    this.props.history.push("/");
+  };
+
+  showModal = () => {
+    this.setState({ show: true });
+  };
+
+  hideModal = () => {
+    this.setState({ show: false });
+  };
+
   render() {
     return (
       <div className="property">
+        <button onClick={this.editProperty}>Edit</button>
+        <button onClick={this.showModal}>Delete</button>
         <div className="propertyBody">
           <h1>Name: {this.state.property.propertyName}</h1>
           <h1>Address:{this.state.property.propertyAddress}</h1>
@@ -39,6 +63,12 @@ export default class DisplayProperty extends Component {
           <h1>Bathroom #: {this.state.property.bathrooms}</h1>
           <h1>Year Built: {this.state.property.yearBuilt}</h1>
         </div>
+        {this.state.show ? (
+          <DeleteModal
+            deleteNote={this.deleteNote}
+            hideModal={this.hideModal}
+          />
+        ) : null}
       </div>
     );
   }

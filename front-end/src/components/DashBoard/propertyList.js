@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
 import axios from "axios";
 
 import PropertyCard from "./propertyCard";
