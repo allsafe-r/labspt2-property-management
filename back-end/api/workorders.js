@@ -1,43 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const multer = require("multer");
-const cloudinary = require("cloudinary");
-const cloudinaryStorage = require("multer-storage-cloudinary");
 const db = require('../data/helper/workOrderModal');
 
-cloudinary.config({
-	cloud_name: process.env.CLOUD_NAME,
-	api_key: process.env.API_KEY,
-	api_secret: process.env.API_SECRET
-	});
-	
-const storage = cloudinaryStorage({
-	cloudinary: cloudinary,
-	folder: "demo",
-	allowedFormats: ["jpg", "png"],
-	transformation: [{ width: 500, height: 500, crop: "limit" }]
-	});
-	
-const parser = multer({ storage: storage });	
-
-
-const storage = cloudinaryStorage({
-cloudinary: cloudinary,
-folder: "demo",
-allowedFormats: ["jpg", "png"],
-transformation: [{ width: 500, height: 500, crop: "limit" }]
-});
-const parser = multer({ storage: storage });
-
-router.post('/images', parser.single("image"), (req, res) => {
-	console.log(req.file) // to see what is returned to you
-	const image = {};
-	image.url = req.file.url;
-	image.id = req.file.public_id;
-	db.create(image) // save image information in database
-	  .then(newImage => res.json(newImage))
-	  .catch(err => console.log(err));
-  });
 
 //GET all workorders
 
@@ -71,8 +35,6 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res, next) => {
 	const newWorkorder = req.body;
-	image.url = req.file.url;
-	image.id = req.file.public_id;
 	db
 		.createWorkOrder(newWorkorder)
 		.then((ids) => {

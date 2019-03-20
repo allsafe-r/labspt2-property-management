@@ -5,6 +5,7 @@ const users = require('./users.js');
 const properties = require('./properties.js');
 const workOrders = require('./workorders.js');
 const stripe = require('./stripe.js');
+const images = require('./images.js')
 
 const login = require('./login.js');
 const errorHandler = require('../errorHandler/errors.js');
@@ -16,6 +17,7 @@ server.use('/workorders', workOrders);
 server.use('/properties', properties);
 server.use('/stripe', stripe);
 server.use('/api', login);
+server.use('/images', images);
 
 server.get('/', (req, res) => {
 	res.status(200).send('Hi!');
