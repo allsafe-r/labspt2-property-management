@@ -6,7 +6,8 @@ class Imageform extends React.Component {
     constructor(props) {
         super(props);
         this.state ={
-            file: null
+            file: null,
+            url: null
         };
         this.onFormSubmit = this.onFormSubmit.bind(this);
         this.onChange = this.onChange.bind(this);
@@ -22,6 +23,7 @@ class Imageform extends React.Component {
         };
         axios.post("/images",formData,config)
             .then((response) => {
+                this.setState({url: response.url});
                 alert("The file is successfully uploaded");
             }).catch((error) => {
         });
@@ -34,7 +36,7 @@ class Imageform extends React.Component {
         return (
             <form onSubmit={this.onFormSubmit}>
                 <h1>File Upload</h1>
-                <input type="file" name="myImage" onChange= {this.onChange} />
+                <input type="file" name="myImage" onChange={this.onChange} urlvalue={this.state.url} />
                 <button type="submit">Upload</button>
             </form>
         )
