@@ -10,6 +10,14 @@ const router = express.Router();
 
 router.use(express.json());
 
+const postStripeCharge = res => (stripeErr, stripeRes) => {
+  if (stripeErr) {
+      res.status(500).send({ error: stripeErr });
+  } else {
+    console.log('works');
+    res.status(200).send({ success: stripeRes });
+  }
+}
 
 
 module.exports = router;
