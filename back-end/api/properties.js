@@ -39,10 +39,12 @@ router.post("/", (req, res, next) => {
           res.status(201).json({ newProperty: newProperty.houseId });
         })
         .catch(err => {
+          console.log("error1", err);
           res.status(500).json({ error: `${err}` });
         });
     })
     .catch(err => {
+      console.log("error2", err);
       next("h500", err);
     });
 });

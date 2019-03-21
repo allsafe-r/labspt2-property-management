@@ -11,12 +11,13 @@ class AddProperty extends Component {
       propertyCity: "",
       propertyState: "",
       propertyZipcode: "",
-      sqFt: "",
-      bedrooms: "",
-      bathrooms: "",
-      yearBuilt: "",
-      owner: "",
-      maxOccupants: ""
+      sqFt: null,
+      bedrooms: null,
+      bathrooms: null,
+      yearBuilt: null,
+      owner: null,
+      maxOccupants: null,
+      tenant1: null
     };
   }
 
@@ -50,10 +51,18 @@ class AddProperty extends Component {
           />
           <input
             type="text"
+            name="tenant1"
+            value={this.state.tenant1}
+            placeholder="Tenant"
+            onChange={this.inputHandler}
+          />
+          <input
+            type="text"
             name="propertyAddress"
             value={this.state.propertyAddress}
             placeholder="Address"
             onChange={this.inputHandler}
+            required
           />
           <input
             type="text"
@@ -61,6 +70,7 @@ class AddProperty extends Component {
             value={this.state.propertyCity}
             placeholder="City"
             onChange={this.inputHandler}
+            required
           />
           <input
             type="text"
@@ -68,6 +78,7 @@ class AddProperty extends Component {
             value={this.state.propertyState}
             placeholder="State"
             onChange={this.inputHandler}
+            required
           />
           <input
             type="text"
@@ -75,6 +86,7 @@ class AddProperty extends Component {
             value={this.state.propertyZipcode}
             placeholder="Zipcode"
             onChange={this.inputHandler}
+            required
           />
           <input
             type="text"
@@ -89,6 +101,7 @@ class AddProperty extends Component {
             value={this.state.bedrooms}
             placeholder="Bedrooms"
             onChange={this.inputHandler}
+            required
           />
           <input
             type="number"
@@ -96,6 +109,7 @@ class AddProperty extends Component {
             value={this.state.bathrooms}
             placeholder="Bathrooms"
             onChange={this.inputHandler}
+            required
           />
           <input
             type="text"
@@ -103,6 +117,7 @@ class AddProperty extends Component {
             value={this.state.yearBuilt}
             placeholder="Year"
             onChange={this.inputHandler}
+            required
           />
           <input
             type="text"
@@ -117,6 +132,7 @@ class AddProperty extends Component {
             value={this.state.maxOccupants}
             placeholder="maxOccupants"
             onChange={this.inputHandler}
+            required
           />
           <button type="submit"> Save</button>
         </form>
