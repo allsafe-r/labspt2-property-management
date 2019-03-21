@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import 'whatwg-fetch';
 import StripeCheckout from "react-stripe-checkout";
+import axios from 'axios';
 
 class App extends Component {
   constructor(props) {
