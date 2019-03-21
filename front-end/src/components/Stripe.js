@@ -14,6 +14,11 @@ class App extends Component {
     alert('Payment Successful');
   };
 
+  errorPayment = data => {
+    alert('Payment Error');
+    console.log(data);
+  };
+
   onToken(token) {
     console.log('onToken',token)
   }
