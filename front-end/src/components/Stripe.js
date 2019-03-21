@@ -4,7 +4,7 @@ import 'whatwg-fetch';
 import StripeCheckout from "react-stripe-checkout";
 import axios from 'axios';
 
-class App extends Component {
+class Stripe extends Component {
   constructor(props) {
     super(props);
     this.onToken = this.onToken.bind(this);
@@ -49,4 +49,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Stripe;
