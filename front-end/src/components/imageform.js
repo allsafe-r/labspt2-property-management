@@ -24,11 +24,19 @@ class Imageform extends React.Component {
         axios.post("http://localhost:9000/images",formData,config)
             .then((response) => {
                 this.setState({url: response.data})
+                this.updateUrl();
+                
             }).catch((error) => {
         });
     }
+
+    updateUrl(){
+        this.props.url(this.state.url);
+    }
+
     onChange(e) {
         this.setState({file:e.target.files[0]});
+        
     }
 
     render() {
