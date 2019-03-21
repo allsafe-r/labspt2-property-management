@@ -26,7 +26,7 @@ class Stripe extends Component {
         description: 'Premium',
         source: token.id,
         currency: 'USD',
-        amount: 100
+        amount: 999
       })
       .then(this.successPayment)
       .catch(this.errorPayment);
