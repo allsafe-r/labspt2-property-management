@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from 'axios';
 import Imageform from './imageform'
+const url = process.env.workorderURL || 'http://localhost:9000/workorders'
 
 export default class Workorderform extends Component {
     
@@ -13,7 +14,7 @@ export default class Workorderform extends Component {
             phone: "",
             unsupervisedEntry: false,
             status: "Pending",
-            url: null
+            url: 'none'
             
         }
         
@@ -41,11 +42,12 @@ let newWorkOrder = {
     description: this.state.description,
     phone: this.state.phone,
     unsupervisedEntry: this.state.unsupervisedEntry,
-    status: this.state.status
+    status: this.state.status,
+    image: this.state.url
     
 }
 
-      axios.post('https://tenantly-back.herokuapp.com/workorders', newWorkOrder)
+      axios.post(url, newWorkOrder)
       .then( response => {
           this.setState({
             description: '',

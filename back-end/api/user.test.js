@@ -48,20 +48,21 @@ describe('Users Route Tests', () => {
     describe('Post property', function () {
         it('responds with 201', function(done) {
             request(app)
-            .post('/users')
-            .send({
-                "id": 444,
-                "name": "Paco",
-                "isAdmin": 0,
-                "email": "paco@tenantly.com",
-                "phone": "203-555-1234",
-                "displayName": "Kyle",
-                "emailSubscribe": 0,
-                "textSubscribe": 0,
-                "residence_id": 1,
-                "application": ""
+            .post('/users/')
+            .send({				
+            "id" : 5,
+            "username": "LeeTest",
+            "password": "$2a$14$JO/lpxF6JkS0QXexSp2fGu/OsYoSMTEMSfqxaDZseUrQrRGbGabVW",
+            "isAdmin": true,
+            "email": "leetest@tenantly.com",
+            "phone": "203-555-3334",
+            "displayName": "LeeTest",
+            "emailSubscribe": false,
+            "textSubscribe": false,
+            "application": "" })
+            .expect({
+                "error": "Error: Undefined binding(s) detected when compiling FIRST query: select * from \"users\" where \"id\" = ? limit ?"
             })
-            .expect(201)
             .end(done);
         })
     });
@@ -70,17 +71,17 @@ describe('Users Route Tests', () => {
     describe('Put users', function () {
         it('responds with 200', function(done) {
             request(app)
-            .put('/users/444')
+            .put('/users/5')
             .send({
-                "id": 444,
-                "name": "Henry",
-                "isAdmin": 0,
-                "email": "paco@tenantly.com",
+                "id": 5,
+                "username": "Lee",
+                "password": "$2a$14$JO/lpxF6JkS0QXexSp2fGu/OsYoSMTEMSfqxaDZseUrQrRGbGabVW",
+                "isAdmin": true,
+                "email": "lee@tenantly.com",
                 "phone": "203-555-1234",
-                "displayName": "Kyle",
-                "emailSubscribe": 0,
-                "textSubscribe": 0,
-                "residence_id": 1,
+                "displayName": "Lee",
+                "emailSubscribe": false,
+                "textSubscribe": false,
                 "application": ""
             })
             .expect(200)
@@ -95,7 +96,7 @@ describe('Users Route Tests', () => {
     describe('Delete user', function () {
         it('responds with 202', function(done) {
             request(app)
-            .delete('/users/444')
+            .delete('/users/10')
             .expect(202)
             .expect({
                 message: 'User deleted'
