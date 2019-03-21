@@ -19,6 +19,9 @@ const postStripeCharge = res => (stripeErr, stripeRes) => {
   }
 }
 
+router.post('/charge', (req, res) => {
+  stripe.charges.create(req.body, postStripeCharge(res));
+});
 
 module.exports = router;
   
