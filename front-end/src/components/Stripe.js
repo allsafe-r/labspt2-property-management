@@ -9,11 +9,10 @@ class App extends Component {
     this.onToken = this.onToken.bind(this);
 
   }
-
-  componentDidMount() { 
-
-
-  }
+ 
+  successPayment = () => {
+    alert('Payment Successful');
+  };
 
   onToken(token) {
     console.log('onToken',token)
