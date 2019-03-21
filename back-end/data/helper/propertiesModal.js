@@ -16,7 +16,7 @@ function getProperties() {
 	return db('properties');
 }
 
-function findByPropertyId(houseId) {
+	function findByPropertyId(houseId) {
 	return db('properties').where({ houseId }).first();
 }
 
@@ -36,7 +36,7 @@ function getProperty(houseId) {
 	return db('properties').where({ houseId }).first();
 }
 
-function createProperty(property) {
+	function createProperty(property) {
 	return db('properties').insert(property, 'houseId');
 }
 
