@@ -19,9 +19,16 @@ class App extends Component {
     console.log(data);
   };
 
-  onToken(token) {
-    console.log('onToken',token)
-  }
+  onToken = token =>
+    axios.post('http://localhost:9000/stripe/charge',
+      {
+        description: 'Premium',
+        source: token.id,
+        currency: 'USD',
+        amount: 100
+      })
+      .then(this.successPayment)
+      .catch(this.errorPayment);
 
   render() {
     return (
