@@ -31,6 +31,7 @@ class AddProperty extends Component {
       .catch(err => {
         console.log("Error", err);
       });
+    this.props.history.push(`/admin/properties`);
   };
 
   inputHandler = e => {
@@ -55,6 +56,7 @@ class AddProperty extends Component {
             value={this.state.tenant1}
             placeholder="Tenant"
             onChange={this.inputHandler}
+            required
           />
           <input
             type="text"

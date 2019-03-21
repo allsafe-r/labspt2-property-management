@@ -56,7 +56,7 @@ class EditProperty extends Component {
       .catch(err => {
         console.log(err);
       });
-    this.props.history.push(`/admin/properties`);
+    this.props.history.push(`/admin/view-property/${id}`);
   };
 
   handleInput = e => {
