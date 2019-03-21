@@ -53,5 +53,5 @@ function deleteProperty(houseId) {
 function editProperty(houseId, property) {
   return db("properties")
     .where({ houseId })
-    .update(property);
+    .update(property, "houseId");
 }

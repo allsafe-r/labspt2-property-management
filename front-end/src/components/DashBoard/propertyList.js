@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 import PropertyCard from "./propertyCard";
@@ -36,6 +37,9 @@ export default class propertyList extends Component {
             />
           ))}
         </div>
+        <Link to="/add-property">
+          <button>+ Add New Property</button>
+        </Link>
       </div>
     );
   }

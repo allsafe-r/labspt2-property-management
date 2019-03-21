@@ -5,6 +5,7 @@ import PropertyList from "./propertyList";
 import SideMenu from "./sideMenu";
 import DisplayProperty from "./displayProperty";
 import EditProperty from "./editProperty";
+import AddProperty from "./addProperty";
 
 import "../general.css";
 
@@ -16,6 +17,7 @@ const DashBoard = () => {
         <Route path="/admin/properties/" component={PropertyList} />
         <Route path="/admin/view-property/:id" component={DisplayProperty} />
         <Route exact path="/edit/:id" component={EditProperty} />
+        <Route path="/add-property" component={AddProperty} />
       </div>
     </div>
   );

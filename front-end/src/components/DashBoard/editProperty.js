@@ -56,27 +56,12 @@ class EditProperty extends Component {
       .catch(err => {
         console.log(err);
       });
+    this.props.history.push(`/admin/properties`);
   };
 
   handleInput = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
-
-  // handleSubmit = e => {
-  //   e.preventDefault();
-  //   let id = this.props.match.params.id;
-  //   this.editNote(id, {
-  //     name: this.state.name,
-  //     address: this.state.address,
-  //     city: this.state.city,
-  //     state: this.state.state,
-  //     zipcode: this.state.zipcode,
-  //     sqft: this.state.sqft,
-  //     bedrooms: this.state.bedrooms,
-  //     bathrooms: this.state.bathrooms,
-  //     year: this.state.year
-  //   });
-  // };
 
   render() {
     return (

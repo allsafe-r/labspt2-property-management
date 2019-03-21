@@ -28,16 +28,21 @@ export default class DisplayProperty extends Component {
       });
   };
 
-  editProperty = e => {
-    console.log(this.props.match.params.id);
-    this.props.history.push(`/edit/${this.props.match.params.id}`);
+  deleteProperty = () => {
+    let id = this.state.property.houseId;
+    axios
+      .delete(`http://localhost:9000/properties/${id}`)
+      .then(response => {
+        console.log("in here", response);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    this.props.history.push("/admin/properties");
   };
 
-  deleteProperty = () => {
-    console.log(this.props.match.params.id);
-
-    this.props.delete(this.props.match.params.id);
-    this.props.history.push("/");
+  editProperty = e => {
+    this.props.history.push(`/edit/${this.props.match.params.id}`);
   };
 
   showModal = () => {
@@ -65,7 +70,7 @@ export default class DisplayProperty extends Component {
         </div>
         {this.state.show ? (
           <DeleteModal
-            deleteNote={this.deleteNote}
+            deleteNote={this.deleteProperty}
             hideModal={this.hideModal}
           />
         ) : null}
