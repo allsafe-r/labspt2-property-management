@@ -1,12 +1,10 @@
 language: node_js
-node_js:
-  - node
+node_js: 
+  - "stable"
 cache: npm
+
+before_install:
+  - npm i -g npm@6.4.1
 
 script:
   - npm test
-
-deploy:
-   github-token: $GITHUB_TOKEN
-   on:
-    branch: leeformento/travis-ci
