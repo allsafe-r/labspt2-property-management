@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import propertyList from './propertyList';
 
 class Login extends Component {
 	state = {
