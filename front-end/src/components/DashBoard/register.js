@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+const url = process.env.login || 'http://localhost:9000/api/register';
 
 class Register extends Component {
 	state = {
@@ -27,7 +28,7 @@ class Register extends Component {
 	onSubmit = (e) => {
 		e.preventDefault();
 		axios
-			.post('http://localhost:9000/api/register', this.state)
+			.post(url, this.state)
 			.then(() => {
 				this.props.history.push('/login');
 			})
