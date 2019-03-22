@@ -1,15 +1,3 @@
-sudo: false
 language: node_js
 node_js:
   - node
-cache: npm
-
-script:
-  - npm start back-end
-
-deploy:
-   provider: script
-   skip-cleanup: true
-   github-token: $GITHUB_TOKEN
-   on:
-    branch: leeformento/travis-ci
