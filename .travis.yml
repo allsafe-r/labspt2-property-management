@@ -1,7 +1,12 @@
 language: node_js
 node_js:
   - node
+cache: npm
 
-cache:
-  directories:
-    - node_modules
+script:
+  - npm test
+
+deploy:
+   github-token: $GITHUB_TOKEN
+   on:
+    branch: leeformento/travis-ci
