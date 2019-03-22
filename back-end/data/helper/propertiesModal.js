@@ -16,8 +16,10 @@ function getProperties() {
   return db("properties");
 }
 
-	function findByPropertyId(houseId) {
-	return db('properties').where({ houseId }).first();
+function findByPropertyId(houseId) {
+  return db("properties")
+    .where({ houseId })
+    .first();
 }
 
 function getPropertiesByTen1(id) {
@@ -38,8 +40,8 @@ function getProperty(houseId) {
     .first();
 }
 
-	function createProperty(property) {
-	return db('properties').insert(property, 'houseId');
+function createProperty(property) {
+  return db("properties").insert(property, "houseId");
 }
 
 function deleteProperty(houseId) {
