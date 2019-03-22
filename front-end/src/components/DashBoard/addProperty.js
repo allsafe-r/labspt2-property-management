@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-const url = process.env.properties || 'http://localhost:9000/properties';
 import axios from 'axios';
+const url = process.env.properties || 'http://localhost:9000/properties';
 
 class AddProperty extends Component {
 	constructor(props) {
