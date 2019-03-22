@@ -2,22 +2,34 @@
 import React, { Component } from 'react';
 import 'whatwg-fetch';
 import StripeCheckout from "react-stripe-checkout";
+import axios from 'axios';
 
-class App extends Component {
+class Stripe extends Component {
   constructor(props) {
     super(props);
     this.onToken = this.onToken.bind(this);
 
   }
+ 
+  successPayment = () => {
+    alert('Payment Successful');
+  };
 
-  componentDidMount() { 
+  errorPayment = data => {
+    alert('Payment Error');
+    console.log(data);
+  };
 
-
-  }
-
-  onToken(token) {
-    console.log('onToken',token)
-  }
+  onToken = token =>
+    axios.post('http://localhost:9000/stripe/charge',
+      {
+        description: 'Pay rent now',
+        source: token.id,
+        currency: 'USD',
+        amount: 120000
+      })
+      .then(this.successPayment)
+      .catch(this.errorPayment);
 
   render() {
     return (
@@ -27,9 +39,10 @@ class App extends Component {
           stripeKey="pk_test_uGZWgKZiorkYlZ8MsxYEIrA2"
           label="Pay with 💳"
           name="Tenantly, LLC"
-          description="Upgrade to a premium account today."
-          panelLabel="Go Premium" 
+          description="Pay rent."
+          panelLabel="Pay Rent" 
           image="https://i.ibb.co/L1sx35T/sd.jpg"
+          amount={120000}
         />
 
       </div>
@@ -37,4 +50,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Stripe;
