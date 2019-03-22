@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-const url = process.env.login || 'http://localhost:9000/api/register';
+const url = process.env.register || 'http://localhost:9000/api/register';
 
 class Register extends Component {
 	state = {
