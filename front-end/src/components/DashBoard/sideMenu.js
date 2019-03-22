@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../components/general.css";
+import "../general.css";
 
 class SideMenu extends Component {
   constructor() {
