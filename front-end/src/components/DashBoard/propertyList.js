@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-const url = process.env.properties || 'http://localhost:9000/properties';
-
 import PropertyCard from './propertyCard';
-
 import '../general.css';
+
+const url = process.env.properties || 'http://localhost:9000/properties';
 
 export default class propertyList extends Component {
 	state = {
