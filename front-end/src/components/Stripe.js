@@ -26,7 +26,7 @@ class Stripe extends Component {
         description: 'Pay rent now',
         source: token.id,
         currency: 'USD',
-        amount: 1200
+        amount: 120000
       })
       .then(this.successPayment)
       .catch(this.errorPayment);
@@ -42,7 +42,7 @@ class Stripe extends Component {
           description="Pay rent."
           panelLabel="Pay Rent" 
           image="https://i.ibb.co/L1sx35T/sd.jpg"
-          amount={1200}
+          amount={120000}
         />
 
       </div>
