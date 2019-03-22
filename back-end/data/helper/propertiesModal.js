@@ -16,15 +16,8 @@ function getProperties() {
   return db("properties");
 }
 
-<<<<<<< HEAD
-function findByPropertyId(houseId) {
-  return db("properties")
-    .where({ houseId })
-    .first();
-=======
 	function findByPropertyId(houseId) {
 	return db('properties').where({ houseId }).first();
->>>>>>> 6fb737f93bc93760bc40b3fa41820f2fef981d54
 }
 
 function getPropertiesByTen1(id) {
@@ -45,13 +38,8 @@ function getProperty(houseId) {
     .first();
 }
 
-<<<<<<< HEAD
-function createProperty(property) {
-  return db("properties").insert(property, "houseId");
-=======
 	function createProperty(property) {
 	return db('properties').insert(property, 'houseId');
->>>>>>> 6fb737f93bc93760bc40b3fa41820f2fef981d54
 }
 
 function deleteProperty(houseId) {
