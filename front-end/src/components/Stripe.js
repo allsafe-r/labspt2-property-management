@@ -23,10 +23,10 @@ class Stripe extends Component {
   onToken = token =>
     axios.post('http://localhost:9000/stripe/charge',
       {
-        description: 'Premium',
+        description: 'Pay rent now',
         source: token.id,
         currency: 'USD',
-        amount: 999
+        amount: 1200
       })
       .then(this.successPayment)
       .catch(this.errorPayment);
@@ -39,9 +39,10 @@ class Stripe extends Component {
           stripeKey="pk_test_uGZWgKZiorkYlZ8MsxYEIrA2"
           label="Pay with 💳"
           name="Tenantly, LLC"
-          description="Upgrade to a premium account today."
-          panelLabel="Go Premium" 
+          description="Pay rent."
+          panelLabel="Pay Rent" 
           image="https://i.ibb.co/L1sx35T/sd.jpg"
+          amount={1200}
         />
 
       </div>
