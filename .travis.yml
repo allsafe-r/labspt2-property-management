@@ -1,0 +1,18 @@
+language: node_js
+node_js: 
+- 10.11.0
+cache: npm
+
+install:
+    - npm install
+before_script:
+script:
+  - npm test
+  - npm run build
+
+deploy:
+   provider: script
+   skip-cleanup: true
+   github-token: $GITHUB_TOKEN
+   on:
+    branch: leeformento/travis-ci
