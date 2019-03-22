@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import propertyList from './propertyList';
 
 class Login extends Component {
 	state = {
@@ -8,16 +9,17 @@ class Login extends Component {
 	};
 
 	onChange = (e) => {
-		this.setState({ [e.target.name]: [ e.target.value ] });
+		this.setState({ [e.target.name]: e.target.value });
 	};
 
 	onSubmit = (e) => {
 		e.preventDefault();
 		axios
-			.post('localhost:9000/api/login', this.state)
+			.post('http://localhost:9000/api/login', this.state)
 			.then((res) => {
 				localStorage.setItem('jwtToken', res.data.token);
-				this.props.history.push('/');
+				// this.props.history.push('/');
+				this.props.authenticate();
 			})
 			.catch((err) => {
 				console.log({ Error: err });
@@ -26,7 +28,7 @@ class Login extends Component {
 
 	render() {
 		return (
-			<form>
+			<form onSubmit={this.onSubmit}>
 				<div>
 					<input
 						placeholder="username"
@@ -48,7 +50,7 @@ class Login extends Component {
 					/>
 				</div>
 				<div>
-					<button onSubmit={this.onSubmit}>Login</button>
+					<button>Login</button>
 				</div>
 			</form>
 		);

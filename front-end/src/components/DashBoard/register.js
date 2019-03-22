@@ -13,7 +13,7 @@ class Register extends Component {
 
 	onChange = (e) => {
 		const { name, value } = e.target;
-		this.setState({ [e.target.name]: [ e.target.value ] });
+		this.setState({ [e.target.name]: e.target.value });
 	};
 
 	isAdmin = () => {
@@ -27,7 +27,7 @@ class Register extends Component {
 	onSubmit = (e) => {
 		e.preventDefault();
 		axios
-			.post('localhost:9000/api/register', this.state)
+			.post('http://localhost:9000/api/register', this.state)
 			.then(() => {
 				this.props.history.push('/login');
 			})
@@ -38,7 +38,7 @@ class Register extends Component {
 
 	render() {
 		return (
-			<form>
+			<form onSubmit={this.onSubmit}>
 				<div>
 					<button onClick={this.isAdmin}>I am a landlord</button>
 					<button onClick={this.isNotAdmin}>I am a tenant</button>
@@ -94,7 +94,7 @@ class Register extends Component {
 					/>
 				</div>
 				<div>
-					<button onSubmit={this.onSubmit}>Register</button>
+					<button>Register</button>
 				</div>
 			</form>
 		);
