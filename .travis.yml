@@ -5,7 +5,7 @@ node_js:
 cache: npm
 
 script:
-  - npm start
+  - npm start back-end
 
 deploy:
    provider: script
