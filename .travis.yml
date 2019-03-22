@@ -1,15 +1,8 @@
 language: node_js
-node_js: 
-  - "stable"
-cache: npm
-
-before_script: cd back-end
-
-install:
-  - npm install
-
+node_js:
+  - 'node'
+cache:
+  directories:
+    - node_modules
 script:
-  - npm test
-  
-after_success:
-  - bundle exec rake assets:precompile
+  - cd front-end && npm i && cd ../back-end && npm i && cd .. && npm test
