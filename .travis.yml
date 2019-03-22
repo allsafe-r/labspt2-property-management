@@ -8,7 +8,7 @@ install:
 before_script:
 script:
   - npm test
-  - npm run build
+  - npm build
 
 deploy:
    provider: script
