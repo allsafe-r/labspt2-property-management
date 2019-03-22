@@ -3,8 +3,10 @@ node_js:
   - "stable"
 cache: npm
 
-before_install:
-  - npm i -g npm@6.4.1
+before_script: cd back-end
+
+install:
+  - npm install
 
 script:
   - npm test
