@@ -1,10 +1,10 @@
 language: node_js
 node_js:
-  - "node"
+  - '11.10.1'
 cache:
   directories:
-    - ./front-end/node_modules
+    - node_modules
 script:
-  - cd front-end
-  - npm install
-  - npm build
+  - cd front-end && npm i && cd ../back-end && npm i && npm test
+# on:
+# branch: master
