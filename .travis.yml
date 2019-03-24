@@ -1,8 +1,10 @@
 language: node_js
 node_js:
-  - 'node'
+  - "node"
 cache:
   directories:
-    - node_modules
+    - ./front-end/node_modules
 script:
-  - "cd back-end && npm i && npm test
+  - cd front-end
+  - npm install
+  - npm build
