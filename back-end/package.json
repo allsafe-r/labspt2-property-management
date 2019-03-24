@@ -20,9 +20,9 @@
 		"stripe": "^6.26.0"
 	},
 	"devDependencies": {
+		"jest": "^23.6.0",
 		"nodemon": "^1.18.10",
-		"supertest": "^4.0.0",
-		"jest": "^23.6.0"
+		"supertest": "^4.0.0"
 	},
 	"scripts": {
 		"test": "jest --watch --verbose",
