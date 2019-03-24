@@ -7,6 +7,8 @@ import Stripe from './components/Stripe';
 import DashBoard from './components/DashBoard/dashBoardView';
 import Login from './components/DashBoard/login';
 import Register from './components/DashBoard/register';
+
+const url = process.env.home || 'http://localhost:9000';
 const axios = require('axios');
 // import Register from './components/DashBoard/register';
 
@@ -20,7 +22,6 @@ class App extends Component {
 	}
 
 	authenticate = () => {
-		const url = 'http://localhost:9000';
 		const token = localStorage.getItem('jwtToken');
 		// console.log(token);
 		const auth = {
