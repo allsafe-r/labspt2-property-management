@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-const url = process.env.workOrderCard || `https://tenantly-back.herokuapp.com/workorders/${this.state.id}`;
+const url = process.env.workOrderCard || `http://localhost:9000/workorders/${this.state.id}`;
 
 export default class Workordercard extends Component {
 	constructor(props) {
