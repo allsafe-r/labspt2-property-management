@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import propertyList from './propertyList';
+const url = process.env.login || 'http://localhost:9000/api/login';
 
 class Login extends Component {
 	state = {
@@ -15,7 +15,7 @@ class Login extends Component {
 	onSubmit = (e) => {
 		e.preventDefault();
 		axios
-			.post('http://localhost:9000/api/login', this.state)
+			.post(url, this.state)
 			.then((res) => {
 				localStorage.setItem('jwtToken', res.data.token);
 				// this.props.history.push('/');
