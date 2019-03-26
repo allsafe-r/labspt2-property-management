@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+// const url = process.env.workOrderCard || `http://localhost:9000/workorders/${this.state.id}`;
 
 export default class Workordercard extends Component {
 	constructor(props) {
@@ -35,7 +36,7 @@ export default class Workordercard extends Component {
 		};
 
 		axios
-			.put(`https://tenantly-back.herokuapp.com/workorders/${this.state.id}`, updatedworkorder)
+			.put(`http://localhost:9000/workorders/${this.state.id}`, updatedworkorder)
 			.then((response) => {
 				console.log('success');
 			})
