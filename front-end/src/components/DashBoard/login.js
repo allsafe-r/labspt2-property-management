@@ -23,7 +23,7 @@ class Login extends Component {
 				this.props.authenticate();
 			})
 			.catch((err) => {
-				console.log({ Error: 'catching err' });
+				console.log({ Error: err });
 			});
 	};
 
