@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Card from '@material-ui/core/Card';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
 // const url = process.env.workOrderCard || `http://localhost:9000/workorders/${this.state.id}`;
 // const url = `https://tenantly-back.herokuapp.com/${this.state.id}`;
 export default class Workordercard extends Component {
@@ -36,7 +39,7 @@ export default class Workordercard extends Component {
 		};
 
 		axios
-			.put(`https://tenantly-back.herokuapp.com/${this.state.id}`, updatedworkorder)
+			.put(`https://tenantly-back.herokuapp.com/workorders/${this.state.id}`, updatedworkorder)
 			.then((response) => {
 				console.log('success');
 			})
@@ -47,7 +50,7 @@ export default class Workordercard extends Component {
 
 	render() {
 		return (
-			<div className="property-card">
+			<Card className="property-card">
 				<h1>{this.props.work.property}</h1>
 				<h1>{this.props.work.tenant}</h1>
 				<h1>{this.props.work.description}</h1>
@@ -58,8 +61,8 @@ export default class Workordercard extends Component {
 				{this.inputs.map((values, i) => (
 					<div key={i}>
 						<h1>{values}</h1>
-						<input
-							type="radio"
+						<Radio
+							
 							name={values}
 							onChange={this.statushandler}
 							value={values}
@@ -67,7 +70,7 @@ export default class Workordercard extends Component {
 						/>
 					</div>
 				))}
-			</div>
+			</Card>
 		);
 	}
 }
