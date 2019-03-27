@@ -18,11 +18,11 @@ class Register extends Component {
 	};
 
 	isAdmin = () => {
-		this.setState({ [this.state.isAdmin]: true });
+		this.setState({ isAdmin: true });
 	};
 
 	isNotAdmin = () => {
-		this.setState({ [this.state.isAdmin]: false });
+		this.setState({ isAdmin: false });
 	};
 
 	onSubmit = (e) => {
