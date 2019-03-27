@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-const url = process.env.editUser || `localhost:9000/users/${id}`;
+// const url = process.env.editUser || `localhost:9000/users/${id}`;
+const url = 'https://tenantly-back.herokuapp.com/users/${id}';
 
 class editUser extends Component {
 	state = {
