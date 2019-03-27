@@ -4,7 +4,8 @@ import axios from 'axios';
 import PropertyCard from './propertyCard';
 import '../general.css';
 
-const url = process.env.properties || 'http://localhost:9000/properties';
+// const url = process.env.properties || 'http://localhost:9000/properties';
+const url = `https://tenantly-back.herokuapp.com/properties`;
 
 export default class propertyList extends Component {
 	state = {
