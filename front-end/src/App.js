@@ -8,7 +8,10 @@ import DashBoard from './components/DashBoard/dashBoardView';
 import Login from './components/DashBoard/login';
 import Register from './components/DashBoard/register';
 
-const url = process.env.home || 'http://localhost:9000';
+// const url = process.env.home || 'http://localhost:9000';
+
+const url = 'https://tenantly-back.herokuapp.com';
+
 const axios = require('axios');
 // import Register from './components/DashBoard/register';
 

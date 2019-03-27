@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-const url = process.env.properties || 'http://localhost:9000/properties';
+// const url = process.env.properties || 'http://localhost:9000/properties';
+const url = 'https://tenantly-back.herokuapp.com/properties';
 
 class AddProperty extends Component {
 	constructor(props) {
