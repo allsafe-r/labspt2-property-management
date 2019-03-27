@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Workordercard from './workorderCard';
-const url = process.env.getWO || 'https://localhost:9000/workorders';
+// const url = process.env.getWO || 'https://localhost:9000/workorders';
+const url = 'https://tenantly-back.herokuapp.com/workorders';
 
 export default class Workorderlist extends Component {
 	constructor(props) {
