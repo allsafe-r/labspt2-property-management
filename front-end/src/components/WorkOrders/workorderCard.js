@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import axios from "axios";
 // const url = process.env.workOrderCard || `http://localhost:9000/workorders/${this.state.id}`;
+<<<<<<< HEAD
 //const url = `https://tenantly-back.herokuapp.com/${this.state.id}`;
+=======
+// const url = `https://tenantly-back.herokuapp.com/${this.state.id}`;
+>>>>>>> 5ac67fc5d1b765424fc57f2352e60e5be51fb23d
 export default class Workordercard extends Component {
   constructor(props) {
     super(props);
@@ -35,6 +39,7 @@ export default class Workordercard extends Component {
       status: e.target.value
     };
 
+<<<<<<< HEAD
     axios
       .put(
         `https://tenantly-back.herokuapp.com/${this.state.id}`,
@@ -47,6 +52,17 @@ export default class Workordercard extends Component {
         console.log(error);
       });
   };
+=======
+		axios
+			.put(`https://tenantly-back.herokuapp.com/${this.state.id}`, updatedworkorder)
+			.then((response) => {
+				console.log('success');
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	};
+>>>>>>> 5ac67fc5d1b765424fc57f2352e60e5be51fb23d
 
   render() {
     return (
