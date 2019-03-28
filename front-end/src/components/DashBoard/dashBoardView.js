@@ -11,14 +11,14 @@ import EditProperty from './editProperty';
 const DashBoard = () => {
 	return (
 		<div className="dashboard-container">
-			<SideMenu />
-			<Route exact path="/admin/" component={PropertyList} />
+			{/* <SideMenu /> */}
+			<Route exact path="/admin/" component={SideMenu} />
+			<Route exact path="/admin/properties" component={PropertyList} />
 			<Route path="/admin/worklist" component={Workorderlist} />
 			<Route path="/admin/view-property/:id" component={DisplayProperty} />
 			<Route path="/admin/add-property" component={AddProperty} />
 			<Route exact path="/edit/:id" component={EditProperty} />
-
-			<Workorderform />
+			<Route exact path="/admin/workorders/form" component={Workorderform} />
 		</div>
 	);
 };
