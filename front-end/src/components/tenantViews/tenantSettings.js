@@ -1,7 +1,11 @@
-import { React } from 'react';
+import React, { Component } from 'react';
 
-const tenantSetings = (props) => {
-	return <div>Setings</div>;
-};
-
-export default tenantSetings;
+export default class tenantSettings extends Component {
+	render() {
+		return (
+			<div>
+				<p>Settings</p>
+			</div>
+		);
+	}
+}

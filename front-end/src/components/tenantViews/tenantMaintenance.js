@@ -1,7 +1,11 @@
-import { React } from 'react';
+import React, { Component } from 'react';
 
-const tenantDashboard = (props) => {
-	return <div>Dashboard</div>;
-};
-
-export default tenantDashboard;
+export default class tenantMaintenance extends Component {
+	render() {
+		return (
+			<div>
+				<p>Maintenance</p>
+			</div>
+		);
+	}
+}

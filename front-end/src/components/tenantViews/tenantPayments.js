@@ -1,7 +1,11 @@
-import { React } from 'react';
+import React, { Component } from 'react';
 
-const tenantPayments = (props) => {
-	return <div>Payments</div>;
-};
-
-export default tenantPayments;
+export default class tenantPayments extends Component {
+	render() {
+		return (
+			<div>
+				<p>Payments</p>
+			</div>
+		);
+	}
+}
