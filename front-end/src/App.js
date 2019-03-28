@@ -68,7 +68,14 @@ class App extends Component {
 					<Link to={'/'}>
 						<button onClick={this.logOut}>Logout</button>
 					</Link>
-					<DashBoard logOut={this.logOut} />
+					<Link to={'/admin'}>
+						<button>Development Purposes - I'm an admin!</button>
+					</Link>
+					<Link to={'/tenant'}>
+						<button>Development Purposes - I'm a tenant!</button>
+					</Link>
+					<DashBoard />
+
 					<Stripe />
 				</div>
 			);
