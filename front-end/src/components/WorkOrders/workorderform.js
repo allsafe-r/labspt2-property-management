@@ -80,7 +80,7 @@ export default class Workorderform extends Component {
 					/>
 					<input onChange={this.inputhandler} name="unsupervisedEntry" className="#" type="checkbox" />
 					<Imageform url={this.urlUpdater} />
-					{/* <input name="attachimage" type='file'/> */}
+         {/*<input name="attachimage" type='file'/> */}
 					<button type="submit" className="button-2">
 						Save
 					</button>

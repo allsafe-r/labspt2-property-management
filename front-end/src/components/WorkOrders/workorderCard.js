@@ -3,6 +3,9 @@ import axios from 'axios';
 import Card from '@material-ui/core/Card';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
+import Modal from '@material-ui/core/Modal';
+import Grid from '@material-ui/core/Grid';
+import './workorders.css';
 // const url = process.env.workOrderCard || `http://localhost:9000/workorders/${this.state.id}`;
 // const url = `https://tenantly-back.herokuapp.com/${this.state.id}`;
 export default class Workordercard extends Component {
@@ -56,7 +59,8 @@ export default class Workordercard extends Component {
 				<h1>{this.props.work.description}</h1>
 				<h1>{this.props.work.phone}</h1>
 				<h1>Unsupervised Entry is {this.props.work.unsupervisedEntry ? 'Allowed' : 'Not Allowed'} </h1>
-
+				<img src={this.props.work.image} alt="placeholder" />
+				<div>
 				{/* Radio button form */}
 				{this.inputs.map((values, i) => (
 					<div key={i}>
@@ -69,7 +73,9 @@ export default class Workordercard extends Component {
 							checked={this.state.status === values}
 						/>
 					</div>
+					
 				))}
+				</div>
 			</Card>
 		);
 	}

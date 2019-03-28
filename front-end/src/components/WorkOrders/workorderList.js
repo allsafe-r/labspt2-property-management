@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Workordercard from './workorderCard';
+import Grid from '@material-ui/core/Grid';
 // const url = process.env.getWO || 'https://localhost:9000/workorders';
 const url = 'https://tenantly-back.herokuapp.com/workorders';
 
@@ -19,10 +20,10 @@ export default class Workorderlist extends Component {
 	}
 	render() {
 		return (
-			<div className="workorderlist">
+			<Grid container className="workorderlist">
 				{/* display work order cards */}
 				{this.state.workorders.map((work) => <Workordercard key={work.id} work={work} />)}
-			</div>
+			</Grid>
 		);
 	}
 }
