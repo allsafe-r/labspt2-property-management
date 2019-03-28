@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 // const url = process.env.properties || 'http://localhost:9000/properties';
 const url = "https://tenantly-back.herokuapp.com/properties";
+import Stripe from "./components/Stripe";
 
 class AddProperty extends Component {
   constructor(props) {
@@ -139,7 +140,8 @@ class AddProperty extends Component {
             required
           />
           <button type="submit"> Save</button>
-        </form>
+        <Stripe />
+		</form>
       </div>
     );
   }
