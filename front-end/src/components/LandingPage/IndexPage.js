@@ -18,8 +18,5 @@ const IndexPage = () => (
 	</div>
 );
 
-// IndexPage.propTypes = {
-//     classes: PropTypes.object.isRequired,
-//   };
 
 export default IndexPage;
