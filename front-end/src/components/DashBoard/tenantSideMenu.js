@@ -6,26 +6,23 @@ class SideMenu extends Component {
 	constructor() {
 		super();
 		this.state = {
-			admin: true
+			admin: false
 		};
 	}
 	render() {
 		return (
-			<div className="admin side-menu">
+			<div className="tenant side-menu">
 				<ul>
-					<Link to={'/admin/properties'}>
-						<li>Properties</li>
+					<Link to={'/tenant/dashboard'}>
+						<li>Dashboard</li>
 					</Link>
-					<Link to={'/admin/workorders'}>
-						<li>Work Orders</li>
+					<Link to={'/tenant/payments'}>
+						<li>Payments</li>
 					</Link>
-					<Link to={'/admin/add-tenant'}>
-						<li>Add Tenant</li>
+					<Link to={'/tenant/maintenance'}>
+						<li>Maintenance</li>
 					</Link>
-					<Link to={'/admin/billing'}>
-						<li>Billing</li>
-					</Link>
-					<Link to={'/admin/settings'}>
+					<Link to={'/tenant/settings'}>
 						<li>Settings</li>
 					</Link>
 				</ul>
