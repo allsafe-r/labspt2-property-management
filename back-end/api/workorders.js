@@ -5,14 +5,12 @@ const db = require('../data/helper/workOrderModal');
 //GET all workorders
 
 router.get('/', (req, res) => {
-	db.getWorkOrders().then((workorders) =>
-		res.status(200).json(workorders).catch((err) => {
-			res.status(500).json({ error: `${err}` });
-		})
-	);
+	db.getWorkOrders().then((workorders) => res.status(200).json(workorders)).catch((err) => {
+		res.status(500).json({ error: `${err}` });
+	});
 });
 
-//GET work orders by ID
+//GET work orders by order of ID
 
 router.get('/:id', (req, res) => {
 	const { id } = req.params;

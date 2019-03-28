@@ -12,11 +12,11 @@ module.exports = {
 };
 
 function createUser(user) {
-	return db('users').insert(user);
+	return db('users').insert(user, 'id');
 }
 
 function findByUserName(username) {
-	return db('users').where({ username }).first();
+	return db('users').where({ username });
 }
 
 function findByUserId(id) {

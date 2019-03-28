@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+// const url = process.env.register || 'http://localhost:9000/api/register';
+const url = 'https://tenantly-back.herokuapp.com/api/register';
 
 class Register extends Component {
 	state = {
@@ -12,22 +14,21 @@ class Register extends Component {
 	};
 
 	onChange = (e) => {
-		const { name, value } = e.target;
-		this.setState({ [e.target.name]: [ e.target.value ] });
+		this.setState({ [e.target.name]: e.target.value });
 	};
 
 	isAdmin = () => {
-		this.setState({ [this.state.isAdmin]: true });
+		this.setState({ isAdmin: true });
 	};
 
 	isNotAdmin = () => {
-		this.setState({ [this.state.isAdmin]: false });
+		this.setState({ isAdmin: false });
 	};
 
 	onSubmit = (e) => {
 		e.preventDefault();
 		axios
-			.post('localhost:9000/api/register', this.state)
+			.post(url, this.state)
 			.then(() => {
 				this.props.history.push('/login');
 			})
@@ -38,7 +39,7 @@ class Register extends Component {
 
 	render() {
 		return (
-			<form>
+			<form onSubmit={this.onSubmit}>
 				<div>
 					<button onClick={this.isAdmin}>I am a landlord</button>
 					<button onClick={this.isNotAdmin}>I am a tenant</button>
@@ -94,7 +95,7 @@ class Register extends Component {
 					/>
 				</div>
 				<div>
-					<button onSubmit={this.onSubmit}>Register</button>
+					<button>Register</button>
 				</div>
 			</form>
 		);
