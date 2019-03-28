@@ -6,6 +6,7 @@ import Stripe from './components/Stripe';
 import DashBoard from './components/DashBoard/dashBoardView';
 import Login from './components/DashBoard/login';
 import Register from './components/DashBoard/register';
+import { Route } from 'react-router-dom';
 
 // const url = process.env.home || 'http://localhost:9000';
 
@@ -57,11 +58,10 @@ class App extends Component {
 		if (this.state.loggedIn === false) {
 			return (
 				<div>
-					<Menu />
-					<IndexPage />
-
-					<Register />
-					<Login authenticate={this.authenticate} />
+					<Route exact path={'/'} component={Menu} />
+					<Route exact path={'/'} component={IndexPage} />
+					<Route exact path={'/register'} component={Register} />
+					<Route exact path={'/login'} render={(props) => <Login {...props} authenticate={this.authenticate} />} />
 				</div>
 			);
 		} else {
