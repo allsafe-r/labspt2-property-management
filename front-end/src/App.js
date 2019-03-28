@@ -48,10 +48,9 @@ class App extends Component {
 	};
 
 	logOut = () => {
-		console.log('logout clicked');
 		localStorage.removeItem('jwtToken');
 		this.setState({ loggedIn: false });
-		console.log('hi');
+		console.log(this.state);
 	};
 
 	render() {
