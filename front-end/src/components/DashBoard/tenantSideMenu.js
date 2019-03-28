@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../general.css';
 
-class SideMenu extends Component {
+class TenantSideMenu extends Component {
 	constructor() {
 		super();
 		this.state = {
@@ -31,4 +31,4 @@ class SideMenu extends Component {
 	}
 }
 
-export default SideMenu;
+export default TenantSideMenu;
