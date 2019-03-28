@@ -8,6 +8,10 @@ import Workorderform from '../WorkOrders/workorderform';
 import AddProperty from './addProperty';
 import DisplayProperty from './displayProperty';
 import EditProperty from './editProperty';
+import TenantSettings from '../tenantViews/tenantSettings';
+import TenantDashboard from '../tenantViews/tenantDashboard';
+import TenantPayments from '../tenantViews/tenantPayments';
+import TenantMaintenance from '../tenantViews/tenantMaintenance';
 
 const DashBoard = () => {
 	return (
@@ -20,10 +24,10 @@ const DashBoard = () => {
 			<Route exact path="/edit/:id" component={EditProperty} />
 			<Route exact path="/admin/workorders/form" component={Workorderform} />
 			<Route path="/tenant" component={TenantSideMenu} />
-			<Route exact path="/tenant/dashboard" component={Dashboard} />
-			<Route exact path="/tenant/payments" component={Payments} />
-			<Route exact path="/tenant/maintenance" component={Maintenance} />
-			<Route exact path="/tenant/settings" component={Settings} />
+			<Route exact path="/tenant/dashboard" component={TenantDashboard} />
+			<Route exact path="/tenant/payments" component={TenantPayments} />
+			<Route exact path="/tenant/maintenance" component={TenantMaintenance} />
+			<Route exact path="/tenant/settings" component={TenantSettings} />
 		</div>
 	);
 };

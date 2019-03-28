@@ -68,10 +68,10 @@ class App extends Component {
 					<Link to={'/'}>
 						<button onClick={this.logOut}>Logout</button>
 					</Link>
-					<Link to={'/admin'}>
+					<Link to={'/admin/properties'}>
 						<button>Development Purposes - I'm an admin!</button>
 					</Link>
-					<Link to={'/tenant'}>
+					<Link to={'/tenant/dashboard'}>
 						<button>Development Purposes - I'm a tenant!</button>
 					</Link>
 					<DashBoard />
