@@ -12,7 +12,7 @@ exports.seed = function(knex, Promise) {
 				displayName: 'Lee',
 				emailSubscribe: false,
 				textSubscribe: false,
-				residence_id: 1,
+				// residence_id: 1,
 				application: ''
 			},
 			{
@@ -24,7 +24,7 @@ exports.seed = function(knex, Promise) {
 				displayName: 'Matt',
 				emailSubscribe: false,
 				textSubscribe: false,
-				residence_id: 1,
+				// residence_id: 1,
 				application: ''
 			},
 			{
@@ -36,7 +36,7 @@ exports.seed = function(knex, Promise) {
 				displayName: 'Victor',
 				emailSubscribe: false,
 				textSubscribe: false,
-				residence_id: 1,
+				// residence_id: 1,
 				application: ''
 			},
 			{
@@ -48,7 +48,7 @@ exports.seed = function(knex, Promise) {
 				displayName: 'Kyle',
 				emailSubscribe: false,
 				textSubscribe: false,
-				residence_id: 1,
+				// residence_id: 1,
 				application: ''
 			}
 		]);

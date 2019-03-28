@@ -7,6 +7,7 @@ exports.up = function(knex, Promise) {
 		table.string('phone').notNullable();
 		table.boolean('unsupervisedEntry').notNullable();
 		table.string('status').notNullable().defaultTo('Incomplete');
+		table.string('image').notNullable().defaultTo('none');
 	});
 };
 
