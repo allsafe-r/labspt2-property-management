@@ -67,7 +67,6 @@ class App extends Component {
 		} else {
 			return (
 				<div>
-					{/* <Menu /> */}
 					<button onClick={() => this.logOut()}>Logout</button>
 					<DashBoard logOut={this.logOut} />
 					<Stripe />
