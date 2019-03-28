@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-const url = process.env.register || 'http://localhost:9000/api/register';
+// const url = process.env.register || 'http://localhost:9000/api/register';
+const url = 'https://tenantly-back.herokuapp.com/api/register';
 
 class Register extends Component {
 	state = {
@@ -17,11 +18,11 @@ class Register extends Component {
 	};
 
 	isAdmin = () => {
-		this.setState({ [this.state.isAdmin]: true });
+		this.setState({ isAdmin: true });
 	};
 
 	isNotAdmin = () => {
-		this.setState({ [this.state.isAdmin]: false });
+		this.setState({ isAdmin: false });
 	};
 
 	onSubmit = (e) => {

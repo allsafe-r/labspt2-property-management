@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-const url = process.env.login || 'http://localhost:9000/api/login';
+// const url = process.env.login || 'http://localhost:9000/api/login';
+const url = 'https://tenantly-back.herokuapp.com/api/login';
 
 class Login extends Component {
 	state = {

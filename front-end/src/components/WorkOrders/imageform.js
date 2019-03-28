@@ -1,6 +1,7 @@
 import React from 'react';
 const axios = require('axios');
-const url = process.env.imagePost || 'http://localhost:9000/images';
+// const url = process.env.imagePost || 'http://localhost:9000/images';
+const url = 'https://tenantly-back.herokuapp.com/images';
 
 class Imageform extends React.Component {
 	constructor(props) {
