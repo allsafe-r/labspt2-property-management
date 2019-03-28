@@ -7,6 +7,7 @@ import DashBoard from './components/DashBoard/dashBoardView';
 import Login from './components/DashBoard/login';
 import Register from './components/DashBoard/register';
 import { Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // const url = process.env.home || 'http://localhost:9000';
 
@@ -36,21 +37,19 @@ class App extends Component {
 				.then((res) => {
 					if (res.data) {
 						this.setState({ loggedIn: true });
-						console.log(this.state);
 					} else {
 						throw new Error();
 					}
 				})
 				.catch((err) => this.props.history.push('/login'));
 		} else {
-			console.log('wheres your token bro');
+			console.log('Register and/or login to receive a token');
 		}
 	};
 
 	logOut = () => {
 		localStorage.removeItem('jwtToken');
 		this.setState({ loggedIn: false });
-		console.log(this.state);
 	};
 
 	render() {
@@ -66,7 +65,9 @@ class App extends Component {
 		} else {
 			return (
 				<div>
-					<button onClick={() => this.logOut()}>Logout</button>
+					<Link to={'/'}>
+						<button onClick={this.logOut}>Logout</button>
+					</Link>
 					<DashBoard logOut={this.logOut} />
 					<Stripe />
 				</div>
