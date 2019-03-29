@@ -33,8 +33,8 @@ class Login extends Component {
 	render() {
 		return (
       <div className="form-container">
-	  	<img className="logo-login" src={logo} alt="Logo" />
 			<form onSubmit={this.onSubmit}>
+				<img className="logo-login" src={logo} alt="Logo" />
 				<div className="user-container">
 					<input
 						placeholder="username"
