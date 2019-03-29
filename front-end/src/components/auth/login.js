@@ -34,7 +34,7 @@ class Login extends Component {
       <div className="form-container">
 	  	<img className="logo-login" src={logo} alt="Logo" />
 			<form onSubmit={this.onSubmit}>
-				<div>
+				<div className="user-container">
 					<input
 						placeholder="username"
 						name="username"
@@ -44,7 +44,7 @@ class Login extends Component {
 						required
 					/>
 				</div>
-				<div>
+				<div className="password-container">
 					<input
 						placeholder="password"
 						name="password"
