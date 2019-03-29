@@ -33,13 +33,12 @@ class Menu extends React.Component {
 					<img src={require('../../assets/images/logo8.svg')} width="180" alt="Logo" />
 					<p>Features</p>
 					<p>Pricing</p>
-					<p>Blog</p>
 					<Link to={'/login'}>
 						<button>Login</button>
 					</Link>
-					{/* <Link to={'/register'}>
+					<Link to={'/register'}>
 						<button>Register</button>
-					</Link> */}
+					</Link>
 				</div>
 			</div>
 		);

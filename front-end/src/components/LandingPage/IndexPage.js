@@ -13,7 +13,7 @@ const IndexPage = () => (
 				</h1>
 				<p>Manage tasks, payments, work orders anywhere, anytime. </p>
 				<Link to={'/register'}>
-						<button>Get Started</button>
+						<button>Request Demo</button>
 					</Link>
 				<Wave />
 			</div>
