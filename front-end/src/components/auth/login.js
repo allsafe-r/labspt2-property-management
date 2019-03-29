@@ -60,7 +60,7 @@ class Login extends Component {
 				<div>
 					<p>Don't have an account yet?</p>
 					<Link to={'/register'}>
-						<button>Register here</button>
+					<button className="form__button">Register here</button>
 					</Link>
 				</div>
 			</form>
