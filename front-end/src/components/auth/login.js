@@ -30,6 +30,7 @@ class Login extends Component {
 
 	render() {
 		return (
+      <div className="form-container">
 			<form onSubmit={this.onSubmit}>
 				<div>
 					<input
@@ -61,6 +62,7 @@ class Login extends Component {
 					</Link>
 				</div>
 			</form>
+		</div>
 		);
 	}
 }
