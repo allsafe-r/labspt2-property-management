@@ -36,7 +36,7 @@ module.exports = {
 		client: 'pg',
 		connection: dbConnection,
 		pool: {
-			min: 2,
+			min: 1,
 			max: 10
 		},
 		migrations: {

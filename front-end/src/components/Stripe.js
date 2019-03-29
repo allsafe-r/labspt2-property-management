@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import 'whatwg-fetch';
 import StripeCheckout from 'react-stripe-checkout';
 import axios from 'axios';
-const url = process.env.stripe || 'http://localhost:9000/stripe/charge';
+// const url = process.env.stripe || 'http://localhost:9000/stripe/charge';
+const url = 'https://tenantly-back.herokuapp.com/stripe/charge';
 
 class Stripe extends Component {
 	constructor(props) {
