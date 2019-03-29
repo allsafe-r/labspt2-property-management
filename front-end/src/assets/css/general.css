@@ -441,3 +441,9 @@ button[type=submit] {
 	left: 1px;
 	top: -3.1px; 
 }
+
+.HeroGroup button:hover {
+	background: white;
+	transform: translateY(-3px);
+	color: gray;
+}
