@@ -343,3 +343,22 @@ body {
 .form-container .logo-login {
   height: 100px;
 }
+
+.form-container .user-container {
+  margin: 10px;
+ 
+}
+
+.form-container label {
+  font-size: 1.4rem;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  transition: 0.3s;
+  outline: none;
+  transition: 0.3s;
+ 
+}
+
+::placeholder {
+  color: rgb(126, 126, 126);
+}
