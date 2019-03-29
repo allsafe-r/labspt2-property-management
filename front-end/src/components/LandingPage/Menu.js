@@ -1,6 +1,6 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
-import '../general.css';
+import '../../assets/css/general.css';
 import { Link } from 'react-router-dom';
 
 class Menu extends React.Component {

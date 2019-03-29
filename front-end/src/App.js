@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './assets/css/App.css';
 import Menu from './components/LandingPage/Menu';
 import IndexPage from './components/LandingPage/IndexPage';
 import Stripe from './components/Stripe';

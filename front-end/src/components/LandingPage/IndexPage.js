@@ -1,7 +1,7 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 import Wave from './Wave';
-import '../general.css';
+import '../../assets/css/general.css';
 
 const IndexPage = () => (
 	<div>
