@@ -375,3 +375,8 @@ body {
 	transition: 0.3s; 
 	font-family: 'Poppins', sans-serif;
   }
+
+.form__button:focus,
+.form__button:hover {
+background-color: #5bacc5; 
+}
