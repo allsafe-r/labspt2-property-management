@@ -4,8 +4,8 @@ import Menu from './components/LandingPage/Menu';
 import IndexPage from './components/LandingPage/IndexPage';
 import Stripe from './components/Stripe';
 import DashBoard from './components/DashBoard/dashBoardView';
-import Login from './components/DashBoard/login';
-import Register from './components/DashBoard/register';
+import Login from './components/auth/login';
+import Register from './components/auth/register';
 import { Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
