@@ -98,12 +98,8 @@ body {
 		"Helvetica Neue", sans-serif;
 }
 
-.Header p {
-	color: black;
-	font-weight: 700;
-}
 
-.Header button {
+.Header .login-button-menu {
 	padding: 8px 20px;
 	font-size: 20px;
 	border: none;
@@ -116,11 +112,53 @@ body {
 	transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.Header button:hover {
+.Header .features {
+	padding: 8px 20px;
+	font-size: 20px;
+	border: none;
+	color: white;
+	font-weight: 700;
+	border-radius: 10px;
+	outline: none;
+	cursor: pointer;
+	transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.HeaderGroup .features {
+	color: black;
+	font-weight: 700;
+}
+
+.HeaderGroup .features:hover {
+	color: gray;
+}
+
+.Header .register-button-menu {
+	padding: 8px 20px;
+	font-size: 20px;
+	border: none;
+	background-color: white;
+	border: 1px solid #fc766a;
+	color: black;
+	font-weight: 700;
+	border-radius: 10px;
+	outline: none;
+	cursor: pointer;
+	transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.Header .login-button-menu:hover {
 	background: white;
 	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
 	transform: translateY(-3px);
-	color: gray;
+	color: black;
+}
+
+.Header .register-button-menu:hover {
+	background: #fc766a;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+	transform: translateY(-3px);
+	color: white;
 }
 
 @media (max-width: 640px) {
