@@ -340,3 +340,7 @@ body {
   justify-content: center;
   border-radius: 20px;
 }
+
+.form-container .logo-login {
+	height: 100px;
+  }
