@@ -360,4 +360,18 @@ body {
 
 ::placeholder {
   color: rgb(126, 126, 126);
-}  
+} 
+
+
+.form__button {
+	margin-top: 20px;
+	padding: 10px 20px; 
+	border: none; 
+	border-radius: 5px; 
+	color: aliceblue;
+	background-color: #fc766a; 
+	outline: none; 
+	cursor: pointer; 
+	transition: 0.3s; 
+	font-family: 'Poppins', sans-serif;
+  }
