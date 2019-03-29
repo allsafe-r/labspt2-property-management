@@ -325,7 +325,7 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: #fafafa;
+	background-color: #FFF2F1;
   }
 
 .form-container form {
@@ -368,7 +368,7 @@ body {
 	padding: 10px 20px; 
 	border: none; 
 	border-radius: 5px; 
-	color: aliceblue;
+	color: white;
 	background-color: #fc766a; 
 	outline: none; 
 	cursor: pointer; 
@@ -379,4 +379,65 @@ body {
 .form__button:focus,
 .form__button:hover {
 background-color: #5bacc5; 
+}
+
+
+input[type=text] {
+	font-family: 'Montserrat';
+	font-size: 15px;
+   
+}
+input[type=password] {
+	font-family: 'Montserrat';
+	font-size: 15px;
+   
+}
+
+button[type=submit] {
+	font-family: 'Montserrat';
+	font-size: 15px;
+}
+
+.form-container input {
+    border: none;
+    padding: 10px;
+    border-bottom: 1px solid lightgray; 
+    background-color: transparent;
+    outline: none;
+	background-color: white;
+	
+  }
+
+.login-p {
+	text-align: center;
+	/* padding-top: 8px; */
+	font-family: 'Montserrat';
+	font-size: .80rem;
+
+
+}
+
+.no-account {
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	align-content: center;
+
+}
+
+.no-account .register-button {
+	border: none;
+	/* margin: 0; */
+    text-decoration: none;
+    color: #fc766a;
+    font-family: sans-serif;
+    font-size: .80rem;
+    cursor: pointer;
+    text-align: center;
+    -webkit-appearance: none;
+	-moz-appearance: none;
+	position: relative; 
+	left: 1px;
+	top: -3.1px; 
 }
