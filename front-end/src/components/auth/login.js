@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 // const url = process.env.login || 'http://localhost:9000/api/login';
+import '../../assets/css/general.css';
 import logo from '../../assets/images/logo8.svg';
 const url = 'https://tenantly-back.herokuapp.com/api/login';
 
