@@ -1,19 +1,19 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import PropertyList from './propertyList';
-import TenantSideMenu from '../tenantViews/tenantSideMenu';
-import SideMenu from './sideMenu';
-import Workorderlist from '../WorkOrders/workorderList';
-import Workorderform from '../WorkOrders/workorderform';
-import AddProperty from './addProperty';
-import DisplayProperty from './displayProperty';
-import EditProperty from './editProperty';
-import TenantSettings from '../tenantViews/tenantSettings';
-import TenantDashboard from '../tenantViews/tenantDashboard';
-import TenantPayments from '../tenantViews/tenantPayments';
-import TenantMaintenance from '../tenantViews/tenantMaintenance';
+import PropertyList from './properties/propertyList';
+import TenantSideMenu from './tenantViews/tenantSideMenu';
+import SideMenu from './DashBoard/sideMenu';
+import Workorderlist from './WorkOrders/workorderList';
+import Workorderform from './WorkOrders/workorderform';
+import AddProperty from './DashBoard/addProperty';
+import DisplayProperty from './properties/displayProperty';
+import EditProperty from './properties/editProperty';
+import TenantSettings from './tenantViews/tenantSettings';
+import TenantDashboard from './tenantViews/tenantDashboard';
+import TenantPayments from './tenantViews/tenantPayments';
+import TenantMaintenance from './tenantViews/tenantMaintenance';
 
-const DashBoard = () => {
+const RouteContainer = () => {
 	return (
 		<div className="dashboard-container">
 			<Route path="/admin" component={SideMenu} />
@@ -32,4 +32,4 @@ const DashBoard = () => {
 	);
 };
 
-export default DashBoard;
+export default RouteContainer;

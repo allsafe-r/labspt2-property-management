@@ -3,7 +3,7 @@ import './App.css';
 import Menu from './components/LandingPage/Menu';
 import IndexPage from './components/LandingPage/IndexPage';
 import Stripe from './components/Stripe';
-import DashBoard from './components/DashBoard/dashBoardView';
+import RouteContainer from './components/routeContainer';
 import Login from './components/auth/login';
 import Register from './components/auth/register';
 import { Route } from 'react-router-dom';
@@ -74,7 +74,7 @@ class App extends Component {
 					<Link to={'/tenant/dashboard'}>
 						<button>Development Purposes - I'm a tenant!</button>
 					</Link>
-					<DashBoard />
+					<RouteContainer />
 
 					<Stripe />
 				</div>
