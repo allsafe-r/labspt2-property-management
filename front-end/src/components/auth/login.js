@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 // const url = process.env.login || 'http://localhost:9000/api/login';
+import logo from '../../assets/images/logo8.svg';
 const url = 'https://tenantly-back.herokuapp.com/api/login';
 
 class Login extends Component {
@@ -31,6 +32,7 @@ class Login extends Component {
 	render() {
 		return (
       <div className="form-container">
+	  	<img className="logo-login" src={logo} alt="Logo" />
 			<form onSubmit={this.onSubmit}>
 				<div>
 					<input
