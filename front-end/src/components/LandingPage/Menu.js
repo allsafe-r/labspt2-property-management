@@ -31,14 +31,13 @@ class Menu extends React.Component {
 			<div className={this.state.hasScrolled ? 'Header HeaderScrolled' : 'Header'}>
 				<div className="HeaderGroup">
 					<img src={require('../../assets/images/logo8.svg')} width="180" alt="Logo" />
-					<p>Features</p>
-					<p>Pricing</p>
-					<p>Blog</p>
+					<button className="features">Features</button>
+					<button className="features">Pricing</button>
 					<Link to={'/login'}>
-						<button>Login</button>
+						<button className="login-button-menu">Login</button>
 					</Link>
 					<Link to={'/register'}>
-						<button>Register</button>
+						<button className="register-button-menu">Register</button>
 					</Link>
 				</div>
 			</div>
@@ -46,8 +45,5 @@ class Menu extends React.Component {
 	}
 }
 
-// Menu.propTypes = {
-// 	classes: PropTypes.object.isRequired
-// };
 
 export default Menu;
