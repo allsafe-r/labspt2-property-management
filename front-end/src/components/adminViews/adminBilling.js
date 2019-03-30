@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './../../assets/css/dashboardComp.css'
 import axios from 'axios';
 import Image from '../../assets/images/blue-on-dark.png';
 import { Link } from 'react-router-dom';

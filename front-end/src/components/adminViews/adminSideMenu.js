@@ -17,19 +17,19 @@ class SideMenu extends Component {
 			<Route exact path={'/admin/billing'} component={Billing} />
 				<ul>
 					<Link to={'/admin/properties'}>
-						<li>Properties</li>
+						<li>Properties   ></li>
 					</Link>
 					<Link to={'/admin/workorders'}>
-						<li>Work Orders</li>
+						<li>Work Orders  ></li>
 					</Link>
 					<Link to={'/admin/add-tenant'}>
-						<li>Add Tenant</li>
+						<li>Add Tenant   ></li>
 					</Link>
 					<Link to={'/admin/billing'}>
-						<li>Billing</li>
+						<li>Billing   ></li>
 					</Link>
 					<Link to={'/admin/settings'}>
-						<li>Settings</li>
+						<li>Settings   ></li>
 					</Link>
 				</ul>
 			</div>

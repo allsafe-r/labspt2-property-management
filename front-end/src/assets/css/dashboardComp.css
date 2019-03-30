@@ -1,0 +1,12 @@
+.Billing {
+    padding:25px;
+}
+
+.Billing .MuiPaper-root-2{
+    margin: 25px;
+}
+
+.side-menu {
+    display:flex;
+    flex-direction: row-reverse;
+}
