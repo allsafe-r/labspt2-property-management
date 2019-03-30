@@ -26,7 +26,7 @@ const RouteContainer = () => {
 			<Route path="/tenant" component={TenantSideMenu} />
 			<Route exact path="/tenant/dashboard" component={TenantDashboard} />
 			<Route exact path="/tenant/payments" component={TenantPayments} />
-			<Route exact path="/tenant/maintenance" component={TenantMaintenance} />
+			<Route exact path="/tenant/maintenance" component={Workorderform} />
 			<Route exact path="/tenant/settings" component={TenantSettings} />
 		</div>
 	);

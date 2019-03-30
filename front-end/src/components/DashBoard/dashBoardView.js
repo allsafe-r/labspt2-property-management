@@ -13,7 +13,7 @@ const DashBoard = () => {
 		<Link to='/admin/worklist'>Work Order</Link>
 	   <Route path="/admin/worklist" component={Workorderlist} />
 	   <Route path="/admin/propertylist" component={PropertyList} />
-	   <Route path="/admin/workform" component={Workorderform} />
+	   <Route path="/tenant/workform" component={Workorderform} />
 			      
 			      
 		</div>
