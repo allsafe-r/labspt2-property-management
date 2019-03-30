@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Image from '../../assets/images/blue-on-dark.png'
+import Card from '@material-ui/core/Card';
 
-export default class billing extends Component {
+export default class Billing extends Component {
 	state = {
 		
 	};
@@ -19,9 +20,17 @@ export default class billing extends Component {
 	render() {
 		return (
 			<div className="Billing">
+			<Card>
+				Properties List
+			</Card>
+			<Card>
 				<a href="https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_Eh0R1RXhYNXEq9z56aVKr04CVDrJvxMc&scope=read_write">
 					<img src={Image} />
 				</a>
+			</Card>
+			<Card>
+				<p>Billing History</p>
+			</Card>
 			</div>
 		);
 	}
