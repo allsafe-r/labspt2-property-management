@@ -53,7 +53,7 @@ export default class Workordercard extends Component {
 
 	render() {
 		return (
-			<Card className="property-card">
+			<Card className="test">
 				<h1>{this.props.work.property}</h1>
 				<h1>{this.props.work.tenant}</h1>
 				<h1>{this.props.work.description}</h1>
