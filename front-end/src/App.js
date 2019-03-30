@@ -8,6 +8,7 @@ import Login from './components/auth/login';
 import Register from './components/auth/register';
 import { Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import billing from './components/adminViews/adminBilling';
 
 // const url = process.env.home || 'http://localhost:9000';
 
@@ -60,6 +61,7 @@ class App extends Component {
 					<Route exact path={'/'} component={IndexPage} />
 					<Route exact path={'/register'} component={Register} />
 					<Route exact path={'/login'} render={(props) => <Login {...props} authenticate={this.authenticate} />} />
+					<Route exact path={'/admin/billing'} component={billing} />
 				</div>
 			);
 		} else {
