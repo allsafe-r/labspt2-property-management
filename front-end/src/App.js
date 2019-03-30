@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
-import './App.css';
+import './assets/css/App.css';
 import Menu from './components/LandingPage/Menu';
-// import Body from './components/LandingPage/Body';
 import IndexPage from './components/LandingPage/IndexPage';
 import Stripe from './components/Stripe';
-import DashBoard from './components/DashBoard/dashBoardView';
-import Login from './components/DashBoard/login';
-import Register from './components/DashBoard/register';
+import RouteContainer from './components/routeContainer';
+import Login from './components/auth/login';
+import Register from './components/auth/register';
+import { Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // const url = process.env.home || 'http://localhost:9000';
 
 const url = 'https://tenantly-back.herokuapp.com';
-
 const axios = require('axios');
-// import Register from './components/DashBoard/register';
 
 class App extends Component {
 	state = {
@@ -26,7 +25,6 @@ class App extends Component {
 
 	authenticate = () => {
 		const token = localStorage.getItem('jwtToken');
-		// console.log(token);
 		const auth = {
 			headers: {
 				Authorization: token
@@ -39,39 +37,45 @@ class App extends Component {
 				.then((res) => {
 					if (res.data) {
 						this.setState({ loggedIn: true });
-						console.log(this.state);
 					} else {
 						throw new Error();
 					}
 				})
 				.catch((err) => this.props.history.push('/login'));
 		} else {
-			console.log('wheres your token bro');
+			console.log('Register and/or login to receive a token');
 		}
 	};
 
 	logOut = () => {
-		console.log('logout clicked');
 		localStorage.removeItem('jwtToken');
 		this.setState({ loggedIn: false });
-		console.log('hi');
 	};
 
 	render() {
-		if (this.state.loggedIn == false) {
+		if (this.state.loggedIn === false) {
 			return (
 				<div>
-					<Register />
-					<Login authenticate={this.authenticate} />
+					<Route exact path={'/'} component={Menu} />
+					<Route exact path={'/'} component={IndexPage} />
+					<Route exact path={'/register'} component={Register} />
+					<Route exact path={'/login'} render={(props) => <Login {...props} authenticate={this.authenticate} />} />
 				</div>
 			);
 		} else {
 			return (
 				<div>
-					{/* <Menu /> */}
-					<button onClick={() => this.logOut()}>Logout</button>
-					<DashBoard logOut={this.logOut} />
-					{/* <IndexPage /> */}
+					<Link to={'/'}>
+						<button onClick={this.logOut}>Logout</button>
+					</Link>
+					<Link to={'/admin/properties'}>
+						<button>Development Purposes - I'm an admin!</button>
+					</Link>
+					<Link to={'/tenant/dashboard'}>
+						<button>Development Purposes - I'm a tenant!</button>
+					</Link>
+					<RouteContainer />
+
 					<Stripe />
 				</div>
 			);

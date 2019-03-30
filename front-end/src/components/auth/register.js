@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 // const url = process.env.register || 'http://localhost:9000/api/register';
 const url = 'https://tenantly-back.herokuapp.com/api/register';
 
@@ -96,6 +97,12 @@ class Register extends Component {
 				</div>
 				<div>
 					<button>Register</button>
+				</div>
+				<div>
+					<p>Already have an account?</p>
+					<Link to={'/login'}>
+						<button>Login here</button>
+					</Link>
 				</div>
 			</form>
 		);

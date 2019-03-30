@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import PropertyCard from './propertyCard';
-import '../general.css';
+import '../../assets/css/general.css';
 
 // const url = process.env.properties || 'http://localhost:9000/properties';
 const url = `https://tenantly-back.herokuapp.com/properties`;
@@ -35,7 +35,7 @@ export default class propertyList extends Component {
 						/>
 					))}
 				</div>
-				<Link to="/add-property">
+				<Link to="/admin/add-property">
 					<button>+ Add New Property</button>
 				</Link>
 			</div>

@@ -12,18 +12,19 @@ class AddProperty extends Component {
 			propertyCity: '',
 			propertyState: '',
 			propertyZipcode: '',
-			sqFt: null,
-			bedrooms: null,
-			bathrooms: null,
-			yearBuilt: null,
-			owner: null,
-			maxOccupants: null,
-			tenant1: null
+			sqFt: '',
+			bedrooms: '',
+			bathrooms: '',
+			yearBuilt: '',
+			owner: '',
+			maxOccupants: '',
+			tenant1: ''
 		};
 	}
 
 	addNote = (e) => {
 		e.preventDefault();
+		console.log(this.state);
 		axios
 			.post(url, this.state)
 			.then((response) => {
@@ -32,7 +33,7 @@ class AddProperty extends Component {
 			.catch((err) => {
 				console.log('Error', err);
 			});
-		this.props.history.push(`/admin/properties`);
+		this.props.history.push(`/admin/`);
 	};
 
 	inputHandler = (e) => {

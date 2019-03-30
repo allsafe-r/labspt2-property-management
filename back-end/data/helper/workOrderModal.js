@@ -10,7 +10,7 @@ module.exports = {
 	deleteWorkOrder
 };
 
-	function createWorkOrder(order) {
+function createWorkOrder(order) {
 	return db('workOrders').insert(order, 'id');
 }
 
@@ -22,7 +22,7 @@ function findWorkOrderByTenant(name) {
 	return db('workOrders').then((res) => res.filter((order) => order.name == name));
 }
 
-	function findByWorkOrderId(id) {
+function findByWorkOrderId(id) {
 	return db('workOrders').then((res) => res.filter((res) => res.id == id));
 }
 
