@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 // const url = process.env.login || 'http://localhost:9000/api/login';
+import '../../assets/css/general.css';
+import logo from '../../assets/images/logo8.svg';
 const url = 'https://tenantly-back.herokuapp.com/api/login';
 
 class Login extends Component {
@@ -30,8 +32,10 @@ class Login extends Component {
 
 	render() {
 		return (
+      <div className="form-container">
 			<form onSubmit={this.onSubmit}>
-				<div>
+				<img className="logo-login" src={logo} alt="Logo" />
+				<div className="user-container">
 					<input
 						placeholder="username"
 						name="username"
@@ -41,7 +45,7 @@ class Login extends Component {
 						required
 					/>
 				</div>
-				<div>
+				<div className="password-container">
 					<input
 						placeholder="password"
 						name="password"
@@ -52,15 +56,16 @@ class Login extends Component {
 					/>
 				</div>
 				<div>
-					<button>Login</button>
+				<button className="form__button">Login</button>
 				</div>
-				<div>
-					<p>Don't have an account yet?</p>
+				<div className="no-account">
+					<p className="login-p">Don't have an account?</p>
 					<Link to={'/register'}>
-						<button>Register here</button>
+					<button className="register-button">Register</button>
 					</Link>
 				</div>
 			</form>
+		</div>
 		);
 	}
 }

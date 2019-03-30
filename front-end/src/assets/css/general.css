@@ -152,12 +152,8 @@ body {
 		"Helvetica Neue", sans-serif;
 }
 
-.Header p {
-	color: black;
-	font-weight: 700;
-}
 
-.Header button {
+.Header .login-button-menu {
 	padding: 8px 20px;
 	font-size: 20px;
 	border: none;
@@ -170,11 +166,53 @@ body {
 	transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.Header button:hover {
+.Header .features {
+	padding: 8px 20px;
+	font-size: 20px;
+	border: none;
+	color: white;
+	font-weight: 700;
+	border-radius: 10px;
+	outline: none;
+	cursor: pointer;
+	transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.HeaderGroup .features {
+	color: black;
+	font-weight: 700;
+}
+
+.HeaderGroup .features:hover {
+	color: gray;
+}
+
+.Header .register-button-menu {
+	padding: 8px 20px;
+	font-size: 20px;
+	border: none;
+	background-color: white;
+	border: 1px solid #fc766a;
+	color: black;
+	font-weight: 700;
+	border-radius: 10px;
+	outline: none;
+	cursor: pointer;
+	transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.Header .login-button-menu:hover {
 	background: white;
 	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
 	transform: translateY(-3px);
-	color: gray;
+	color: black;
+}
+
+.Header .register-button-menu:hover {
+	background: #fc766a;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+	transform: translateY(-3px);
+	color: white;
 }
 
 @media (max-width: 640px) {
@@ -207,6 +245,12 @@ body {
 	max-width: 500px;
 	padding: 150px 50px;
 	text-align: center;
+}
+
+.HeroGroup button:hover {
+	background: white;
+	transform: translateY(-3px);
+	color: gray;
 }
 
 .Hero h1 {
@@ -369,4 +413,129 @@ body {
 .top-container {
 	display: flex;
 	flex-direction: row;
+}
+
+
+/* === LOG IN === */
+
+.form-container {
+	height:100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #FFF2F1;
+  }
+
+.form-container form {
+  background-color: white;
+  box-shadow: 0 2px 1px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  height: 500px;
+  width: 50%;
+  justify-content: center;
+  border-radius: 20px;
+}
+
+.form-container .logo-login {
+	height: 100px;
+}
+
+.form-container .user-container {
+	margin: 10px;
+}
+
+.form-container label {
+	font-size: 1.4rem;
+	color: white;
+	font-family: 'Poppins', sans-serif;
+	transition: 0.3s;
+	outline: none;
+	transition: 0.3s;
+}
+
+::placeholder {
+  color: rgb(126, 126, 126);
+} 
+
+
+.form__button {
+	margin-top: 20px;
+	padding: 10px 20px; 
+	border: none; 
+	border-radius: 5px; 
+	color: white;
+	background-color: #fc766a; 
+	outline: none; 
+	cursor: pointer; 
+	transition: 0.3s; 
+	font-family: 'Poppins', sans-serif;
+  }
+
+.form__button:focus,
+.form__button:hover {
+background-color: #5bacc5; 
+}
+
+
+input[type=text] {
+	font-family: 'Montserrat';
+	font-size: 15px;
+   
+}
+input[type=password] {
+	font-family: 'Montserrat';
+	font-size: 15px;
+   
+}
+
+button[type=submit] {
+	font-family: 'Montserrat';
+	font-size: 15px;
+}
+
+.form-container input {
+    border: none;
+    padding: 10px;
+    border-bottom: 1px solid lightgray; 
+    background-color: transparent;
+    outline: none;
+	background-color: white;
+	
+  }
+
+.login-p {
+	text-align: center;
+	/* padding-top: 8px; */
+	font-family: 'Montserrat';
+	font-size: .80rem;
+
+
+}
+
+.no-account {
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	align-content: center;
+
+}
+
+.no-account .register-button {
+	border: none;
+	/* margin: 0; */
+    text-decoration: none;
+    color: #fc766a;
+    font-family: sans-serif;
+    font-size: .80rem;
+    cursor: pointer;
+    text-align: center;
+    -webkit-appearance: none;
+	-moz-appearance: none;
+	position: relative; 
+	left: 1px;
+	top: -3.1px; 
 }
