@@ -34,38 +34,44 @@ export default class Billing extends Component {
 	render() {
 		return (
 			<div className="Billing">
-				<Card>
-                    <FormControl>
-                      <InputLabel htmlFor="property-native-required">
-                        Select a property to view payment history
-                      </InputLabel>
-                      <Select
-                        native
-                        value={this.state.house_id}
-                        onChange={this.handleInputChange('house_id')}
-                        name="Property"
-                        inputProps={{
-                          id: 'property-native-required',
-                        }}
-                      >
-                        <option value={0} />
-                        {this.state.properties.map((property, index) => (
-                          <option key={index} value={property.propertyName}>
-                            {property.propertyName}
-                          </option>
-                        ))}
-                      </Select>
-                      <FormHelperText>Required</FormHelperText>
-                    </FormControl>
+				<div className="billingColumn1">
+					<Card>
+						<FormControl>
+						<InputLabel htmlFor="property-native-required">
+							Select a property to view payment history
+						</InputLabel>
+						<Select
+							native
+							value={this.state.house_id}
+							onChange={this.handleInputChange('house_id')}
+							name="Property"
+							inputProps={{
+							id: 'property-native-required',
+							}}
+						>
+							<option value={0} />
+							{this.state.properties.map((property, index) => (
+							<option key={index} value={property.propertyName}>
+								{property.propertyName}
+							</option>
+							))}
+						</Select>
+						<FormHelperText>Required</FormHelperText>
+						</FormControl>
                   </Card>			
 				  <Card>
-				<a href="https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_Eh0R1RXhYNXEq9z56aVKr04CVDrJvxMc&scope=read_write">
-					<img src={Image} />
-				</a>
-			</Card>
-			<Card>
-				<p>Billing History</p>
-			</Card>
+					<a href="https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_Eh0R1RXhYNXEq9z56aVKr04CVDrJvxMc&scope=read_write">
+						<img src={Image} />
+					</a>
+					</Card>
+			</div>
+
+			<div>
+				<Card>
+					<p>Billing History</p>
+				</Card>
+			</div>
+
 			</div>
 		);
 	}

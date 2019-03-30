@@ -14,6 +14,12 @@
 	background-color: #EDEDED;
 }
 
+/* BashBoard Logo */
+
+.dashboardLogo {
+	max-width: 190px;
+}
+
 /* Side Menu */
 .sideMenu-container {
 	border: 1px solid blue;
@@ -27,15 +33,32 @@
 
 .side-menu {
 	background-color: white;
-	font-size: 1.0em;
+	font-size: 0.9em;
+	width: 200px;
+	margin-top: -55px;
 }
+
 
 .side-menu ul a {
 	text-decoration: none;
+	display: flex;
+	justify-content: space-between;
 }
 
 .side-menu ul a li{
 	color:black;
+}
+
+.side-menu ul a li:first-child{
+	color:black;
+	display: flex;
+	justify-content: flex-start;
+}
+.side-menu ul a li:last-child{
+	color:black;
+	text-align: right;
+	padding-bottom:2px;
+	margin-right: 15px;
 }
 
 .side-menu ul li {
@@ -72,6 +95,24 @@
 
 .buttons-container {
 	display: flex;
+}
+
+/* Top Bar */
+
+.top-bar {
+	box-shadow: 0 4px 2px -2px gray;
+	background-color: rgba(252, 120, 105, 0.79);
+	padding: 10px;
+	margin-left: 189px;
+}
+
+.top-bar a button{
+	background-color: white;
+	border: none;
+	color: black;
+	margin-left: 10px;
+	border-radius: 5px;
+	padding: 8px;
 }
 
 /* Menu */
