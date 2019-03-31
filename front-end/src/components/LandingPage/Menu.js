@@ -44,7 +44,6 @@ class Menu extends React.Component {
               <Link to={"/"}>
                 <img
                   src={require("../../assets/images/logo8.svg")}
-                  width="180"
                   alt="Logo"
                 />
               </Link>
@@ -71,17 +70,18 @@ class Menu extends React.Component {
                 <Link to={"/"}>
                   <img
                     src={require("../../assets/images/logo8.svg")}
-                    width="180"
                     alt="Logo"
                   />
                 </Link>
               </div>
               <div onClick={this.dropdown}>
                 <img
+                  alt="open-burger"
                   className={this.state.dropdown ? null : "menu-icon"}
                   src={require("../../assets/images/nav-hamburger.png")}
                 />
                 <img
+                  alt="close-burger"
                   className={this.state.dropdown ? "menu-icon " : null}
                   src={require("../../assets/images/nav-hamburger-close.png")}
                 />
