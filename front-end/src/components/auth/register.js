@@ -40,6 +40,7 @@ class Register extends Component {
 
 	render() {
 		return (
+			<div className="form-container">
 			<form onSubmit={this.onSubmit}>
 				<div>
 					<button onClick={this.isAdmin}>I am a landlord</button>
@@ -105,6 +106,7 @@ class Register extends Component {
 					</Link>
 				</div>
 			</form>
+			</div>
 		);
 	}
 }
