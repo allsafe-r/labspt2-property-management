@@ -1,25 +1,26 @@
-import React from 'react'
-import PropTypes from 'prop-types';
+import React from 'react';
+// import PropTypes from 'prop-types';
 import Wave from './Wave';
-import '../general.css'
-
+import '../../assets/css/general.css';
+import { Link } from 'react-router-dom';
 
 const IndexPage = () => (
-  <div>
-    <div className="Hero">
-      <div className="HeroGroup">
-        <h1>Property management <br />made easier.</h1>
-        <p>Manage tasks, payments, work orders anywhere, anytime. </p>
-        <button>Get Started</button>
-        <Wave />
-      </div>
-    </div>  
-  </div>
+	<div>
+		<div className="Hero">
+			<div className="HeroGroup">
+				<h1>
+					Property management <br />made easier.
+				</h1>
+				<p>Manage tasks, payments, work orders anywhere, anytime. </p>
+				<Link to={'/register'}>
+						<button>Request Demo</button>
+					</Link>
+				<Wave />
+			</div>
+		</div>
+	</div>
+);
 
-)
 
-IndexPage.propTypes = {
-    classes: PropTypes.object.isRequired,
-  };
-  
-export default IndexPage
+
+export default IndexPage;

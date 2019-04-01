@@ -1,0 +1,487 @@
+/* DashBoard */
+.dashboard-container {
+	display: flex;
+	flex-direction: row;
+}
+
+.right-side {
+	padding: 15px;
+	margin-top: 40px;
+	width: 80%;
+}
+
+/* Side Menu */
+.sideMenu-container {
+	border: 1px solid blue;
+	display: flex;
+	flex-direction: column;
+	width: 15%;
+
+	padding: 25px;
+	height: 100vh;
+}
+
+.side-menu {
+	font-size: 1.5em;
+}
+
+.side-menu ul li {
+	padding-top: 8px;
+}
+
+/* Properties */
+
+.properties-list {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.properties-container {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.property-card {
+	display: flex;
+	width: 25%;
+	border: 1px black solid;
+	padding: 10px;
+	margin: 10px;
+	flex-wrap: wrap;
+	flex-direction: row;
+}
+
+.buttons-container {
+	display: flex;
+}
+
+/* Menu */
+
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+		"Helvetica Neue", sans-serif;
+	margin: 0;
+	font-size: 20px;
+	-webkit-font-smoothing: antialiased;
+	line-height: 1.3;
+}
+
+.Header {
+	position: fixed;
+	width: 100%;
+	padding: 50px 0;
+	z-index: 100;
+	transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.HeaderScrolled {
+	/* background: rgba(0,0,0, 0.8); */
+	background: white;
+	padding: 15px 0;
+	backdrop-filter: blur(20px);
+}
+
+.HeaderGroup {
+	max-width: 800px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: repeat(5, auto);
+	align-items: center;
+	justify-items: center;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+		"Helvetica Neue", sans-serif;
+}
+
+
+.Header .login-button-menu {
+	padding: 8px 20px;
+	font-size: 20px;
+	border: none;
+	background-color: #fc766a;
+	color: white;
+	font-weight: 700;
+	border-radius: 10px;
+	outline: none;
+	cursor: pointer;
+	transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.Header .features {
+	padding: 8px 20px;
+	font-size: 20px;
+	border: none;
+	color: white;
+	font-weight: 700;
+	border-radius: 10px;
+	outline: none;
+	cursor: pointer;
+	transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.HeaderGroup .features {
+	color: black;
+	font-weight: 700;
+}
+
+.HeaderGroup .features:hover {
+	color: gray;
+}
+
+.Header .register-button-menu {
+	padding: 8px 20px;
+	font-size: 20px;
+	border: none;
+	background-color: white;
+	border: 1px solid #fc766a;
+	color: black;
+	font-weight: 700;
+	border-radius: 10px;
+	outline: none;
+	cursor: pointer;
+	transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.Header .login-button-menu:hover {
+	background: white;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+	transform: translateY(-3px);
+	color: black;
+}
+
+.Header .register-button-menu:hover {
+	background: #fc766a;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+	transform: translateY(-3px);
+	color: white;
+}
+
+@media (max-width: 640px) {
+	.Header {
+		padding: 15px 0;
+	}
+
+	.HeaderGroup {
+		grid-template-columns: repeat(4, auto);
+	}
+
+	.Header a:nth-child(4) {
+		display: none;
+	}
+}
+
+/* Hero */
+.Hero {
+	background: url("../images/wallpaper9.png");
+	height: 920px;
+	background-size: contain;
+	background-repeat: no-repeat;
+
+	background-position: center;
+	position: relative;
+}
+
+.HeroGroup {
+	margin: 0 auto;
+	max-width: 500px;
+	padding: 150px 50px;
+	text-align: center;
+}
+
+.HeroGroup button:hover {
+	background: white;
+	transform: translateY(-3px);
+	color: gray;
+}
+
+.Hero h1 {
+	margin: 0;
+	color: black;
+	font-size: 60px;
+	line-height: 1.2;
+	opacity: 0;
+	animation: HeroAnimation;
+	animation-duration: 3s;
+	animation-delay: 0.1s;
+	animation-fill-mode: forwards;
+	animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.Hero p {
+	/* color: rgba(255, 255, 255, 0.8); */
+	color: black;
+
+	font-size: 25px;
+	line-height: 1.5;
+	animation: HeroAnimation 3s 0.2s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
+	opacity: 0;
+}
+
+.Hero button {
+	font-size: 17px;
+	font-weight: 600;
+	color: white;
+	text-transform: uppercase;
+	background: rgba(0, 0, 0, 0.7);
+	padding: 9px 20px;
+	margin-top: 20px;
+	border: 1px solid rgba(255, 255, 255, 0.25);
+	border-radius: 20px;
+	transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.Hero a:hover {
+	background: white;
+	color: black;
+}
+
+@media (max-width: 640px) {
+	.HeroGroup {
+		padding: 100px 20px;
+	}
+
+	.Hero h1 {
+		font-size: 40px;
+	}
+
+	.Hero p {
+		font-size: 24px;
+	}
+}
+
+@keyframes HeroAnimation {
+	0% {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0px);
+	}
+}
+
+.Hero svg {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+/* Card */
+
+.Card {
+	width: 300px;
+	height: 225px;
+	position: relative;
+	overflow: hidden;
+	border-radius: 20px;
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+	display: grid;
+	grid-template-rows: 1fr 1fr;
+	transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.Card:hover {
+	transform: scale(1.1, 1.1);
+	box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+}
+
+.Card:hover img {
+	transform: translateY(-20px);
+}
+
+.Card img {
+	position: absolute;
+	top: 0;
+	height: 110%;
+	z-index: -1;
+	transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.Card h3 {
+	color: #3c3837;
+	font-size: 30px;
+	font-family: "Montserrat";
+	margin: 20px 0 0 20px;
+	width: 190px;
+}
+
+.Card p {
+	color: rgba(255, 255, 255, 0.8);
+	text-transform: uppercase;
+	font-weight: 600;
+	font-size: 18px;
+	align-self: end;
+	margin: 0 0 20px 20px;
+}
+
+.Cards h2 {
+	margin: 50px 20px;
+	font-size: 60px;
+	text-align: center;
+	font-weight: 700;
+	background: linear-gradient(104deg, #050a27 0%, #4a548c 100%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.CardGroup {
+	/* margin: 50px 40px 100px; */
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	justify-items: center;
+}
+
+@media (max-width: 1060px) {
+	.CardGroup {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 720px) {
+	.CardGroup {
+		grid-template-columns: repeat(1, 1fr);
+	}
+}
+
+/* Add Tenant*/
+
+.addTenant-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.top-container {
+	display: flex;
+	flex-direction: row;
+}
+
+
+/* === LOG IN === */
+
+.form-container {
+	height:100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #FFF2F1;
+  }
+
+.form-container form {
+  background-color: white;
+  box-shadow: 0 2px 1px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  height: 500px;
+  width: 50%;
+  justify-content: center;
+  border-radius: 20px;
+}
+
+.form-container .logo-login {
+	height: 100px;
+}
+
+.form-container .user-container {
+	margin: 10px;
+}
+
+.form-container label {
+	font-size: 1.4rem;
+	color: white;
+	font-family: 'Poppins', sans-serif;
+	transition: 0.3s;
+	outline: none;
+	transition: 0.3s;
+}
+
+::placeholder {
+  color: rgb(126, 126, 126);
+} 
+
+
+.form__button {
+	margin-top: 20px;
+	padding: 10px 20px; 
+	border: none; 
+	border-radius: 5px; 
+	color: white;
+	background-color: #fc766a; 
+	outline: none; 
+	cursor: pointer; 
+	transition: 0.3s; 
+	font-family: 'Poppins', sans-serif;
+  }
+
+.form__button:focus,
+.form__button:hover {
+background-color: #5bacc5; 
+}
+
+
+input[type=text] {
+	font-family: 'Montserrat';
+	font-size: 15px;
+   
+}
+input[type=password] {
+	font-family: 'Montserrat';
+	font-size: 15px;
+   
+}
+
+button[type=submit] {
+	font-family: 'Montserrat';
+	font-size: 15px;
+}
+
+.form-container input {
+    border: none;
+    padding: 10px;
+    border-bottom: 1px solid lightgray; 
+    background-color: transparent;
+    outline: none;
+	background-color: white;
+	
+  }
+
+.login-p {
+	text-align: center;
+	/* padding-top: 8px; */
+	font-family: 'Montserrat';
+	font-size: .80rem;
+
+
+}
+
+.no-account {
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	align-content: center;
+
+}
+
+.no-account .register-button {
+	border: none;
+	/* margin: 0; */
+    text-decoration: none;
+    color: #fc766a;
+    font-family: sans-serif;
+    font-size: .80rem;
+    cursor: pointer;
+    text-align: center;
+    -webkit-appearance: none;
+	-moz-appearance: none;
+	position: relative; 
+	left: 1px;
+	top: -3.1px; 
+}
