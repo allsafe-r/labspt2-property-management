@@ -31,8 +31,12 @@ class Menu extends React.Component {
 			<div className={this.state.hasScrolled ? 'Header HeaderScrolled' : 'Header'}>
 				<div className="HeaderGroup">
 					<img src={require('../../assets/images/logo8.svg')} width="180" alt="Logo" />
-					<p>Features</p>
-					<p>Pricing</p>
+					<Link to={'/'}>
+						<button className="login-button">Features</button>
+					</Link>
+					<Link to={'/'}>
+						<button className="login-button">Pricing</button>
+					</Link>
 					<Link to={'/login'}>
 						<button className="login-button">Log In</button>
 					</Link>
