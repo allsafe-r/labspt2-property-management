@@ -19,7 +19,7 @@ import './workorders.css';
 // const url = `https://tenantly-back.herokuapp.com/${this.state.id}`;
 const styles = theme => ({
   card: {
-    maxWidth: 400,
+    maxWidth: 500,
   },
   media: {
     height: 0,
@@ -41,6 +41,9 @@ const styles = theme => ({
   avatar: {
     backgroundColor: red[500],
   },
+  ListItem: {
+  	font: '20px',
+  }
 });
 
 
@@ -110,10 +113,7 @@ export default class Workordercard extends Component {
 					</ListItem>
 					<Divider />
 					<ListItem>
-			       <CardMedia
-			          className='#'
-			          image={this.props.work.image}
-			        />
+
 			        </ListItem>
 			        <Divider />
 					<ListItem>
@@ -122,7 +122,7 @@ export default class Workordercard extends Component {
 					/>
 					</ListItem>
 					<Divider />
-	
+					<ListItem>
 					{/* Radio button form */}
 					{this.inputs.map((values, i) => (
 						<div key={i}>
@@ -136,6 +136,7 @@ export default class Workordercard extends Component {
 							/>
 						</div>
 					))}
+					</ListItem>
 				</List>
 			</Card>
 		);
