@@ -2,13 +2,14 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 import '../../assets/css/general.css';
 import { Link } from 'react-router-dom';
+import Popup from './Popup'
 
 class Menu extends React.Component {
 	constructor(props) {
 		super(props);
-
 		this.state = {
-			hasScrolled: false
+			hasScrolled: false,
+			showPopUp: false
 		};
 	}
 
@@ -26,6 +27,12 @@ class Menu extends React.Component {
 		}
 	};
 
+	togglePopUp() {
+		this.setState({
+			showPopUp: !this.state.showPopUp
+		  });
+	}
+
 	render() {
 		return (
 			<div className={this.state.hasScrolled ? 'Header HeaderScrolled' : 'Header'}>
@@ -36,9 +43,13 @@ class Menu extends React.Component {
 					<Link to={'/login'}>
 						<button className="login-button-menu">Login</button>
 					</Link>
-					<Link to={'/register'}>
-						<button className="register-button-menu">Register</button>
-					</Link>
+						<button className="register-button-menu" onClick={this.togglePopUp.bind(this)}> Register </button>
+					{this.state.showPopUp ? 
+						<Popup
+							text='Close Me'
+							closePopup={this.togglePopUp.bind(this)}						/>
+						: null
+						}
 				</div>
 			</div>
 		);
