@@ -16,7 +16,7 @@ class SideMenu extends Component {
 					<Link to={'/admin/properties'}>
 						<li>Properties</li>
 					</Link>
-					<Link to={'/admin/workorders'}>
+					<Link to={'/admin/worklist'}>
 						<li>Work Orders</li>
 					</Link>
 					<Link to={'/admin/add-tenant'}>

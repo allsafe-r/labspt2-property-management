@@ -1,10 +1,45 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Card from '@material-ui/core/Card';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardHeader from '@material-ui/core/CardHeader';
+import { withStyles } from '@material-ui/core/styles';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
+import red from '@material-ui/core/colors/red';
+import Divider from '@material-ui/core/Divider';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
 // const url = process.env.workOrderCard || `http://localhost:9000/workorders/${this.state.id}`;
 // const url = `https://tenantly-back.herokuapp.com/${this.state.id}`;
+const styles = theme => ({
+  card: {
+    maxWidth: 400,
+  },
+  media: {
+    height: 0,
+    paddingTop: '56.25%', // 16:9
+  },
+  actions: {
+    display: 'flex',
+  },
+  expand: {
+    transform: 'rotate(0deg)',
+    marginLeft: 'auto',
+    transition: theme.transitions.create('transform', {
+      duration: theme.transitions.duration.shortest,
+    }),
+  },
+  expandOpen: {
+    transform: 'rotate(180deg)',
+  },
+  avatar: {
+    backgroundColor: red[500],
+  },
+});
+
+
 export default class Workordercard extends Component {
 	constructor(props) {
 		super(props);
@@ -51,25 +86,53 @@ export default class Workordercard extends Component {
 	render() {
 		return (
 			<Card className="property-card">
-				<h1>{this.props.work.property}</h1>
-				<h1>{this.props.work.tenant}</h1>
-				<h1>{this.props.work.description}</h1>
-				<h1>{this.props.work.phone}</h1>
-				<h1>Unsupervised Entry is {this.props.work.unsupervisedEntry ? 'Allowed' : 'Not Allowed'} </h1>
-
-				{/* Radio button form */}
-				{this.inputs.map((values, i) => (
-					<div key={i}>
-						<h1>{values}</h1>
-						<Radio
-							
-							name={values}
-							onChange={this.statushandler}
-							value={values}
-							checked={this.state.status === values}
+				<CardHeader>{this.props.work.property}</CardHeader>
+				<List>
+					<ListItem>
+						<ListItemText
+						primary={this.props.work.tenant} />
+					</ListItem>
+					<Divider />
+					<ListItem>
+						<ListItemText
+						primary={this.props.work.description}
 						/>
-					</div>
-				))}
+					</ListItem>
+					<Divider />
+					<ListItem>
+						<ListItemText
+						primary={this.props.work.phone}
+						/>
+					</ListItem>
+					<Divider />
+					<ListItem>
+			       <CardMedia
+			          className='#'
+			          image={this.props.work.image}
+			        />
+			        </ListItem>
+			        <Divider />
+					<ListItem>
+					<ListItemText
+					primary={`Unsupervised Entry is ${this.props.work.unsupervisedEntry ? 'Allowed' : 'Not Allowed'}`} 
+					/>
+					</ListItem>
+					<Divider />
+	
+					{/* Radio button form */}
+					{this.inputs.map((values, i) => (
+						<div key={i}>
+							<h1>{values}</h1>
+							<Radio
+								
+								name={values}
+								onChange={this.statushandler}
+								value={values}
+								checked={this.state.status === values}
+							/>
+						</div>
+					))}
+				</List>
 			</Card>
 		);
 	}
