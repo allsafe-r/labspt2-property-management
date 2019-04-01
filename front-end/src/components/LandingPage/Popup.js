@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../assets/css/general.css';
 
 class Popup extends React.Component {
     render() {
