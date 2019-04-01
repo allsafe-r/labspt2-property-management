@@ -17,8 +17,8 @@ const styles = theme => ({
     backgroundColor: theme.palette.background.paper,
   },
   gridList: {
-    width: 500,
-    height: 650,
+    width: 1500,
+    height: 1550,
   },
 });
 
@@ -40,12 +40,12 @@ export default class Workorderlist extends Component {
 
 			<GridList className="workorderlist">
 
-			<Grid container className="workorderlist">
+
 
 				{/* display work order cards */}
 				
 				{this.state.workorders.map((work) => <Workordercard key={work.id} work={work} />)}
-			</Grid>
+
 			</GridList>
 
 
