@@ -1,0 +1,11 @@
+.test {
+    display: flex;
+    width: 20%;
+    height: 400px;
+    border: 1px black solid;
+    padding: 10px;
+    margin: 10px;
+    flex-wrap: wrap;
+    flex-direction: row;
+    font-size: 15px;
+}

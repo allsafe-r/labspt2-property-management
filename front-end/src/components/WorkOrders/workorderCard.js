@@ -11,6 +11,10 @@ import Divider from '@material-ui/core/Divider';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import Modal from '@material-ui/core/Modal';
+import Grid from '@material-ui/core/Grid';
+import './workorders.css';
+
 // const url = process.env.workOrderCard || `http://localhost:9000/workorders/${this.state.id}`;
 // const url = `https://tenantly-back.herokuapp.com/${this.state.id}`;
 const styles = theme => ({

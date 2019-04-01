@@ -3,6 +3,8 @@ import axios from 'axios';
 import { withStyles } from '@material-ui/core/styles';
 import Workordercard from './workorderCard';
 import GridList from '@material-ui/core/GridList';
+import Grid from '@material-ui/core/Grid';
+
 // const url = process.env.getWO || 'https://localhost:9000/workorders';
 const url = 'https://tenantly-back.herokuapp.com/workorders';
 
@@ -35,11 +37,19 @@ export default class Workorderlist extends Component {
 	}
 	render() {
 		return (
+
 			<GridList className="workorderlist">
+
+			<Grid container className="workorderlist">
+
 				{/* display work order cards */}
 				
 				{this.state.workorders.map((work) => <Workordercard key={work.id} work={work} />)}
+			</Grid>
 			</GridList>
+
+
+
 		);
 	}
 }
