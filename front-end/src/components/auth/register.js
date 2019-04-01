@@ -97,7 +97,7 @@ class Register extends Component {
 					/>
 				</div>
 				<div>
-					<button>Register</button>
+				<button className="form__button">Register</button>
 				</div>
 				<div>
 					<p>Already have an account?</p>
