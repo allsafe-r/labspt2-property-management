@@ -103,7 +103,7 @@ body {
   font-weight: 700;
 }
 
-.Header button {
+.Header .register-button {
   padding: 8px 20px;
   font-size: 20px;
   border: none;
@@ -116,14 +116,29 @@ body {
   transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
+.HeaderGroup .login-button {
+  padding: 8px 20px;
+  font-size: 20px;
+  border: none;
+  color: black;
+  font-weight: 700;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+}
 
-.Header button:hover {
+.Header .register-button:hover {
   background: white;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
   transform: translateY(-3px);
   color: gray;
 }
 
+.HeaderGroup .login-button:hover {
+  background: white;
+  transform: translateY(-3px);
+  color: gray;
+}
 @media (max-width: 640px) {
   .Header {
     padding: 15px 0;
