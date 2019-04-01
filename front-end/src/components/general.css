@@ -171,6 +171,10 @@ body {
   text-align: center;
 }
 
+.HeroGroup .request-demo-button:hover {
+  background: white;
+  color: black;
+}
 .Hero h1 {
   margin: 0;
   color: black;
@@ -206,6 +210,8 @@ body {
   border-radius: 20px;
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
+
+
 
 .Hero a:hover {
   background: white;

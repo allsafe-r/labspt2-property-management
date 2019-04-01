@@ -14,7 +14,7 @@ const IndexPage = () => (
 				</h1>
 				<p>Manage tasks, payments, work orders anywhere, anytime. </p>
 				<Link to={'/'}>
-						<button>Request a demo</button>
+						<button className="request-demo-button">Request a demo</button>
 				</Link>				
 				<Wave />
 			</div>
