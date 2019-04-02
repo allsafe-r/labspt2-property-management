@@ -7,6 +7,7 @@ import RouteContainer from './components/routeContainer';
 import Login from './components/auth/login';
 import Register from './components/auth/register';
 import RegisterTwo from './components/auth/register2';
+import Pricing from './components/LandingPage/Pricing';
 
 import { Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
@@ -60,7 +61,8 @@ class App extends Component {
 				<div>
 					<Route exact path={'/'} component={Menu} />
 					<Route exact path={'/'} component={IndexPage} />
-					<Route exact path={'/register'} component={RegisterTwo} />
+					<Route exact path={'/register'} component={Register} />
+					<Route path={'/register/plan'} component={Pricing} />
 					<Route exact path={'/login'} render={(props) => <Login {...props} authenticate={this.authenticate} />} />
 				</div>
 			);

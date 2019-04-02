@@ -36,7 +36,7 @@ class Menu extends React.Component {
 					<Link to={'/login'}>
 						<button className="login-button-menu">Login</button>
 					</Link>
-					<Link to={'/register'}>
+					<Link to={'/register/plan'}>
 						<button className="register-button-menu">Register</button>
 					</Link>
 				</div>

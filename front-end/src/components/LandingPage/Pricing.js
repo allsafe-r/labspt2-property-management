@@ -10,6 +10,7 @@ import Grid from '@material-ui/core/Grid';
 import StarIcon from '@material-ui/icons/StarBorder';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom';
 
 const styles = theme => ({
   '@global': {
@@ -158,9 +159,11 @@ function Pricing(props) {
                   ))}
                 </CardContent>
                 <CardActions className={classes.cardActions}>
-                  <Button fullWidth variant={tier.buttonVariant} color="primary">
+                <Link to={'/register'}>
+                  <Button fullWidth variant={tier.buttonVariant} color="primary" >
                     {tier.buttonText}
                   </Button>
+                  </Link>
                 </CardActions>
               </Card>
             </Grid>
