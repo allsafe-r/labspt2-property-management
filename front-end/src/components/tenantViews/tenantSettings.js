@@ -8,7 +8,8 @@ class TenantSettings extends Component {
 		textSubscribe: false,
 		emailSubscribe: false,
 		oldPW: '',
-		newPW: ''
+		newPW1: '',
+		newPw2: ''
 	};
 
 	componentDidMount() {
@@ -32,6 +33,19 @@ class TenantSettings extends Component {
 
 	onSubmit = (e) => {
 		e.preventDefault();
+		if (this.state.newPW1 !== this.state.newPW2) {
+			alert('You new passwords do not match');
+		} else {
+			axios
+				// .get(`https://tenantly-back.herokuapp.com/users/${id}`)
+				.get(`https://www.localhost.com:9000/users/${id}`)
+				.then((res) => {
+					console.log(res);
+				})
+				.catch((err) => {
+					console.log(err);
+				});
+		}
 	};
 
 	handleCheckboxChange = (e) => {
@@ -91,7 +105,7 @@ class TenantSettings extends Component {
 						<input
 							placeholder="new password"
 							name="newPW1"
-							value={this.state.newPW}
+							value={this.state.newPW1}
 							onChange={this.onChange}
 							type="password"
 						/>
@@ -100,7 +114,7 @@ class TenantSettings extends Component {
 						<input
 							placeholder="new password"
 							name="newPW2"
-							value={this.state.newPW}
+							value={this.state.newPW2}
 							onChange={this.onChange}
 							type="password"
 						/>
