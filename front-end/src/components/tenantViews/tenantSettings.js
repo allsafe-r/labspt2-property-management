@@ -45,7 +45,7 @@ class TenantSettings extends Component {
 			alert('You new passwords do not match');
 		} else {
 			axios
-				// .put(`https://tenantly-back.herokuapp.com/users/${id}`)
+				// .put(`https://tenantly-back.herokuapp.com/users/${id}`, { ...this.state, id: parseInt(id) })
 				.put(`http://www.localhost:9000/users/${id}`, { ...this.state, id: parseInt(id) })
 				.then((res) => {
 					console.log(res);

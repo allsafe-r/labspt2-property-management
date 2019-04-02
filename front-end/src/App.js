@@ -9,7 +9,6 @@ import Register from './components/auth/register';
 import { Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
-
 // const url = process.env.home || 'http://localhost:9000';
 
 const url = 'https://tenantly-back.herokuapp.com';
@@ -50,6 +49,7 @@ class App extends Component {
 
 	logOut = () => {
 		localStorage.removeItem('jwtToken');
+		localStorage.removeItem('userId');
 		this.setState({ loggedIn: false });
 	};
 
@@ -61,22 +61,21 @@ class App extends Component {
 					<Route exact path={'/'} component={IndexPage} />
 					<Route exact path={'/register'} component={Register} />
 					<Route exact path={'/login'} render={(props) => <Login {...props} authenticate={this.authenticate} />} />
-					
 				</div>
 			);
 		} else {
 			return (
 				<div>
 					<div className="top-bar">
-					<Link to={'/'}>
-						<button onClick={this.logOut}>Logout</button>
-					</Link>
-					<Link to={'/admin/properties'}>
-						<button>Development Purposes - I'm an admin!</button>
-					</Link>
-					<Link to={'/tenant/dashboard'}>
-						<button>Development Purposes - I'm a tenant!</button>
-					</Link>
+						<Link to={'/'}>
+							<button onClick={this.logOut}>Logout</button>
+						</Link>
+						<Link to={'/admin/properties'}>
+							<button>Development Purposes - I'm an admin!</button>
+						</Link>
+						<Link to={'/tenant/dashboard'}>
+							<button>Development Purposes - I'm a tenant!</button>
+						</Link>
 					</div>
 					<RouteContainer />
 
