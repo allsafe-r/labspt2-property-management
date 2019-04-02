@@ -481,7 +481,8 @@ body {
 
 .form__button:focus,
 .form__button:hover {
-background-color: #5bacc5; 
+background-color: white;
+color: #fc766a;
 }
 
 
