@@ -10,6 +10,7 @@ import StarIcon from '@material-ui/icons/StarBorder';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
+import Menu from './Menu'
 
 const styles = theme => ({
   '@global': {
@@ -17,6 +18,7 @@ const styles = theme => ({
       backgroundColor: theme.palette.common.white,
     },
   },
+
   appBar: {
     position: 'relative',
   },
@@ -24,17 +26,22 @@ const styles = theme => ({
     flex: 1,
   },
   layout: {
-    width: 'auto',
-    marginLeft: theme.spacing.unit * 3,
-    marginRight: theme.spacing.unit * 3,
+    width: '100%',
+    backgroundColor: '#fff',
+    // marginLeft: theme.spacing.unit * 3,
+    // marginRight: theme.spacing.unit * 3,
     [theme.breakpoints.up(900 + theme.spacing.unit * 3 * 2)]: {
-      width: 900,
+    
       marginLeft: 'auto',
       marginRight: 'auto',
+      backgroundColor: 'white',
+      border:' 1px solid red',
+
     },
   },
   heroContent: {
     maxWidth: 600,
+    
     margin: '0 auto',
     padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`,
   },
@@ -46,8 +53,10 @@ const styles = theme => ({
     justifyContent: 'center',
     alignItems: 'baseline',
     marginBottom: theme.spacing.unit * 2,
+    
   },
   cardActions: {
+    backgroundColor: '#fff',
     [theme.breakpoints.up('sm')]: {
       paddingBottom: theme.spacing.unit * 2,
     },
@@ -121,13 +130,18 @@ function Pricing(props) {
   const { classes } = props;
 
   return (
+    
     <React.Fragment>
+      <div className="menu">
+        <Menu />
+    </div>
+
       <main className={classes.layout}>
         {/* Hero unit */}
         <div className={classes.heroContent}>
-          <Typography component="h1" variant="h3" align="center" color="textPrimary" gutterBottom>
+          {/* <Typography component="h1" variant="h3" align="center" color="textPrimary" gutterBottom>
             I am a __________
-          </Typography>
+          </Typography> */}
         </div>
         {/* End hero unit */}
         <Grid container spacing={40} alignItems="flex-end">

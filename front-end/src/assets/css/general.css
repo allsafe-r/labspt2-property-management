@@ -571,3 +571,9 @@ button[type=submit] {
 	 font-size: .8rem;
 	 padding-top: 10px;
  }
+
+ /* PRICING */
+
+ .menu {
+	 border: 1px solid black;
+ }
