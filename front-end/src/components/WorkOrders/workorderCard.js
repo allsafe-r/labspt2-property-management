@@ -13,6 +13,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Modal from '@material-ui/core/Modal';
 import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
 import './workorders.css';
 
 // const url = process.env.workOrderCard || `http://localhost:9000/workorders/${this.state.id}`;
@@ -86,7 +87,7 @@ export default class Workordercard extends Component {
 					</ListItem>
 					<Divider />
 					<ListItem>
-
+					<CardMedia image={this.props.work.image} />
 			        </ListItem>
 			        <Divider />
 					<ListItem>
