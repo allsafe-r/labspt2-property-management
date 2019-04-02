@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import logo from '../../assets/images/logo.png';
 // import Menu from '../LandingPage/Menu';
 // import Pricing from '../LandingPage/Pricing'
 // const url = process.env.register || 'http://localhost:9000/api/register';
@@ -43,7 +44,8 @@ class Register extends Component {
 	render() {
 		return (
 			 <div className="form-container">
-			<form onSubmit={this.onSubmit}>
+				<form onSubmit={this.onSubmit}>
+					<img className="logo-login" src={logo} alt="Logo" />
 				<div>
 					<input type="radio" onClick={this.isAdmin} value="LANDLORD" name="account"/> Landlord
 					<input type="radio" onClick={this.isNotAdmin} value="TENANT" name="account"/> Tenant
