@@ -5,6 +5,7 @@ class TenantSettings extends Component {
 	state = {
 		email: '',
 		phone: '',
+		username: '',
 		textSubscribe: false,
 		emailSubscribe: false,
 		oldPW: '',
@@ -15,13 +16,15 @@ class TenantSettings extends Component {
 	componentDidMount() {
 		let id = localStorage.getItem('userId');
 		axios
-			.get(`https://tenantly-back.herokuapp.com/users/${id}`)
+			// .get(`https://tenantly-back.herokuapp.com/users/${id}`)
+			.get(`http://localhost:9000/users/${id}`)
 			.then((user) => {
 				this.setState({
 					email: user.data.email,
 					phone: user.data.phone,
 					textSubscribe: user.data.textSubscribe,
-					emailSubscribe: user.data.emailSubscribe
+					emailSubscribe: user.data.emailSubscribe,
+					username: user.data.displayName
 				});
 			})
 			.catch((err) => console.log(err));
@@ -34,18 +37,23 @@ class TenantSettings extends Component {
 	onSubmit = (e) => {
 		let id = localStorage.getItem('userId');
 		e.preventDefault();
-		if (this.state.oldPW !== '' && this.state.newPW1 !== '' && this.state.newPW1 !== this.state.newPW2) {
+		if (this.state.oldPW !== '' && this.state.newPW1 === '') {
+			alert('Only enter in your old password if you want to change your password');
+		} else if ((this.state.oldPW === '') & (this.state.newPW1 !== '')) {
+			alert('Please enter your previous password to update to new password');
+		} else if (this.state.oldPW !== '' && this.state.newPW1 !== '' && this.state.newPW1 !== this.state.newPW2) {
 			alert('You new passwords do not match');
 		} else {
 			axios
-				// .get(`https://tenantly-back.herokuapp.com/users/${id}`)
-				.put(`http://www.localhost:9000/users/${id}`, this.state)
+				// .put(`https://tenantly-back.herokuapp.com/users/${id}`)
+				.put(`http://www.localhost:9000/users/${id}`, { ...this.state, id: parseInt(id) })
 				.then((res) => {
 					console.log(res);
 				})
 				.catch((err) => {
 					console.log(err);
-				});
+				})
+				.then(this.setState({ oldPW: '', newPW1: '', newPW2: '' }));
 		}
 	};
 
@@ -57,6 +65,16 @@ class TenantSettings extends Component {
 		return (
 			<div>
 				<form onSubmit={this.onSubmit}>
+					<div>
+						<input
+							placeholder="username"
+							name="username"
+							value={this.state.username}
+							onChange={this.onChange}
+							type="text"
+							required
+						/>
+					</div>
 					<div>
 						<input
 							placeholder="email"

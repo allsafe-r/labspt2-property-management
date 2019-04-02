@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../data/helper/usersModal');
+const bcrypt = require('bcryptjs');
 
 router.get('/', (req, res) => {
 	db.getUsers().then((users) => res.status(200).json(users)).catch((err) => {
@@ -56,25 +57,59 @@ router.post('/', (req, res, next) => {
 });
 
 router.put('/:id', (req, res, next) => {
-	const { id } = req.params;
-	const edit = req.body;
-	console.log(edit);
-	console.log('hi');
-
-	db
-		.editUser(id, edit)
-		.then((updated) => {
-			if (updated) {
-				res.status(200).json({
-					message: 'User updated'
-				});
+	db.findByUserId(req.body.id).then((user) => {
+		const id = user.id;
+		if (req.body.oldPW) {
+			if (bcrypt.compareSync(req.body.oldPW, user.password)) {
+				hash = bcrypt.hashSync(req.body.newPW1);
+				const edit = {
+					email: req.body.email,
+					phone: req.body.phone,
+					textSubscribe: req.body.textSubscribe,
+					emailSubscribe: req.body.emailSubscribe,
+					password: hash
+				};
+				db
+					.editUser(id, edit)
+					.then((updated) => {
+						if (updated) {
+							res.status(200).json({
+								message: 'User updated'
+							});
+						} else {
+							res.status(404).json({ error: 'That user seems to be missing!' });
+						}
+					})
+					.catch((err) => {
+						next('h500', err);
+					});
 			} else {
-				res.status(404).json({ error: 'That user seems to be missing!' });
+				res.status(401).json({ error: 'Your old password is incorrect' });
 			}
-		})
-		.catch((err) => {
-			next('h500', err);
-		});
+		} else {
+			const edit = {
+				username: req.body.username,
+				email: req.body.email,
+				phone: req.body.phone,
+				textSubscribe: req.body.textSubscribe,
+				emailSubscribe: req.body.emailSubscribe
+			};
+			db
+				.editUser(id, edit)
+				.then((updated) => {
+					if (updated) {
+						res.status(200).json({
+							message: 'User updated'
+						});
+					} else {
+						res.status(404).json({ error: 'That user seems to be missing!' });
+					}
+				})
+				.catch((err) => {
+					next('h500', err);
+				});
+		}
+	});
 });
 
 router.delete('/:id', (req, res) => {
