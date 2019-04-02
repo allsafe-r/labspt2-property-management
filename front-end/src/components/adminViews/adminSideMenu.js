@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../../assets/css/general.css';
+import { Route } from 'react-router-dom';
+import Billing from './adminBilling';
 
 class SideMenu extends Component {
 	constructor() {
@@ -12,6 +14,7 @@ class SideMenu extends Component {
 	render() {
 		return (
 			<div className="admin side-menu">
+			<Route exact path={'/admin/billing'} component={Billing} />
 				<ul>
 					<Link to={'/admin/properties'}>
 						<li>Properties</li>
