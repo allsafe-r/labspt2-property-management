@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import '../../assets/css/general.css';
 // const url = process.env.register || 'http://localhost:9000/api/register';
 const url = 'https://tenantly-back.herokuapp.com/api/register';
 
@@ -40,11 +41,11 @@ class Register extends Component {
 
 	render() {
 		return (
-			<div className="form-container">
+			<div className="popup-form-container">
 			<form onSubmit={this.onSubmit}>
 				<div>
-					<button onClick={this.isAdmin}>I am a landlord</button>
-					<button onClick={this.isNotAdmin}>I am a tenant</button>
+					<button className="auth-toggle" onClick={this.isAdmin}>I am a landlord</button>
+					<button className="auth-toggle" onClick={this.isNotAdmin}>I am a tenant</button>
 				</div>
 				<div>
 					<input

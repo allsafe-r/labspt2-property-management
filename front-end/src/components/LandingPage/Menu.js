@@ -44,13 +44,16 @@ class Menu extends React.Component {
 						<button className="login-button-menu">Login</button>
 					</Link>
 						<button className="register-button-menu" onClick={this.togglePopUp.bind(this)}> Register </button>
+						</div>
 					{this.state.showPopUp ? 
 						<Popup
-							text='Close Me'
-							closePopup={this.togglePopUp.bind(this)}						/>
+							text='How would you like to use Tenantly?'
+							closePopup={this.togglePopUp.bind(this)}
+							/>
 						: null
+						
 						}
-				</div>
+				
 			</div>
 		);
 	}

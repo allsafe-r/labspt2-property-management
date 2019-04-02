@@ -448,17 +448,14 @@ button[type=submit] {
     border-bottom: 1px solid lightgray; 
     background-color: transparent;
     outline: none;
-	background-color: white;
-	
-  }
+		background-color: white;
+}
 
 .login-p {
 	text-align: center;
 	/* padding-top: 8px; */
 	font-family: 'Montserrat';
 	font-size: .80rem;
-
-
 }
 
 .no-account {
@@ -480,8 +477,55 @@ button[type=submit] {
     cursor: pointer;
     text-align: center;
     -webkit-appearance: none;
-	-moz-appearance: none;
-	position: relative; 
-	left: 1px;
-	top: -3.1px; 
+		-moz-appearance: none;
+		position: relative; 
+		left: 1px;
+		top: -3.1px; 
+}
+
+/* REGISTER */
+.form-container .auth-toggle {
+	position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* REGISTER POP UP */
+
+.popup{
+	width: 70%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid red;
+	height: 30%;
+	background-color: white;
+
+}
+
+.popup_inner {
+
+}
+
+.popup-form-container {
+	/* display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #FFF2F1; */
+	border: 1px solid red;
+  }
+
+.popup-form-container form {
+
+  background-color: white;
+  box-shadow: 0 2px 1px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 500px;
+	width: 100%;
+	padding: 40px;
+  justify-content: center;
 }
