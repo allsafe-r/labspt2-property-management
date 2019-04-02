@@ -27,7 +27,7 @@
 }
 
 .side-menu {
-  font-size: 1.5em;
+  font-size: 1.5rem;
 }
 
 .side-menu ul li {
@@ -147,7 +147,7 @@ body {
 }
 
 .menu-options p {
-  padding: 0.2em;
+  padding: 0.4em;
 }
 
 .menu-icon {
@@ -162,6 +162,8 @@ body {
   display: none;
 }
 
+.button-2:hover {
+}
 @media (max-width: 650px) {
   .narrow {
     display: flex;
@@ -217,19 +219,17 @@ body {
 
 .HeroGroup {
   padding-top: 150px;
-  padding-bottom: 50px;
   text-align: center;
 }
 
 .jumbo {
-  height: 480px;
   width: 100%;
 }
 
 .Hero h1 {
   margin: 0;
   color: black;
-  font-size: 60px;
+  font-size: 6rem;
   line-height: 1.2;
   opacity: 0;
   animation: HeroAnimation;
@@ -240,10 +240,9 @@ body {
 }
 
 .Hero p {
-  /* color: rgba(255, 255, 255, 0.8); */
   color: black;
 
-  font-size: 25px;
+  font-size: 2.5rem;
   line-height: 1.5;
   animation: HeroAnimation 3s 0.2s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
   opacity: 0;
@@ -265,7 +264,6 @@ body {
 
 .Hero button:hover {
   background: #fc766a;
-  color: black;
 }
 
 .Hero a:hover {
@@ -277,7 +275,7 @@ body {
   .Hero {
   }
   .HeroGroup {
-    padding: 100px 20px;
+    padding-top: 100px;
   }
 
   .Hero h1 {
@@ -285,7 +283,14 @@ body {
   }
 
   .Hero p {
-    font-size: 24px;
+    font-size: 2.4rem;
+  }
+
+  svg {
+    display: none;
+  }
+  .down-arrow {
+    bottom: 0px;
   }
 }
 
@@ -300,9 +305,80 @@ body {
   }
 }
 
+.down-arrow {
+  display: flex;
+  justify-content: center;
+  bottom: 90px;
+  width: 100%;
+  position: relative;
+}
+.down-arrow:hover {
+  background: none;
+}
 .Hero svg {
   position: relative;
-  bottom: 70px;
+  bottom: 30px;
+}
+
+@media (max-width: 650px) {
+  .down-arrow {
+    bottom: 0px;
+  }
+}
+
+/*Body*/
+.titleCenter {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.titleCenter h1 {
+  font-size: 4rem;
+}
+
+.titleCenter p {
+  font-size: 2rem;
+}
+
+.sectionHome {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-bottom: 60px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.left {
+  width: 50%;
+}
+.right {
+  width: 50%;
+}
+.right img {
+  width: 100%;
+}
+
+.textSection {
+  text-align: center;
+}
+
+@media (max-width: 650px) {
+  .titleCenter {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sectionHome {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 /* Card */

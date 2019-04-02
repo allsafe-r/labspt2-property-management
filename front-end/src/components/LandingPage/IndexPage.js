@@ -17,16 +17,18 @@ const IndexPage = () => (
       </Link>
     </div>
     <img
-      alt="close-burger"
+      alt="wall-paper"
       className="jumbo"
-      src={require("../../assets/images/wallpaper5.png")}
+      src={require("../../assets/images/wallpaper.png")}
     />
     <Wave />
-    <img
-      style={{ width: 50, height: 50 }}
-      alt="arrows"
-      src={require("../../assets/images/arrows-down.png")}
-    />
+    <a href="#body" className="down-arrow">
+      <img
+        style={{ width: 50, height: 50 }}
+        alt="arrows"
+        src={require("../../assets/images/arrows-down.png")}
+      />
+    </a>
   </div>
 );
 

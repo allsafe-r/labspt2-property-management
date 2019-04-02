@@ -21,7 +21,7 @@ const styles = {
 function Body(props) {
   const { classes } = props;
   return (
-    <div className={classes.root}>
+    <div className={classes.root} id="body">
       <HomeSection />
       <Pricing />
     </div>
