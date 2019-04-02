@@ -98,7 +98,7 @@ router.put('/:id', (req, res, next) => {
 		} else {
 			// if they update information but don't try to change password
 			const edit = {
-				username: req.body.username,
+				displayName: req.body.displayName,
 				email: req.body.email,
 				phone: req.body.phone,
 				textSubscribe: req.body.textSubscribe,

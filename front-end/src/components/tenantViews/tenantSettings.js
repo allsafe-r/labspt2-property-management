@@ -5,7 +5,7 @@ class TenantSettings extends Component {
 	state = {
 		email: '',
 		phone: '',
-		username: '',
+		displayName: '',
 		textSubscribe: false,
 		emailSubscribe: false,
 		oldPW: '',
@@ -24,7 +24,7 @@ class TenantSettings extends Component {
 					phone: user.data.phone,
 					textSubscribe: user.data.textSubscribe,
 					emailSubscribe: user.data.emailSubscribe,
-					username: user.data.displayName
+					displayName: user.data.displayName
 				});
 			})
 			.catch((err) => console.log(err));
@@ -75,9 +75,9 @@ class TenantSettings extends Component {
 				<form onSubmit={this.onSubmit}>
 					<div>
 						<input
-							placeholder="username"
-							name="username"
-							value={this.state.username}
+							placeholder="displayName"
+							name="displayName"
+							value={this.state.displayName}
 							onChange={this.onChange}
 							type="text"
 							required
