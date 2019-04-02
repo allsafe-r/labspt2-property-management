@@ -1,7 +1,28 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Card from '@material-ui/core/Card';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardContent from '@material-ui/core/CardContent';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import { withStyles } from '@material-ui/core/styles';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import red from '@material-ui/core/colors/red';
+import Divider from '@material-ui/core/Divider';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import Modal from '@material-ui/core/Modal';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import './workorders.css';
+
 // const url = process.env.workOrderCard || `http://localhost:9000/workorders/${this.state.id}`;
 // const url = `https://tenantly-back.herokuapp.com/${this.state.id}`;
+
+
+
 export default class Workordercard extends Component {
 	constructor(props) {
 		super(props);
@@ -47,27 +68,47 @@ export default class Workordercard extends Component {
 
 	render() {
 		return (
-			<div className="property-card">
-				<h1>{this.props.work.property}</h1>
-				<h1>{this.props.work.tenant}</h1>
-				<h1>{this.props.work.description}</h1>
-				<h1>{this.props.work.phone}</h1>
-				<h1>Unsupervised Entry is {this.props.work.unsupervisedEntry ? 'Allowed' : 'Not Allowed'} </h1>
+			<Card>
+				<CardActionArea>
+				<CardMedia image={this.props.work.image} />
+				<CardHeader>{this.props.work.property}</CardHeader>
+				
+				<Typography component='p'>
+						{this.props.work.tenant}
+				</Typography>
+				<Typography component='p'>
+						{this.props.work.description}
+						</Typography>
+						<Typography component='p'>
+						{this.props.work.phone}
+						</Typography>
 
-				{/* Radio button form */}
-				{this.inputs.map((values, i) => (
-					<div key={i}>
-						<h1>{values}</h1>
-						<input
-							type="radio"
-							name={values}
-							onChange={this.statushandler}
-							value={values}
-							checked={this.state.status === values}
-						/>
+					
+					{`Unsupervised Entry is ${this.props.work.unsupervisedEntry ? 'Allowed' : 'Not Allowed'}`} 
+					
+					
+					</CardActionArea>
+					
+					
+					{/* Radio button form */}
+					<div className="flexbuttons">
+					{this.inputs.map((values, i) => (
+						<div key={i}>
+							<h1>{values}</h1>
+							<Radio
+								
+								name={values}
+								onChange={this.statushandler}
+								value={values}
+								checked={this.state.status === values}
+							/>
+						</div>
+						
+					))}
 					</div>
-				))}
-			</div>
+				
+				
+			</Card>
 		);
 	}
 }

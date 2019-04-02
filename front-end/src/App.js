@@ -1,12 +1,14 @@
 import React, { Component } from "react";
-import "./App.css";
+import "./assets/css/App.css";
 import Stripe from "./components/Stripe";
-import DashBoard from "./components/DashBoard/dashBoardView";
-import Login from "./components/DashBoard/login";
-import Register from "./components/DashBoard/register";
+import Menu from "./components/LandingPage/Menu";
+import IndexPage from "./components/LandingPage/IndexPage";
+import RouteContainer from "./components/routeContainer";
+import Login from "./components/auth/login";
+import Register from "./components/auth/register";
+import LandingView from "./components/LandingPage/LandingView";
 import { Route } from "react-router-dom";
 import { Link } from "react-router-dom";
-import LandingView from "./components/LandingPage/LandingView";
 
 // const url = process.env.home || 'http://localhost:9000';
 
@@ -56,6 +58,7 @@ class App extends Component {
       return (
         <div>
           <Route exact path={"/"} component={LandingView} />
+
           <Route exact path={"/register"} component={Register} />
           <Route
             exact
@@ -69,16 +72,18 @@ class App extends Component {
     } else {
       return (
         <div>
-          <Link to={"/"}>
-            <button onClick={this.logOut}>Logout</button>
-          </Link>
-          <Link to={"/admin/properties"}>
-            <button>Development Purposes - I'm an admin!</button>
-          </Link>
-          <Link to={"/tenant/dashboard"}>
-            <button>Development Purposes - I'm a tenant!</button>
-          </Link>
-          <DashBoard />
+          <div className="top-bar">
+            <Link to={"/"}>
+              <button onClick={this.logOut}>Logout</button>
+            </Link>
+            <Link to={"/admin/properties"}>
+              <button>Development Purposes - I'm an admin!</button>
+            </Link>
+            <Link to={"/tenant/dashboard"}>
+              <button>Development Purposes - I'm a tenant!</button>
+            </Link>
+          </div>
+          <RouteContainer />
 
           <Stripe />
         </div>

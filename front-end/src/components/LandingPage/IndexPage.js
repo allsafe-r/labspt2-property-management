@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 // import PropTypes from 'prop-types';
 import Wave from "./Wave";
-import "../general.css";
+import "../../assets/css/general.css";
 
 const IndexPage = () => (
   <div className="Hero">
@@ -12,7 +12,7 @@ const IndexPage = () => (
         made easier.
       </h1>
       <p>Manage tasks, payments, work orders anywhere, anytime. </p>
-      <Link to={"/try-it-free/request-a-demo"}>
+      <Link to={"/register"}>
         <button>GET A CUSTOMIZED DEMO</button>
       </Link>
     </div>
@@ -31,9 +31,5 @@ const IndexPage = () => (
     </a>
   </div>
 );
-
-// IndexPage.propTypes = {
-//     classes: PropTypes.object.isRequired,
-//   };
 
 export default IndexPage;

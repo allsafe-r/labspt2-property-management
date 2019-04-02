@@ -3,11 +3,6 @@
   flex-direction: row;
 }
 
-.hero-image {
-  background: url("./assets/images/condo.jpg") center / cover;
-  height: 400px;
-}
-
 .MuiSvgIcon-root-79 {
   color: white;
 }
@@ -23,12 +18,6 @@
   text-align: center;
   font-size: 30px;
   font-style: italic;
-}
-
-.showcase {
-  background: url("./assets/images/showcase.png") center / cover;
-  margin: 50px;
-  height: 300px;
 }
 
 body {

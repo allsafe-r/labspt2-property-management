@@ -1,8 +1,20 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { withStyles } from '@material-ui/core/styles';
 import Workordercard from './workorderCard';
+//import GridList from '@material-ui/core/GridList';
+import Grid from '@material-ui/core/Grid';
+
 // const url = process.env.getWO || 'https://localhost:9000/workorders';
 const url = 'https://tenantly-back.herokuapp.com/workorders';
+
+const styles = theme =>({
+	test: {
+		width: 100,
+		height: 1000,
+	}
+})
+
 
 export default class Workorderlist extends Component {
 	constructor(props) {
@@ -19,10 +31,19 @@ export default class Workorderlist extends Component {
 	}
 	render() {
 		return (
-			<div className="workorderlist">
+
+			<Grid container spacing={24} style={{padding: 24}}className="workorderlist">
+
+
+
 				{/* display work order cards */}
-				{this.state.workorders.map((work) => <Workordercard key={work.id} work={work} />)}
-			</div>
+				
+				{this.state.workorders.map((work) => <Grid item className={styles.test} sm={12} lg={5}> <Workordercard key={work.id} work={work} /> </Grid>)}
+
+			</Grid>
+
+
+
 		);
 	}
 }

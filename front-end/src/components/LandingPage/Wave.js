@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../general.css";
+import "../../assets/css/general.css";
 
 // import PropTypes from 'prop-types';
 

@@ -3,7 +3,7 @@ import Menu from "./Menu";
 import IndexPage from "./IndexPage";
 import Body from "./Body";
 
-import "../general.css";
+import "../../assets/css/general.css";
 
 const LandingView = () => {
   return (

@@ -36,15 +36,16 @@ class Imageform extends React.Component {
 	}
 
 	onChange(e) {
+		e.preventDefault();
 		this.setState({ file: e.target.files[0] });
 	}
 
 	render() {
 		return (
-			<form onSubmit={this.onFormSubmit}>
+			<form>
 				<h1>File Upload</h1>
 				<input type="file" name="image" onChange={this.onChange} />
-				<button type="submit">Upload</button>
+				<button onClick={this.onFormSubmit}>Upload</button>
 			</form>
 		);
 	}
