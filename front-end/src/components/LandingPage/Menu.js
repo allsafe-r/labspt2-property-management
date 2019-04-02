@@ -30,7 +30,7 @@ class Menu extends React.Component {
 		return (
 			<div className={this.state.hasScrolled ? 'Header HeaderScrolled' : 'Header'}>
 				<div className="HeaderGroup">
-					<img src={require('../../assets/images/logo8.svg')} width="180" alt="Logo" />
+					<img src={require('../../assets/images/logo.png')} width="180" alt="Logo" />
 					<button className="features">Features</button>
 					<button className="features">Pricing</button>
 					<Link to={'/login'}>
