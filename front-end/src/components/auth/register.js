@@ -49,8 +49,8 @@ class Register extends Component {
 					<img className="logo-login" src={logo} alt="Logo" />
 					</Link>
 				<div className="register-radio-container">
-					<input type="radio" onClick={this.isAdmin} value="LANDLORD" name="account"/> Landlord
-					<input type="radio" onClick={this.isNotAdmin} value="TENANT" name="account"/> Tenant
+					<input type="radio" onClick={this.isAdmin} value="LANDLORD" name="account"/> <p className="radio-p">Landlord</p>
+					<input type="radio" onClick={this.isNotAdmin} value="TENANT" name="account"/> <p className="radio-p">Tenant</p> 
 				</div>
 			
 				<div>
