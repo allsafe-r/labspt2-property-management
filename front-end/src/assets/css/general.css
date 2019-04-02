@@ -538,10 +538,10 @@ button[type=submit] {
     cursor: pointer;
     text-align: center;
     -webkit-appearance: none;
-	-moz-appearance: none;
-	position: relative; 
-	left: 1px;
-	top: -3.1px; 
+		-moz-appearance: none;
+		position: relative; 
+		left: 1px;
+		top: -3.1px; 
 }
 
 
@@ -566,7 +566,6 @@ button[type=submit] {
 	 font-size: 2rem;
 
  }
-
 
 
  /* PRICING */
