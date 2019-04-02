@@ -1,5 +1,4 @@
 import React from 'react';
-import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
@@ -58,7 +57,7 @@ const styles = theme => ({
     borderTop: `1px solid ${theme.palette.divider}`,
     padding: `${theme.spacing.unit * 6}px 0`,
   },
-  
+
 });
 
 const tiers = [

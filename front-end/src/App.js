@@ -6,7 +6,7 @@ import Stripe from './components/Stripe';
 import RouteContainer from './components/routeContainer';
 import Login from './components/auth/login';
 import Register from './components/auth/register';
-import RegisterTwo from './components/auth/register2';
+// import RegisterTwo from './components/auth/register2';
 import Pricing from './components/LandingPage/Pricing';
 
 import { Route } from 'react-router-dom';
