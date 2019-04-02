@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactGA from 'react-ga';
 import './assets/css/App.css';
 import Menu from './components/LandingPage/Menu';
 import IndexPage from './components/LandingPage/IndexPage';
@@ -9,11 +8,11 @@ import Login from './components/auth/login';
 import Register from './components/auth/register';
 // import RegisterTwo from './components/auth/register2';
 import Pricing from './components/LandingPage/Pricing';
+import { logPageView } from './utils/analytics'
+import { initGA } from './utils/analytics'
 
 import { Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-
-
 // const url = process.env.home || 'http://localhost:9000';
 
 const url = 'https://tenantly-back.herokuapp.com';
@@ -23,8 +22,11 @@ class App extends Component {
 	state = {
 		loggedIn: false
 	};
+	
 
 	componentDidMount() {
+		initGA();
+		logPageView();
 		this.authenticate();
 	}
 
@@ -57,10 +59,6 @@ class App extends Component {
 		this.setState({ loggedIn: false });
 	};
 
-	function initializeReactGA() {
-		ReactGA.initialize('UA-137488840-1');
-		ReactGA.pageview('/');
-	}
 
 	render() {
 		if (this.state.loggedIn === false) {
