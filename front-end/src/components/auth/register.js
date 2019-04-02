@@ -44,8 +44,11 @@ class Register extends Component {
 		return (
 			<form onSubmit={this.onSubmit}>
 				<div>
-					<button onClick={this.isAdmin}>I am a landlord</button>
-					<button onClick={this.isNotAdmin}>I am a tenant</button>
+					<input type="radio" onClick={this.isAdmin} value="LANDLORD" name="account"/> Landlord
+					<input type="radio" onClick={this.isNotAdmin} value="TENANT" name="account"/> Tenant
+				</div>
+				<div>
+					<h1>Create a Tenantly account</h1>
 				</div>
 				<div>
 					<input
