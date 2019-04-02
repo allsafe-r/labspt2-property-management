@@ -44,7 +44,9 @@ class Register extends Component {
 		return (
 			 <div className="form-container">
 				<form onSubmit={this.onSubmit}>
+					<Link to={'/'}>
 					<img className="logo-login" src={logo} alt="Logo" />
+					</Link>
 				<div>
 					<input type="radio" onClick={this.isAdmin} value="LANDLORD" name="account"/> Landlord
 					<input type="radio" onClick={this.isNotAdmin} value="TENANT" name="account"/> Tenant
