@@ -34,7 +34,9 @@ class Login extends Component {
 		return (
       <div className="form-container">
 			<form onSubmit={this.onSubmit}>
+			<Link to={'/'}>
 				<img className="logo-login" src={logo} alt="Logo" />
+			</Link>
 				<div className="user-container">
 					<input
 						placeholder="username"
