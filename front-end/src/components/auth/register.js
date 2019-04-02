@@ -42,6 +42,7 @@ class Register extends Component {
 
 	render() {
 		return (
+			 <div className="form-container">
 			<form onSubmit={this.onSubmit}>
 				<div>
 					<input type="radio" onClick={this.isAdmin} value="LANDLORD" name="account"/> Landlord
@@ -110,6 +111,7 @@ class Register extends Component {
 					</Link>
 				</div>
 			</form>
+			</div>
 		);
 	}
 }
