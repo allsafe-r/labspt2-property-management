@@ -485,3 +485,11 @@ button[type=submit] {
 	left: 1px;
 	top: -3.1px; 
 }
+
+
+ /* REGISTER PRICING */
+
+ .register-pricing {
+	 border: 1px solid red;
+	 height: 100vh;
+ }
