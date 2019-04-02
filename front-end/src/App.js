@@ -12,6 +12,7 @@ import Pricing from './components/LandingPage/Pricing';
 import { Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
+
 // const url = process.env.home || 'http://localhost:9000';
 
 const url = 'https://tenantly-back.herokuapp.com';
@@ -64,11 +65,13 @@ class App extends Component {
 					<Route exact path={'/register'} component={Register} />
 					<Route path={'/register/plan'} component={Pricing} />
 					<Route exact path={'/login'} render={(props) => <Login {...props} authenticate={this.authenticate} />} />
+					
 				</div>
 			);
 		} else {
 			return (
 				<div>
+					<div className="top-bar">
 					<Link to={'/'}>
 						<button onClick={this.logOut}>Logout</button>
 					</Link>
@@ -78,6 +81,7 @@ class App extends Component {
 					<Link to={'/tenant/dashboard'}>
 						<button>Development Purposes - I'm a tenant!</button>
 					</Link>
+					</div>
 					<RouteContainer />
 
 					<Stripe />

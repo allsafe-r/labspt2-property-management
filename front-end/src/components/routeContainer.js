@@ -12,12 +12,14 @@ import TenantSettings from './tenantViews/tenantSettings';
 import TenantDashboard from './tenantViews/tenantDashboard';
 import TenantPayments from './tenantViews/tenantPayments';
 import TenantMaintenance from './tenantViews/tenantMaintenance';
+import Billing from './adminViews/adminBilling.js';
 
 const RouteContainer = () => {
 	return (
 		<div className="dashboard-container">
 			<Route path="/admin" component={SideMenu} />
 			<Route exact path="/admin/properties" component={PropertyList} />
+			<Route exact path="/admin/billing" component={Billing} />
 			<Route path="/admin/worklist" component={Workorderlist} />
 			<Route path="/admin/view-property/:id" component={DisplayProperty} />
 			<Route path="/admin/add-property" component={AddProperty} />
@@ -26,7 +28,7 @@ const RouteContainer = () => {
 			<Route path="/tenant" component={TenantSideMenu} />
 			<Route exact path="/tenant/dashboard" component={TenantDashboard} />
 			<Route exact path="/tenant/payments" component={TenantPayments} />
-			<Route exact path="/tenant/maintenance" component={TenantMaintenance} />
+			<Route exact path="/tenant/maintenance" component={Workorderform} />
 			<Route exact path="/tenant/settings" component={TenantSettings} />
 		</div>
 	);

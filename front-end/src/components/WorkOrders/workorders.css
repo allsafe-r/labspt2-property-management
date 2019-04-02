@@ -1,0 +1,16 @@
+.test {
+    display: flex;
+    width: 90%;
+    height: 100px;
+    border: 1px black solid;
+    
+    flex-wrap: wrap;
+    flex-direction: row;
+    font-size: 15px;
+    justify-content: space-between;
+}
+
+.flexbuttons{
+    display: flex;
+    justify-content: space-around;
+}
