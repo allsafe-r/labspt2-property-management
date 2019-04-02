@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactGA from 'react-ga';
 import './assets/css/App.css';
 import Menu from './components/LandingPage/Menu';
 import IndexPage from './components/LandingPage/IndexPage';
@@ -55,6 +56,11 @@ class App extends Component {
 		localStorage.removeItem('jwtToken');
 		this.setState({ loggedIn: false });
 	};
+
+	function initializeReactGA() {
+		ReactGA.initialize('UA-137488840-1');
+		ReactGA.pageview('/');
+	}
 
 	render() {
 		if (this.state.loggedIn === false) {
