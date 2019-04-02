@@ -18,6 +18,10 @@ export default class tenantSettings extends Component {
 		e.preventDefault();
 	};
 
+	handleCheckboxChange = (e) => {
+		this.setState({ [e.target.name]: e.target.checked });
+	};
+
 	render() {
 		return (
 			<div>
@@ -30,7 +34,23 @@ export default class tenantSettings extends Component {
 					</div>
 					<div>
 						<input
-							placeholder="old password"
+							type="checkbox"
+							name="textSubscribe"
+							value={this.state.textSubscribe}
+							onChange={this.handleCheckboxChange}
+						/>
+						<span>Get texts</span>
+						<input
+							type="checkbox"
+							name="emailSubscribe"
+							value={this.state.emailSubscribe}
+							onChange={this.handleCheckboxChange}
+						/>
+						<span>Get emails?</span>
+					</div>
+					<div>
+						<input
+							placeholder="password"
 							name="oldPW"
 							value={this.state.oldPW}
 							onChange={this.onChange}
