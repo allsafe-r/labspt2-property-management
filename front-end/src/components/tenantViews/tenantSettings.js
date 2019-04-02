@@ -10,6 +10,10 @@ export default class tenantSettings extends Component {
 		newPW: ''
 	};
 
+	componentDidMount() {
+		let id = localStorage.getItem('userId');
+	}
+
 	onChange = (e) => {
 		this.setState({ [e.target.name]: e.target.value });
 	};

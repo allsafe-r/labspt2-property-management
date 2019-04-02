@@ -21,7 +21,9 @@ class Login extends Component {
 		axios
 			.post(url, this.state)
 			.then((res) => {
+				// console.log(res.data);
 				localStorage.setItem('jwtToken', res.data.token);
+				localStorage.setItem('userId', res.data.userId);
 				// this.props.history.push('/');
 				this.props.authenticate();
 			})
@@ -32,40 +34,40 @@ class Login extends Component {
 
 	render() {
 		return (
-      <div className="form-container">
-			<form onSubmit={this.onSubmit}>
-				<img className="logo-login" src={logo} alt="Logo" />
-				<div className="user-container">
-					<input
-						placeholder="username"
-						name="username"
-						value={this.state.username}
-						onChange={this.onChange}
-						type="text"
-						required
-					/>
-				</div>
-				<div className="password-container">
-					<input
-						placeholder="password"
-						name="password"
-						value={this.state.password}
-						onChange={this.onChange}
-						type="password"
-						required
-					/>
-				</div>
-				<div>
-				<button className="form__button">Login</button>
-				</div>
-				<div className="no-account">
-					<p className="login-p">Don't have an account?</p>
-					<Link to={'/register'}>
-					<button className="register-button">Register</button>
-					</Link>
-				</div>
-			</form>
-		</div>
+			<div className="form-container">
+				<form onSubmit={this.onSubmit}>
+					<img className="logo-login" src={logo} alt="Logo" />
+					<div className="user-container">
+						<input
+							placeholder="username"
+							name="username"
+							value={this.state.username}
+							onChange={this.onChange}
+							type="text"
+							required
+						/>
+					</div>
+					<div className="password-container">
+						<input
+							placeholder="password"
+							name="password"
+							value={this.state.password}
+							onChange={this.onChange}
+							type="password"
+							required
+						/>
+					</div>
+					<div>
+						<button className="form__button">Login</button>
+					</div>
+					<div className="no-account">
+						<p className="login-p">Don't have an account?</p>
+						<Link to={'/register'}>
+							<button className="register-button">Register</button>
+						</Link>
+					</div>
+				</form>
+			</div>
 		);
 	}
 }
