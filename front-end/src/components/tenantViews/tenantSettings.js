@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
-export default class tenantSettings extends Component {
+class TenantSettings extends Component {
 	state = {
 		email: '',
 		phone: '',
@@ -12,6 +13,17 @@ export default class tenantSettings extends Component {
 
 	componentDidMount() {
 		let id = localStorage.getItem('userId');
+		axios
+			.get(`https://tenantly-back.herokuapp.com/users/${id}`)
+			.then((user) => {
+				this.setState({
+					email: user.data.email,
+					phone: user.data.phone,
+					textSubscribe: user.data.textSubscribe,
+					emailSubscribe: user.data.emailSubscribe
+				});
+			})
+			.catch((err) => console.log(err));
 	}
 
 	onChange = (e) => {
@@ -31,10 +43,24 @@ export default class tenantSettings extends Component {
 			<div>
 				<form onSubmit={this.onSubmit}>
 					<div>
-						<input placeholder="email" name="email" value={this.state.email} onChange={this.onChange} type="text" />
+						<input
+							placeholder="email"
+							name="email"
+							value={this.state.email}
+							onChange={this.onChange}
+							type="text"
+							required
+						/>
 					</div>
 					<div>
-						<input placeholder="phone" name="phone" value={this.state.phone} onChange={this.onChange} type="text" />
+						<input
+							placeholder="phone"
+							name="phone"
+							value={this.state.phone}
+							onChange={this.onChange}
+							type="text"
+							required
+						/>
 					</div>
 					<div>
 						<input
@@ -64,7 +90,7 @@ export default class tenantSettings extends Component {
 					<div>
 						<input
 							placeholder="new password"
-							name="newPW"
+							name="newPW1"
 							value={this.state.newPW}
 							onChange={this.onChange}
 							type="password"
@@ -73,15 +99,17 @@ export default class tenantSettings extends Component {
 					<div>
 						<input
 							placeholder="new password"
-							name="newPW"
+							name="newPW2"
 							value={this.state.newPW}
 							onChange={this.onChange}
 							type="password"
 						/>
 					</div>
-					<button>Submit Changes</button>
+					<button>Update</button>
 				</form>
 			</div>
 		);
 	}
 }
+
+export default TenantSettings;
