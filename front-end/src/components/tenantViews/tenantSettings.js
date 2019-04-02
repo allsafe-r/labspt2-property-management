@@ -35,15 +35,22 @@ class TenantSettings extends Component {
 	};
 
 	onSubmit = (e) => {
-		let id = localStorage.getItem('userId');
 		e.preventDefault();
+
+		// grabbing ID off local storage to access specific user info
+		let id = localStorage.getItem('userId');
+
+		// If the user enters old password without trying to change password, it throws warning
 		if (this.state.oldPW !== '' && this.state.newPW1 === '') {
 			alert('Only enter in your old password if you want to change your password');
-		} else if ((this.state.oldPW === '') & (this.state.newPW1 !== '')) {
+		} else if (this.state.oldPW === '' && this.state.newPW1 !== '') {
+			// If they try to create a new password without entering old password
 			alert('Please enter your previous password to update to new password');
 		} else if (this.state.oldPW !== '' && this.state.newPW1 !== '' && this.state.newPW1 !== this.state.newPW2) {
+			// If new passwords do not match it throws error
 			alert('You new passwords do not match');
 		} else {
+			// If old password is entered AND new passwords match, then it continues to attempt update
 			axios
 				.put(`https://tenantly-back.herokuapp.com/users/${id}`, { ...this.state, id: parseInt(id) })
 				// .put(`http://www.localhost:9000/users/${id}`, { ...this.state, id: parseInt(id) })
