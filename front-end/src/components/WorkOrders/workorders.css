@@ -9,3 +9,8 @@
     font-size: 15px;
     justify-content: space-between;
 }
+
+.flexbuttons{
+    display: flex;
+    justify-content: space-around;
+}

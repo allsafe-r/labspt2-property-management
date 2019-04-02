@@ -3,6 +3,8 @@ import axios from 'axios';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardHeader from '@material-ui/core/CardHeader';
+import CardContent from '@material-ui/core/CardContent';
+import CardActionArea from '@material-ui/core/CardActionArea';
 import { withStyles } from '@material-ui/core/styles';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
@@ -66,38 +68,30 @@ export default class Workordercard extends Component {
 
 	render() {
 		return (
-			<Card className="property-card">
+			<Card>
+				<CardActionArea>
+				<CardMedia image={this.props.work.image} />
 				<CardHeader>{this.props.work.property}</CardHeader>
-				<List>
-					<ListItem>
-						<ListItemText
-						primary={this.props.work.tenant} />
-					</ListItem>
-					<Divider />
-					<ListItem>
-						<ListItemText
-						primary={this.props.work.description}
-						/>
-					</ListItem>
-					<Divider />
-					<ListItem>
-						<ListItemText
-						primary={this.props.work.phone}
-						/>
-					</ListItem>
-					<Divider />
-					<ListItem>
-					<CardMedia image={this.props.work.image} />
-			        </ListItem>
-			        <Divider />
-					<ListItem>
-					<ListItemText
-					primary={`Unsupervised Entry is ${this.props.work.unsupervisedEntry ? 'Allowed' : 'Not Allowed'}`} 
-					/>
-					</ListItem>
-					<Divider />
-					<ListItem>
+				
+				<Typography component='p'>
+						{this.props.work.tenant}
+				</Typography>
+				<Typography component='p'>
+						{this.props.work.description}
+						</Typography>
+						<Typography component='p'>
+						{this.props.work.phone}
+						</Typography>
+
+					
+					{`Unsupervised Entry is ${this.props.work.unsupervisedEntry ? 'Allowed' : 'Not Allowed'}`} 
+					
+					
+					</CardActionArea>
+					
+					
 					{/* Radio button form */}
+					<div className="flexbuttons">
 					{this.inputs.map((values, i) => (
 						<div key={i}>
 							<h1>{values}</h1>
@@ -109,9 +103,11 @@ export default class Workordercard extends Component {
 								checked={this.state.status === values}
 							/>
 						</div>
+						
 					))}
-					</ListItem>
-				</List>
+					</div>
+				
+				
 			</Card>
 		);
 	}
