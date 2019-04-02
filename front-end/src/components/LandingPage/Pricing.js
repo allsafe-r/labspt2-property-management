@@ -68,7 +68,7 @@ const tiers = [
     'Create maintenance tickets',
     'Get alerts for rent and bills',
     'Pay rent'],
-    buttonText: 'Sign up for free',
+    buttonText: 'SELECT PLAN',
     buttonVariant: 'outlined',
   },
   {
@@ -80,7 +80,7 @@ const tiers = [
       'Manage maintenance requests',
       'Stay up to date',
     ],
-    buttonText: 'Get started',
+    buttonText: 'SELECT PLAN',
     buttonVariant: 'contained',
   },
   {
@@ -92,7 +92,7 @@ const tiers = [
         'Manage maintenance requests',
         'Stay up to date',
     ],
-    buttonText: 'Contact us',
+    buttonText: 'SELECT PLAN',
     buttonVariant: 'outlined',
   },
 ];
