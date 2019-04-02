@@ -67,6 +67,7 @@ class App extends Component {
 		} else {
 			return (
 				<div>
+					<div className="top-bar">
 					<Link to={'/'}>
 						<button onClick={this.logOut}>Logout</button>
 					</Link>
@@ -76,6 +77,7 @@ class App extends Component {
 					<Link to={'/tenant/dashboard'}>
 						<button>Development Purposes - I'm a tenant!</button>
 					</Link>
+					</div>
 					<RouteContainer />
 
 					<Stripe />
