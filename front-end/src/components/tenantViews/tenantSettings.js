@@ -16,8 +16,8 @@ class TenantSettings extends Component {
 	componentDidMount() {
 		let id = localStorage.getItem('userId');
 		axios
-			// .get(`https://tenantly-back.herokuapp.com/users/${id}`)
-			.get(`http://localhost:9000/users/${id}`)
+			.get(`https://tenantly-back.herokuapp.com/users/${id}`)
+			// .get(`http://localhost:9000/users/${id}`)
 			.then((user) => {
 				this.setState({
 					email: user.data.email,
@@ -45,8 +45,8 @@ class TenantSettings extends Component {
 			alert('You new passwords do not match');
 		} else {
 			axios
-				// .put(`https://tenantly-back.herokuapp.com/users/${id}`, { ...this.state, id: parseInt(id) })
-				.put(`http://www.localhost:9000/users/${id}`, { ...this.state, id: parseInt(id) })
+				.put(`https://tenantly-back.herokuapp.com/users/${id}`, { ...this.state, id: parseInt(id) })
+				// .put(`http://www.localhost:9000/users/${id}`, { ...this.state, id: parseInt(id) })
 				.then((res) => {
 					console.log(res);
 					alert(res.data.message);
