@@ -17,34 +17,7 @@ import './workorders.css';
 
 // const url = process.env.workOrderCard || `http://localhost:9000/workorders/${this.state.id}`;
 // const url = `https://tenantly-back.herokuapp.com/${this.state.id}`;
-const styles = theme => ({
-  card: {
-    maxWidth: 500,
-  },
-  media: {
-    height: 0,
-    paddingTop: '56.25%', // 16:9
-  },
-  actions: {
-    display: 'flex',
-  },
-  expand: {
-    transform: 'rotate(0deg)',
-    marginLeft: 'auto',
-    transition: theme.transitions.create('transform', {
-      duration: theme.transitions.duration.shortest,
-    }),
-  },
-  expandOpen: {
-    transform: 'rotate(180deg)',
-  },
-  avatar: {
-    backgroundColor: red[500],
-  },
-  ListItem: {
-  	font: '20px',
-  }
-});
+
 
 
 export default class Workordercard extends Component {
