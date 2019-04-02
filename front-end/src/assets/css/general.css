@@ -551,3 +551,17 @@ button[type=submit] {
 	 border: 1px solid red;
 	 height: 100vh;
  }
+
+ /* REGISTER FORM */
+ .register-radio-container {
+	 padding-bottom: 20px;
+	 width: 30%;
+	 display: flex;
+	 flex-direction: row;
+	 justify-content: space-around;
+ }
+
+ .register-radio-container input {
+	
+
+ }

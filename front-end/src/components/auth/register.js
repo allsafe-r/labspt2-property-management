@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/images/logo.png';
+import '../../assets/css/general.css'
 // import Pricing from '../LandingPage/Pricing'
 // const url = process.env.register || 'http://localhost:9000/api/register';
 const url = 'https://tenantly-back.herokuapp.com/api/register';
@@ -47,13 +48,11 @@ class Register extends Component {
 					<Link to={'/'}>
 					<img className="logo-login" src={logo} alt="Logo" />
 					</Link>
-				<div>
+				<div className="register-radio-container">
 					<input type="radio" onClick={this.isAdmin} value="LANDLORD" name="account"/> Landlord
 					<input type="radio" onClick={this.isNotAdmin} value="TENANT" name="account"/> Tenant
 				</div>
-				<div>
-					<h1>Create a Tenantly account</h1>
-				</div>
+			
 				<div>
 					<input
 						placeholder="username"
