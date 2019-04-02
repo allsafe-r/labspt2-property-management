@@ -59,6 +59,7 @@ router.put('/:id', (req, res, next) => {
 	const { id } = req.params;
 	const edit = req.body;
 	console.log(edit);
+	console.log('hi');
 
 	db
 		.editUser(id, edit)

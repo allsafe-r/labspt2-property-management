@@ -32,13 +32,14 @@ class TenantSettings extends Component {
 	};
 
 	onSubmit = (e) => {
+		let id = localStorage.getItem('userId');
 		e.preventDefault();
-		if (this.state.newPW1 !== this.state.newPW2) {
+		if (this.state.oldPW !== '' && this.state.newPW1 !== '' && this.state.newPW1 !== this.state.newPW2) {
 			alert('You new passwords do not match');
 		} else {
 			axios
 				// .get(`https://tenantly-back.herokuapp.com/users/${id}`)
-				.get(`https://www.localhost.com:9000/users/${id}`)
+				.put(`http://www.localhost:9000/users/${id}`, this.state)
 				.then((res) => {
 					console.log(res);
 				})
