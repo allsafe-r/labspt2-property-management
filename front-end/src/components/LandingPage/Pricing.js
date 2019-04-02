@@ -97,25 +97,25 @@ const tiers = [
     buttonVariant: 'outlined',
   },
 ];
-const footers = [
-  {
-    title: 'Company',
-    description: ['About Us', 'Locations'],
-  },
-  {
-    title: 'Product',
-    description: ['Property Manager', 'Tenant Portal', ],
-  },
-  {
-    title: 'Contact',
-    description: ['info@tenently.com', 'Locations'],
-  },
-  {
-    title: 'Call',
-    description: ['1-800-555-5555'],
-  },
+// const footers = [
+//   {
+//     title: 'Company',
+//     description: ['About Us', 'Locations'],
+//   },
+//   {
+//     title: 'Product',
+//     description: ['Property Manager', 'Tenant Portal', ],
+//   },
+//   {
+//     title: 'Contact',
+//     description: ['info@tenently.com', 'Locations'],
+//   },
+//   {
+//     title: 'Call',
+//     description: ['1-800-555-5555'],
+//   },
   
-];
+// ];
 
 function Pricing(props) {
   const { classes } = props;
