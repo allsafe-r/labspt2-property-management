@@ -61,16 +61,19 @@ const styles = theme => ({
 
 const tiers = [
   {
-    title: 'Free',
+    title: 'Tenant',
     price: '0',
-    description: ['10 properties', '15 Tenent Accounts', 'Email support'],
+    description: [
+    'Communicate with landlords',
+    'Create maintenance tickets',
+    'Get alerts for rent and bills',
+    'Pay rent'],
     buttonText: 'Sign up for free',
     buttonVariant: 'outlined',
   },
   {
-    title: 'Pro',
-    subheader: 'Most popular',
-    price: '75',
+    title: 'Landlord',
+    price: '9.99',
     description: [
       '1 Property Manager',
       '100 properties',
@@ -81,8 +84,8 @@ const tiers = [
     buttonVariant: 'contained',
   },
   {
-    title: 'Enterprise',
-    price: '250',
+    title: 'Property Manager',
+    price: '24.99',
     description: [
         '10 Property Managers',
         'Unlimited properties',
@@ -122,7 +125,7 @@ function Pricing(props) {
         {/* Hero unit */}
         <div className={classes.heroContent}>
           <Typography component="h1" variant="h3" align="center" color="textPrimary" gutterBottom>
-            Pricing
+            I am a __________
           </Typography>
         </div>
         {/* End hero unit */}
