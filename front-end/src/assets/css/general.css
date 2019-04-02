@@ -561,7 +561,13 @@ button[type=submit] {
 	 justify-content: space-around;
  }
 
- .register-radio-container input {
-	
+ .register-radio-container input[type=radio] {
+	 font-family: 'Montserrat';
+	 font-size: 2rem;
 
+ }
+
+ .p-register {
+	 font-size: .8rem;
+	 padding-top: 10px;
  }

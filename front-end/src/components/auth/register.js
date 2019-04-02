@@ -104,10 +104,10 @@ class Register extends Component {
 					/>
 				</div>
 				<div>
-					<button>Register</button>
+					<button className="form__button">Register</button>
 				</div>
 				<div>
-					<p>Already have an account?</p>
+					<p className="p-register">Already have an account?</p>
 					<Link to={'/login'}>
 						<button>Login here</button>
 					</Link>
