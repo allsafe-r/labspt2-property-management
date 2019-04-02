@@ -59,9 +59,15 @@ router.post('/', (req, res, next) => {
 router.put('/:id', (req, res, next) => {
 	db.findByUserId(req.body.id).then((user) => {
 		const id = user.id;
+
+		//this code runs IF they type in the old password
 		if (req.body.oldPW) {
+			//this authenticates the old password
 			if (bcrypt.compareSync(req.body.oldPW, user.password)) {
+				// hashes the new password
 				hash = bcrypt.hashSync(req.body.newPW1);
+
+				// new object to update old
 				const edit = {
 					email: req.body.email,
 					phone: req.body.phone,
@@ -69,6 +75,8 @@ router.put('/:id', (req, res, next) => {
 					emailSubscribe: req.body.emailSubscribe,
 					password: hash
 				};
+
+				// calls database function to update user
 				db
 					.editUser(id, edit)
 					.then((updated) => {
@@ -84,9 +92,11 @@ router.put('/:id', (req, res, next) => {
 						next('h500', err);
 					});
 			} else {
+				// if the type in old password incorrect
 				res.status(401).json({ error: 'Your old password is incorrect' });
 			}
 		} else {
+			// if they update information but don't try to change password
 			const edit = {
 				username: req.body.username,
 				email: req.body.email,
