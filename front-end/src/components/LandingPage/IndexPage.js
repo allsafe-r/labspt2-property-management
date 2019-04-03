@@ -15,6 +15,9 @@ const IndexPage = () => (
 				<Link to={'/register'}>
 						<button>Request Demo</button>
 					</Link>
+          <div class="anchor-wrap">
+					  <a href="#footer" class="anchor"><span></span></a>
+				</div>
 			</div>
 		</div>
 	</div>
