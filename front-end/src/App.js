@@ -67,8 +67,8 @@ class App extends Component {
     if (this.state.loggedIn === false) {
       return (
         <div>
-          <Route path={"/"} component={LandingView} />
-          <Route exact path={"/register"} component={Register} />
+          <Route exact path={"/"} component={LandingView} />
+          <Route path={"/register"} component={Register} />
           <Route path={"/register/plan"} component={Pricing} />
           <Route
             exact
