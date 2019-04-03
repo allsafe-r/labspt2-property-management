@@ -3,6 +3,7 @@ import axios from 'axios';
 
 class AdminSettings extends Component {
 	state = {
+		username: '',
 		email: '',
 		phone: '',
 		displayName: '',
@@ -18,6 +19,7 @@ class AdminSettings extends Component {
 			// .get(`http://localhost:9000/users/${id}`)
 			.then((user) => {
 				this.setState({
+					username: this.data.username,
 					email: user.data.email,
 					phone: user.data.phone,
 					displayName: user.data.displayName
@@ -69,6 +71,9 @@ class AdminSettings extends Component {
 		return (
 			<div>
 				<form onSubmit={this.onSubmit}>
+					<div>
+						<input placeholder="username" value={this.state.username} type="text" required />
+					</div>
 					<div>
 						<input
 							placeholder="displayName"
