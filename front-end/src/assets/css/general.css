@@ -458,7 +458,6 @@ body {
 	will-change: translate;
 }
 
-
 .anchor:hover span {
 	-webkit-animation-duration: 4s;
 	animation-duration: 5s;
@@ -482,7 +481,6 @@ body {
 	overflow: hidden;
 }
 
-
 .anchor span:before,
 .anchor span:after {
 	content: "";
@@ -503,6 +501,39 @@ body {
 	-webkit-transform: rotate(-45deg);
 	-ms-transform: rotate(-45deg);
 	transform: rotate(-45deg);
+}
+
+.anchor-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: absolute;
+  bottom: 25px;
+  left: 0;
+  width: 100%;
+}
+
+.anchor-wrap > span {
+  font-size: 1.5rem;
+}
+
+.anchor-wrap > span {
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+
+.anchor-wrap {
+	position: absolute;
+	bottom: 29px;
+	left: 0;
+	width: 100%;
 }
 
 @media (max-width: 650px) {
