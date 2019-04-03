@@ -66,7 +66,7 @@ class Menu extends React.Component {
               <div className="logo">
                 <Link to={"/"}>
                   <img
-                    src={require("../../assets/images/logo8.svg")}
+                    src={require("../../assets/images/logo.png")}
                     alt="Logo"
                   />
                 </Link>
