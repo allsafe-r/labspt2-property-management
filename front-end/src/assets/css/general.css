@@ -1,10 +1,10 @@
 .landingpage {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
   background-color: white;
 }
 
-* DashBoard */ .dashboard-container {
+ .dashboard-container {
   display: flex;
   flex-direction: row;
 }
@@ -134,12 +134,17 @@ body {
 }
 
 .Header {
-  max-width: 1200px;
+  /* max-width: 1200px;
   position: fixed;
   width: 100%;
   padding: 50px 0;
   z-index: 100;
-  transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); */
+  position: fixed;
+	width: 100%;
+	padding: 50px 0;
+	z-index: 100;
+	transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .Header .login-button-menu {
@@ -313,7 +318,7 @@ body {
 	background-repeat: no-repeat;
 
 	background-position: center;
-	position: relative;
+  position: relative;
 }
 
 .HeroGroup {
