@@ -15,7 +15,7 @@ class SideMenu extends Component {
 			<div className="admin side-menu">
 				<ul>
 					<Link to={'/'}>
-						<img src={Logo} className="dashboardLogo" />
+						<img src={Logo} className="dashboardLogo" alt="Dash logo" />
 					</Link>
 					<Link to={'/admin/properties'}>
 						<li>Properties</li>

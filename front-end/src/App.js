@@ -6,9 +6,13 @@ import Stripe from './components/Stripe';
 import RouteContainer from './components/routeContainer';
 import Login from './components/auth/login';
 import Register from './components/auth/register';
+// import RegisterTwo from './components/auth/register2';
+import Pricing from './components/LandingPage/Pricing';
+import { logPageView } from './utils/analytics';
+import { initGA } from './utils/analytics';
+
 import { Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-
 // const url = process.env.home || 'http://localhost:9000';
 
 const url = 'https://tenantly-back.herokuapp.com';
@@ -20,6 +24,8 @@ class App extends Component {
 	};
 
 	componentDidMount() {
+		initGA();
+		logPageView();
 		this.authenticate();
 	}
 
@@ -60,6 +66,7 @@ class App extends Component {
 					<Route exact path={'/'} component={Menu} />
 					<Route exact path={'/'} component={IndexPage} />
 					<Route exact path={'/register'} component={Register} />
+					<Route path={'/register/plan'} component={Pricing} />
 					<Route exact path={'/login'} render={(props) => <Login {...props} authenticate={this.authenticate} />} />
 				</div>
 			);
