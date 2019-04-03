@@ -3,9 +3,9 @@ import './../../assets/css/dashboardComp.css';
 import './../../assets/css/general.css';
 import axios from 'axios';
 import Image from '../../assets/images/blue-on-dark.png';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import Card from '@material-ui/core/Card';
-import PropertyCard from '../properties/addProperty';
+// import PropertyCard from '../properties/addProperty';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import FormHelperText from '@material-ui/core/FormHelperText';
@@ -62,7 +62,7 @@ export default class Billing extends Component {
                   </Card>			
 				  <Card>
 					<a href="https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_Eh0R1RXhYNXEq9z56aVKr04CVDrJvxMc&scope=read_write">
-						<img src={Image} />
+						<img src={Image} alt="Logo"/>
 					</a>
 					</Card>
 			</div>
