@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import logo from '../../assets/images/logo.png';
+import '../../assets/css/general.css'
+// import Pricing from '../LandingPage/Pricing'
 // const url = process.env.register || 'http://localhost:9000/api/register';
 const url = 'https://tenantly-back.herokuapp.com/api/register';
 
@@ -40,11 +43,16 @@ class Register extends Component {
 
 	render() {
 		return (
-			<form onSubmit={this.onSubmit}>
-				<div>
-					<button onClick={this.isAdmin}>I am a landlord</button>
-					<button onClick={this.isNotAdmin}>I am a tenant</button>
+			 <div className="form-container">
+				<form onSubmit={this.onSubmit}>
+					<Link to={'/'}>
+					<img className="logo-login" src={logo} alt="Logo" />
+					</Link>
+				<div className="register-radio-container">
+					<input type="radio" onClick={this.isAdmin} value="LANDLORD" name="account"/> <p className="radio-p">Landlord</p>
+					<input type="radio" onClick={this.isNotAdmin} value="TENANT" name="account"/> <p className="radio-p">Tenant</p> 
 				</div>
+			
 				<div>
 					<input
 						placeholder="username"
@@ -96,15 +104,16 @@ class Register extends Component {
 					/>
 				</div>
 				<div>
-					<button>Register</button>
+					<button className="form__button">Register</button>
 				</div>
-				<div>
-					<p>Already have an account?</p>
+				<div className="no-account">
+				<p className="login-p">Already have an account?</p>
 					<Link to={'/login'}>
-						<button>Login here</button>
+					<button className="register-button">Login here</button>
 					</Link>
 				</div>
 			</form>
+			</div>
 		);
 	}
 }
