@@ -459,6 +459,29 @@ body {
 }
 
 
+.anchor:hover span {
+	-webkit-animation-duration: 4s;
+	animation-duration: 5s;
+	-webkit-animation-name: bounce;
+	animation-name: bounce;
+	-webkit-animation-timing-function: ease-in-out;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-play-state: running;
+	animation-play-state: running;
+	-webkit-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+	will-change: translate;
+}
+
+.anchor span {
+	position: absolute;
+	top: 24px;
+	left: 16px;
+	width: 24px;
+	height: 12px;
+	overflow: hidden;
+}
+
 @media (max-width: 650px) {
   .anchor {
     bottom: 0px;
