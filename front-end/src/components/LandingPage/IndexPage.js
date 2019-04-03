@@ -12,8 +12,8 @@ const IndexPage = () => (
         made easier.
       </h1>
       <p>Manage tasks, payments, work orders anywhere, anytime. </p>
-      <Link to={"/register"}>
-        <button>GET A CUSTOMIZED DEMO</button>
+      <Link to={"/"}>
+        <button>REQUEST A DEMO</button>
       </Link>
     </div>
     <img
