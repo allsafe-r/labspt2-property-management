@@ -54,9 +54,6 @@ class Menu extends React.Component {
             <Link to={"/"}>
               <p>Pricing</p>
             </Link>
-            <Link to={"/"}>
-              <p>Blog</p>
-            </Link>
             <Link to={"/login"}>
               <button>Login</button>
             </Link>
