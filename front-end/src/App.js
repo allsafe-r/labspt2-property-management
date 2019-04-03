@@ -1,15 +1,18 @@
 import React, { Component } from "react";
 import "./assets/css/App.css";
-import Stripe from "./components/Stripe";
 import Menu from "./components/LandingPage/Menu";
 import IndexPage from "./components/LandingPage/IndexPage";
+import Stripe from "./components/Stripe";
 import RouteContainer from "./components/routeContainer";
 import Login from "./components/auth/login";
 import Register from "./components/auth/register";
+// import RegisterTwo from './components/auth/register2';
+import Pricing from "./components/LandingPage/Pricing";
+import { logPageView } from "./utils/analytics";
+import { initGA } from "./utils/analytics";
 import LandingView from "./components/LandingPage/LandingView";
 import { Route } from "react-router-dom";
 import { Link } from "react-router-dom";
-
 // const url = process.env.home || 'http://localhost:9000';
 
 const url = "https://tenantly-back.herokuapp.com";
@@ -21,6 +24,12 @@ class App extends Component {
   };
 
   componentDidMount() {
+    this.authenticate();
+  }
+
+  componentDidMount() {
+    initGA();
+    logPageView();
     this.authenticate();
   }
 
@@ -50,6 +59,7 @@ class App extends Component {
 
   logOut = () => {
     localStorage.removeItem("jwtToken");
+    localStorage.removeItem("userId");
     this.setState({ loggedIn: false });
   };
 
@@ -57,9 +67,9 @@ class App extends Component {
     if (this.state.loggedIn === false) {
       return (
         <div>
-          <Route exact path={"/"} component={LandingView} />
-
+          <Route path={"/"} component={LandingView} />
           <Route exact path={"/register"} component={Register} />
+          <Route path={"/register/plan"} component={Pricing} />
           <Route
             exact
             path={"/login"}
