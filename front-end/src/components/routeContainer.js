@@ -13,6 +13,7 @@ import TenantDashboard from './tenantViews/tenantDashboard';
 import TenantPayments from './tenantViews/tenantPayments';
 // import TenantMaintenance from './tenantViews/tenantMaintenance';
 import Billing from './adminViews/adminBilling.js';
+import AdminSettings from './adminViews/adminSettings';
 
 const RouteContainer = () => {
 	return (
@@ -30,6 +31,7 @@ const RouteContainer = () => {
 			<Route exact path="/tenant/payments" component={TenantPayments} />
 			<Route exact path="/tenant/maintenance" component={Workorderform} />
 			<Route exact path="/tenant/settings" component={TenantSettings} />
+			<Route exact path="/admin/settings" component={AdminSettings} />
 		</div>
 	);
 };
