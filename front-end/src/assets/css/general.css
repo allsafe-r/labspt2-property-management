@@ -185,6 +185,10 @@ body {
   color: gray;
 }
 
+.menu-options p {
+  color: black;
+	font-weight: 700;
+}
 .menu-options p:hover {
   border-left: #fc766a solid;
   border-right: #fc766a solid;
