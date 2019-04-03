@@ -13,6 +13,7 @@ import { initGA } from "./utils/analytics";
 import LandingView from "./components/LandingPage/LandingView";
 import { Route } from "react-router-dom";
 import { Link } from "react-router-dom";
+import './assets/css/general.css'
 // const url = process.env.home || 'http://localhost:9000';
 
 const url = "https://tenantly-back.herokuapp.com";
@@ -66,7 +67,7 @@ class App extends Component {
   render() {
     if (this.state.loggedIn === false) {
       return (
-        <div>
+        <div >
           <Route exact path={"/"} component={LandingView} />
           <Route path={"/register"} component={Register} />
           <Route path={"/register/plan"} component={Pricing} />
