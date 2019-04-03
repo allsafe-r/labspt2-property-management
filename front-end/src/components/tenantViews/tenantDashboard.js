@@ -17,7 +17,7 @@ export default class tenantDashboard extends Component {
 		axios
 			.get(`https://tenantly-back.herokuapp.com/users/${id}`)
 			.then((user) => {
-				console.log(user);
+				// console.log(user);
 				this.setState({ houseId: user.residenceId });
 			})
 			.catch((err) => console.log(err));
@@ -25,7 +25,7 @@ export default class tenantDashboard extends Component {
 		axios.get(`https://tenantly-back.herokuapp.com/properties//${this.state.houseId}`).then((house) => {
 			this.setState({ address: house.address });
 		});
-		console.log(this.state);
+		// console.log(this.state);
 	}
 	render() {
 		return (
