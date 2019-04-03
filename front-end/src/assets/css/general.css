@@ -310,7 +310,6 @@ body {
 }
 
 /* Hero */
-/* Hero */
 .Hero {
 	background: url("../images/wallpaper9.png");
 	height: 920px;
@@ -377,15 +376,24 @@ body {
 
 @media (max-width: 640px) {
 	.HeroGroup {
-		padding: 100px 20px;
+    
+    
+  }
+  
+  .Hero {
+    border: 1px solid red;
+    
+  }
+
+	.Hero .HeroGroup h1 {
+    padding-top: 50px;
+    
+    font-size: 40px;
 	}
 
-	.Hero h1 {
-		font-size: 40px;
-	}
-
-	.Hero p {
-		font-size: 24px;
+	.Hero .HeroGroup p {
+    padding-top: 10px;
+		font-size: 23px;
 	}
 }
 
@@ -782,7 +790,7 @@ button[type="submit"] {
   text-align: center;
   /* padding-top: 8px; */
   font-family: "Montserrat";
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 
 .no-account {
@@ -799,7 +807,7 @@ button[type="submit"] {
   text-decoration: none;
   color: #fc766a;
   font-family: sans-serif;
-  font-size: 0.8rem;
+  font-size: 1rem;
   cursor: pointer;
   text-align: center;
   -webkit-appearance: none;
@@ -808,6 +816,7 @@ button[type="submit"] {
   left: 1px;
   top: -3.1px;
   background-color: white;
+
 }
 
 /* REGISTER PRICING */
@@ -828,7 +837,7 @@ button[type="submit"] {
 
 .register-radio-container .radio-p {
   font-family: "Montserrat";
-  font-size: 1rem;
+  font-size: 1.5rem;
 }
 
 /* PRICING */
