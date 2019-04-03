@@ -55,10 +55,10 @@ class Menu extends React.Component {
               <p>Pricing</p>
             </Link>
             <Link to={"/login"}>
-              <button>Login</button>
+              <button className="login-button-menu">Login</button>
             </Link>
             <Link to={"/register"}>
-              <button className="button-2">Register</button>
+            <button className="register-button-menu">Register</button>
             </Link>
           </div>
           <div className="narrow">
