@@ -291,7 +291,8 @@ body {
   .icon-burger {
     width: 100%;
     display: flex;
-    justify-content: flex-end;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
   }
 
@@ -301,6 +302,7 @@ body {
     cursor: pointer;
     padding-right: 100px;
   }
+
 
   .responsive {
     display: none;
@@ -314,18 +316,33 @@ body {
     
   }
   .narrow-responsive {
-    display: block;
+    /* display: block;
     text-align: center;
     background: white;
     padding: 15px 0;
     opacity: 0.9;
+    border: 1px solid red; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(176, 154, 158, 0.9);
+    z-index: 1;
+    
+    
   }
+
+  
   .narrow-responsive p:hover {
     color: white;
     border-top: #050a27 solid 0.5px;
     border-bottom: #050a27 solid 0.5px;
     background-color: #fc766a;
+    
   }
+
+
   .hide-menu {
     display: none;
   }
