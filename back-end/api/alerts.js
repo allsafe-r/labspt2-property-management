@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
 	const { id } = req.params;
 	db
-		.findAlert(id)
+		.getAlert(id)
 		.then((alerts) => {
 			if (alerts) {
 				res.status(200).json(alerts);
@@ -33,7 +33,7 @@ router.post('/', (req, res, next) => {
 		.createAlert(newAlert)
 		.then((ids) => {
 			db
-				.findByAlertId(ids[0])
+				.getAlert(ids[0])
 				.then((newAlert) => {
 					res.status(201).json({ newAlert: newAlert.id });
 				})
