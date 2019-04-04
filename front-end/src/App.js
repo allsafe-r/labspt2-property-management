@@ -81,7 +81,7 @@ class App extends Component {
       );
     } else {
       return (
-        <div>
+        <div className="something">
           <div className="top-bar">
             <Link to={"/"}>
               <button onClick={this.logOut}>Logout</button>
@@ -95,7 +95,7 @@ class App extends Component {
           </div>
           <RouteContainer />
 
-          <Stripe />
+          {/*removed stripe component*/}
         </div>
       );
     }
