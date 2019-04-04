@@ -2,20 +2,14 @@ const db = require('../../knex');
 
 module.exports = {
 	getAlerts,
-	findByAlertId,
 	getAlert,
 	createAlert,
 	deleteAlert,
-	editAlert,
-	findByHouseId
+	editAlert
 };
 
 function getAlerts() {
 	return db('alerts');
-}
-
-function findByAlertId(id) {
-	return db('alerts').where({ id }).first();
 }
 
 function getAlert(id) {
