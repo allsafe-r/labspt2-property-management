@@ -18,7 +18,7 @@ class TenantSideMenu extends Component {
             <img src={Logo} className="dashboardLogo" alt="Dash logo" />
           </Link>
         </div>
-        <div className="menu-wrapper">
+        <div>
           <ul>
             <Link to={"/tenant/dashboard"}>
               <li>Dashboard</li>

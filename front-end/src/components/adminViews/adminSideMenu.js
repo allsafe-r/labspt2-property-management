@@ -18,7 +18,7 @@ class SideMenu extends Component {
             <img src={Logo} className="dashboardLogo" alt="Dash logo" />
           </Link>
         </div>
-        <div className="sideMenu-menuOptions">
+        <div>
           <ul>
             <Link to={"/admin/properties"}>
               <li>Properties</li>
