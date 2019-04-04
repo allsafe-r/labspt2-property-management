@@ -73,7 +73,7 @@ class Menu extends React.Component {
                 </Link>
               </div>
               <div onClick={this.dropdown}>
-                <img
+                <img 
                   alt="open-burger"
                   className={this.state.dropdown ? null : "menu-icon"}
                   src={require("../../assets/images/burger-coral.png")}
@@ -96,9 +96,7 @@ class Menu extends React.Component {
               <Link to={"/"}>
                 <p>Pricing</p>
               </Link>
-              <Link to={"/"}>
-                <p>Blog</p>
-              </Link>
+      
               <Link to={"/login"}>
                 <p>Login</p>
               </Link>
