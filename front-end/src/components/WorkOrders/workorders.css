@@ -14,3 +14,35 @@
     display: flex;
     justify-content: space-around;
 }
+
+
+.workorderform {
+    display: flex;
+    width: 500px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+@media only screen and (max-width: 400px) {
+    .workorderform {
+        display: flex;
+        width: 90%;
+        margin: 0 auto;
+        align-items: center;
+    }
+  }
+
+.innerworkorderform {
+    display: flex;
+    align-items: center;
+}
+
+.griditem {
+    align-items: center;
+}
+
+.carditems {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
