@@ -158,6 +158,11 @@ body {
 	transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
+.Header .login-button-menu:hover {
+	background-color: #fc766a;
+	color: white;
+}
+
 .Header .register-button-menu {
   padding: 8px 20px;
 	font-size: 20px;
