@@ -12,8 +12,7 @@ export default class tenantDashboard extends Component {
 		address: '',
 		contact: '',
 		maintenancePhone: '',
-		contactEmail: '',
-		alerts: []
+		contactEmail: ''
 	};
 
 	componentDidMount() {
@@ -45,7 +44,7 @@ export default class tenantDashboard extends Component {
 			.then(
 				// go into alerts and grab each alerts where the houseId matches logged in users residence, set to state
 				axios.get(url).then((res) => {
-					let alertsObj = res.data.filter((alert) => alert.houseId == this.state.houseId);
+					let alertsObj = res.data.filter((alert) => alert.houseId === this.state.houseId);
 					this.setState({ alerts: alertsObj });
 				})
 			);
@@ -62,7 +61,11 @@ export default class tenantDashboard extends Component {
 					</div>
 					<div>
 						{this.state.alerts.map((alert) => {
-							return <li key={alert.id}>{alert.alert}</li>;
+							return (
+								<div>
+									<li key={alert.id}>{alert.alert}</li>
+								</div>
+							);
 						})}
 					</div>
 				</div>

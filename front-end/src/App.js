@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './assets/css/App.css';
-import Menu from './components/LandingPage/Menu';
-import IndexPage from './components/LandingPage/IndexPage';
+// import Menu from './components/LandingPage/Menu';
+// import IndexPage from './components/LandingPage/IndexPage';
 import Stripe from './components/Stripe';
 import RouteContainer from './components/routeContainer';
 import Login from './components/auth/login';
