@@ -23,12 +23,25 @@
     align-items: center;
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 600px) {
     .workorderform {
         display: flex;
         width: 90%;
         margin: 0 auto;
+        height: 1000px;
         align-items: center;
+    }
+    .griditem {
+        align-items: center;
+        height: 1000px;
+        justify-content: space-around;
+        
+    }
+
+    .innerworkorderform {
+        display: flex;
+        align-items: center;
+        height: 1000px;
     }
   }
 
@@ -39,10 +52,15 @@
 
 .griditem {
     align-items: center;
+    
 }
+
+
 
 .carditems {
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     align-items: center;
+    
 }
