@@ -68,3 +68,20 @@ router.put('/:id', (req, res, next) => {
 			next('h500', err);
 		});
 });
+
+// delete alert
+router.delete('/:id', (req, res) => {
+	const { id } = req.params;
+	db
+		.deleteAlert(id)
+		.then((alert) => {
+			if (alert) {
+				res.status(202).json({ message: 'Alert deleted.' });
+			} else {
+				res.status(404).json({ error: 'The alert specified does not exist.' });
+			}
+		})
+		.catch((err) => {
+			res.status(500).json({ error: `${err}` });
+		});
+});
