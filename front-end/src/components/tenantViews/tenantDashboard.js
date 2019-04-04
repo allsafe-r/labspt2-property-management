@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 const axios = require('axios');
+// const url = `https://tenantly-back.herokuapp.com/alerts`;
+const url = `http://localhost:9000/alerts`;
 
 export default class tenantDashboard extends Component {
 	state = {
@@ -42,7 +44,7 @@ export default class tenantDashboard extends Component {
 			)
 			.then(
 				// go into alerts and grab each alerts where the houseId matches logged in users residence, map over them to create a text array
-				axios.get(`https://tenantly-back.herokuapp.com/alerts`).then((res) => {
+				axios.get(url).then((res) => {
 					let alertsObj = res.data.filter((alert) => alert.houseId == this.state.houseId);
 					let alertsArr = [];
 					alertsObj.forEach((alert) => {
