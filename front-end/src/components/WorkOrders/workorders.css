@@ -14,6 +14,8 @@
 
 .form-card {
     display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .checkoutinput{
@@ -21,17 +23,24 @@
     align-self: center;
     font-family: roboto;
 }
-.test2 {
+.checkoutform {
     
-    width: 50%;
+    width: 75%;
     height: 150px;
     justify-content: space-around;
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
+    
 }
 
 .button {
   align-self: center;
   width: 25%;
 }
+
+.payment-container {
+    width: 80%;
+    display: flex;
+    margin: 0 auto;
+}
+

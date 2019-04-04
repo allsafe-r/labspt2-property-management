@@ -20,9 +20,9 @@ const styles ={
 
 class CheckoutForm extends Component {
   constructor(props) {
-    super(props);
+     super(props)
     this.state = {complete: false,
-      name: ""
+      name: "",
     };
     this.submit = this.submit.bind(this);
   }
@@ -45,6 +45,12 @@ class CheckoutForm extends Component {
   
   async submit(ev) {
     ev.preventDefault();
+    this.props.charge(
+      { 
+        name: this.state.name,
+        amount: 120000
+      }
+    )
     let {token} = await this.props.stripe.createToken({name: this.state.name});
     axios
     .post(url, {
@@ -62,7 +68,7 @@ class CheckoutForm extends Component {
     if (this.state.complete) return <h1>Purchase Complete</h1>;
   
     return (
-      <div className="checkout test2">
+      <div className="checkoutform">
         <Input placeholder="name" name="name" value={this.state.name} onChange={this.inputHandler} className='checkoutinput'/>
         <CardElement style={{base: {fontSize: '18px'}}} />
         <Button variant='contained' color='primary' className='button' onClick={this.submit}>Pay 1200</Button>
