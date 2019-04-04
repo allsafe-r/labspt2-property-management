@@ -399,6 +399,30 @@ body {
   bottom: 30px;
 }
 
+
+.anchor {
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	width: 56px;
+	height: 56px;
+	background: #FF9890;
+	border-radius: 50%;
+	box-shadow: 0 0 4px 2px rgba(0, 0, 0, .1);
+	-webkit-animation-duration: 4s;
+	animation-duration: 4s;
+	-webkit-animation-name: bounce;
+	animation-name: bounce;
+	-webkit-animation-timing-function: ease-in-out;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-play-state: running;
+	animation-play-state: running;
+	-webkit-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+  will-change: translate;
+  
+}
+
 @media (max-width: 650px) {
   .down-arrow {
     bottom: 0px;
