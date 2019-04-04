@@ -42,7 +42,7 @@ export default class tenantDashboard extends Component {
 			)
 			.then(
 				// go into alerts and grab each alerts where the houseId matches logged in users residence, map over them to create a text array
-				axios.get(`http://localhost:9000/alerts`).then((res) => {
+				axios.get(`https://tenantly-back.herokuapp.com/alerts`).then((res) => {
 					let alertsObj = res.data.filter((alert) => alert.houseId == this.state.houseId);
 					let alertsArr = [];
 					alertsObj.forEach((alert) => {
