@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
 	});
 });
 
-// Get a alert
+// Get an alert
 router.get('/:id', (req, res) => {
 	const { id } = req.params;
 	db
