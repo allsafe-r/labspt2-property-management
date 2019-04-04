@@ -11,8 +11,7 @@ export default class tenantDashboard extends Component {
 		alerts: [],
 		address: '',
 		contact: '',
-		maintenancePhone: '',
-		contactEmail: ''
+		maintenancePhone: ''
 	};
 
 	componentDidMount() {
@@ -61,11 +60,7 @@ export default class tenantDashboard extends Component {
 					</div>
 					<div>
 						{this.state.alerts.map((alert) => {
-							return (
-								<div>
-									<li key={alert.id}>{alert.alert}</li>
-								</div>
-							);
+							return <li key={alert.id}>{alert.alert}</li>;
 						})}
 					</div>
 				</div>
