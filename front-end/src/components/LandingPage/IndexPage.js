@@ -15,15 +15,10 @@ const IndexPage = () => (
       <Link to={"/register"}>
         <button>GET A CUSTOMIZED DEMO</button>
       </Link>
+      <div class="anchor-wrap">
+					  <a href="#footer" class="anchor"><span></span></a>
+				</div>
     </div>
-
-    <a href="#body" className="down-arrow">
-      <img
-        style={{ width: 50, height: 50 }}
-        alt="arrows"
-        src={require("../../assets/images/arrows-down.png")}
-      />
-    </a>
   </div>
 );
 
