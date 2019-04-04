@@ -350,6 +350,12 @@ body {
 
 @media (max-width: 650px) {
   .Hero {
+    background: url("../images/wallpaper9_mobile.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+  
   }
   .HeroGroup {
     padding-top: 100px;
@@ -406,7 +412,7 @@ body {
 	vertical-align: top;
 	width: 56px;
 	height: 56px;
-	background: #FF9890;
+	background: black;
 	border-radius: 50%;
 	box-shadow: 0 0 4px 2px rgba(0, 0, 0, .1);
 	-webkit-animation-duration: 4s;
