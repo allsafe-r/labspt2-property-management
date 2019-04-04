@@ -18,10 +18,6 @@ function findByAlertId(id) {
 	return db('alerts').where({ id }).first();
 }
 
-function findByHouseId(houseId) {
-	return db('properties').where({ houseId }).first();
-}
-
 function getAlert(id) {
 	return db('alerts').where({ id }).first();
 }
