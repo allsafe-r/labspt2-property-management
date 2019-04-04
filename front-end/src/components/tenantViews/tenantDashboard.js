@@ -9,7 +9,8 @@ export default class tenantDashboard extends Component {
 		address: '',
 		contact: '',
 		maintenancePhone: '',
-		contactEmail: ''
+		contactEmail: '',
+		alerts: []
 	};
 
 	componentDidMount() {
@@ -26,6 +27,16 @@ export default class tenantDashboard extends Component {
 			this.setState({ address: house.address });
 		});
 		// console.log(this.state);
+		axios.get(`http://localhost:9000/alerts`).then((res) => {
+			let alertsObj = res.data.filter((alert) => alert.houseId == this.state.houseId);
+			let alertsArr = [];
+			alertsObj.forEach((alert) => {
+				alertsArr.push(alert.alert);
+			});
+			this.setState({ alerts: alertsArr });
+		});
+
+		console.log(this.state);
 	}
 	render() {
 		return (
@@ -37,13 +48,17 @@ export default class tenantDashboard extends Component {
 					<div>
 						<Link to="/tenant/maintenance">Submit a Work Order</Link>
 					</div>
-					<div>Map over alerts here</div>
+					<div>
+						{this.state.alerts.map((alert) => {
+							return <li>{alert}</li>;
+						})}
+					</div>
 				</div>
 				<div className="right-tenant-dash">
-					<div>1{this.state.address}</div>
-					<div>2{this.state.contact}</div>
-					<div>3{this.state.contactEmail}</div>
-					<div>4{this.state.maintenancePhone}</div>
+					<div>Address{this.state.address}</div>
+					<div>Contact Info{this.state.contact}</div>
+					<div>Contact Email{this.state.contactEmail}</div>
+					<div>24/7 Phone{this.state.maintenancePhone}</div>
 				</div>
 			</div>
 		);
