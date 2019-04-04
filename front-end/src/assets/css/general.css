@@ -417,7 +417,7 @@ body {
 	vertical-align: top;
 	width: 56px;
 	height: 56px;
-	background: black;
+	background: white;
 	border-radius: 50%;
 	box-shadow: 0 0 4px 2px rgba(0, 0, 0, .1);
 	-webkit-animation-duration: 4s;
@@ -447,6 +447,7 @@ body {
 	animation-iteration-count: infinite;
   will-change: translate;
   
+  
 }
 
 .anchor span {
@@ -459,6 +460,8 @@ body {
 
 }
 
+
+/* ARROW */
 .anchor span:before,
 .anchor span:after {
 	content: "";
@@ -467,7 +470,7 @@ body {
 	left: -3px;
 	width: 18px;
 	height: 2px;
-	background: white;
+	background: #fc766a;
 	-webkit-transform: rotate(45deg);
 	-ms-transform: rotate(45deg);
   transform: rotate(45deg);
@@ -478,7 +481,8 @@ body {
 	right: -3px;
 	-webkit-transform: rotate(-45deg);
 	-ms-transform: rotate(-45deg);
-	transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  
 }
 
 
