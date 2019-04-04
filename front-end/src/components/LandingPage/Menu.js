@@ -75,7 +75,7 @@ class Menu extends React.Component {
                 <img
                   alt="open-burger"
                   className={this.state.dropdown ? null : "menu-icon"}
-                  src={require("../../assets/images/nav-hamburger.png")}
+                  src={require("../../assets/images/burger-coral.png")}
                 />
                 <img
                   alt="close-burger"

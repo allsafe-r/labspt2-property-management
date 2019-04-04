@@ -242,7 +242,7 @@ body {
 
   .menu-icon {
     display: block;
-    background-color: #fc766a;
+    /* background-color: #fc766a; */
     float: right;
     cursor: pointer;
     margin-right: 10px;
