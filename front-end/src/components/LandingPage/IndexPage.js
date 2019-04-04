@@ -16,12 +16,7 @@ const IndexPage = () => (
         <button>GET A CUSTOMIZED DEMO</button>
       </Link>
     </div>
-    <img
-      alt="wall-paper"
-      className="jumbo"
-      src={require("../../assets/images/wallpaper.png")}
-    />
-    <Wave />
+
     <a href="#body" className="down-arrow">
       <img
         style={{ width: 50, height: 50 }}
