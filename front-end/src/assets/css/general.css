@@ -144,6 +144,35 @@ body {
 	transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
+.Header .login-button-menu {
+  
+  padding: 8px 20px;
+	font-size: 20px;
+	border: none;
+	background-color: white;
+	border: 1px solid #fc766a;
+	color: black;
+	font-weight: 700;
+	border-radius: 10px;
+	outline: none;
+	cursor: pointer;
+	transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.Header .register-button-menu {
+  padding: 8px 20px;
+	font-size: 20px;
+	border: none;
+	background-color: #fc766a;
+	color: white;
+	font-weight: 700;
+	border-radius: 10px;
+	outline: none;
+	cursor: pointer;
+  transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+
 .HeaderScrolled {
   /* background: rgba(0,0,0, 0.8); */
   background: white;
