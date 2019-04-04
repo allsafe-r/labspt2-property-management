@@ -61,6 +61,7 @@ class Menu extends React.Component {
             <button className="register-button-menu">Register</button>
             </Link>
           </div>
+          
           <div className="narrow">
             <div className="icon-burger">
               <div className="logo">
