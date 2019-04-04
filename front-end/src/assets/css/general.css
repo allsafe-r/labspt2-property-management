@@ -438,6 +438,16 @@ body {
   
 }
 
+.anchor span {
+	position: absolute;
+	top: 24px;
+	left: 16px;
+	width: 24px;
+	height: 12px;
+  overflow: hidden;
+
+}
+
 @media (max-width: 650px) {
   .down-arrow {
     bottom: 0px;
