@@ -43,14 +43,10 @@ export default class tenantDashboard extends Component {
 					)
 			)
 			.then(
-				// go into alerts and grab each alerts where the houseId matches logged in users residence, map over them to create a text array
+				// go into alerts and grab each alerts where the houseId matches logged in users residence, set to state
 				axios.get(url).then((res) => {
 					let alertsObj = res.data.filter((alert) => alert.houseId == this.state.houseId);
-					let alertsArr = [];
-					alertsObj.forEach((alert) => {
-						alertsArr.push(alert.alert);
-					});
-					this.setState({ alerts: alertsArr });
+					this.setState({ alerts: alertsObj });
 				})
 			);
 	}
@@ -66,7 +62,7 @@ export default class tenantDashboard extends Component {
 					</div>
 					<div>
 						{this.state.alerts.map((alert) => {
-							return <li key={alert.id}>{alert}</li>;
+							return <li key={alert.id}>{alert.alert}</li>;
 						})}
 					</div>
 				</div>
