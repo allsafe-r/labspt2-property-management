@@ -20,10 +20,11 @@
 }
 
 .left-side {
+  background-color: white;
   width: 25%;
+  box-shadow: 3px 0 1px -2px rgba(192, 191, 191, 0.349);
 }
-.something {
-  max-width: 1200px;
+.dashboard-wrapper {
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
@@ -32,10 +33,16 @@
   background-color: rgba(237, 237, 237, 0.397);
 }
 
-/* BashBoard Logo */
+/* DashBoard Logo */
 
 .dashboardLogo {
-  max-width: 190px;
+  width: 100%;
+}
+
+.logo-wrapper {
+  width: 80%;
+  margin: 0 auto;
+  padding: 10px;
 }
 
 /* Side Menu */
@@ -44,43 +51,40 @@
   display: flex;
   flex-direction: column;
   width: 15%;
-
   padding: 25px;
   height: 100vh;
 }
 
 .side-menu {
   height: 100vh;
-  background-color: white;
-  font-size: 0.9em;
-  -webkit-box-shadow: 3px 0 1px -2px #888;
-  box-shadow: 3px 0 1px -2px rgba(192, 191, 191, 0.349);
+  font-size: 2rem;
+}
+
+.side-menu ul {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .side-menu ul a {
   text-decoration: none;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  margin-top: 8px;
+  color: black;
+  padding: 5px 0;
 }
 
-.side-menu ul a li {
-  color: black;
+.side-menu ul a:hover {
+  background: #fc766a;
 }
 
-.side-menu ul a li:first-child {
-  color: black;
+.side-menu ul a:hover {
+  color: white;
+}
+
+.sideMenu-menuOptions {
   display: flex;
-  justify-content: flex-start;
-}
-.side-menu ul a li:last-child {
-  color: black;
-  text-align: right;
-  padding-bottom: 2px;
-  margin-right: 15px;
-}
-
-.side-menu ul li {
-  padding-top: 8px;
 }
 
 /* Properties */
@@ -88,7 +92,7 @@
 .properties-list {
   display: flex;
   flex-wrap: wrap;
-  width: 80%;
+  max-width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -113,6 +117,16 @@
 
 .buttons-container {
   display: flex;
+}
+
+.noteInfo {
+  padding: 10px;
+}
+
+@media (max-width: 800px) {
+  .properties-container {
+    flex-direction: column;
+  }
 }
 
 /* Top Bar */

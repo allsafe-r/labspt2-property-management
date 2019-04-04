@@ -81,7 +81,7 @@ class App extends Component {
       );
     } else {
       return (
-        <div className="something">
+        <div className="dashboard-wrapper">
           <div className="top-bar">
             <Link to={"/"}>
               <button onClick={this.logOut}>Logout</button>
