@@ -363,13 +363,18 @@ body {
 
   .Hero .HeroGroup h1 {
     font-size: 40px;
-    padding-top: 50px;
+    padding-top: 60px;
     
+  }
+  .Hero button {
+    margin-top: 30px;
   }
 
   .Hero p {
     font-size: 2.4rem;
+    padding-top: 10px;
   }
+  
 
   svg {
     display: none;
