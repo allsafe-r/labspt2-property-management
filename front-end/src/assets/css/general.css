@@ -448,6 +448,28 @@ body {
 
 }
 
+.anchor span:before,
+.anchor span:after {
+	content: "";
+	position: absolute;
+	top: 4px;
+	left: -3px;
+	width: 18px;
+	height: 2px;
+	background: white;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.anchor span:after {
+	left: auto;
+	right: -3px;
+	-webkit-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
 @media (max-width: 650px) {
   .down-arrow {
     bottom: 0px;
