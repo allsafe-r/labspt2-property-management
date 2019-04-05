@@ -881,9 +881,8 @@ button[type="submit"] {
 
 /* PRICING */
 
-/* .menu {
+.menu {
   border: 1px solid black;
-<<<<<<< HEAD
 }
 
 /* Billing */
@@ -894,6 +893,3 @@ button[type="submit"] {
     flex-direction: column;
   }
 }
-=======
-} */
->>>>>>> 1f1f979e6b13ab3ea37c1feed8313e931362fb63
