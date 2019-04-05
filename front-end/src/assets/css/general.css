@@ -395,8 +395,6 @@ body {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    
-  
   }
   .HeroGroup {
     padding-top: 100px;
@@ -414,6 +412,11 @@ body {
   .Hero p {
     font-size: 2.4rem;
     padding-top: 10px;
+  }
+
+  .form-container .logo-login {
+   
+
   }
   
 
