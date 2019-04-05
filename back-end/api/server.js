@@ -2,7 +2,6 @@ const express = require('express');
 const helmet = require('helmet');
 const cors = require('cors');
 const users = require('./users.js');
-const alerts = require('./alerts');
 const properties = require('./properties.js');
 const workOrders = require('./workorders.js');
 const stripe = require('./stripe.js');
@@ -19,7 +18,6 @@ server.use('/properties', properties);
 server.use('/stripe', stripe);
 server.use('/api', login);
 server.use('/images', images);
-server.use('/alerts', alerts);
 
 server.get('/', (req, res) => {
 	res.status(200).send('Hi!');
