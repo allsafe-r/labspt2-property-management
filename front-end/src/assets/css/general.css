@@ -3,7 +3,7 @@
   background-color: white;
 }
 
-* DashBoard */ .dashboard-container {
+.dashboard-container {
   display: flex;
   flex-direction: row;
 }
