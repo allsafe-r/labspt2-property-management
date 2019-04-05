@@ -35,7 +35,7 @@ const styles = theme => ({
       marginLeft: 'auto',
       marginRight: 'auto',
       backgroundColor: 'white',
-      border:' 1px solid red',
+
 
     },
   },
@@ -63,7 +63,7 @@ const styles = theme => ({
   },
   footer: {
     marginTop: theme.spacing.unit * 8,
-    borderTop: `1px solid ${theme.palette.divider}`,
+    // borderTop: `1px solid ${theme.palette.divider}`,
     padding: `${theme.spacing.unit * 6}px 0`,
   },
 
