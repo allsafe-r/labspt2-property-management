@@ -18,7 +18,8 @@ const url = `https://tenantly-back.herokuapp.com/properties`;
 
 export default class Billing extends Component {
 	state = {
-         properties: []
+		 properties: [],
+		 billing: []
 	};
 
 	handleInputChange = prop => event => {
@@ -31,6 +32,14 @@ export default class Billing extends Component {
 			console.error('Server Error', err);
 		});
 	}
+
+	componentDidMount() {
+		axios.get('localhost:9000/billing').then((response) => this.setState({ billing: response.data })).catch((err) => {
+			console.error('Server Error', err);
+		})
+	}
+
+	 
 
 	render() {
 		return (
@@ -70,10 +79,9 @@ export default class Billing extends Component {
 			<div>
 				<Card>
 					<p>Billing History</p>
-				
+					{this.state.billing.map( (bill, key) => <ul><li key={bill.id}>{bill.amount}</li></ul>)}
 				</Card>
 			</div>
-
 			</div>
 		);
 	}
