@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Imageform from './imageform';
+import Grid from '@material-ui/core/Grid';
+import Card from "@material-ui/core/Card";
+import classNames from 'classnames';
+import { withStyles } from '@material-ui/core/styles';
+import Input from '@material-ui/core/Input';
+import SaveIcon from '@material-ui/icons/Save';
+import Icon from '@material-ui/core/Icon';
+import Button from '@material-ui/core/Button';
 // const url = process.env.workorderURL || 'http://localhost:9000/workorders'
 const url = 'https://tenantly-back.herokuapp.com/workorders';
 
@@ -58,10 +66,13 @@ export default class Workorderform extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className='workorderform'>
+			<Grid container className='innerworkorderform' spacing={24}>
+			<Grid item className='griditem' lg={12}>
+			<Card className="carditems">
 				<h3>Type Your Notes Here:</h3>
 				<form onSubmit={this.submithandler}>
-					<input
+					<Input
 						onChange={this.inputhandler}
 						value={this.state.description}
 						name="description"
@@ -70,7 +81,7 @@ export default class Workorderform extends Component {
 						type="text"
 					/>
 
-					<input
+					<Input
 						onChange={this.inputhandler}
 						name="phone"
 						value={this.state.phone}
@@ -78,13 +89,17 @@ export default class Workorderform extends Component {
 						className="#"
 						type="text"
 					/>
-					<input onChange={this.inputhandler} name="unsupervisedEntry" className="#" type="checkbox" />
+					<Input onChange={this.inputhandler} name="unsupervisedEntry" className="#" type="checkbox" />
 					<Imageform url={this.urlUpdater} />
          {/*<input name="attachimage" type='file'/> */}
-					<button type="submit" className="button-2">
+					<Button variant='contained'type="submit" className="button-2">
+					<SaveIcon  />
 						Save
-					</button>
+					</Button>
 				</form>
+				</Card>
+				</Grid>
+				</Grid>
 			</div>
 		);
 	}
