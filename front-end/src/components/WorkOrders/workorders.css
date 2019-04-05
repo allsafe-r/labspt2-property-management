@@ -1,3 +1,5 @@
+
+
 .test {
     display: flex;
     width: 90%;
@@ -10,8 +12,21 @@
     justify-content: space-between;
 }
 
-.flexbuttons{
+.form-card {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.checkoutinput{
+    width: 75%;
+    align-self: center;
+    font-family: roboto;
+}
+.checkoutform {
+    
+    width: 75%;
+    height: 150px;
     justify-content: space-around;
 }
 
