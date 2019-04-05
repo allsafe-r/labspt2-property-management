@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./assets/css/App.css";
-import Menu from "./components/LandingPage/Menu";
-import IndexPage from "./components/LandingPage/IndexPage";
+// import Menu from './components/LandingPage/Menu';
+// import IndexPage from './components/LandingPage/IndexPage';
 import Stripe from "./components/Stripe";
 import RouteContainer from "./components/routeContainer";
 import Login from "./components/auth/login";
@@ -22,10 +22,6 @@ class App extends Component {
   state = {
     loggedIn: false
   };
-
-  componentDidMount() {
-    this.authenticate();
-  }
 
   componentDidMount() {
     initGA();
@@ -62,7 +58,6 @@ class App extends Component {
     localStorage.removeItem("userId");
     this.setState({ loggedIn: false });
   };
-
   render() {
     if (this.state.loggedIn === false) {
       return (

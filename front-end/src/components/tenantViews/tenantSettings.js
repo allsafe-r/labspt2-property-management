@@ -76,7 +76,7 @@ class TenantSettings extends Component {
 			<div>
 				<form onSubmit={this.onSubmit}>
 					<div>
-						<input placeholder="username" value={this.state.username} type="text" required />
+						<h6>{this.state.username}</h6>
 					</div>
 					<div>
 						<input
