@@ -3,6 +3,7 @@ import axios from 'axios';
 
 class TenantSettings extends Component {
 	state = {
+		username: '',
 		email: '',
 		phone: '',
 		displayName: '',
@@ -20,6 +21,7 @@ class TenantSettings extends Component {
 			// .get(`http://localhost:9000/users/${id}`)
 			.then((user) => {
 				this.setState({
+					username: user.data.username,
 					email: user.data.email,
 					phone: user.data.phone,
 					textSubscribe: user.data.textSubscribe,
@@ -73,6 +75,9 @@ class TenantSettings extends Component {
 		return (
 			<div>
 				<form onSubmit={this.onSubmit}>
+					<div>
+						<h6>{this.state.username}</h6>
+					</div>
 					<div>
 						<input
 							placeholder="displayName"
