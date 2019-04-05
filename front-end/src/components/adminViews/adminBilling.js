@@ -10,7 +10,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import InputLabel from '@material-ui/core/InputLabel';
-
+import '../../assets/css/general.css'
 // const url = process.env.properties || 'http://localhost:9000/properties';
 const url = `https://tenantly-back.herokuapp.com/properties`;
 // const url = `l`
@@ -64,13 +64,13 @@ export default class Billing extends Component {
 					<a href="https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_Eh0R1RXhYNXEq9z56aVKr04CVDrJvxMc&scope=read_write">
 						<img src={Image} alt="Logo"/>
 					</a>
-					</Card>
+				  </Card>
 			</div>
 
 			<div>
 				<Card>
 					<p>Billing History</p>
-					{this.state.billing.propertyName}
+				
 				</Card>
 			</div>
 
