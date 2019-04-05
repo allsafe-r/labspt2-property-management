@@ -883,4 +883,14 @@ button[type="submit"] {
 
 /* .menu {
   border: 1px solid black;
-} */
+}
+
+/* Billing */
+
+@media (max-width: 600px) {
+  .Billing {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
