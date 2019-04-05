@@ -15,7 +15,6 @@ import InputLabel from '@material-ui/core/InputLabel';
 const url = `https://tenantly-back.herokuapp.com/properties`;
 
 
-
 export default class Billing extends Component {
 	state = {
          properties: []
@@ -70,6 +69,7 @@ export default class Billing extends Component {
 			<div>
 				<Card>
 					<p>Billing History</p>
+					
 				</Card>
 			</div>
 
