@@ -11,6 +11,7 @@ import Select from '@material-ui/core/Select';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import InputLabel from '@material-ui/core/InputLabel';
 import '../../assets/css/general.css'
+import { Button } from '@material-ui/core';
 // const url = process.env.properties || 'http://localhost:9000/properties';
 const url = `https://tenantly-back.herokuapp.com/properties`;
 const url2 = `http://localhost:9000/billing`
@@ -44,10 +45,11 @@ export default class Billing extends Component {
 	}
 
 
+	// clickFunction() {
+	// 	console.log(document.getElementById('property-native-required').selectedIndex)
+	// }
 
-
-	// {this.state.billing.map( (bill, key) => <ul><li key={bill.id}>{bill.amount}</li></ul>)}
-
+	
 	render() {
 		return (
 			<div className="Billing">
@@ -86,11 +88,13 @@ export default class Billing extends Component {
 			<div>
 				<Card>
 					<p>Billing History</p>
-					{this.state.billing.map((property) =>
-						<li>{property.propertyID}</li>
-						)}
+
+					
 					
 
+					{/* {document.getElementById('property-native-required').selectedIndex === 'Incubators Galore' ? console.log('Got John')
+: console.log('Got someone else') } */}
+				
 					{this.state.billing.map((bill) =>
 					<ul>
 						<li>{bill.propertyName}</li>
@@ -98,6 +102,7 @@ export default class Billing extends Component {
 					</ul>
 					)}
 				</Card>
+				{/* <Button onClick={this.clickFunction()} >try</Button> */}
 			</div>
 			</div>
 		);
