@@ -13,7 +13,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import '../../assets/css/general.css'
 // const url = process.env.properties || 'http://localhost:9000/properties';
 const url = `https://tenantly-back.herokuapp.com/properties`;
-// const url = `l`
+const url2 = `http://localhost:9000/billing`
 
 
 export default class Billing extends Component {
@@ -26,20 +26,27 @@ export default class Billing extends Component {
 		this.setState({ [prop]: event.target.value });
 	  };
 
-
-	componentDidMount() {
-		axios.get(url).then((response) => this.setState({ properties: response.data })).catch((err) => {
-			console.error('Server Error', err);
-		});
-	}
-
-	componentDidMount() {
-		axios.get('localhost:9000/billing').then((response) => this.setState({ billing: response.data })).catch((err) => {
+	setBilling = () => {
+		axios.get(url2).then((response) => this.setState({ billing: response.data }, function () {
+			console.log(this.state.billing);
+		})).catch((err) => {
 			console.error('Server Error', err);
 		})
 	}
 
-	 
+	componentDidMount() {
+		axios.get(url).then((response) => this.setState({ properties: response.data } , function () {
+			console.log(this.state.billing);
+			this.setBilling();
+		})).catch((err) => {
+			console.error('Server Error', err);
+		});
+	}
+
+
+
+
+	// {this.state.billing.map( (bill, key) => <ul><li key={bill.id}>{bill.amount}</li></ul>)}
 
 	render() {
 		return (
@@ -79,7 +86,17 @@ export default class Billing extends Component {
 			<div>
 				<Card>
 					<p>Billing History</p>
-					{this.state.billing.map( (bill, key) => <ul><li key={bill.id}>{bill.amount}</li></ul>)}
+					{this.state.billing.map((property) =>
+						<li>{property.propertyID}</li>
+						)}
+					
+
+					{this.state.billing.map((bill) =>
+					<ul>
+						<li>{bill.propertyName}</li>
+						<li>{bill.amount}</li>
+					</ul>
+					)}
 				</Card>
 			</div>
 			</div>
