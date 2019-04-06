@@ -28,19 +28,54 @@
     width: 75%;
     height: 150px;
     justify-content: space-around;
+}
+
+
+.workorderform {
     display: flex;
-    flex-direction: column;
+    width: 500px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+    .workorderform {
+        display: flex;
+        width: 90%;
+        margin: 0 auto;
+        height: 1000px;
+        align-items: center;
+    }
+    .griditem {
+        align-items: center;
+        height: 1000px;
+        justify-content: space-around;
+        
+    }
+
+    .innerworkorderform {
+        display: flex;
+        align-items: center;
+        height: 1000px;
+    }
+  }
+
+.innerworkorderform {
+    display: flex;
+    align-items: center;
+}
+
+.griditem {
+    align-items: center;
     
 }
 
-.button {
-  align-self: center;
-  width: 25%;
-}
 
-.payment-container {
-    width: 80%;
+
+.carditems {
     display: flex;
-    margin: 0 auto;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    
 }
-
