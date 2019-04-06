@@ -12,23 +12,6 @@ class AdminSettings extends Component {
     newPW2: ""
   };
 
-<<<<<<< HEAD
-	componentDidMount() {
-		let id = localStorage.getItem('userId');
-		axios
-			.get(`https://tenantly-back.herokuapp.com/users/${id}`)
-			// .get(`http://localhost:9000/users/${id}`)
-			.then((user) => {
-				this.setState({
-					username: user.data.username,
-					email: user.data.email,
-					phone: user.data.phone,
-					displayName: user.data.displayName
-				});
-			})
-			.catch((err) => console.log(err));
-	}
-=======
   componentDidMount() {
     let id = localStorage.getItem("userId");
     axios
@@ -44,7 +27,6 @@ class AdminSettings extends Component {
       })
       .catch(err => console.log(err));
   }
->>>>>>> b61bd7c36a874e600ac55240fa1b3e35415f2dfa
 
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
