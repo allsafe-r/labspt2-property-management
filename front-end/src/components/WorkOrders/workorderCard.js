@@ -3,13 +3,15 @@ import axios from 'axios';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardHeader from '@material-ui/core/CardHeader';
-// import CardContent from '@material-ui/core/CardContent';
+import CardContent from '@material-ui/core/CardContent';
 import CardActionArea from '@material-ui/core/CardActionArea';
-// import { withStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import Radio from '@material-ui/core/Radio';
-// import RadioGroup from '@material-ui/core/RadioGroup';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormLabel from '@material-ui/core/FormLabel';
 // import red from '@material-ui/core/colors/red';
-// import Divider from '@material-ui/core/Divider';
+import Divider from '@material-ui/core/Divider';
 // import List from '@material-ui/core/List';
 // import ListItem from '@material-ui/core/ListItem';
 // import ListItemText from '@material-ui/core/ListItemText';
@@ -17,13 +19,39 @@ import Radio from '@material-ui/core/Radio';
 // import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import './workorders.css';
+//import { CardContent } from '@material-ui/core';
+//import { withStyles } from '@material-ui/core';
 
 // const url = process.env.workOrderCard || `http://localhost:9000/workorders/${this.state.id}`;
 // const url = `https://tenantly-back.herokuapp.com/${this.state.id}`;
 
+const styles = theme =>({
+	root:{
+		display: 'flex',
+		flexDirection: 'column',
+		height: 300,
+		justifyContent: 'space-between',
+		fontSize: '1.5rem',
+		maxWidth:345
+	},
 
 
-export default class Workordercard extends Component {
+	radiogroup: {
+		flexDirection: 'row',
+		fontSize: '1.5rem',
+	},
+	radiobuttons: {
+		flexDirection: 'row',
+		fontSize: '2rem',
+	},
+	image: {
+		height: 100,
+		padding:'56.25%',
+
+	}
+})
+
+class Workordercard extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -67,48 +95,56 @@ export default class Workordercard extends Component {
 	};
 
 	render() {
+		const { classes } = this.props;
 		return (
-			<Card>
-				<CardActionArea>
-				<CardMedia image={this.props.work.image} />
+			<Card className={classes.root} raised={true}>
+				
+				<CardMedia style={{height:245, width: '100%',}} image={this.props.work.image} />
+				
+				
 				<CardHeader>{this.props.work.property}</CardHeader>
 				
-				<Typography component='p'>
+				<CardContent>
+				<Typography gutterBottom variant='headline' component='p'>
 						{this.props.work.tenant}
 				</Typography>
-				<Typography component='p'>
+				
+				<Typography  variant='body1' component='p'>
 						{this.props.work.description}
-						</Typography>
-						<Typography component='p'>
+				</Typography>
+				
+				<Typography c variant='title' component='p'>
 						{this.props.work.phone}
-						</Typography>
+				</Typography>
+
+				
 
 					
 					{`Unsupervised Entry is ${this.props.work.unsupervisedEntry ? 'Allowed' : 'Not Allowed'}`} 
 					
 					
-					</CardActionArea>
+					
 					
 					
 					{/* Radio button form */}
-					<div className="flexbuttons">
+					<RadioGroup name="workstatus" area-label="Work Status" value={this.state.status}  onChange={this.statushandler} className={classes.radiogroup} row>
+					<FormLabel style={{fontSize: 20}}  component="legend">Work Status</FormLabel>
 					{this.inputs.map((values, i) => (
+						
 						<div key={i}>
-							<h1>{values}</h1>
-							<Radio
-								
-								name={values}
-								onChange={this.statushandler}
-								value={values}
-								checked={this.state.status === values}
-							/>
+							<FormControlLabel   value={values} control={<Radio className={classes.radiobuttons} checked={this.state.status === values}/>} label={values}/>
+							
+
+							
 						</div>
 						
 					))}
-					</div>
+					</RadioGroup>
+					
 				
-				
+					</CardContent>
 			</Card>
 		);
 	}
 }
+export default withStyles(styles)(Workordercard);

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-// import { withStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import Workordercard from './workorderCard';
 //import GridList from '@material-ui/core/GridList';
 import Grid from '@material-ui/core/Grid';
@@ -9,14 +9,14 @@ import Grid from '@material-ui/core/Grid';
 const url = 'https://tenantly-back.herokuapp.com/workorders';
 
 const styles = theme =>({
-	test: {
-		width: 100,
-		height: 1000,
+	root:{
+		height: 'auto',
 	}
+
 })
 
 
-export default class Workorderlist extends Component {
+class Workorderlist extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -32,13 +32,13 @@ export default class Workorderlist extends Component {
 	render() {
 		return (
 
-			<Grid container spacing={24} style={{padding: 24}}className="workorderlist">
+			<Grid container spacing={24} style={{padding: 24}}>
 
 
 
 				{/* display work order cards */}
 				
-				{this.state.workorders.map((work) => <Grid item className={styles.test} sm={12} lg={5}> <Workordercard key={work.id} work={work} /> </Grid>)}
+				{this.state.workorders.map((work) => <Grid item justify='center' className={styles.test} sm={12} lg={5}> <Workordercard className={styles.root} key={work.id} work={work} /> </Grid>)}
 
 			</Grid>
 
@@ -47,3 +47,5 @@ export default class Workorderlist extends Component {
 		);
 	}
 }
+
+export default withStyles(styles)(Workorderlist);
