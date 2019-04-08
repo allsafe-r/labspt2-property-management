@@ -7,6 +7,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import CardHeader from '@material-ui/core/CardHeader';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
+import Paper from '@material-ui/core/Paper';
 import './../WorkOrders/workorders.css';
 
 export default class tenantPayments extends Component {
@@ -59,7 +60,7 @@ export default class tenantPayments extends Component {
 				<Grid item sm={12} lg={6}>
 
 					<Card>
-
+					<Paper elevation={1}>
 						{this.state.charges.map((charge) => 
 
 <div>						
@@ -77,7 +78,7 @@ export default class tenantPayments extends Component {
 						
 
 
-
+                       </Paper>
 						</Card>				
 			</Grid>
 
