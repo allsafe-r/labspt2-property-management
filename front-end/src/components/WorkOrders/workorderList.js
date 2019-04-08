@@ -9,9 +9,7 @@ import Grid from '@material-ui/core/Grid';
 const url = 'https://tenantly-back.herokuapp.com/workorders';
 
 const styles = theme =>({
-	root:{
-		height: 'auto',
-	}
+
 
 })
 
@@ -38,7 +36,7 @@ class Workorderlist extends Component {
 
 				{/* display work order cards */}
 				
-				{this.state.workorders.map((work) => <Grid item justify='center' className={styles.test} sm={12} lg={5}> <Workordercard className={styles.root} key={work.id} work={work} /> </Grid>)}
+				{this.state.workorders.map((work) => <Grid item justify='center' sm={12} lg={6}> <Workordercard key={work.id} work={work} /> </Grid>)}
 
 			</Grid>
 

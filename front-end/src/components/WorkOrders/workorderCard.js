@@ -18,7 +18,7 @@ import Divider from '@material-ui/core/Divider';
 // import Modal from '@material-ui/core/Modal';
 // import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import './workorders.css';
+//import './workorders.css';
 //import { CardContent } from '@material-ui/core';
 //import { withStyles } from '@material-ui/core';
 
@@ -29,18 +29,21 @@ const styles = theme =>({
 	root:{
 		display: 'flex',
 		flexDirection: 'column',
-		height: 300,
+		height: 400,
 		justifyContent: 'space-between',
 		fontSize: '1.5rem',
-		maxWidth:345
+		maxWidth:600
 	},
 
 
 	radiogroup: {
 		flexDirection: 'row',
-		fontSize: '1.5rem',
+		fontSize: '5rem',
+		width: '100%',
+		
 	},
 	radiobuttons: {
+		display: 'flex',
 		flexDirection: 'row',
 		fontSize: '2rem',
 	},
@@ -129,16 +132,18 @@ class Workordercard extends Component {
 					{/* Radio button form */}
 					<RadioGroup name="workstatus" area-label="Work Status" value={this.state.status}  onChange={this.statushandler} className={classes.radiogroup} row>
 					<FormLabel style={{fontSize: 20}}  component="legend">Work Status</FormLabel>
+					<div className={classes.radiobuttons}>
 					{this.inputs.map((values, i) => (
 						
 						<div key={i}>
-							<FormControlLabel   value={values} control={<Radio className={classes.radiobuttons} checked={this.state.status === values}/>} label={values}/>
+							<FormControlLabel   value={values} control={<Radio  checked={this.state.status === values}/>} label={values}/>
 							
 
 							
 						</div>
 						
 					))}
+					</div>
 					</RadioGroup>
 					
 				
