@@ -6,6 +6,7 @@ import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardHeader from '@material-ui/core/CardHeader';
 import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
 import './../WorkOrders/workorders.css';
 
 export default class tenantPayments extends Component {
@@ -60,12 +61,14 @@ export default class tenantPayments extends Component {
 					<Card>
 
 						{this.state.charges.map((charge) => 
+
+<div>						
+						<CardHeader variant='h1' title={charge.name}/>
 						
-						<ul><li>{Date()}</li>
-						<li>{charge.name}</li>
-						<li>{charge.amount}</li>
-						<Divider />
-						</ul>
+
+						<Typography variant='h4' component='h2'>Amount: {charge.amount}</Typography>
+						
+</div>						
 						
 						
 						
