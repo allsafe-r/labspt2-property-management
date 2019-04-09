@@ -20,11 +20,22 @@ const url2 = `http://localhost:9000/billing`
 export default class Billing extends Component {
 	state = {
 		 properties: [],
-		 billing: []
+		 billing: [],
+		 propertySelected: [],
 	};
 
 	handleInputChange = prop => event => {
 		this.setState({ [prop]: event.target.value });
+		console.log(this.state.house_id);
+		this.setState({value: event.target.value});
+		axios
+		.get(`http://localhost:9000/billing/${this.state.value}`)
+			.then((response) => {
+				this.setState({ propertySelected: response.data });
+			})
+			.catch((error) => {
+				console.error(error);
+			});
 	  };
 
 	setBilling = () => {
@@ -45,6 +56,17 @@ export default class Billing extends Component {
 	}
 
 
+	// fetchProperty = (id) => {
+	// 	axios
+	// 		.get(`https://tenantly-back.herokuapp.com/properties/${id}`)
+	// 		.then((response) => {
+	// 			this.setState({ property2: response.data });
+	// 		})
+	// 		.catch((error) => {
+	// 			console.error(error);
+	// 		});
+	// };
+
 	// clickFunction() {
 	// 	console.log(document.getElementById('property-native-required').selectedIndex)
 	// }
@@ -61,8 +83,8 @@ export default class Billing extends Component {
 						</InputLabel>
 						<Select
 							native
-							value={this.state.house_id}
-							onChange={this.handleInputChange('house_id')}
+							value={this.state.houseId}
+							onChange={this.handleInputChange(this.value)}
 							name="Property"
 							inputProps={{
 							id: 'property-native-required',
@@ -70,7 +92,7 @@ export default class Billing extends Component {
 						>
 							<option value={0} />
 							{this.state.properties.map((property, index) => (
-							<option key={index} value={property.propertyName}>
+							<option key={index} value={property.houseId} >
 								{property.propertyName}
 							</option>
 							))}
@@ -95,7 +117,7 @@ export default class Billing extends Component {
 					{/* {document.getElementById('property-native-required').innerHTML === 'Incubators Galore' ? console.log('Got John')
 : console.log('Got someone else') } */}
 				
-					{this.state.billing.map((bill) =>
+					{this.state.propertySelected.map((bill) =>
 					<ul>
 						<li>{bill.propertyName}</li>
 						<li>{bill.amount}</li>
