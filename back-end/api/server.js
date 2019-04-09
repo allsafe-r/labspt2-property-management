@@ -10,7 +10,15 @@ const images = require('./images.js');
 const login = require('./login.js');
 const errorHandler = require('../errorHandler/errors.js');
 const server = express();
+const session = require('express-session');
+const two_hours = 1000 * 60 * 60 * 2;
 
+server.use(
+	session({
+		maxAge: two_hours,
+		secure: true
+	})
+);
 server.use(express.json(), cors(), helmet());
 server.use(errorHandler);
 server.use('/users', users);
