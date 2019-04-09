@@ -11,12 +11,15 @@ const login = require('./login.js');
 const errorHandler = require('../errorHandler/errors.js');
 const server = express();
 const session = require('express-session');
-const two_hours = 1000 * 60 * 60 * 2;
 
 server.use(
 	session({
-		maxAge: two_hours,
-		secure: true
+		name: 'sid',
+		maxAge: process.env.two_hours,
+		// secure: true,
+		resave: false,
+		saveUninitialized: false,
+		secret: process.env.session_secret
 	})
 );
 server.use(express.json(), cors(), helmet());
