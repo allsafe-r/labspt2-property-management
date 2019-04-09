@@ -20,7 +20,8 @@ const axios = require("axios");
 
 class App extends Component {
   state = {
-    loggedIn: false
+    loggedIn: false,
+    isAdmin: null
   };
 
   componentDidMount() {
@@ -29,7 +30,8 @@ class App extends Component {
     this.authenticate();
   }
 
-  authenticate = () => {
+  authenticate = (isAdmin) => {
+    console.log(isAdmin)
     const token = localStorage.getItem("jwtToken");
     const auth = {
       headers: {
@@ -42,7 +44,9 @@ class App extends Component {
         .get(url, auth)
         .then(res => {
           if (res.data) {
-            this.setState({ loggedIn: true });
+            // console.log(res.data)
+            this.setState({ loggedIn: true, isAdmin: isAdmin });
+            console.log(this.state)
           } else {
             throw new Error();
           }
@@ -62,7 +66,7 @@ class App extends Component {
     if (this.state.loggedIn === false) {
       return (
         <div>
-          <Route exact path={"/"} component={LandingView} />
+          <Route exact path={"/"} component={LandingView}/>
           <Route exact path={"/register"} component={Register} />
           <Route path={"/register/plan"} component={Pricing} />
           <Route

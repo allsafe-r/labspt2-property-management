@@ -24,7 +24,7 @@ const RouteContainer = () => {
       </div>
 
       <div className="right-side">
-        <Route exact path="/admin/properties" component={PropertyList} />
+        <Route exact path="/admin/properties" component={PropertyList}/>
         <Route exact path="/admin/billing" component={Billing} />
         <Route path="/admin/worklist" component={Workorderlist} />
         <Route path="/admin/view-property/:id" component={DisplayProperty} />
