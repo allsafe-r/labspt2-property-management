@@ -92,7 +92,7 @@ export default class Billing extends Component {
 					
 					
 
-					{/* {document.getElementById('property-native-required').selectedIndex === 'Incubators Galore' ? console.log('Got John')
+					{/* {document.getElementById('property-native-required').innerHTML === 'Incubators Galore' ? console.log('Got John')
 : console.log('Got someone else') } */}
 				
 					{this.state.billing.map((bill) =>
