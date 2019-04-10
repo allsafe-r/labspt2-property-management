@@ -27,7 +27,11 @@ export default class tenantPayments extends Component {
 	}
 	
 
-	
+	updatestate =() => {
+		axios.get(url).then((response) => this.setState({ charges: response.data })).catch((error) => {
+			console.error('Server Error', error);
+		});
+	}
 
 	convertToTime =(e) =>{
 		const d = new Date(e * 1000)
@@ -47,7 +51,7 @@ export default class tenantPayments extends Component {
 			<Card className = 'form-card'>
 			  <h1>React Stripe Elements Example</h1>
 			  <Elements fonts={fonts}>
-				<CheckoutForm  />
+				<CheckoutForm charge={this.updatestate} />
 				
 			  </Elements>
 			  </Card>
@@ -60,7 +64,7 @@ export default class tenantPayments extends Component {
 						
 						<ul><li>Date: {this.convertToTime(charge.created)}</li>
 						<li>Name: {charge.billing_details.name}</li>
-						<li>Amount Paid:{charge.amount}</li>
+						<li>Amount Paid:${charge.amount}.00</li>
 						<Divider />
 						</ul>
 						

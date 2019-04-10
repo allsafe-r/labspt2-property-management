@@ -53,8 +53,10 @@ class CheckoutForm extends Component {
       currency: 'USD',
       amount: 1200
     })
-    .then(this.successPayment)
+    .then(this.props.charge)
+    .then(this.successPayment) 
     .catch(this.errorPayment);
+    
 
   }
   
