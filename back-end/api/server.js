@@ -10,22 +10,9 @@ const images = require('./images.js');
 const login = require('./login.js');
 const errorHandler = require('../errorHandler/errors.js');
 const server = express();
-const session = require('express-session');
 
 server.use(express.json(), cors(), helmet());
 server.use(errorHandler);
-server.use(
-	session({
-		name: 'sid',
-		resave: false,
-		saveUninitialized: true,
-		secret: process.env.session_secret,
-		cookie: {
-			maxAge: process.env.two_hours,
-			secure: true
-		}
-	})
-);
 server.use('/users', users);
 server.use('/workorders', workOrders);
 server.use('/properties', properties);
