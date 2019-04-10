@@ -32,11 +32,13 @@ router.post('/login', (req, res, next) => {
 		.findByUserName(creds.username)
 		.then((users) => {
 			user = users[0];
+
+			req.session.userId = user.id;
 			// console.log(user);
 			if (user && bcrypt.compareSync(creds.password, user.password)) {
 				const token = generateToken(user);
 				// console.log(token);
-				res.json({ Welcome: user.username, userId: user.id, token });
+				res.json({ Welcome: user.username, userId: user.id, token, session: req.session });
 			} else {
 				res.status(401).json({ message: 'Not Authorized' });
 			}
