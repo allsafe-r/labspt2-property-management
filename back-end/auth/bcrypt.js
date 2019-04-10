@@ -26,6 +26,7 @@ function generateToken(user) {
 	console.log(user)
 	const payload = {
 		userId: user.id,
+		isAdmin: user.isAdmin,
 		username: user.username,
 		password: user.password
 	};
