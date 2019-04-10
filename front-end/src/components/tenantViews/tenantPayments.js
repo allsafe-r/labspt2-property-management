@@ -6,38 +6,35 @@ import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardHeader from '@material-ui/core/CardHeader';
 import Divider from '@material-ui/core/Divider';
+import axios from 'axios';
 import './../WorkOrders/workorders.css';
+
+const url = 'http://localhost:9000/stripe/charges'
 
 export default class tenantPayments extends Component {
 	constructor(props) {
     super(props);
     this.state = {
-      charges: [
-				{ 
-					name: 'Matt',
-					amount: 120000
-				},
-				{ 
-					name: 'Matt',
-					amount: 120000
-				},
-				{ 
-					name: 'Matt',
-					amount: 120000
-				},
-			]
+      charges: []
     };
     
 	}
-	
-	addcharge = (charge) => {
-		const currentcharges = this.state.charges;
-		let newcharge = charge;
-		currentcharges.push(newcharge)
-		this.setState({
-			charges: currentcharges,
-		})
+
+	componentDidMount() {
+		axios.get(url).then((response) => this.setState({ charges: response.data })).catch((error) => {
+			console.error('Server Error', error);
+		});
 	}
+	
+
+	
+
+	convertToTime =(e) =>{
+		const d = new Date(e * 1000)
+		return d.toLocaleString();
+}
+
+	
 	
 	
 	render() {
@@ -50,7 +47,7 @@ export default class tenantPayments extends Component {
 			<Card className = 'form-card'>
 			  <h1>React Stripe Elements Example</h1>
 			  <Elements fonts={fonts}>
-				<CheckoutForm  charge={this.addcharge} />
+				<CheckoutForm  />
 				
 			  </Elements>
 			  </Card>
@@ -61,9 +58,9 @@ export default class tenantPayments extends Component {
 
 						{this.state.charges.map((charge) => 
 						
-						<ul><li>{Date()}</li>
-						<li>{charge.name}</li>
-						<li>{charge.amount}</li>
+						<ul><li>Date: {this.convertToTime(charge.created)}</li>
+						<li>Name: {charge.billing_details.name}</li>
+						<li>Amount Paid:{charge.amount}</li>
 						<Divider />
 						</ul>
 						
