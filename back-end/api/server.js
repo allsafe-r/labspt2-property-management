@@ -18,7 +18,7 @@ server.use(
 	session({
 		name: 'sid',
 		resave: false,
-		saveUninitialized: false,
+		saveUninitialized: true,
 		secret: process.env.session_secret,
 		cookie: {
 			maxAge: process.env.two_hours,

@@ -32,7 +32,6 @@ class App extends Component {
 	}
 
 	authenticate = (obj) => {
-		console.log(obj)
 		const token = localStorage.getItem('jwtToken');
 		const auth = {
 			headers: {

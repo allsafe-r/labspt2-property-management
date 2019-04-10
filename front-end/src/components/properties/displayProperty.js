@@ -20,7 +20,7 @@ export default class DisplayProperty extends Component {
 
 	fetchProperty = (id) => {
 		axios
-			.get(`https://tenantly-back.herokuapp.com/properties/${id}`)
+			.get(`http://localhost:9000/properties/${id}`)
 			.then((response) => {
 				this.setState({ property: response.data });
 			})
