@@ -11,27 +11,67 @@ import Select from '@material-ui/core/Select';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import InputLabel from '@material-ui/core/InputLabel';
 import '../../assets/css/general.css'
+import { Button } from '@material-ui/core';
 // const url = process.env.properties || 'http://localhost:9000/properties';
 const url = `https://tenantly-back.herokuapp.com/properties`;
-// const url = `l`
+const url2 = `http://localhost:9000/billing`
 
 
 export default class Billing extends Component {
 	state = {
-         properties: []
+		 properties: [],
+		 billing: [],
+		 propertySelected: [],
 	};
 
 	handleInputChange = prop => event => {
 		this.setState({ [prop]: event.target.value });
+		console.log(this.state.house_id);
+		this.setState({value: event.target.value});
+		axios
+		.get(`http://localhost:9000/billing/${this.state.value}`)
+			.then((response) => {
+				this.setState({ propertySelected: response.data });
+			})
+			.catch((error) => {
+				console.error(error);
+			});
 	  };
 
+	setBilling = () => {
+		axios.get(url2).then((response) => this.setState({ billing: response.data }, function () {
+			console.log(this.state.billing);
+		})).catch((err) => {
+			console.error('Server Error', err);
+		})
+	}
 
 	componentDidMount() {
-		axios.get(url).then((response) => this.setState({ properties: response.data })).catch((err) => {
+		axios.get(url).then((response) => this.setState({ properties: response.data } , function () {
+			console.log(this.state.billing);
+			this.setBilling();
+		})).catch((err) => {
 			console.error('Server Error', err);
 		});
 	}
 
+
+	// fetchProperty = (id) => {
+	// 	axios
+	// 		.get(`https://tenantly-back.herokuapp.com/properties/${id}`)
+	// 		.then((response) => {
+	// 			this.setState({ property2: response.data });
+	// 		})
+	// 		.catch((error) => {
+	// 			console.error(error);
+	// 		});
+	// };
+
+	// clickFunction() {
+	// 	console.log(document.getElementById('property-native-required').selectedIndex)
+	// }
+
+	
 	render() {
 		return (
 			<div className="Billing">
@@ -43,8 +83,8 @@ export default class Billing extends Component {
 						</InputLabel>
 						<Select
 							native
-							value={this.state.house_id}
-							onChange={this.handleInputChange('house_id')}
+							value={this.state.houseId}
+							onChange={this.handleInputChange(this.value)}
 							name="Property"
 							inputProps={{
 							id: 'property-native-required',
@@ -52,7 +92,7 @@ export default class Billing extends Component {
 						>
 							<option value={0} />
 							{this.state.properties.map((property, index) => (
-							<option key={index} value={property.propertyName}>
+							<option key={index} value={property.houseId} >
 								{property.propertyName}
 							</option>
 							))}
@@ -70,10 +110,22 @@ export default class Billing extends Component {
 			<div>
 				<Card>
 					<p>Billing History</p>
-				
-				</Card>
-			</div>
 
+					
+					
+
+					{/* {document.getElementById('property-native-required').innerHTML === 'Incubators Galore' ? console.log('Got John')
+: console.log('Got someone else') } */}
+				
+					{this.state.propertySelected.map((bill) =>
+					<ul>
+						<li>{bill.propertyName}</li>
+						<li>{bill.amount}</li>
+					</ul>
+					)}
+				</Card>
+				{/* <Button onClick={this.clickFunction()} >try</Button> */}
+			</div>
 			</div>
 		);
 	}
