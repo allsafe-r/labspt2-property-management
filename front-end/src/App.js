@@ -42,10 +42,8 @@ class App extends Component {
 			axios
 				.get(url, auth)
 				.then((res) => {
-					console.log(res.data)
 					if (res.data) {
 						this.setState({ loggedIn: true, isAdmin: admin});
-						console.log(this.state)
 					} else {
 						throw new Error();
 					}
