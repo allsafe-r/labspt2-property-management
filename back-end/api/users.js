@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const db = require('../data/helper/usersModal');
 const bcrypt = require('bcryptjs');
-const session = require('express-session');
 
 router.get('/', (req, res) => {
 	db.getUsers().then((users) => res.status(200).json(users)).catch((err) => {

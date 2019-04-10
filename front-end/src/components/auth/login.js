@@ -22,11 +22,10 @@ class Login extends Component {
 		axios
 			.post(url, this.state)
 			.then((res) => {
-				// console.log(res) 
+				console.log(res.data)
 				localStorage.setItem('jwtToken', res.data.token);
-				// localStorage.setItem('userId', res.data.userId);
 				// this.props.history.push('/');
-				this.props.authenticate({isAdmin: res.data.isAdmin, userId: res.data.userId});
+				this.props.authenticate({isAdmin: res.data.isAdmin});
 			})
 			.catch((err) => {
 				console.log({ Error: err });
