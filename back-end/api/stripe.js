@@ -24,8 +24,6 @@ router.post('/charge', (req, res) => {
   stripe.charges.create(req.body, postStripeCharge(res));
 });
 
-<<<<<<< HEAD
-=======
 
 router.get('/charges', (req, res) => {
 
@@ -39,6 +37,5 @@ router.get('/charges', (req, res) => {
   )
 });
 
->>>>>>> 67fb35bd9307a209232458580614fb1f1741192a
 module.exports = router;
   

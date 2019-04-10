@@ -9,7 +9,7 @@ import Divider from '@material-ui/core/Divider';
 import axios from 'axios';
 import './../WorkOrders/workorders.css';
 
-const url = 'https://tenantly-back.herokuapp.com/stripe/charges'
+const url = 'http://localhost:9000/stripe/charges'
 
 export default class tenantPayments extends Component {
 	constructor(props) {
