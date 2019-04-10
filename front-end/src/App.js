@@ -14,15 +14,13 @@ import LandingView from './components/LandingPage/LandingView';
 import { Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 const url = 'http://localhost:9000';
-
 // const url = 'https://tenantly-back.herokuapp.com';
 const axios = require('axios');
 
 class App extends Component {
 	state = {
 		loggedIn: false,
-		isAdmin: null,
-		userId: null
+		isAdmin: null
 	};
 
 	componentDidMount() {
@@ -44,7 +42,7 @@ class App extends Component {
 				.get(url, auth)
 				.then((res) => {
 					if (res.data) {
-						this.setState({ loggedIn: true, isAdmin: obj.isAdmin, userId: obj.userId });
+						this.setState({ loggedIn: true, isAdmin: obj.isAdmin });
 					} else {
 						throw new Error();
 					}
@@ -57,7 +55,6 @@ class App extends Component {
 
 	logOut = () => {
 		localStorage.removeItem('jwtToken');
-		localStorage.removeItem('userId');
 		this.setState({ loggedIn: false });
 	};
 	render() {
