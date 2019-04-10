@@ -9,8 +9,7 @@ const url = 'http://localhost:9000/api/login';
 class Login extends Component {
 	state = {
 		username: '',
-		password: '',
-		userId: null
+		password: ''
 	};
 
 
@@ -25,7 +24,6 @@ class Login extends Component {
 			.post(url, login)
 			.then((res) => {
 				console.log(res)
-				this.setState({userId: res.data.userId})
 				localStorage.setItem('jwtToken', res.data.token);
 				// localStorage.setItem('userId', res.data.userId);
 				// this.props.history.push('/');
