@@ -17,8 +17,8 @@ class AdminSettings extends Component {
 		const id = decode(token).userId
 
     axios
-      // .get(`https://tenantly-back.herokuapp.com/users/${id}`)
-      .get(`http://localhost:9000/users/${id}`)
+      .get(`https://tenantly-back.herokuapp.com/users/${id}`)
+      // .get(`http://localhost:9000/users/${id}`)
       .then(user => {
         this.setState({
           username: user.data.username,
