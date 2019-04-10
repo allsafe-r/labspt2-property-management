@@ -19,11 +19,9 @@ class Login extends Component {
 
 	onSubmit = (e) => {
 		e.preventDefault();
-		const login = { username: this.state.username, password: this.state.password }
 		axios
-			.post(url, login)
+			.post(url, this.state)
 			.then((res) => {
-				console.log(res)
 				localStorage.setItem('jwtToken', res.data.token);
 				// localStorage.setItem('userId', res.data.userId);
 				// this.props.history.push('/');
