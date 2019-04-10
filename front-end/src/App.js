@@ -29,25 +29,28 @@ class App extends Component {
 		this.authenticate();
 	}
 
-	authenticate = (obj) => {
+	authenticate = (admin) => {
+		// console.log(admin.isAdmin)
 		const token = localStorage.getItem('jwtToken');
 		const auth = {
 			headers: {
 				Authorization: token
 			}
 		};
-
+		// console.log(token)
 		if (token) {
 			axios
 				.get(url, auth)
 				.then((res) => {
+					console.log(res.data)
 					if (res.data) {
-						this.setState({ loggedIn: true, isAdmin: obj.isAdmin });
+						this.setState({ loggedIn: true, isAdmin: admin});
+						console.log(this.state)
 					} else {
 						throw new Error();
 					}
 				})
-				.catch((err) => this.props.history.push('/login'));
+				.catch((err) => console.log(err));
 		} else {
 			console.log('Register and/or login to receive a token');
 		}

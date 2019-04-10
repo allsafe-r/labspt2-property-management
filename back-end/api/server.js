@@ -22,7 +22,7 @@ server.use('/images', images);
 server.use('/alerts', alerts);
 
 server.get('/', (req, res) => {
-	res.status(200).send("hi");
+	res.status(200).send("Hi");
 });
 
 module.exports = server;

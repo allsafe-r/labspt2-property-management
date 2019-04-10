@@ -11,7 +11,7 @@ router.post('/register', (req, res, next) => {
 	db
 		.createUser(creds)
 		.then((ids) => {
-			console.log(ids);
+			// console.log(ids);
 			db
 				.findByUserId(ids[0])
 				.then((user) => {
@@ -33,7 +33,7 @@ router.post('/login', (req, res, next) => {
 		.then((users) => {
 			user = users[0];
 
-			// console.log(user);
+			console.log(user);
 			if (user && bcrypt.compareSync(creds.password, user.password)) {
 				const token = generateToken(user);
 				// console.log(token);
