@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import PropertyCard from './propertyCard';
 import '../../assets/css/general.css';
+const decode = require('jwt-decode')
 
 const url = 'http://localhost:9000/properties';
 // const url = `https://tenantly-back.herokuapp.com/properties`;
@@ -14,10 +15,9 @@ export default class propertyList extends Component {
 
 	componentDidMount() {
 		const token = localStorage.getItem('jwtToken')
-		console.log(token)
+		const userId = decode(token).userId
 		axios.get(url).then((response) => {
-			// console.log(response)
-		this.setState({ properties: response.data })
+		this.setState({ properties: response.data.filter(property => property.owner === userId) })
 		})
 		.catch((err) => {
 			console.error('Server Error', err);
