@@ -21,7 +21,8 @@ const axios = require('axios');
 class App extends Component {
 	state = {
 		loggedIn: false,
-		isAdmin: null
+		isAdmin: null,
+		userId: ''
 	};
 
 	componentDidMount() {
@@ -44,7 +45,7 @@ class App extends Component {
 				.get(url, auth)
 				.then((res) => {
 					if (res.data) {
-						// console.log(res.data)
+						console.log(res.data)
 						this.setState({ loggedIn: true, isAdmin: isAdmin });
 						console.log(this.state);
 					} else {
