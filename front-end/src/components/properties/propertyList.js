@@ -13,6 +13,8 @@ export default class propertyList extends Component {
 	};
 
 	componentDidMount() {
+		const token = localStorage.getItem('jwtToken')
+		console.log(token)
 		axios.get(url).then((response) => {
 			// console.log(response)
 		this.setState({ properties: response.data })
