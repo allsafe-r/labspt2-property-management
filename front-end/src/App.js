@@ -13,16 +13,16 @@ import { initGA } from './utils/analytics';
 import LandingView from './components/LandingPage/LandingView';
 import { Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-// const url = process.env.home || 'http://localhost:9000';
+const url = 'http://localhost:9000';
 
-const url = 'https://tenantly-back.herokuapp.com';
+// const url = 'https://tenantly-back.herokuapp.com';
 const axios = require('axios');
 
 class App extends Component {
 	state = {
 		loggedIn: false,
 		isAdmin: null,
-		userId: ''
+		userId: null
 	};
 
 	componentDidMount() {
@@ -31,8 +31,8 @@ class App extends Component {
 		this.authenticate();
 	}
 
-	authenticate = (isAdmin) => {
-		// console.log(isAdmin)
+	authenticate = (obj) => {
+		console.log(obj)
 		const token = localStorage.getItem('jwtToken');
 		const auth = {
 			headers: {
@@ -44,10 +44,10 @@ class App extends Component {
 			axios
 				.get(url, auth)
 				.then((res) => {
+					console.log(res.data)
 					if (res.data) {
-						console.log(res.data)
-						this.setState({ loggedIn: true, isAdmin: isAdmin });
-						console.log(this.state);
+						this.setState({ loggedIn: true, isAdmin: obj.isAdmin, userId: obj.userId });
+						console.log(this.state)
 					} else {
 						throw new Error();
 					}

@@ -9,8 +9,10 @@ const url = 'http://localhost:9000/api/login';
 class Login extends Component {
 	state = {
 		username: '',
-		password: ''
+		password: '',
+		userId: null
 	};
+
 
 	onChange = (e) => {
 		this.setState({ [e.target.name]: e.target.value });
@@ -18,14 +20,16 @@ class Login extends Component {
 
 	onSubmit = (e) => {
 		e.preventDefault();
+		const login = { username: this.state.username, password: this.state.password }
 		axios
-			.post(url, this.state)
+			.post(url, login)
 			.then((res) => {
-				console.log(res.data.session);
+				console.log(res)
+				this.setState({userId: res.data.userId})
 				localStorage.setItem('jwtToken', res.data.token);
 				// localStorage.setItem('userId', res.data.userId);
 				// this.props.history.push('/');
-				this.props.authenticate(res.data.isAdmin);
+				this.props.authenticate({isAdmin: res.data.isAdmin, userId: res.data.userId});
 			})
 			.catch((err) => {
 				console.log({ Error: err });

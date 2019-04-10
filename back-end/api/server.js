@@ -35,7 +35,7 @@ server.use('/images', images);
 server.use('/alerts', alerts);
 
 server.get('/', (req, res) => {
-	res.status(200).send('Hi!');
+	res.status(200).send(req.session);
 });
 
 module.exports = server;
