@@ -24,5 +24,21 @@ router.post('/charge', (req, res) => {
   stripe.charges.create(req.body, postStripeCharge(res));
 });
 
+<<<<<<< HEAD
+=======
+
+router.get('/charges', (req, res) => {
+
+  stripe.charges.list(
+    {limit: 3},
+    function(err, charges) {
+
+      // Do something with the returned values
+        res.status(200).json(charges.data)
+    }
+  )
+});
+
+>>>>>>> 67fb35bd9307a209232458580614fb1f1741192a
 module.exports = router;
   
