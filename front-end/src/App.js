@@ -13,6 +13,20 @@ import { initGA } from './utils/analytics';
 import LandingView from './components/LandingPage/LandingView';
 import { Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import PropertyList from "./components/properties/propertyList";
+import TenantSideMenu from "./components/tenantViews/tenantSideMenu";
+import SideMenu from "./components/adminViews/adminSideMenu";
+import Workorderlist from "./components/WorkOrders/workorderList";
+import Workorderform from "./components/WorkOrders/workorderform";
+import AddProperty from "./components/properties/addProperty";
+import DisplayProperty from "./components/properties/displayProperty";
+import EditProperty from "./components/properties/editProperty";
+import TenantSettings from "./components/tenantViews/tenantSettings";
+import TenantDashboard from "./components/tenantViews/tenantDashboard";
+import TenantPayments from "./components/tenantViews/tenantPayments";
+import Billing from "./components/adminViews/adminBilling.js";
+import AdminSettings from "./components/adminViews/adminSettings";
+
 const url = 'http://localhost:9000';
 // const url = 'https://tenantly-back.herokuapp.com';
 const axios = require('axios');
@@ -60,35 +74,61 @@ class App extends Component {
 	};
 	render() {
 		if (this.state.loggedIn === false) {
-			return (
-				<div>
-					<Route exact path={'/'} component={LandingView} />
-					<Route exact path={'/register'} component={Register} />
-					<Route path={'/register/plan'} component={Pricing} />
-					<Route exact path={'/login'} render={(props) => <Login {...props} authenticate={this.authenticate} />} />
-				</div>
-			);
-		} else {
-			return (
-				<div className="dashboard-wrapper">
-					<div className="top-bar">
-						<Link to={'/'}>
+		  return (
+			<div>
+			  <Route exact path={"/"} component={LandingView} />
+			  <Route exact path={"/register"} component={Register} />
+			  <Route path={"/register/plan"} component={Pricing} />
+			  <Route
+				exact
+				path={"/login"}
+				render={props => (
+				  <Login {...props} authenticate={this.authenticate} />
+				)}
+			  />
+			</div>
+		  );
+		} else { 
+			if(this.state.isAdmin) {
+				return (
+					<div className="dashboard-container">
+						<div className="left-side">
+							<Route path="/" component={SideMenu} />
+						</div>
+						<div className="right-side">
+							<Route exact path="/properties" component={PropertyList}/>
+							<Route exact path="/billing" component={Billing} />
+							<Route path="/worklist" component={Workorderlist} />
+							<Route path="/view-property/:id" component={DisplayProperty} />
+							<Route path="/add-property" component={AddProperty} />
+							<Route exact path="/edit/:id" component={EditProperty} />
+							<Route exact path="/workorders/form" component={Workorderform} />
+							<Route exact path="/settings" component={AdminSettings} />
+						</div>
+						<Link to={"/"}>
 							<button onClick={this.logOut}>Logout</button>
 						</Link>
-						<Link to={'/admin/properties'}>
-							<button>Development Purposes - I'm an admin!</button>
-						</Link>
-						<Link to={'/tenant/dashboard'}>
-							<button>Development Purposes - I'm a tenant!</button>
+					</div>
+				)
+			} else {
+				return (
+					<div className="dashboard-container">
+						<div className="left-side">
+							<Route path="/" component={TenantSideMenu} />
+						</div>
+						<div className="right-side">
+							<Route exact path="/dashboard" component={TenantDashboard} />
+							<Route exact path="/payments" component={TenantPayments} />
+							<Route exact path="/maintenance" component={Workorderform} />
+							<Route exact path="/settings" component={TenantSettings} />
+						</div>
+						  <Link to={"/"}>
+							<button onClick={this.logOut}>Logout</button>
 						</Link>
 					</div>
-					<RouteContainer />
-
-					{/*removed stripe component*/}
-				</div>
-			);
-		}
+				)
+			}
+	  }}
 	}
-}
 
 export default App;

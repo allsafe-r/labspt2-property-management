@@ -11,7 +11,6 @@ import EditProperty from "./properties/editProperty";
 import TenantSettings from "./tenantViews/tenantSettings";
 import TenantDashboard from "./tenantViews/tenantDashboard";
 import TenantPayments from "./tenantViews/tenantPayments";
-// import TenantMaintenance from './tenantViews/tenantMaintenance';
 import Billing from "./adminViews/adminBilling.js";
 import AdminSettings from "./adminViews/adminSettings";
 
