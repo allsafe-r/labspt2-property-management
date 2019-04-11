@@ -20,17 +20,17 @@ class TenantSideMenu extends Component {
         </div>
         <div>
           <ul>
-            <Link to={"/tenant/dashboard"}>
+            <Link to={"/dashboard"}>
               <li>Dashboard</li>
             </Link>
-            <Link to={"/tenant/payments"}>
+            <Link to={"/payments"}>
               <li>Payments</li>
             </Link>
-            <Link to={"/tenant/maintenance"}>
+            <Link to={"/maintenance"}>
               <li>Maintenance</li>
               <li>&ensp;&ensp;></li>
             </Link>
-            <Link to={"/tenant/settings"}>
+            <Link to={"/settings"}>
               <li>Settings</li>
             </Link>
           </ul>
