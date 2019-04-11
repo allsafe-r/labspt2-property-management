@@ -13,7 +13,8 @@ const styles = theme =>({
     alignItems: 'center',
 		fontSize: '1.5rem',
     width:250,
-    border: '1px solid black'
+    border: '1px solid black',
+    margin: 10,
   },
 
 

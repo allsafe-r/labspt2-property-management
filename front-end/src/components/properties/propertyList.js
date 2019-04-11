@@ -35,8 +35,8 @@ const styles = theme =>({
 		return (
 			<Grid container spacing={24} style={{padding: 20}}>			
 			<Typography className={classes.heading} variant="h5" component="h2" gutterBottom>
-         Properties:
-        </Typography>
+         	Properties:
+        	</Typography>
 					{this.state.properties.map((property) => (
 						<PropertyCard
 							key={property.houseId}
