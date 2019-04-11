@@ -2,6 +2,7 @@ import React from "react";
 import Card from '@material-ui/core/Card';
 import { withStyles } from '@material-ui/core/styles';
 import { Link } from "react-router-dom";
+import Typography from '@material-ui/core/Typography';
 
 const PropertyCard = props => {
   const { classes } = props;
