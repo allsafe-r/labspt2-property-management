@@ -14,6 +14,7 @@ const styles = theme =>({
 	heading: {
 		width: '100%',
 		display: 'flex',
+		fontSize: '2rem',
  },
 
 })
