@@ -32,7 +32,9 @@ const styles = theme =>({
 	render() {
 		return (
 			<Grid container spacing={24} style={{padding: 20}}>			
-		
+			<Typography  className={classes.bullet} variant="h5" component="h2" gutterBottom>
+         Properties:
+        </Typography>
 					{this.state.properties.map((property) => (
 						<PropertyCard
 							key={property.houseId}
