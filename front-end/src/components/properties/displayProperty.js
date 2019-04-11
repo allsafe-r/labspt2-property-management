@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import DeleteModal from './deleteModal';
+import Card from '@material-ui/core/Card';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardContent from '@material-ui/core/CardContent';
 // const url = process.env.getProperty || `http://localhost:9000/properties/${id}`;
 //const url = `https://tenantly-back.herokuapp.com/properties/${id}`;
 
