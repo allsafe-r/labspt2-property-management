@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
 import './assets/css/App.css';
-// import Menu from './components/LandingPage/Menu';
-// import IndexPage from './components/LandingPage/IndexPage';
-// import Stripe from './components/Stripe';
-import RouteContainer from './components/routeContainer';
 import Login from './components/auth/login';
 import Register from './components/auth/register';
 // import RegisterTwo from './components/auth/register2';
@@ -51,7 +47,6 @@ class App extends Component {
 				Authorization: token
 			}
 		};
-		// console.log(token)
 		if (token) {
 			axios
 				.get(url, auth)
