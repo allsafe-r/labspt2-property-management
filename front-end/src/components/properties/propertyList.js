@@ -17,6 +17,8 @@ const styles = theme =>({
 		fontSize: '2rem',
  },
 
+
+
 })
 
  class propertyList extends Component {
@@ -48,9 +50,11 @@ const styles = theme =>({
 							id={property.houseId}
 						/>
 					))}
+				<Card className={classes.root}>
 				<Link to="/admin/add-property">
 					<button>+ Add New Property</button>
 				</Link>
+				</Card>
 			</Grid>
 		);
 	}
