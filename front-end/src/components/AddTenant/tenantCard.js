@@ -1,30 +1,38 @@
 import React, { Component } from "react";
-import InfoCard from "./infoCard";
+import axios from "axios";
+
+const url = "https://tenantly-back.herokuapp.com/api/register";
 
 class TenantInfo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
-      mobile: "",
+      username: "",
+      password: "",
+      isAdmin: false,
       email: "",
-      emailNotification: false,
-      phoneNotifiation: false
+      phone: "",
+      displayName: ""
     };
   }
   inputHandler = e => {
     this.setState({ [e.target.name]: e.target.value });
+    this.setState({
+      username: this.state.email,
+      password: this.state.phone
+    });
   };
 
-  //   //Set path back to default
-  submitHandler = e => {
+  addTenant = e => {
     e.preventDefault();
-
-    this.props.addNote({
-      title: this.state.title,
-      textBody: this.state.text
-    });
-    this.props.history.push("/");
+    axios
+      .post(url, this.state)
+      .then(() => {
+        console.log("working");
+      })
+      .catch(err => {
+        console.log({ Error: err });
+      });
   };
 
   render() {
@@ -37,8 +45,8 @@ class TenantInfo extends Component {
               <div className="inputInfo">
                 <div className="name-input">
                   <input
-                    type="name"
-                    name="name"
+                    type="displayName"
+                    name="displayName"
                     placeholder="Name"
                     onChange={this.inputHandler}
                   />
@@ -52,8 +60,8 @@ class TenantInfo extends Component {
                   />
 
                   <input
-                    type="number"
-                    name="number"
+                    type="phone"
+                    name="phone"
                     placeholder="Mobile #"
                     onChange={this.inputHandler}
                   />
@@ -71,6 +79,7 @@ class TenantInfo extends Component {
               <input type="file" name="houseApplication" />
             </div>
           </form>
+          <button onClick={this.addTenant}>Create</button>
         </div>
       </div>
     );
