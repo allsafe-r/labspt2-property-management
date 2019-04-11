@@ -822,9 +822,9 @@ body {
   margin-right: 0.5rem;
 }
 
-@media (max-width: 1060px) {
-  .CardGroup {
-    grid-template-columns: repeat(2, 1fr);
+@media (max-width: 850px) {
+  .tenant-info {
+    width: 100%;
   }
 }
 
