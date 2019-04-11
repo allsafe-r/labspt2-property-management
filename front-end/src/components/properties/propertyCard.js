@@ -4,6 +4,21 @@ import { withStyles } from '@material-ui/core/styles';
 import { Link } from "react-router-dom";
 import Typography from '@material-ui/core/Typography';
 
+const styles = theme =>({
+	root:{
+		display: 'flex',
+		flexDirection: 'column',
+		height: 200,
+    justifyContent: 'center',
+    alignItems: 'center',
+		fontSize: '1.5rem',
+    width:250,
+    border: '1px solid black'
+  },
+
+
+	
+})
 const PropertyCard = props => {
   const { classes } = props;
   return (
