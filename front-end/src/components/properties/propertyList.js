@@ -7,6 +7,12 @@ import PropertyCard from './propertyCard';
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
 import '../../assets/css/general.css';
+import Button from '@material-ui/core/Button';
+import Fab from '@material-ui/core/Fab';
+import IconButton from '@material-ui/core/IconButton';
+import AddIcon from '@material-ui/icons/Add';
+import DeleteIcon from '@material-ui/icons/Delete';
+import NavigationIcon from '@material-ui/icons/Navigation';
 
 // const url = process.env.properties || 'http://localhost:9000/properties';
 const url = `https://tenantly-back.herokuapp.com/properties`;
@@ -28,6 +34,13 @@ const styles = theme =>({
 		border: '1px solid black',
 		margin: 10,
 	},
+	margin: {
+		margin: theme.spacing.unit,
+		fontSize:' 1.3rem',
+	  },
+	  extendedIcon: {
+		marginRight: theme.spacing.unit,
+	  },
 
 
 })
@@ -63,7 +76,9 @@ const styles = theme =>({
 					))}
 				<Card className={classes.root}>
 				<Link to="/admin/add-property">
-					<button>+ Add New Property</button>
+					<Button size="medium" className={classes.margin}>
+						+ Add New Property
+					</Button>
 				</Link>
 				</Card>
 			</Grid>
