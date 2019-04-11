@@ -14,6 +14,7 @@ import TenantPayments from "./tenantViews/tenantPayments";
 // import TenantMaintenance from './tenantViews/tenantMaintenance';
 import Billing from "./adminViews/adminBilling.js";
 import AdminSettings from "./adminViews/adminSettings";
+import AddTenant from "./AddTenant/addTenant";
 
 const RouteContainer = () => {
   return (
@@ -30,6 +31,7 @@ const RouteContainer = () => {
         <Route path="/admin/view-property/:id" component={DisplayProperty} />
         <Route path="/admin/add-property" component={AddProperty} />
         <Route exact path="/edit/:id" component={EditProperty} />
+        <Route path="/admin/add-tenant" component={AddTenant} />
         <Route exact path="/admin/workorders/form" component={Workorderform} />
 
         <Route exact path="/tenant/dashboard" component={TenantDashboard} />
