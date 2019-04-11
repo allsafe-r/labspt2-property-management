@@ -13,6 +13,9 @@ import { initGA } from "./utils/analytics";
 import LandingView from "./components/LandingPage/LandingView";
 import { Route } from "react-router-dom";
 import { Link } from "react-router-dom";
+
+
+
 // const url = process.env.home || 'http://localhost:9000';
 
 const url = "https://tenantly-back.herokuapp.com";
