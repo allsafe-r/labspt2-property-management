@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import { Link } from "react-router-dom";
 
 const PropertyCard = props => {
+  const { classes } = props;
   return (
     <Card className={classes.root}>
       <Link to={`/admin/view-property/${props.id}`}>
