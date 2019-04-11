@@ -17,7 +17,17 @@ const styles = theme =>({
 		display: 'flex',
 		fontSize: '2rem',
  },
-
+	root:{
+		display: 'flex',
+		flexDirection: 'column',
+		height: 200,
+		justifyContent: 'center',
+		alignItems: 'center',
+		fontSize: '1.5rem',
+		width:250,
+		border: '1px solid black',
+		margin: 10,
+	},
 
 
 })
