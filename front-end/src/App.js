@@ -23,8 +23,8 @@ import TenantPayments from "./components/tenantViews/tenantPayments";
 import Billing from "./components/adminViews/adminBilling.js";
 import AdminSettings from "./components/adminViews/adminSettings";
 
-const url = 'http://localhost:9000';
-// const url = 'https://tenantly-back.herokuapp.com';
+// const url = 'http://localhost:9000';
+const url = 'https://tenantly-back.herokuapp.com';
 const axios = require('axios');
 
 class App extends Component {
