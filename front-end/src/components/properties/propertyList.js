@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { withStyles } from '@material-ui/core/styles';
 // import { withStyles } from '@material-ui/core/styles';
 // import Card from '@material-ui/core/Card';
 // import CardActionArea from '@material-ui/core/CardActionArea';
@@ -11,12 +12,18 @@ import axios from 'axios';
 // import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import PropertyCard from './propertyCard';
+import Typography from '@material-ui/core/Typography';
 import '../../assets/css/general.css';
 
 // const url = process.env.properties || 'http://localhost:9000/properties';
 const url = `https://tenantly-back.herokuapp.com/properties`;
 
-export default class propertyList extends Component {
+const styles = theme =>({
+
+
+})
+
+ class propertyList extends Component {
 	state = {
 		properties: []
 	};
@@ -29,9 +36,10 @@ export default class propertyList extends Component {
 
 	render() {
 		return (
-			<Grid container spacing={24} style={{padding: 24}}>				<p className="your-properties">Properties:</p>
-				<p className="your-properties">Properties:</p>
-				<div className="properties-container">
+			<Grid container spacing={24} style={{padding: 20}}>			
+			{/* <Typography c variant='title' component='h1'>
+				Properties:
+			</Typography> */}
 					{this.state.properties.map((property) => (
 						<PropertyCard
 							key={property.houseId}
@@ -43,7 +51,6 @@ export default class propertyList extends Component {
 							id={property.houseId}
 						/>
 					))}
-				</div>
 				<Link to="/admin/add-property">
 					<button>+ Add New Property</button>
 				</Link>
@@ -51,3 +58,5 @@ export default class propertyList extends Component {
 		);
 	}
 }
+
+export default withStyles(styles)(propertyList);
