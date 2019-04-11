@@ -11,7 +11,7 @@ import '../../assets/css/general.css';
 const url = `https://tenantly-back.herokuapp.com/properties`;
 
 const styles = theme =>({
-	bullet: {
+	heading: {
 		width: '100%',
 		display: 'flex',
  },
@@ -30,9 +30,10 @@ const styles = theme =>({
 	}
 
 	render() {
+		const { classes } = this.props;
 		return (
 			<Grid container spacing={24} style={{padding: 20}}>			
-			<Typography  className={classes.bullet} variant="h5" component="h2" gutterBottom>
+			<Typography className={classes.heading} variant="h5" component="h2" gutterBottom>
          Properties:
         </Typography>
 					{this.state.properties.map((property) => (
