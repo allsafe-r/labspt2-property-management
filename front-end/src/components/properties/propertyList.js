@@ -29,7 +29,7 @@ export default class propertyList extends Component {
 
 	render() {
 		return (
-			<div className="properties-list">
+			<Grid container spacing={24} style={{padding: 24}}>				<p className="your-properties">Properties:</p>
 				<p className="your-properties">Properties:</p>
 				<div className="properties-container">
 					{this.state.properties.map((property) => (
@@ -47,7 +47,7 @@ export default class propertyList extends Component {
 				<Link to="/admin/add-property">
 					<button>+ Add New Property</button>
 				</Link>
-			</div>
+			</Grid>
 		);
 	}
 }
