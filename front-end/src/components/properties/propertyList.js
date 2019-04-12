@@ -5,7 +5,7 @@ import PropertyCard from "./propertyCard";
 import "../../assets/css/general.css";
 
 // const url = process.env.properties || 'http://localhost:9000/properties';
-const url = `http://localhost:9000/properties`;
+const url = `https://tenantly-back.herokuapp.com/properties/`;
 
 export default class propertyList extends Component {
   state = {

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import DeleteModal from "./deleteModal";
 // const url = process.env.getProperty || `http://localhost:9000/properties/${id}`;
-//const url = `https://tenantly-back.herokuapp.com/properties/${id}`;
+//aconst url = `https://tenantly-back.herokuapp.com/properties/${id}`;
 
 export default class DisplayProperty extends Component {
   constructor(props) {
@@ -20,7 +20,7 @@ export default class DisplayProperty extends Component {
 
   fetchProperty = id => {
     axios
-      .get(`http://localhost:9000/properties/${id}`)
+      .get(`https://tenantly-back.herokuapp.com/properties/${id}`)
       .then(response => {
         this.setState({ property: response.data });
       })
@@ -32,7 +32,7 @@ export default class DisplayProperty extends Component {
   deleteProperty = () => {
     let id = this.state.property.houseId;
     axios
-      .delete(`http://localhost:9000/properties/${id}`)
+      .delete(`https://tenantly-back.herokuapp.com/properties/${id}`)
       .then(response => {
         console.log("in here", response);
       })
