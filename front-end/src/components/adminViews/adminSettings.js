@@ -85,6 +85,7 @@ class AdminSettings extends Component {
   };
 
   render() {
+    const { classes } = this.props;
     return (
       <div>
         <form onSubmit={this.onSubmit}>
