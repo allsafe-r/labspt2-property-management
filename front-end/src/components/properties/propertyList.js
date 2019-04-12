@@ -13,8 +13,9 @@ import IconButton from '@material-ui/core/IconButton';
 import AddIcon from '@material-ui/icons/Add';
 import DeleteIcon from '@material-ui/icons/Delete';
 import NavigationIcon from '@material-ui/icons/Navigation';
+const decode = require('jwt-decode')
 
-// const url = process.env.properties || 'http://localhost:9000/properties';
+// const url = 'http://localhost:9000/properties';
 const url = `https://tenantly-back.herokuapp.com/properties`;
 
 const styles = theme =>({
@@ -51,7 +52,12 @@ const styles = theme =>({
 	};
 
 	componentDidMount() {
-		axios.get(url).then((response) => this.setState({ properties: response.data })).catch((err) => {
+		const token = localStorage.getItem('jwtToken')
+		const userId = decode(token).userId
+		axios.get(url).then((response) => {
+		this.setState({ properties: response.data.filter(property => property.owner === userId) })
+		})
+		.catch((err) => {
 			console.error('Server Error', err);
 		});
 	}

@@ -9,7 +9,6 @@ exports.up = function(knex, Promise) {
 		table.string('displayName').notNullable();
 		table.boolean('emailSubscribe').notNullable().defaultTo(false);
 		table.boolean('textSubscribe').notNullable().defaultTo(false);
-		// table.integer('residence_id').references('houseId').inTable('properties');
 		table.text('application');
 	});
 };

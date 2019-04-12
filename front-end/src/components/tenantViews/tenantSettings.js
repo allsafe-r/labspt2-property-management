@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+const decode = require('jwt-decode')
 
 class TenantSettings extends Component {
 	state = {
@@ -15,7 +16,8 @@ class TenantSettings extends Component {
 	};
 
 	componentDidMount() {
-		let id = localStorage.getItem('userId');
+		const token = localStorage.getItem('jwtToken')
+		const id = decode(token).userId
 		axios
 			.get(`https://tenantly-back.herokuapp.com/users/${id}`)
 			// .get(`http://localhost:9000/users/${id}`)
@@ -40,7 +42,8 @@ class TenantSettings extends Component {
 		e.preventDefault();
 
 		// grabbing ID off local storage to access specific user info
-		let id = localStorage.getItem('userId');
+		const token = localStorage.getItem('jwtToken')
+		const id = decode(token).userId
 
 		// If the user enters old password without trying to change password, it throws warning
 		if (this.state.oldPW !== '' && this.state.newPW1 === '') {

@@ -3,9 +3,7 @@ import './../../assets/css/dashboardComp.css';
 import './../../assets/css/general.css';
 import axios from 'axios';
 import Image from '../../assets/images/blue-on-dark.png';
-// import { Link } from 'react-router-dom';
 import Card from '@material-ui/core/Card';
-// import PropertyCard from '../properties/addProperty';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import FormHelperText from '@material-ui/core/FormHelperText';
@@ -29,7 +27,7 @@ export default class Billing extends Component {
 		console.log(this.state.house_id);
 		this.setState({value: event.target.value});
 		axios
-		.get(`http://localhost:9000/billing/${this.state.value}`)
+		.get(`https://tenantly-back.herokuapp.com/billing/${this.state.value}`)
 			.then((response) => {
 				this.setState({ propertySelected: response.data });
 			})
@@ -39,7 +37,7 @@ export default class Billing extends Component {
 	  };
 
 	setBilling = () => {
-		axios.get(url2).then((response) => this.setState({ billing: response.data }, function () {
+		axios.get(url).then((response) => this.setState({ billing: response.data }, function () {
 			console.log(this.state.billing);
 		})).catch((err) => {
 			console.error('Server Error', err);

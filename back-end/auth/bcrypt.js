@@ -12,9 +12,7 @@ function authenticate(req, res, next) {
 	if (token) {
 		jwt.verify(token, jwtKey, (err, decoded) => {
 			if (err) return res.status(401).json(err);
-
 			req.decoded = decoded;
-
 			next();
 		});
 	} else {
@@ -25,7 +23,10 @@ function authenticate(req, res, next) {
 }
 
 function generateToken(user) {
+	// console.log(user)
 	const payload = {
+		userId: user.id,
+		isAdmin: user.isAdmin,
 		username: user.username,
 		password: user.password
 	};

@@ -20,19 +20,19 @@ class SideMenu extends Component {
         </div>
         <div>
           <ul>
-            <Link to={"/admin/properties"}>
+            <Link to={"/properties"}>
               <li>Properties</li>
             </Link>
-            <Link to={"/admin/worklist"}>
+            <Link to={"/worklist"}>
               <li>Work Orders</li>
             </Link>
-            <Link to={"/admin/add-tenant"}>
+            <Link to={"/add-tenant"}>
               <li>Add Tenant</li>
             </Link>
-            <Link to={"/admin/billing"}>
+            <Link to={"/billing"}>
               <li>Billing</li>
             </Link>
-            <Link to={"/admin/settings"}>
+            <Link to={"/settings"}>
               <li>Settings</li>
             </Link>
           </ul>
