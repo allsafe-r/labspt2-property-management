@@ -7,6 +7,7 @@ import TextField from '@material-ui/core/TextField';
 import axios from "axios";
 const decode = require('jwt-decode')
 
+
 class AdminSettings extends Component {
   state = {
     username: "",
@@ -87,23 +88,19 @@ class AdminSettings extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <div>
-        <form className={classes.container} noValidate autoComplete="off" onSubmit={this.onSubmit}>
-          <div>
+        <form className={classes.container} onSubmit={this.onSubmit}>
             <h6>{this.state.username}</h6>
-          </div>
-          <div>
-            <input
+            <TextField
               placeholder="displayName"
+              className={classes.textField}
               name="displayName"
               value={this.state.displayName}
               onChange={this.onChange}
               type="text"
+              margin="normal"
               required
             />
-          </div>
-          <div>
-            <input
+            <TextField
               placeholder="email"
               name="email"
               value={this.state.email}
@@ -111,9 +108,8 @@ class AdminSettings extends Component {
               type="text"
               required
             />
-          </div>
-          <div>
-            <input
+
+            <TextField
               placeholder="phone"
               name="phone"
               value={this.state.phone}
@@ -121,39 +117,35 @@ class AdminSettings extends Component {
               type="text"
               required
             />
-          </div>
-          <div>
-            <input
+
+            <TextField
               placeholder="password"
               name="oldPW"
               value={this.state.oldPW}
               onChange={this.onChange}
               type="password"
             />
-          </div>
-          <div>
-            <input
+            <TextField
               placeholder="new password"
               name="newPW1"
               value={this.state.newPW1}
               onChange={this.onChange}
               type="password"
             />
-          </div>{" "}
-          <div>
-            <input
+            <TextField
               placeholder="new password"
               name="newPW2"
               value={this.state.newPW2}
               onChange={this.onChange}
               type="password"
             />
-          </div>
+        
           <button>Update</button>
         </form>
-      </div>
     );
   }
 }
-
-export default AdminSettings;
+AdminSettings.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+export default withStyles(styles)(AdminSettings);
