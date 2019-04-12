@@ -9,7 +9,11 @@ import Divider from '@material-ui/core/Divider';
 import axios from 'axios';
 import './../WorkOrders/workorders.css';
 
+<<<<<<< HEAD
 const url = 'http://localhost:9000/stripe/charges'
+=======
+const url = 'https://tenantly-back.herokuapp.com/stripe/charges';
+>>>>>>> 52cfa95faa3a1fd9c639fd4f7b50b7ba94e29c61
 
 export default class tenantPayments extends Component {
 	constructor(props) {
@@ -59,7 +63,7 @@ export default class tenantPayments extends Component {
 				<Grid item sm={12} lg={6}>
 
 					<Card>
-
+					 
 						{this.state.charges.map((charge) => 
 						
 						<ul><li>Date: {this.convertToTime(charge.created)}</li>

@@ -21,6 +21,10 @@ server.use('/api', login);
 server.use('/images', images);
 
 server.get('/', (req, res) => {
+<<<<<<< HEAD
+=======
+	res.status(200).send("Hi");
+>>>>>>> 52cfa95faa3a1fd9c639fd4f7b50b7ba94e29c61
 });
 
 module.exports = server;

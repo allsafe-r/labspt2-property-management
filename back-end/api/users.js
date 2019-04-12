@@ -57,7 +57,7 @@ router.post('/', (req, res, next) => {
 });
 
 router.put('/:id', (req, res, next) => {
-	db.findByUserId(req.body.id).then((user) => {
+	db.findByUserId(req.body.id || req.params.id).then((user) => {
 		const id = user.id;
 
 		//this code runs IF they type in the old password
@@ -102,7 +102,8 @@ router.put('/:id', (req, res, next) => {
 				email: req.body.email,
 				phone: req.body.phone,
 				textSubscribe: req.body.textSubscribe,
-				emailSubscribe: req.body.emailSubscribe
+				emailSubscribe: req.body.emailSubscribe,
+				residence_id: req.body.residence_id
 			};
 			db
 				.editUser(id, edit)
