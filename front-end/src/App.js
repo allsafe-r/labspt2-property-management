@@ -14,6 +14,10 @@ import LandingView from "./components/LandingPage/LandingView";
 import { Route } from "react-router-dom";
 import { Link } from "react-router-dom";
 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faEnvelope, faKey } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faEnvelope, faKey);
 
 
 // const url = process.env.home || 'http://localhost:9000';
