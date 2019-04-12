@@ -8,6 +8,17 @@ import axios from "axios";
 const decode = require('jwt-decode')
 
 
+
+const styles = theme => ({
+  container: {
+    display: 'flex',
+    // flexDirection: 'row',
+    flexWrap: 'wrap',
+    border: '1px solid black'
+  },
+
+});
+
 class AdminSettings extends Component {
   state = {
     username: "",
