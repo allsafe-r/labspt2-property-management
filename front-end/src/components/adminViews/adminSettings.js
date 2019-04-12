@@ -17,6 +17,12 @@ const styles = theme => ({
     border: '1px solid black'
   },
 
+  textField: {
+    marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit,
+  },
+
+
 });
 
 class AdminSettings extends Component {
