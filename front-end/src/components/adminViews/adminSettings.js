@@ -1,6 +1,9 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import axios from "axios";
 const decode = require('jwt-decode')
+
 class AdminSettings extends Component {
   state = {
     username: "",
