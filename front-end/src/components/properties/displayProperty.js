@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import DeleteModal from './deleteModal';
-// const url = process.env.getProperty || `http://localhost:9000/properties/${id}`;
+// const url = `http://localhost:9000/properties/${id}`;
 //const url = `https://tenantly-back.herokuapp.com/properties/${id}`;
 
 export default class DisplayProperty extends Component {

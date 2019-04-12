@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Menu from '../LandingPage/Menu';
 import Pricing from '../LandingPage/Pricing'
 import '../../assets/css/general.css';
 // const url = process.env.register || 'http://localhost:9000/api/register';

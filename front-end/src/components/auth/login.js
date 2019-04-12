@@ -4,12 +4,14 @@ import { Link } from 'react-router-dom';
 import '../../assets/css/general.css';
 import logo from '../../assets/images/logo.png';
 const url = 'https://tenantly-back.herokuapp.com/api/login';
+// const url = 'http://localhost:9000/api/login';
 
 class Login extends Component {
 	state = {
 		username: '',
 		password: ''
 	};
+
 
 	onChange = (e) => {
 		this.setState({ [e.target.name]: e.target.value });
@@ -20,10 +22,10 @@ class Login extends Component {
 		axios
 			.post(url, this.state)
 			.then((res) => {
+				
 				localStorage.setItem('jwtToken', res.data.token);
-				localStorage.setItem('userId', res.data.userId);
 				// this.props.history.push('/');
-				this.props.authenticate();
+				this.props.authenticate(res.data.isAdmin);
 			})
 			.catch((err) => {
 				console.log({ Error: err });

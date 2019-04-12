@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import PropTypes from 'prop-types';
-import Wave from "./Wave";
+// import Wave from "./Wave";
 import "../../assets/css/general.css";
 
 const IndexPage = () => (
@@ -15,7 +14,7 @@ const IndexPage = () => (
       <Link to={"/register"}>
         <button>GET A CUSTOMIZED DEMO</button>
       </Link>
-      <div class="anchor-wrap">
+      <div className="anchor-wrap">
 					  <a href="#footer" className="anchor"><span></span></a>
 				</div>
     </div>

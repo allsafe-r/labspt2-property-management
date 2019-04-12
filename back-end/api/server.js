@@ -24,7 +24,7 @@ server.use('/alerts', alerts);
 server.use('/billing', billing);
 
 server.get('/', (req, res) => {
-	res.status(200).send('Hi!');
+	res.status(200).send("Hi");
 });
 
 module.exports = server;
