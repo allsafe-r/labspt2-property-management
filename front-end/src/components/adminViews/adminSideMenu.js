@@ -23,6 +23,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 const drawerWidth = 240;
 
@@ -170,9 +171,7 @@ class SideMenu extends Component {
           <List>
             <Link to={"/admin/worklist"}>
               <ListItem button>
-                <ListItemIcon><FontAwesomeIcon
-                  icon="envelope"
-  />
+                <ListItemIcon><FontAwesomeIcon icon="faCoffee" />
                 </ListItemIcon>
                 <ListItemText primary={'Work Orders'} />
               </ListItem>
