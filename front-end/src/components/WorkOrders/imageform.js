@@ -39,7 +39,6 @@ class Imageform extends React.Component {
 		e.preventDefault();
 		this.setState({ file: e.target.files[0] });
 	}
-
 	render() {
 		return (
 			// TENANT 
