@@ -23,7 +23,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { faClipboard, faBuilding, faUserPlus, faFileInvoiceDollar , faCog} from '@fortawesome/free-solid-svg-icons';
 
 const drawerWidth = 240;
 
@@ -162,7 +162,7 @@ class SideMenu extends Component {
           <List>
             <Link to={"/admin/properties"}>
               <ListItem button>
-                <ListItemIcon><InboxIcon /></ListItemIcon>
+                <ListItemIcon><FontAwesomeIcon icon={faBuilding} /></ListItemIcon>
                 <ListItemText primary={'Properties'} />
               </ListItem>
             </Link>
@@ -171,7 +171,7 @@ class SideMenu extends Component {
           <List>
             <Link to={"/admin/worklist"}>
               <ListItem button>
-                <ListItemIcon><FontAwesomeIcon icon="faCoffee" />
+                <ListItemIcon><FontAwesomeIcon icon={faClipboard} />
                 </ListItemIcon>
                 <ListItemText primary={'Work Orders'} />
               </ListItem>
@@ -181,7 +181,7 @@ class SideMenu extends Component {
           <List>
             <Link to={"/admin/add-tenant"}>
               <ListItem button>
-                <ListItemIcon><InboxIcon /></ListItemIcon>
+                <ListItemIcon><FontAwesomeIcon icon={faUserPlus} /></ListItemIcon>
                 <ListItemText primary={'Add Tenant'} />
               </ListItem>
             </Link>
@@ -190,7 +190,7 @@ class SideMenu extends Component {
           <List>
             <Link to={"/admin/billing"}>
               <ListItem button>
-                <ListItemIcon><InboxIcon /></ListItemIcon>
+                <ListItemIcon><FontAwesomeIcon icon={faFileInvoiceDollar} /></ListItemIcon>
                 <ListItemText primary={'Billing'} />
               </ListItem>
             </Link>
@@ -199,7 +199,7 @@ class SideMenu extends Component {
           <List>
             <Link to={"/admin/settings"}>
               <ListItem button>
-                <ListItemIcon><InboxIcon /></ListItemIcon>
+                <ListItemIcon><FontAwesomeIcon icon={faCog} /></ListItemIcon>
                 <ListItemText primary={'Settings'} />
               </ListItem>
             </Link>
