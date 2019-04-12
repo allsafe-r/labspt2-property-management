@@ -13,8 +13,8 @@
 
 .right-side {
   padding: 15px;
-  margin-top: 40px;
-  width: 75%;
+  margin-top: 80px;
+  width:100%;
 }
 
 /* .left-side {
@@ -44,6 +44,14 @@
 }
 
 /* Side Menu */
+
+.MuiToolbar-regular-49 {
+  background-color: white;
+}
+
+.MuiSvgIcon-root-60 {
+  color: #FC7869;
+}
 .sideMenu-container {
   border: 1px solid blue;
   display: flex;

@@ -20,12 +20,10 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClipboard, faBuilding, faUserPlus, faFileInvoiceDollar , faCog} from '@fortawesome/free-solid-svg-icons';
 
-const drawerWidth = 240;
+const drawerWidth = 200;
 
 const styles = theme => ({
   root: {
@@ -73,20 +71,21 @@ const styles = theme => ({
     overflowX: 'hidden',
     width: theme.spacing.unit * 7 + 1,
     [theme.breakpoints.up('sm')]: {
-      width: theme.spacing.unit * 9 + 1,
+      width: theme.spacing.unit * 7 + 1,
     },
   },
   toolbar: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-end',
-    padding: '0 8px',
+    padding: '0 0px',
     ...theme.mixins.toolbar,
   },
   content: {
     flexGrow: 1,
     padding: theme.spacing.unit * 3,
   },
+
 });
 
 
