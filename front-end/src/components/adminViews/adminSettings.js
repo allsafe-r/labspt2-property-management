@@ -88,7 +88,7 @@ class AdminSettings extends Component {
     const { classes } = this.props;
     return (
       <div>
-        <form onSubmit={this.onSubmit}>
+        <form className={classes.container} noValidate autoComplete="off" onSubmit={this.onSubmit}>
           <div>
             <h6>{this.state.username}</h6>
           </div>
