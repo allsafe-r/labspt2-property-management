@@ -113,7 +113,6 @@ class SideMenu extends Component {
     const { classes, theme } = this.props;
 
     return (
-<<<<<<< HEAD
     <div className={classes.root}>
         <CssBaseline />
         <AppBar
@@ -122,14 +121,15 @@ class SideMenu extends Component {
             [classes.appBarShift]: this.state.open,
           })}
         >
-          <Toolbar disableGutters={!this.state.open}>
+          <Toolbar disableGutters={!this.state.open} className="Toolbar">
             <IconButton
-              color="inherit"
+              color="#FC7869"
               aria-label="Open drawer"
               onClick={this.handleDrawerOpen}
               className={classNames(classes.menuButton, {
                 [classes.hide]: this.state.open,
               })}
+              
             >
               <MenuIcon />
             </IconButton>
@@ -202,30 +202,7 @@ class SideMenu extends Component {
                 <ListItemIcon><FontAwesomeIcon icon={faCog} /></ListItemIcon>
                 <ListItemText primary={'Settings'} />
               </ListItem>
-=======
-      <div className="admin side-menu">
-        <div className="logo-wrapper">
-          <Link to={"/"}>
-            <img src={Logo} className="dashboardLogo" alt="Dash logo" />
-          </Link>
-        </div>
-        <div>
-          <ul>
-            <Link to={"/properties"}>
-              <li>Properties</li>
-            </Link>
-            <Link to={"/worklist"}>
-              <li>Work Orders</li>
-            </Link>
-            <Link to={"/add-tenant"}>
-              <li>Add Tenant</li>
-            </Link>
-            <Link to={"/billing"}>
-              <li>Billing</li>
-            </Link>
-            <Link to={"/settings"}>
-              <li>Settings</li>
->>>>>>> 52cfa95faa3a1fd9c639fd4f7b50b7ba94e29c61
+
             </Link>
           </List>
 
