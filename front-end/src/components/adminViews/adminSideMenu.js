@@ -160,7 +160,7 @@ class SideMenu extends Component {
           <Divider />
         
           <List>
-            <Link to={"/admin/properties"}>
+            <Link to={"/properties"}>
               <ListItem button>
                 <ListItemIcon><FontAwesomeIcon icon={faBuilding} /></ListItemIcon>
                 <ListItemText primary={'Properties'} />
@@ -169,7 +169,7 @@ class SideMenu extends Component {
           </List>
 
           <List>
-            <Link to={"/admin/worklist"}>
+            <Link to={"/worklist"}>
               <ListItem button>
                 <ListItemIcon><FontAwesomeIcon icon={faClipboard} />
                 </ListItemIcon>
@@ -179,7 +179,7 @@ class SideMenu extends Component {
           </List>
 
           <List>
-            <Link to={"/admin/add-tenant"}>
+            <Link to={"/add-tenant"}>
               <ListItem button>
                 <ListItemIcon><FontAwesomeIcon icon={faUserPlus} /></ListItemIcon>
                 <ListItemText primary={'Add Tenant'} />
@@ -188,7 +188,7 @@ class SideMenu extends Component {
           </List>
 
           <List>
-            <Link to={"/admin/billing"}>
+            <Link to={"/billing"}>
               <ListItem button>
                 <ListItemIcon><FontAwesomeIcon icon={faFileInvoiceDollar} /></ListItemIcon>
                 <ListItemText primary={'Billing'} />
@@ -197,7 +197,7 @@ class SideMenu extends Component {
           </List>
 
           <List>
-            <Link to={"/admin/settings"}>
+            <Link to={"/settings"}>
               <ListItem button>
                 <ListItemIcon><FontAwesomeIcon icon={faCog} /></ListItemIcon>
                 <ListItemText primary={'Settings'} />
