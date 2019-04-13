@@ -13,7 +13,7 @@ const styles = theme => ({
   container: {
     display: 'flex',
     // flexDirection: 'row',
-    flexWrap: 'wrap',
+    // flexWrap: 'wrap',
     border: '1px solid black'
   },
 
