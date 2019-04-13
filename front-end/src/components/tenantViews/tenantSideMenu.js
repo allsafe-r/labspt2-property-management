@@ -23,7 +23,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHardHat, faMoneyCheckAlt, faColumns, faCog} from '@fortawesome/free-solid-svg-icons';
+import { faSignOutAlt, faHardHat, faMoneyCheckAlt, faColumns, faCog} from '@fortawesome/free-solid-svg-icons';
 
 const drawerWidth = 200;
 
@@ -137,6 +137,12 @@ class TenantSideMenu extends Component {
             </IconButton>
             <Typography variant="h6" color="inherit" noWrap>
                   <img src={Logo} className="dashboardLogo" alt="Dash logo" />
+
+                  <Link to={"/dashboard"}>
+                    <ListItem button>
+                      <ListItemIcon><FontAwesomeIcon icon={faSignOutAlt} /></ListItemIcon>
+                  </ListItem>
+            </Link>
             </Typography>
           </Toolbar>
         </AppBar>
