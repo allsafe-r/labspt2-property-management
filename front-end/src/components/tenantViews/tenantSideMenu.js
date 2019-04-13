@@ -114,7 +114,7 @@ class TenantSideMenu extends Component {
     localStorage.removeItem('jwtToken');
     this.setState({ loggedIn: false });
     window.location.reload();
-};
+  };
 
   render() {
     const { classes, theme } = this.props;
@@ -150,7 +150,6 @@ class TenantSideMenu extends Component {
                   </ListItem>
               </Link>
               </div>
-            
             </Typography>
           </Toolbar>
         </AppBar>
