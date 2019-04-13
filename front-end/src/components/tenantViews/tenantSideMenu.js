@@ -1,46 +1,3 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import "../../assets/css/general.css";
-import Logo from "./../../assets/images/logo.png";
-
-class TenantSideMenu extends Component {
-  constructor() {
-    super();
-    this.state = {
-      admin: false
-    };
-  }
-  render() {
-    return (
-      <div className="tenant side-menu">
-        <div className="logo-wrapper">
-          <Link to={"/"}>
-            <img src={Logo} className="dashboardLogo" alt="Dash logo" />
-          </Link>
-        </div>
-        <div>
-          <ul>
-            <Link to={"/dashboard"}>
-              <li>Dashboard</li>
-            </Link>
-            <Link to={"/payments"}>
-              <li>Payments</li>
-            </Link>
-            <Link to={"/maintenance"}>
-              <li>Maintenance</li>
-              <li>&ensp;&ensp;></li>
-            </Link>
-            <Link to={"/settings"}>
-              <li>Settings</li>
-            </Link>
-          </ul>
-        </div>
-      </div>
-    );
-  }
-}
-
-export default TenantSideMenu;
 
 
 import React, { Component } from "react";
@@ -66,7 +23,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClipboard, faBuilding, faUserPlus, faFileInvoiceDollar , faCog} from '@fortawesome/free-solid-svg-icons';
+import { faHardHat, faMoneyCheckAlt, faColumns, faCog} from '@fortawesome/free-solid-svg-icons';
 
 const drawerWidth = 200;
 
@@ -205,38 +162,29 @@ class TenantSideMenu extends Component {
           <Divider />
         
           <List>
-            <Link to={"/properties"}>
+            <Link to={"/dashboard"}>
               <ListItem button>
-                <ListItemIcon><FontAwesomeIcon icon={faBuilding} /></ListItemIcon>
-                <ListItemText primary={'Properties'} />
+                <ListItemIcon><FontAwesomeIcon icon={faColumns} /></ListItemIcon>
+                <ListItemText primary={'Dashboard'} />
               </ListItem>
             </Link>
           </List>
 
           <List>
-            <Link to={"/worklist"}>
+            <Link to={"/payments"}>
               <ListItem button>
-                <ListItemIcon><FontAwesomeIcon icon={faClipboard} />
+                <ListItemIcon><FontAwesomeIcon icon={faMoneyCheckAlt} />
                 </ListItemIcon>
-                <ListItemText primary={'Work Orders'} />
+                <ListItemText primary={'Payments'} />
               </ListItem>
             </Link>
           </List>
 
           <List>
-            <Link to={"/add-tenant"}>
+            <Link to={"/maintenance"}>
               <ListItem button>
-                <ListItemIcon><FontAwesomeIcon icon={faUserPlus} /></ListItemIcon>
-                <ListItemText primary={'Add Tenant'} />
-              </ListItem>
-            </Link>
-          </List>
-
-          <List>
-            <Link to={"/billing"}>
-              <ListItem button>
-                <ListItemIcon><FontAwesomeIcon icon={faFileInvoiceDollar} /></ListItemIcon>
-                <ListItemText primary={'Billing'} />
+                <ListItemIcon><FontAwesomeIcon icon={faHardHat} /></ListItemIcon>
+                <ListItemText primary={'Maintenance'} />
               </ListItem>
             </Link>
           </List>
