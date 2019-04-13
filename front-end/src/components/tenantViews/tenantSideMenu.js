@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "../../assets/css/general.css";
 import Logo from "./../../assets/images/logo.png";
-
+import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
@@ -113,10 +113,16 @@ class TenantSideMenu extends Component {
   logOut = () => {
     localStorage.removeItem('jwtToken');
     this.setState({ loggedIn: false });
-    window.location.reload();
+   
   };
 
   render() {
+
+    const {loggedIn} = this.state;
+   if(!loggedIn){
+    return <Link push to="/"/> 
+   }
+    else {
     const { classes, theme } = this.props;
 
     return (
@@ -144,8 +150,8 @@ class TenantSideMenu extends Component {
               <div className="flex-top-bar" >
                   <img src={Logo} className="dashboardLogo" alt="Dash logo" />
 
-              <Link to={'/login'} className="log-out" onClick={this.logOut}>
-                    <ListItem button>
+              <Link to={'/'} className="log-out">
+                    <ListItem button onClick={this.logOut}>
                       <FontAwesomeIcon icon={faSignOutAlt} color="slategray" size="2x" />
                   </ListItem>
               </Link>
@@ -219,6 +225,7 @@ class TenantSideMenu extends Component {
       </div>
     );
   }
+}
 }
 
 TenantSideMenu.propTypes = {
