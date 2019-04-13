@@ -920,8 +920,15 @@ button[type="submit"] {
   display:flex;
   flex-direction: space-between;
   max-height: 50px;
+  
 }
-.flex-top-bar .dashboardLogo {
+.log-out {
+  position:relative; 
+  top:0;
+  right:0;
+  z-index:300
+}
+/* .flex-top-bar .dashboardLogo {
   margin-right:75vw;
 }
 
@@ -942,3 +949,39 @@ button[type="submit"] {
     margin-right:60vw;
   }
 }
+
+@media (max-width: 740px) {
+  .flex-top-bar .dashboardLogo {
+    margin-right:55vw;
+  }
+}
+
+@media (max-width: 640px) {
+  .flex-top-bar .dashboardLogo {
+    margin-right:50vw;
+  }
+}
+
+@media (max-width: 560px) {
+  .flex-top-bar .dashboardLogo {
+    margin-right:45vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .flex-top-bar .dashboardLogo {
+    margin-right:40vw;
+  }
+}
+
+@media (max-width: 400px) {
+  .flex-top-bar .dashboardLogo {
+    margin-right:35vw;
+  }
+}
+
+@media (max-width: 350px) {
+  .flex-top-bar .dashboardLogo {
+    margin-right:30vw;
+  }
+} */

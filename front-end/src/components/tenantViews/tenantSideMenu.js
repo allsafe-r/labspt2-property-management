@@ -140,11 +140,11 @@ class TenantSideMenu extends Component {
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" color="inherit" noWrap>
+            <Typography variant="h6" color="inherit" noWrap >
               <div className="flex-top-bar" >
                   <img src={Logo} className="dashboardLogo" alt="Dash logo" />
 
-              <Link to={'/'}>
+              <Link to={'/'} className="log-out">
                     <ListItem button onClick={this.logOut}>
                       <FontAwesomeIcon icon={faSignOutAlt} color="slategray" size="2x" />
                   </ListItem>
