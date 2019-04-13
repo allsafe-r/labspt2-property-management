@@ -110,6 +110,11 @@ class TenantSideMenu extends Component {
     this.setState({ open: false });
   };
 
+  logOut = () => {
+    localStorage.removeItem('jwtToken');
+    this.setState({ loggedIn: false });
+    window.location.reload();
+};
 
   render() {
     const { classes, theme } = this.props;
@@ -136,13 +141,16 @@ class TenantSideMenu extends Component {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" color="inherit" noWrap>
+              <div className="flex-top-bar" >
                   <img src={Logo} className="dashboardLogo" alt="Dash logo" />
 
-                  <Link to={"/dashboard"}>
-                    <ListItem button>
-                      <ListItemIcon><FontAwesomeIcon icon={faSignOutAlt} /></ListItemIcon>
+              <Link to={'/'}>
+                    <ListItem button onClick={this.logOut}>
+                      <FontAwesomeIcon icon={faSignOutAlt} color="slategray" size="2x" />
                   </ListItem>
-            </Link>
+              </Link>
+              </div>
+            
             </Typography>
           </Toolbar>
         </AppBar>

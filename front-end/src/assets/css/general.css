@@ -913,3 +913,32 @@ button[type="submit"] {
 .billingColumn1 {
   width:40%;
 }
+
+/* Top Bar */
+
+.flex-top-bar {
+  display:flex;
+  flex-direction: space-between;
+  max-height: 50px;
+}
+.flex-top-bar .dashboardLogo {
+  margin-right:75vw;
+}
+
+@media (max-width: 1200px) {
+  .flex-top-bar .dashboardLogo {
+    margin-right:70vw;
+  }
+}
+
+@media (max-width: 970px) {
+  .flex-top-bar .dashboardLogo {
+    margin-right:65vw;
+  }
+}
+
+@media (max-width: 840px) {
+  .flex-top-bar .dashboardLogo {
+    margin-right:60vw;
+  }
+}
