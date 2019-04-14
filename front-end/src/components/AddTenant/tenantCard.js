@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 
+import HouseApp from "./houseApp";
+
 const url = "https://tenantly-back.herokuapp.com/api/register";
 
 class TenantInfo extends Component {
@@ -12,7 +14,10 @@ class TenantInfo extends Component {
       isAdmin: false,
       email: "",
       phone: "",
-      displayName: ""
+      displayName: "",
+      emailSubscribe: false,
+      textSubscribe: false,
+      application: null
     };
   }
   inputHandler = e => {
@@ -33,6 +38,13 @@ class TenantInfo extends Component {
       .catch(err => {
         console.log({ Error: err });
       });
+  };
+
+  urlUpdater = imageurl => {
+    console.log(imageurl);
+    this.setState({
+      application: imageurl
+    });
   };
 
   render() {
@@ -75,8 +87,7 @@ class TenantInfo extends Component {
               </div>
             </div>
             <div className="tenantCard-bottom">
-              <h1> Housing Application</h1>
-              <input type="file" name="houseApplication" />
+              <HouseApp url={this.urlUpdater} />
             </div>
           </form>
           <button onClick={this.addTenant}>Create</button>

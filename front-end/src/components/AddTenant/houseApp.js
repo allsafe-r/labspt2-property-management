@@ -1,20 +1,20 @@
-import React from "react";
-const axios = require("axios");
-// const url = process.env.imagePost || 'http://localhost:9000/images';
+import React, { Component } from "react";
+import axios from "axios";
+
 const url = "https://tenantly-back.herokuapp.com/images";
 
-class Imageform extends React.Component {
+class HouseApp extends Component {
   constructor(props) {
     super(props);
     this.state = {
       file: null,
       url: null
     };
-    this.onFormSubmit = this.onFormSubmit.bind(this);
     this.onChange = this.onChange.bind(this);
   }
-  onFormSubmit(e) {
-    e.preventDefault();
+
+  onChange(e) {
+    this.setState({ file: e.target.files[0] });
     const formData = new FormData();
     formData.append("image", this.state.file);
     const config = {
@@ -35,20 +35,14 @@ class Imageform extends React.Component {
     this.props.url(this.state.url);
   }
 
-  onChange(e) {
-    e.preventDefault();
-    this.setState({ file: e.target.files[0] });
-  }
-
   render() {
     return (
-      <form>
-        <h1>File Upload</h1>
+      <div className="addApp">
+        <h2>Housing Application</h2>
         <input type="file" name="image" onChange={this.onChange} />
-        <button onClick={this.onFormSubmit}>Upload</button>
-      </form>
+      </div>
     );
   }
 }
 
-export default Imageform;
+export default HouseApp;
