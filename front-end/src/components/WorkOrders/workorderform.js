@@ -72,7 +72,9 @@ export default class Workorderform extends Component {
 			<Grid container className='innerworkorderform' spacing={24}>
 			<Grid item className='griditem' lg={12}>
 			<Card className="carditems">
-				<h3>Type Your Notes Here:</h3>
+			<Typography component="h2" variant="headline" gutterBottom>
+          		Type Your Notes Here:
+        	</Typography>
 				<form onSubmit={this.submithandler}>
 					<TextField
 						onChange={this.inputhandler}
