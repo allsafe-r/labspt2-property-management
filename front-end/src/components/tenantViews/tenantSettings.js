@@ -5,6 +5,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import axios from 'axios';
 
+
 class TenantSettings extends Component {
 	state = {
 		username: '',
@@ -76,6 +77,7 @@ class TenantSettings extends Component {
 	};
 
 	render() {
+		const { classes } = this.props;
 		return (
 			<div>
 				<form onSubmit={this.onSubmit}>
