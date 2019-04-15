@@ -74,7 +74,6 @@ class Workorderform extends Component {
 	};
 
 	render() {
-		const { classes } = this.props;
 		return (
 			<Grid container className='innerworkorderform' spacing={24}>
 			<Grid item className='griditem' lg={12}>
@@ -119,4 +118,5 @@ class Workorderform extends Component {
 Workorderform.propTypes = {
 	classes: PropTypes.object.isRequired,
   };
-  export default withStyles(styles)(Workorderform);
+
+export default withStyles(styles)(Workorderform);
