@@ -154,5 +154,7 @@ class AdminSettings extends Component {
   }
 }
 
-
-export default AdminSettings;
+AdminSettings.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+export default withStyles(styles)(AdminSettings);
