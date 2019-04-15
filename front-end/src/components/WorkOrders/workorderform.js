@@ -11,6 +11,8 @@ import SaveIcon from '@material-ui/icons/Save';
 import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
 import Checkbox from '@material-ui/core/Checkbox';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+
 
 
 // const url = process.env.workorderURL || 'http://localhost:9000/workorders'
@@ -106,9 +108,26 @@ class Workorderform extends Component {
 						type="text"
 					/>
 					<br />
-					<Input onChange={this.inputhandler} name="unsupervisedEntry" className="#" type="checkbox"> 
-					<p>	Permission to enter?</p>
-					</Input>
+					{/* <FormControlLabel
+          				control={
+					<Checkbox onChange={this.inputhandler} name="unsupervisedEntry" className="#" type="checkbox"> 
+					</Checkbox> */}
+
+					<FormControlLabel
+						control={
+							<Checkbox
+							name="unsupervisedEntry" 
+							checked={this.state.checkedB}
+							onChange={this.inputhandler}
+							value="checkedB"
+							color="primary"
+							className="#"
+							type="checkbox"
+							/>
+						}
+						label="Permission to enter?"
+						/>
+
 					<Imageform url={this.urlUpdater} />
          {/*<input name="attachimage" type='file'/> */}
 					<Button variant='contained' type="submit" className="button-2">
