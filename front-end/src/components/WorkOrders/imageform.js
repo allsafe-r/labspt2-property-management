@@ -1,4 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+
 const axios = require('axios');
 // const url = process.env.imagePost || 'http://localhost:9000/images';
 const url = 'https://tenantly-back.herokuapp.com/images';
