@@ -79,12 +79,8 @@ class TenantSettings extends Component {
 	render() {
 		const { classes } = this.props;
 		return (
-			<div>
-				<form onSubmit={this.onSubmit}>
-					<div>
+				<form className={classes.container}  onSubmit={this.onSubmit}>
 						<h6>{this.state.username}</h6>
-					</div>
-					<div>
 						<input
 							placeholder="displayName"
 							name="displayName"
@@ -93,8 +89,6 @@ class TenantSettings extends Component {
 							type="text"
 							required
 						/>
-					</div>
-					<div>
 						<input
 							placeholder="email"
 							name="email"
@@ -103,8 +97,6 @@ class TenantSettings extends Component {
 							type="text"
 							required
 						/>
-					</div>
-					<div>
 						<input
 							placeholder="phone"
 							name="phone"
@@ -113,8 +105,6 @@ class TenantSettings extends Component {
 							type="text"
 							required
 						/>
-					</div>
-					<div>
 						<input
 							type="checkbox"
 							name="textSubscribe"
@@ -129,8 +119,6 @@ class TenantSettings extends Component {
 							onChange={this.handleCheckboxChange}
 						/>
 						<span>Get emails?</span>
-					</div>
-					<div>
 						<input
 							placeholder="password"
 							name="oldPW"
@@ -138,8 +126,6 @@ class TenantSettings extends Component {
 							onChange={this.onChange}
 							type="password"
 						/>
-					</div>
-					<div>
 						<input
 							placeholder="new password"
 							name="newPW1"
@@ -147,8 +133,6 @@ class TenantSettings extends Component {
 							onChange={this.onChange}
 							type="password"
 						/>
-					</div>{' '}
-					<div>
 						<input
 							placeholder="new password"
 							name="newPW2"
@@ -156,10 +140,8 @@ class TenantSettings extends Component {
 							onChange={this.onChange}
 							type="password"
 						/>
-					</div>
 					<button>Update</button>
 				</form>
-			</div>
 		);
 	}
 }
