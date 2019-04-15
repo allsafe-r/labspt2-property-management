@@ -82,13 +82,10 @@ class AdminSettings extends Component {
   };
 
   render() {
+    const { classes } = this.props;
     return (
-      <div>
         <form onSubmit={this.onSubmit}>
-          <div>
             <h6>{this.state.username}</h6>
-          </div>
-          <div>
             <input
               placeholder="displayName"
               name="displayName"
@@ -97,8 +94,6 @@ class AdminSettings extends Component {
               type="text"
               required
             />
-          </div>
-          <div>
             <input
               placeholder="email"
               name="email"
@@ -107,8 +102,6 @@ class AdminSettings extends Component {
               type="text"
               required
             />
-          </div>
-          <div>
             <input
               placeholder="phone"
               name="phone"
@@ -117,8 +110,6 @@ class AdminSettings extends Component {
               type="text"
               required
             />
-          </div>
-          <div>
             <input
               placeholder="password"
               name="oldPW"
@@ -126,8 +117,7 @@ class AdminSettings extends Component {
               onChange={this.onChange}
               type="password"
             />
-          </div>
-          <div>
+
             <input
               placeholder="new password"
               name="newPW1"
@@ -135,8 +125,6 @@ class AdminSettings extends Component {
               onChange={this.onChange}
               type="password"
             />
-          </div>{" "}
-          <div>
             <input
               placeholder="new password"
               name="newPW2"
@@ -144,10 +132,8 @@ class AdminSettings extends Component {
               onChange={this.onChange}
               type="password"
             />
-          </div>
           <button>Update</button>
         </form>
-      </div>
     );
   }
 }
