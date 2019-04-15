@@ -9,7 +9,8 @@ import Divider from '@material-ui/core/Divider';
 import axios from 'axios';
 import './../WorkOrders/workorders.css';
 
-const url = 'https://tenantly-back.herokuapp.com/stripe/charges';
+const url = 'http://localhost:9000/stripe/charges'
+// const url = 'https://tenantly-back.herokuapp.com/stripe/charges';
 
 export default class tenantPayments extends Component {
 	constructor(props) {
@@ -65,7 +66,7 @@ export default class tenantPayments extends Component {
 						<ul><li>Date: {this.convertToTime(charge.created)}</li>
 						<li>Name: {charge.billing_details.name}</li>
 						<li>Amount Paid:${charge.amount}.00</li>
-						<Divider />
+						{/* <Divider /> */}
 						</ul>
 						
 						

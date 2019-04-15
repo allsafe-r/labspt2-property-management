@@ -10,7 +10,7 @@ router.post("/register", (req, res, next) => {
   creds.password = hash;
   db.createUser(creds)
     .then(ids => {
-      console.log(ids);
+      // console.log(ids);
       db.findByUserId(ids[0])
         .then(user => {
           res.status(201).json({ username: user.id });
@@ -29,11 +29,17 @@ router.post("/login", (req, res, next) => {
   db.findByUserName(creds.username)
     .then(users => {
       user = users[0];
+
       console.log(user);
       if (user && bcrypt.compareSync(creds.password, user.password)) {
         const token = generateToken(user);
         // console.log(token);
-        res.json({ Welcome: user.username, userId: user.id, token });
+        res.json({
+          Welcome: user.username,
+          userId: user.id,
+          token,
+          isAdmin: user.isAdmin
+        });
       } else {
         res.status(401).json({ message: "Not Authorized" });
       }

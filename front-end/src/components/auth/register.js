@@ -3,8 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
 import "../../assets/css/general.css";
-// import Pricing from '../LandingPage/Pricing'
-// const url = process.env.register || 'http://localhost:9000/api/register';
+// const url = 'http://localhost:9000/api/register';
 const url = "https://tenantly-back.herokuapp.com/api/register";
 
 class Register extends Component {

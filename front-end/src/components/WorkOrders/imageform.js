@@ -42,6 +42,7 @@ class Imageform extends React.Component {
 
   render() {
     return (
+      // TENANT
       <form>
         <h1>File Upload</h1>
         <input type="file" name="image" onChange={this.onChange} />
