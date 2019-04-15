@@ -4,6 +4,7 @@ import Imageform from './imageform';
 import Grid from '@material-ui/core/Grid';
 import Card from "@material-ui/core/Card";
 import classNames from 'classnames';
+import TextField from '@material-ui/core/TextField';
 import { withStyles } from '@material-ui/core/styles';
 import Input from '@material-ui/core/Input';
 import SaveIcon from '@material-ui/icons/Save';
@@ -65,14 +66,14 @@ export default class Workorderform extends Component {
 	};
 
 	render() {
+		const { classes } = this.props;
 		return (
-			<div className='workorderform'>
 			<Grid container className='innerworkorderform' spacing={24}>
 			<Grid item className='griditem' lg={12}>
 			<Card className="carditems">
 				<h3>Type Your Notes Here:</h3>
 				<form onSubmit={this.submithandler}>
-					<Input
+					<TextField
 						onChange={this.inputhandler}
 						value={this.state.description}
 						name="description"
@@ -81,7 +82,7 @@ export default class Workorderform extends Component {
 						type="text"
 					/>
 
-					<Input
+					<TextField
 						onChange={this.inputhandler}
 						name="phone"
 						value={this.state.phone}
@@ -100,7 +101,6 @@ export default class Workorderform extends Component {
 				</Card>
 				</Grid>
 				</Grid>
-			</div>
 		);
 	}
 }
