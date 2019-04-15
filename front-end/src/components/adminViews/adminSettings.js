@@ -84,7 +84,7 @@ class AdminSettings extends Component {
   render() {
     const { classes } = this.props;
     return (
-        <form onSubmit={this.onSubmit}>
+        <form className={classes.container} onSubmit={this.onSubmit}>
             <h6>{this.state.username}</h6>
             <input
               placeholder="displayName"
