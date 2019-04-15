@@ -152,7 +152,9 @@ class AdminSettings extends Component {
               onChange={this.onChange}
               type="password"
             />
-          <button>Update</button>
+            <Button variant="contained" size="large" color="primary" className={classes.margin}>
+              Update
+            </Button>
         </form>
     );
   }
