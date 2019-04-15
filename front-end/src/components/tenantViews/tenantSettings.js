@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
-import MenuItem from '@material-ui/core/MenuItem';
+import Checkbox from '@material-ui/core/Checkbox';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+
 import TextField from '@material-ui/core/TextField';
 import PropTypes from 'prop-types';
 import axios from 'axios';
@@ -11,7 +13,6 @@ const styles = theme => ({
 	  display: 'flex',
 	  flexDirection: 'column',
 	  flexWrap: 'wrap',
-	  border: '1px solid black',
 	  width: '80%'
 
 	},
@@ -124,20 +125,37 @@ class TenantSettings extends Component {
 							type="text"
 							required
 						/>
-						<TextField
+						{/* <Checkbox
 							type="checkbox"
 							name="textSubscribe"
 							value={this.state.textSubscribe}
 							onChange={this.handleCheckboxChange}
 						/>
-						<span>Get texts</span>
-						<TextField
+						<Checkbox
 							type="checkbox"
 							name="emailSubscribe"
 							value={this.state.emailSubscribe}
 							onChange={this.handleCheckboxChange}
-						/>
-						<span>Get emails?</span>
+						/> */}
+						<FormControlLabel
+							control={
+								<Checkbox
+								value={this.state.emailSubscribe}
+								onChange={this.handleCheckboxChange}
+								color="primary"
+								/>
+							}
+							label="Get Texts"
+        					/>
+						<FormControlLabel
+							control={
+								<Checkbox
+								onChange={this.handleCheckboxChange}
+								color="primary"
+								/>
+							}
+         					label="Get Emails"
+        					/>
 						<TextField
 							placeholder="password"
 							name="oldPW"
