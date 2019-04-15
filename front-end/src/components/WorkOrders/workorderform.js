@@ -107,11 +107,6 @@ class Workorderform extends Component {
 						type="text"
 					/>
 					<br />
-					{/* <FormControlLabel
-          				control={
-					<Checkbox onChange={this.inputhandler} name="unsupervisedEntry" className="#" type="checkbox"> 
-					</Checkbox> */}
-
 					<FormControlLabel
 						control={
 							<Checkbox
@@ -140,7 +135,6 @@ class Workorderform extends Component {
 		);
 	}
 }
-
 
 Workorderform.propTypes = {
 	classes: PropTypes.object.isRequired,
