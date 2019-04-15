@@ -45,6 +45,7 @@ class Imageform extends React.Component {
 	}
 
 	render() {
+		const { classes } = this.props;
 		return (
 			<form>
 				<h1>File Upload</h1>
