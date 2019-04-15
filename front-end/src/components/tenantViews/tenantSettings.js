@@ -13,8 +13,12 @@ const styles = theme => ({
 	  display: 'flex',
 	  flexDirection: 'column',
 	  flexWrap: 'wrap',
-	  width: '80%'
+	  width: '80%',
 
+	},
+
+	margin: {
+		margin: theme.spacing.unit,
 	},
   
 	textField: {
