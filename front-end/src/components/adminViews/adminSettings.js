@@ -86,7 +86,7 @@ class AdminSettings extends Component {
     return (
         <form className={classes.container} onSubmit={this.onSubmit}>
             <h6>{this.state.username}</h6>
-            <input
+            <TextField
               placeholder="displayName"
               name="displayName"
               value={this.state.displayName}
@@ -94,7 +94,7 @@ class AdminSettings extends Component {
               type="text"
               required
             />
-            <input
+            <TextField
               placeholder="email"
               name="email"
               value={this.state.email}
@@ -102,7 +102,7 @@ class AdminSettings extends Component {
               type="text"
               required
             />
-            <input
+            <TextField
               placeholder="phone"
               name="phone"
               value={this.state.phone}
@@ -110,7 +110,7 @@ class AdminSettings extends Component {
               type="text"
               required
             />
-            <input
+            <TextField
               placeholder="password"
               name="oldPW"
               value={this.state.oldPW}
@@ -118,14 +118,14 @@ class AdminSettings extends Component {
               type="password"
             />
 
-            <input
+            <TextField
               placeholder="new password"
               name="newPW1"
               value={this.state.newPW1}
               onChange={this.onChange}
               type="password"
             />
-            <input
+            <TextField
               placeholder="new password"
               name="newPW2"
               value={this.state.newPW2}
