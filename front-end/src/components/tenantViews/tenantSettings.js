@@ -81,7 +81,7 @@ class TenantSettings extends Component {
 		return (
 				<form className={classes.container}  onSubmit={this.onSubmit}>
 						<h6>{this.state.username}</h6>
-						<input
+						<TextField
 							placeholder="displayName"
 							name="displayName"
 							value={this.state.displayName}
@@ -89,7 +89,7 @@ class TenantSettings extends Component {
 							type="text"
 							required
 						/>
-						<input
+						<TextField
 							placeholder="email"
 							name="email"
 							value={this.state.email}
@@ -97,7 +97,7 @@ class TenantSettings extends Component {
 							type="text"
 							required
 						/>
-						<input
+						<TextField
 							placeholder="phone"
 							name="phone"
 							value={this.state.phone}
@@ -105,35 +105,35 @@ class TenantSettings extends Component {
 							type="text"
 							required
 						/>
-						<input
+						<TextField
 							type="checkbox"
 							name="textSubscribe"
 							value={this.state.textSubscribe}
 							onChange={this.handleCheckboxChange}
 						/>
 						<span>Get texts</span>
-						<input
+						<TextField
 							type="checkbox"
 							name="emailSubscribe"
 							value={this.state.emailSubscribe}
 							onChange={this.handleCheckboxChange}
 						/>
 						<span>Get emails?</span>
-						<input
+						<TextField
 							placeholder="password"
 							name="oldPW"
 							value={this.state.oldPW}
 							onChange={this.onChange}
 							type="password"
 						/>
-						<input
+						<TextField
 							placeholder="new password"
 							name="newPW1"
 							value={this.state.newPW1}
 							onChange={this.onChange}
 							type="password"
 						/>
-						<input
+						<TextField
 							placeholder="new password"
 							name="newPW2"
 							value={this.state.newPW2}
