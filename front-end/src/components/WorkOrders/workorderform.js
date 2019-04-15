@@ -11,10 +11,17 @@ import Input from '@material-ui/core/Input';
 import SaveIcon from '@material-ui/icons/Save';
 import Icon from '@material-ui/core/Icon';
 import Button from '@material-ui/core/Button';
+import PropTypes from 'prop-types';
+
 // const url = process.env.workorderURL || 'http://localhost:9000/workorders'
 const url = 'https://tenantly-back.herokuapp.com/workorders';
 
-export default class Workorderform extends Component {
+const styles = theme => ({
+  
+  
+  });
+
+class Workorderform extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -96,7 +103,7 @@ export default class Workorderform extends Component {
 					<Input onChange={this.inputhandler} name="unsupervisedEntry" className="#" type="checkbox" />
 					<Imageform url={this.urlUpdater} />
          {/*<input name="attachimage" type='file'/> */}
-					<Button variant='contained'type="submit" className="button-2">
+					<Button variant='contained' type="submit" className="button-2">
 					<SaveIcon  />
 						Save
 					</Button>
@@ -107,3 +114,9 @@ export default class Workorderform extends Component {
 		);
 	}
 }
+
+
+Workorderform.propTypes = {
+	classes: PropTypes.object.isRequired,
+  };
+  export default withStyles(styles)(Workorderform);
