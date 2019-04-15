@@ -10,7 +10,7 @@ const styles = theme => ({
   container: {
     display: 'flex',
     flexDirection: 'column',
-    // flexWrap: 'wrap',
+    flexWrap: 'wrap',
     border: '1px solid black'
   },
 
