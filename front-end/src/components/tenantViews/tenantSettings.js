@@ -25,6 +25,8 @@ const styles = theme => ({
 	  marginLeft: theme.spacing.unit,
 	  marginRight: theme.spacing.unit,
 	},
+
+
   
   
   });
@@ -104,8 +106,9 @@ class TenantSettings extends Component {
 		const { classes } = this.props;
 		return (
 				<form className={classes.container}  onSubmit={this.onSubmit}>
-						<h6>{this.state.username}</h6>
+						<h6>Username: {this.state.username}</h6>
 						<TextField
+							label='Display Name'
 							placeholder="displayName"
 							name="displayName"
 							value={this.state.displayName}
@@ -113,7 +116,9 @@ class TenantSettings extends Component {
 							type="text"
 							required
 						/>
+						
 						<TextField
+							label='Email'
 							placeholder="email"
 							name="email"
 							value={this.state.email}
@@ -122,6 +127,7 @@ class TenantSettings extends Component {
 							required
 						/>
 						<TextField
+							label='Phone Number'
 							placeholder="phone"
 							name="phone"
 							value={this.state.phone}
@@ -161,6 +167,7 @@ class TenantSettings extends Component {
          					label="Get Emails"
         					/>
 						<TextField
+							label='Password'
 							placeholder="password"
 							name="oldPW"
 							value={this.state.oldPW}
@@ -168,6 +175,7 @@ class TenantSettings extends Component {
 							type="password"
 						/>
 						<TextField
+							label='New Password'
 							placeholder="new password"
 							name="newPW1"
 							value={this.state.newPW1}
@@ -175,6 +183,7 @@ class TenantSettings extends Component {
 							type="password"
 						/>
 						<TextField
+							label='Confirm New Password'
 							placeholder="new password"
 							name="newPW2"
 							value={this.state.newPW2}
