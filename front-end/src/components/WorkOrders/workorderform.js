@@ -10,20 +10,18 @@ import Input from '@material-ui/core/Input';
 import SaveIcon from '@material-ui/icons/Save';
 import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
+import Checkbox from '@material-ui/core/Checkbox';
+
 
 // const url = process.env.workorderURL || 'http://localhost:9000/workorders'
 const url = 'https://tenantly-back.herokuapp.com/workorders';
 
 const styles = theme => ({
-	// container: {
-	// 	display: 'flex',
-	// 	flexDirection: 'column',
-	// 	flexWrap: 'wrap',
-	//   },
-	// innerworkorderform: {
-
+	textField: {
+		// marginLeft: theme.spacing.unit,
+		// marginRight: theme.spacing.unit,
+	  },
 	
-  
   });
 
 class Workorderform extends Component {
@@ -82,13 +80,14 @@ class Workorderform extends Component {
 		const { classes } = this.props;
 		return (
 			<Grid container className='innerworkorderform' spacing={24}>
-			<Grid item className='griditem' lg={12}>
+			<Grid item className='griditem' lg={11}>
 			<Card className="carditems">
 			<Typography component="h2" variant="headline" gutterBottom>
           		Type Your Notes Here:
         	</Typography>
 				<form className={classes.container}  onSubmit={this.submithandler}>
 					<TextField
+						className={classes.textField}
 						onChange={this.inputhandler}
 						value={this.state.description}
 						name="description"
@@ -96,8 +95,9 @@ class Workorderform extends Component {
 						className="#"
 						type="text"
 					/>
-
+					<br />
 					<TextField
+						className={classes.textField}
 						onChange={this.inputhandler}
 						name="phone"
 						value={this.state.phone}
@@ -105,7 +105,10 @@ class Workorderform extends Component {
 						className="#"
 						type="text"
 					/>
-					<Input onChange={this.inputhandler} name="unsupervisedEntry" className="#" type="checkbox" />
+					<br />
+					<Input onChange={this.inputhandler} name="unsupervisedEntry" className="#" type="checkbox"> 
+					<p>	Permission to enter?</p>
+					</Input>
 					<Imageform url={this.urlUpdater} />
          {/*<input name="attachimage" type='file'/> */}
 					<Button variant='contained' type="submit" className="button-2">
