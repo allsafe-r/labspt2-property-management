@@ -5,6 +5,22 @@ import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import axios from 'axios';
 
+const styles = theme => ({
+	container: {
+	  display: 'flex',
+	  // flexDirection: 'row',
+	  // flexWrap: 'wrap',
+	  border: '1px solid black'
+	},
+  
+	textField: {
+	  marginLeft: theme.spacing.unit,
+	  marginRight: theme.spacing.unit,
+	},
+  
+  
+  });
+
 
 class TenantSettings extends Component {
 	state = {
