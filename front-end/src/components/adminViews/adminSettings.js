@@ -14,6 +14,10 @@ const styles = theme => ({
     border: '1px solid black'
   },
 
+  margin: {
+    margin: theme.spacing.unit,
+  },
+
   textField: {
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
