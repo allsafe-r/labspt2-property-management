@@ -9,9 +9,11 @@ import axios from 'axios';
 const styles = theme => ({
 	container: {
 	  display: 'flex',
-	  // flexDirection: 'row',
-	  // flexWrap: 'wrap',
-	  border: '1px solid black'
+	  flexDirection: 'column',
+	  flexWrap: 'wrap',
+	  border: '1px solid black',
+	  width: '80%'
+
 	},
   
 	textField: {
