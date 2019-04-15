@@ -15,6 +15,7 @@ const styles = theme => ({
   
 });
 
+
 class Imageform extends React.Component {
 	constructor(props) {
 		super(props);
@@ -57,7 +58,10 @@ class Imageform extends React.Component {
 		return (
 			<form>
 				<h1>File Upload</h1>
-				<input type="file" name="image" onChange={this.onChange} />
+				{/* <input type="file" name="image" onChange={this.onChange}  style="width:200px"/> */}
+				<label class="custom-file-upload">
+					<input type="file"/>
+				</label>
 				<Button variant="contained" color="default" className={classes.button}  onClick={this.onFormSubmit}>
 					Upload
 					<CloudUploadIcon className={classes.rightIcon} />

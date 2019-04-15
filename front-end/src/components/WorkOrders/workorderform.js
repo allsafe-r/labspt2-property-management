@@ -13,7 +13,6 @@ import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 
-
 // const url = process.env.workorderURL || 'http://localhost:9000/workorders'
 const url = 'https://tenantly-back.herokuapp.com/workorders';
 
@@ -21,6 +20,8 @@ const styles = theme => ({
 	textField: {
 		marginLeft: theme.spacing.unit,
 		marginRight: theme.spacing.unit,
+			
+	
 	  },
 
 	  innerworkorderform: {
@@ -38,10 +39,10 @@ const styles = theme => ({
 	  typo: {
 		margin: '20px',
 		fontSize: '1.9rem'
-	}
-
+	},
 	
   });
+
 
 class Workorderform extends Component {
 	constructor(props) {
