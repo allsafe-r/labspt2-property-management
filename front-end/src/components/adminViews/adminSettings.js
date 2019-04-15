@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 
@@ -152,7 +153,7 @@ class AdminSettings extends Component {
               onChange={this.onChange}
               type="password"
             />
-            <Button variant="contained" size="large" color="primary" className={classes.margin}>
+            <Button variant="contained" size="large" color="secondary" className={classes.margin}>
               Update
             </Button>
         </form>
