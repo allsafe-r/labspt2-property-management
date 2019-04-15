@@ -17,6 +17,10 @@ const styles = theme => ({
 
 	},
 
+	heading: {
+		paddingBottom: 20,
+	},
+
 	margin: {
 		margin: theme.spacing.unit,
 	},
@@ -106,7 +110,7 @@ class TenantSettings extends Component {
 		const { classes } = this.props;
 		return (
 				<form className={classes.container}  onSubmit={this.onSubmit}>
-						<h6>Username: {this.state.username}</h6>
+						<h6 className={classes.heading}>Username: {this.state.username}</h6>
 						<TextField
 							label='Display Name'
 							placeholder="displayName"
