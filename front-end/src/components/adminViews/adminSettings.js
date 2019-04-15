@@ -9,7 +9,7 @@ import axios from "axios";
 const styles = theme => ({
   container: {
     display: 'flex',
-    // flexDirection: 'row',
+    flexDirection: 'column',
     // flexWrap: 'wrap',
     border: '1px solid black'
   },
