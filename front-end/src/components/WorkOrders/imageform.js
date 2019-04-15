@@ -7,6 +7,11 @@ const axios = require('axios');
 // const url = process.env.imagePost || 'http://localhost:9000/images';
 const url = 'https://tenantly-back.herokuapp.com/images';
 
+const styles = theme => ({
+  
+  
+});
+
 class Imageform extends React.Component {
 	constructor(props) {
 		super(props);
@@ -55,5 +60,8 @@ class Imageform extends React.Component {
 		);
 	}
 }
+Imageform.propTypes = {
+	classes: PropTypes.object.isRequired,
+  };
 
-export default Imageform;
+export default withStyles(styles)(Imageform);
