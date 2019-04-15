@@ -3,13 +3,11 @@ import axios from 'axios';
 import Imageform from './imageform';
 import Grid from '@material-ui/core/Grid';
 import Card from "@material-ui/core/Card";
-import classNames from 'classnames';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import Input from '@material-ui/core/Input';
 import SaveIcon from '@material-ui/icons/Save';
-import Icon from '@material-ui/core/Icon';
 import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
 
@@ -17,7 +15,14 @@ import PropTypes from 'prop-types';
 const url = 'https://tenantly-back.herokuapp.com/workorders';
 
 const styles = theme => ({
-  
+	// container: {
+	// 	display: 'flex',
+	// 	flexDirection: 'column',
+	// 	flexWrap: 'wrap',
+	//   },
+	// innerworkorderform: {
+
+	
   
   });
 
@@ -74,6 +79,7 @@ class Workorderform extends Component {
 	};
 
 	render() {
+		const { classes } = this.props;
 		return (
 			<Grid container className='innerworkorderform' spacing={24}>
 			<Grid item className='griditem' lg={12}>
@@ -81,7 +87,7 @@ class Workorderform extends Component {
 			<Typography component="h2" variant="headline" gutterBottom>
           		Type Your Notes Here:
         	</Typography>
-				<form onSubmit={this.submithandler}>
+				<form className={classes.container}  onSubmit={this.submithandler}>
 					<TextField
 						onChange={this.inputhandler}
 						value={this.state.description}
