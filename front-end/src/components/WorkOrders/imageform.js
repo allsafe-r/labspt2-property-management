@@ -10,7 +10,7 @@ const url = 'https://tenantly-back.herokuapp.com/images';
 
 const styles = theme => ({
 
-	
+
   
   
 });

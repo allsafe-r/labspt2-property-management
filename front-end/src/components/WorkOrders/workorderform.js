@@ -32,7 +32,7 @@ const styles = theme => ({
 	  },
 
 	  container: {
-		
+		padding: 20,
 	  },
 
 	  typo: {
@@ -99,7 +99,7 @@ class Workorderform extends Component {
 		const { classes } = this.props;
 		return (
 			<Grid container className={classes.innerworkorderform} spacing={24}>
-			<Grid item className={classes.griditem} lg={11}>
+			<Grid item className={classes.griditem} lg={10}>
 			<Card className="carditems">
 			<Typography className={classes.typo} component="h2" variant="headline" gutterBottom>
           		Type Your Notes Here:
