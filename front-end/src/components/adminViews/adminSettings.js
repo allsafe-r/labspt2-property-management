@@ -12,7 +12,6 @@ const styles = theme => ({
     display: 'flex',
     flexDirection: 'column',
     flexWrap: 'wrap',
-    border: '1px solid black'
   },
 
   margin: {
