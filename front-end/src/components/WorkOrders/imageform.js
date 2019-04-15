@@ -9,6 +9,8 @@ const axios = require('axios');
 const url = 'https://tenantly-back.herokuapp.com/images';
 
 const styles = theme => ({
+
+	
   
   
 });

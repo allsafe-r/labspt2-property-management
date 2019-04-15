@@ -19,9 +19,27 @@ const url = 'https://tenantly-back.herokuapp.com/workorders';
 
 const styles = theme => ({
 	textField: {
-		// marginLeft: theme.spacing.unit,
-		// marginRight: theme.spacing.unit,
+		marginLeft: theme.spacing.unit,
+		marginRight: theme.spacing.unit,
 	  },
+
+	  innerworkorderform: {
+		 
+
+	  },
+	  griditem: {
+		  
+	  },
+
+	  container: {
+		
+	  },
+
+	  typo: {
+		margin: '20px',
+		fontSize: '1.9rem'
+	}
+
 	
   });
 
@@ -80,10 +98,10 @@ class Workorderform extends Component {
 	render() {
 		const { classes } = this.props;
 		return (
-			<Grid container className='innerworkorderform' spacing={24}>
-			<Grid item className='griditem' lg={11}>
+			<Grid container className={classes.innerworkorderform} spacing={24}>
+			<Grid item className={classes.griditem} lg={11}>
 			<Card className="carditems">
-			<Typography component="h2" variant="headline" gutterBottom>
+			<Typography className={classes.typo} component="h2" variant="headline" gutterBottom>
           		Type Your Notes Here:
         	</Typography>
 				<form className={classes.container}  onSubmit={this.submithandler}>
