@@ -56,7 +56,10 @@ class Imageform extends React.Component {
 			<form>
 				<h1>File Upload</h1>
 				<input type="file" name="image" onChange={this.onChange} />
-				<Button variant="contained" color="default" className={classes.button}  onClick={this.onFormSubmit}>Upload</Button>
+				<Button variant="contained" color="default" className={classes.button}  onClick={this.onFormSubmit}>
+					Upload
+					<CloudUploadIcon className={classes.rightIcon} />
+				</Button>
 			</form>
 		);
 	}
