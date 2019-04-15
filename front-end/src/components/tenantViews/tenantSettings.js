@@ -162,4 +162,7 @@ class TenantSettings extends Component {
 	}
 }
 
-export default TenantSettings;
+TenantSettings.propTypes = {
+	classes: PropTypes.object.isRequired,
+  };
+  export default withStyles(styles)(TenantSettings);
