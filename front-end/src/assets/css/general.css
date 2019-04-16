@@ -605,7 +605,15 @@ body {
   .anchor {
 		width: 35px;
 		height: 35px;
+  }
+  
+  .anchor span {
+		top: 14px;
+		left: 7px;
+		width: 21px;
+		height: 10px;
 	}
+
 
 
 
