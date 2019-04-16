@@ -112,7 +112,7 @@ class SideMenu extends Component {
     const { classes, theme } = this.props;
 
     return (
-<div className={classes.root}>
+    <div className={classes.root}>
         <CssBaseline />
         <AppBar
           position="fixed"
@@ -132,7 +132,7 @@ class SideMenu extends Component {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" color="inherit" noWrap>
-              Mini variant drawer
+                  <img src={Logo} className="dashboardLogo" alt="Dash logo" />
             </Typography>
           </Toolbar>
         </AppBar>
@@ -170,43 +170,34 @@ class SideMenu extends Component {
             <Link to={"/admin/worklist"}>
               <ListItem button>
                 <ListItemIcon><InboxIcon /></ListItemIcon>
-                <ListItemText primary={'Properties'} />
+                <ListItemText primary={'Work Orders'} />
               </ListItem>
             </Link>
           </List>
 
           <List>
-            <Link to={"/admin/properties"}>
+            <Link to={"/admin/add-tenant"}>
               <ListItem button>
                 <ListItemIcon><InboxIcon /></ListItemIcon>
-                <ListItemText primary={'Properties'} />
+                <ListItemText primary={'Add Tenant'} />
               </ListItem>
             </Link>
           </List>
 
           <List>
-            <Link to={"/admin/properties"}>
+            <Link to={"/admin/billing"}>
               <ListItem button>
                 <ListItemIcon><InboxIcon /></ListItemIcon>
-                <ListItemText primary={'Properties'} />
+                <ListItemText primary={'Billing'} />
               </ListItem>
             </Link>
           </List>
 
           <List>
-            <Link to={"/admin/properties"}>
+            <Link to={"/admin/settings"}>
               <ListItem button>
                 <ListItemIcon><InboxIcon /></ListItemIcon>
-                <ListItemText primary={'Properties'} />
-              </ListItem>
-            </Link>
-          </List>
-
-          <List>
-            <Link to={"/admin/properties"}>
-              <ListItem button>
-                <ListItemIcon><InboxIcon /></ListItemIcon>
-                <ListItemText primary={'Properties'} />
+                <ListItemText primary={'Settings'} />
               </ListItem>
             </Link>
           </List>
