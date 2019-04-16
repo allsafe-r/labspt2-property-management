@@ -22,6 +22,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignOutAlt, faClipboard, faBuilding, faUserPlus, faFileInvoiceDollar , faCog} from '@fortawesome/free-solid-svg-icons';
+
 const drawerWidth = 200;
 
 const styles = theme => ({

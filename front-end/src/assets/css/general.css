@@ -15,7 +15,7 @@
 .right-side {
   padding: 15px;
   margin-top: 80px;
-  width:100%;
+  width: 100%;
 }
 
 /* .left-side {
@@ -51,7 +51,7 @@
 }
 
 .MuiSvgIcon-root-60 {
-  color: #FC7869;
+  color: #fc7869;
 }
 .sideMenu-container {
   border: 1px solid blue;
@@ -171,44 +171,43 @@ body {
   z-index: 100;
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); */
   position: fixed;
-	width: 100%;
-	padding: 50px 0;
-	z-index: 100;
-	transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  width: 100%;
+  padding: 50px 0;
+  z-index: 100;
+  transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .Header .login-button-menu {
   padding: 8px 20px;
-	font-size: 20px;
-	border: none;
-	background-color: white;
-	border: 1px solid #fc766a;
-	color: black;
-	font-weight: 700;
-	border-radius: 10px;
-	outline: none;
-	cursor: pointer;
-	transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+  font-size: 20px;
+  border: none;
+  background-color: white;
+  border: 1px solid #fc766a;
+  color: black;
+  font-weight: 700;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .Header .login-button-menu:hover {
-	background-color: #fc766a;
-	color: white;
+  background-color: #fc766a;
+  color: white;
 }
 
 .Header .register-button-menu {
   padding: 8px 20px;
-	font-size: 20px;
-	border: none;
-	background-color: #fc766a;
-	color: white;
-	font-weight: 700;
-	border-radius: 10px;
-	outline: none;
-	cursor: pointer;
+  font-size: 20px;
+  border: none;
+  background-color: #fc766a;
+  color: white;
+  font-weight: 700;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
   transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
-
 
 .HeaderScrolled {
   /* background: rgba(0,0,0, 0.8); */
@@ -219,18 +218,17 @@ body {
 
 .HeaderGroup {
   max-width: 800px;
-	margin: 0 auto;
-	display: grid;
-	grid-template-columns: repeat(5, auto);
-	align-items: center;
-	justify-items: center;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
-		"Helvetica Neue", sans-serif;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  align-items: center;
+  justify-items: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 .Header p {
   color: black;
-  
 }
 
 .Header a:link {
@@ -247,7 +245,6 @@ body {
   border-radius: 10px;
   outline: none;
   transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1);
-  
 }
 
 .menu-options button:hover {
@@ -259,12 +256,11 @@ body {
 
 .menu-options p:hover {
   color: gray;
-  
 }
 
 .menu-options p {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
-  "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: 700;
 }
 
@@ -352,29 +348,27 @@ body {
   display: flex;
   flex-direction: column;
   background: url("../images/wallpaper9.png");
-	height: 920px;
-	background-size: contain;
-	background-repeat: no-repeat;
+  height: 920px;
+  background-size: contain;
+  background-repeat: no-repeat;
 
-	background-position: center;
-
+  background-position: center;
 }
 
 .HeroGroup {
   margin: 0 auto;
-	max-width: 500px;
-	padding: 150px 50px;
-	text-align: center;
+  max-width: 500px;
+  padding: 150px 50px;
+  text-align: center;
 }
 
 .jumbo {
   width: 100%;
   height: 920px;
-	background-size: contain;
-	background-repeat: no-repeat;
+  background-size: contain;
+  background-repeat: no-repeat;
 
-	background-position: center;
-  
+  background-position: center;
 }
 
 .Hero h1 {
@@ -436,7 +430,6 @@ body {
   .Hero .HeroGroup h1 {
     font-size: 40px;
     padding-top: 60px;
-    
   }
   .Hero button {
     margin-top: 30px;
@@ -448,10 +441,7 @@ body {
   }
 
   .form-container .logo-login {
-   
-
   }
-  
 
   svg {
     display: none;
@@ -487,81 +477,73 @@ body {
   bottom: 30px;
 }
 
-
 .anchor {
-	position: relative;
-	display: inline-block;
-	vertical-align: top;
-	width: 56px;
-	height: 56px;
-	background: white;
-	border-radius: 50%;
-	box-shadow: 0 0 4px 2px rgba(0, 0, 0, .1);
-	-webkit-animation-duration: 4s;
-	animation-duration: 4s;
-	-webkit-animation-name: bounce;
-	animation-name: bounce;
-	-webkit-animation-timing-function: ease-in-out;
-	animation-timing-function: ease-in-out;
-	-webkit-animation-play-state: running;
-	animation-play-state: running;
-	-webkit-animation-iteration-count: infinite;
-	animation-iteration-count: infinite;
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  width: 56px;
+  height: 56px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.1);
+  -webkit-animation-duration: 4s;
+  animation-duration: 4s;
+  -webkit-animation-name: bounce;
+  animation-name: bounce;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+  -webkit-animation-play-state: running;
+  animation-play-state: running;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
   will-change: translate;
-  
 }
 
 .anchor:hover span {
-	-webkit-animation-duration: 4s;
-	animation-duration: 5s;
-	-webkit-animation-name: bounce;
-	animation-name: bounce;
-	-webkit-animation-timing-function: ease-in-out;
-	animation-timing-function: ease-in-out;
-	-webkit-animation-play-state: running;
-	animation-play-state: running;
-	-webkit-animation-iteration-count: infinite;
-	animation-iteration-count: infinite;
+  -webkit-animation-duration: 4s;
+  animation-duration: 5s;
+  -webkit-animation-name: bounce;
+  animation-name: bounce;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+  -webkit-animation-play-state: running;
+  animation-play-state: running;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
   will-change: translate;
-  
-  
 }
 
 .anchor span {
-	position: absolute;
-	top: 24px;
-	left: 16px;
-	width: 24px;
-	height: 12px;
+  position: absolute;
+  top: 24px;
+  left: 16px;
+  width: 24px;
+  height: 12px;
   overflow: hidden;
-
 }
-
 
 /* ARROW */
 .anchor span:before,
 .anchor span:after {
-	content: "";
-	position: absolute;
-	top: 4px;
-	left: -3px;
-	width: 18px;
-	height: 2px;
-	background: #fc766a;
-	-webkit-transform: rotate(45deg);
-	-ms-transform: rotate(45deg);
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: -3px;
+  width: 18px;
+  height: 2px;
+  background: #fc766a;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
 
 .anchor span:after {
-	left: auto;
-	right: -3px;
-	-webkit-transform: rotate(-45deg);
-	-ms-transform: rotate(-45deg);
+  left: auto;
+  right: -3px;
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
   transform: rotate(-45deg);
-  
 }
-
 
 .anchor-wrap {
   display: -webkit-box;
@@ -590,12 +572,11 @@ body {
 }
 
 .anchor-wrap {
-	position: absolute;
-	bottom: 29px;
-	left: 0;
-	width: 100%;
+  position: absolute;
+  bottom: 29px;
+  left: 0;
+  width: 100%;
 }
-
 
 @media (max-width: 650px) {
   .down-arrow {
@@ -743,11 +724,116 @@ body {
 .addTenant-container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  margin: 1rem;
 }
 
-.top-container {
+.tenantInfo-container {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.tenant-info {
+  border: 1px black solid;
+  padding: 1rem;
+  margin: 1rem;
+  width: 40%;
+}
+
+.tenant-info form {
+  display: flex;
+  flex-direction: column;
+}
+
+.tenantCard-top {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.tenantCard-top h1 {
+  margin: 0.5rem;
+}
+
+.tenantCard-top input {
+  margin: 0.5rem;
+}
+
+.inputInfo {
+  width: 50%;
+  flex-grow: 2;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.contract-container {
+  margin: 0 auto;
+  margin-top: 8rem;
+}
+
+.name-input {
+  width: 95%;
+}
+
+.eN-input {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.name-input input {
+  width: 100%;
+}
+
+.eN-input input {
+  display: flex;
+  flex-direction: row;
+}
+
+.tenantCard-bottom {
+  width: 100%;
+}
+
+.tenantCard-bottom input {
+  width: 100%;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  border: 1px solid black;
+  padding: 1rem;
+}
+
+.housing-info {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.housing-info .yes {
+  margin: 0 1rem;
+}
+
+.start-end input:first-child {
+  margin-right: 0.5rem;
+}
+
+@media (max-width: 960px) {
+  .tenant-info {
+    width: 100%;
+  }
 }
 
 /* === LOG IN === */
@@ -920,14 +1006,13 @@ button[type="submit"] {
 /* Top Bar */
 
 .flex-top-bar {
-  display:flex;
+  display: flex;
   flex-direction: space-between;
   max-height: 50px;
-  
 }
 .log-out {
-  position:fixed; 
+  position: fixed;
   top: 8px;
-  right:0;
-  z-index:300
+  right: 0;
+  z-index: 300;
 }
