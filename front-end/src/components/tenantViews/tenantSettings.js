@@ -196,7 +196,7 @@ class TenantSettings extends Component {
 							onChange={this.onChange}
 							type="password"
 						/>
-						<Button variant="contained" size="medium" color="primary" className={classes.margin}>
+						<Button variant="outlined" size="large" color="primary" className={classes.margin}>
 							Update
 						</Button>
 				</form>
