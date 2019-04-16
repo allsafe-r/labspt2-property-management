@@ -95,7 +95,7 @@ class App extends Component {
 				return (
 					<div className="dashboard-container">
 						<div className="left-side">
-							<Route path="/" component={SideMenu} />
+							<Route path="/" component={SideMenu} logout={this.logOut} />
 						</div>
 						<div className="right-side">
 							<Route exact path="/properties" component={PropertyList} />
@@ -120,7 +120,7 @@ class App extends Component {
 							<Route path="/" component={TenantSideMenu} />
 						</div>
 						<div className="right-side">
-							<Route exact path="/dashboard" component={TenantDashboard} />
+							<Route exact path="/dashboard" component={TenantDashboard} logout={this.logOut} />
 							<Route exact path="/payments" component={TenantPayments} />
 							<Route exact path="/maintenance" component={Workorderform} />
 							<Route exact path="/settings" component={TenantSettings} />
