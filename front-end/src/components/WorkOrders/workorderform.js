@@ -12,7 +12,13 @@ import Button from '@material-ui/core/Button';
 // const url = process.env.workorderURL || 'http://localhost:9000/workorders'
 const url = 'https://tenantly-back.herokuapp.com/workorders';
 
-export default class Workorderform extends Component {
+const styles = theme =>({
+  button: {
+    margin: theme.spacing.unit,
+  },
+})
+
+class Workorderform extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -65,6 +71,7 @@ export default class Workorderform extends Component {
 	};
 
 	render() {
+		const { classes } = this.props;
 		return (
 			<div className='workorderform'>
 			<Grid container className='innerworkorderform' spacing={24}>
@@ -92,7 +99,7 @@ export default class Workorderform extends Component {
 					<Input onChange={this.inputhandler} name="unsupervisedEntry" className="#" type="checkbox" />
 					<Imageform url={this.urlUpdater} />
          {/*<input name="attachimage" type='file'/> */}
-					<Button variant='contained'type="submit" className="button-2">
+					<Button color='primary' variant='contained'type="submit" className={classes.button}>
 					<SaveIcon  />
 						Save
 					</Button>
@@ -104,3 +111,4 @@ export default class Workorderform extends Component {
 		);
 	}
 }
+export default withStyles(styles)(Workorderform);
