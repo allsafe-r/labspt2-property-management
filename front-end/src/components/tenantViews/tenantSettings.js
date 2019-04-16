@@ -7,6 +7,8 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import InputLabel from "@material-ui/core/InputLabel";
+
 
 const styles = theme => ({
 	container: {
@@ -194,7 +196,7 @@ class TenantSettings extends Component {
 							onChange={this.onChange}
 							type="password"
 						/>
-						<Button variant="contained" size="large" color="secondary" className={classes.margin}>
+						<Button variant="contained" size="medium" color="primary" className={classes.margin}>
 							Update
 						</Button>
 				</form>
