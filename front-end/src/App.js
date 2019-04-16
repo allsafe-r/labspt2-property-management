@@ -64,9 +64,7 @@ class App extends Component {
 	};
 
 	isAdmin() {
-		const token = localStorage.getItem('jwtToken');
-		const isAdmin = decode(token).isAdmin;
-		return isAdmin;
+		return decode(localStorage.getItem('jwtToken')).isAdmin;
 	}
 
 	logOut = () => {
