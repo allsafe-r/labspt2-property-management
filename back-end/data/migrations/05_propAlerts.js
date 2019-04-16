@@ -1,8 +1,8 @@
 exports.up = function(knex, Promise) {
-	return knex.schema.createTable('alerts', (table) => {
-		table.increments();
-		table.integer('houseId').notNullable().references('houseId').inTable('properties');
-		table.text('alert').notNullable();
+	return knex.schema.createTable('alerts', (t) => {
+		t.increments();
+		t.integer('houseId').notNullable().references('houseId').inTable('properties');
+		t.text('alert').notNullable();
 	});
 };
 exports.down = function(knex, Promise) {
