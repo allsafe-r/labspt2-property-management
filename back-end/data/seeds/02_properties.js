@@ -7,7 +7,7 @@ exports.seed = function(knex, promise) {
 				propertyCity: 'San Francisco',
 				propertyState: 'CA',
 				propertyZipcode: '94016',
-				owner: '4',
+				owner: 4,
 				tenant1: 1,
 				tenant2: 4,
 				maxOccupants: 5,

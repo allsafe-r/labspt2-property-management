@@ -1,9 +1,5 @@
 import React, { Component } from "react";
 import "./assets/css/App.css";
-// import Menu from './components/LandingPage/Menu';
-// import IndexPage from './components/LandingPage/IndexPage';
-import Stripe from "./components/Stripe";
-import RouteContainer from "./components/routeContainer";
 import Login from "./components/auth/login";
 import Register from "./components/auth/register";
 // import RegisterTwo from './components/auth/register2';
@@ -13,14 +9,35 @@ import { initGA } from "./utils/analytics";
 import LandingView from "./components/LandingPage/LandingView";
 import { Route } from "react-router-dom";
 import { Link } from "react-router-dom";
+import PropertyList from "./components/properties/propertyList";
+import TenantSideMenu from "./components/tenantViews/tenantSideMenu";
+import SideMenu from "./components/adminViews/adminSideMenu";
+import Workorderlist from "./components/WorkOrders/workorderList";
+import Workorderform from "./components/WorkOrders/workorderform";
+import AddProperty from "./components/properties/addProperty";
+import DisplayProperty from "./components/properties/displayProperty";
+import EditProperty from "./components/properties/editProperty";
+import TenantSettings from "./components/tenantViews/tenantSettings";
+import TenantDashboard from "./components/tenantViews/tenantDashboard";
+import TenantPayments from "./components/tenantViews/tenantPayments";
+import Billing from "./components/adminViews/adminBilling.js";
+import AdminSettings from "./components/adminViews/adminSettings";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faEnvelope, faKey } from "@fortawesome/free-solid-svg-icons";
+import AddTenant from "./components/AddTenant/addTenant";
+
+library.add(faEnvelope, faKey);
+
 // const url = process.env.home || 'http://localhost:9000';
 
+// const url = 'http://localhost:9000';
 const url = "https://tenantly-back.herokuapp.com";
 const axios = require("axios");
 
 class App extends Component {
   state = {
-    loggedIn: false
+    loggedIn: false,
+    isAdmin: null
   };
 
   componentDidMount() {
@@ -29,25 +46,25 @@ class App extends Component {
     this.authenticate();
   }
 
-  authenticate = () => {
+  authenticate = admin => {
+    // console.log(admin.isAdmin)
     const token = localStorage.getItem("jwtToken");
     const auth = {
       headers: {
         Authorization: token
       }
     };
-
     if (token) {
       axios
         .get(url, auth)
         .then(res => {
           if (res.data) {
-            this.setState({ loggedIn: true });
+            this.setState({ loggedIn: true, isAdmin: admin });
           } else {
             throw new Error();
           }
         })
-        .catch(err => this.props.history.push("/login"));
+        .catch(err => console.log(err));
     } else {
       console.log("Register and/or login to receive a token");
     }
@@ -55,7 +72,6 @@ class App extends Component {
 
   logOut = () => {
     localStorage.removeItem("jwtToken");
-    localStorage.removeItem("userId");
     this.setState({ loggedIn: false });
   };
   render() {
@@ -75,24 +91,46 @@ class App extends Component {
         </div>
       );
     } else {
-      return (
-        <div className="dashboard-wrapper">
-          <div className="top-bar">
+      if (this.state.isAdmin) {
+        return (
+          <div className="dashboard-container">
+            <div className="left-side">
+              <Route path="/" component={SideMenu} />
+            </div>
+            <div className="right-side">
+              <Route exact path="/properties" component={PropertyList} />
+              <Route exact path="/billing" component={Billing} />
+              <Route path="/worklist" component={Workorderlist} />
+              <Route path="/view-property/:id" component={DisplayProperty} />
+              <Route path="/add-property" component={AddProperty} />
+              <Route exact path="/add-tenant" component={AddTenant} />
+              <Route exact path="/edit/:id" component={EditProperty} />
+              <Route exact path="/workorders/form" component={Workorderform} />
+              <Route exact path="/settings" component={AdminSettings} />
+            </div>
             <Link to={"/"}>
               <button onClick={this.logOut}>Logout</button>
             </Link>
-            <Link to={"/admin/properties"}>
-              <button>Development Purposes - I'm an admin!</button>
-            </Link>
-            <Link to={"/tenant/dashboard"}>
-              <button>Development Purposes - I'm a tenant!</button>
+          </div>
+        );
+      } else {
+        return (
+          <div className="dashboard-container">
+            <div className="left-side">
+              <Route path="/" component={TenantSideMenu} />
+            </div>
+            <div className="right-side">
+              <Route exact path="/dashboard" component={TenantDashboard} />
+              <Route exact path="/payments" component={TenantPayments} />
+              <Route exact path="/maintenance" component={Workorderform} />
+              <Route exact path="/settings" component={TenantSettings} />
+            </div>
+            <Link to={"/"}>
+              <button onClick={this.logOut}>Logout</button>
             </Link>
           </div>
-          <RouteContainer />
-
-          {/*removed stripe component*/}
-        </div>
-      );
+        );
+      }
     }
   }
 }

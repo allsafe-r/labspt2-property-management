@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
 import {CardElement, injectStripe} from 'react-stripe-elements';
 import Button from '@material-ui/core/Button';
-import { withStyles } from '@material-ui/core/styles';
+// import { withStyles } from '@material-ui/core/styles';
 import Input from '@material-ui/core/Input';
 import axios from 'axios';
-import Typography from '@material-ui/core/Typography';
+// import Typography from '@material-ui/core/Typography';
 import 'typeface-roboto';
 import './../WorkOrders/workorders.css';
 
-const url = 'https://tenantly-back.herokuapp.com/stripe/charge';
+const url = 'http://localhost:9000/stripe/charge' 
 
 const styles ={
   button:
@@ -45,22 +45,18 @@ class CheckoutForm extends Component {
   
   async submit(ev) {
     ev.preventDefault();
-    this.props.charge(
-      { 
-        name: this.state.name,
-        amount: 120000
-      }
-    )
     let {token} = await this.props.stripe.createToken({name: this.state.name});
     axios
     .post(url, {
       description: 'Pay rent now',
       source: token.id,
       currency: 'USD',
-      amount: 120000
+      amount: 1200
     })
-    .then(this.successPayment)
+    .then(this.props.charge)
+    .then(this.successPayment) 
     .catch(this.errorPayment);
+    
 
   }
   
