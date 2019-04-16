@@ -417,10 +417,14 @@ body {
   
 }
 
+.intro-section .bg-stretch p {
+  font-size: 1.4vw;
+}
+
 .intro-section .bg-stretch h1 {
   margin: 0;
   color: black;
-  font-size: 6rem;
+  font-size: 4vw;
   line-height: 1.2;
   opacity: 0;
   animation: HeroAnimation;
@@ -429,7 +433,7 @@ body {
   animation-fill-mode: forwards;
   animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
-
+/* 
 @media (max-width: 1199px) {
   .intro-section .bg-stretch h1 {
     font-size: 5rem;
@@ -439,15 +443,13 @@ body {
     font-size: 1.2rem;
   }
 }
-
-
 .intro-section .bg-stretch p {
   color: black;
-  font-size: 2.5rem;
+  font-size: vw;
   line-height: 1.5;
   animation: HeroAnimation 3s 0.2s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
   opacity: 0;
-}
+} */
 
 .intro-section .bg-stretch button {
   cursor: pointer;
@@ -489,26 +491,21 @@ body {
 }
 
 .bg-stretch .text {
-  padding-top: 0; align-items: center;
+  padding-top: 0;
+  align-items: center;
   
+  border: 1px solid red;
 }
 
 @media (max-width: 650px) {
-  .Hero {
+  .Hero .intro-section .bg-stretch {
     background: url("../images/wallpaper9_mobile.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
   }
-  .HeroGroup {
-    padding-top: 100px;
-  }
 
-  .Hero .HeroGroup h1 {
-    font-size: 40px;
-    padding-top: 60px;
-    
-  }
+
   .Hero button {
     margin-top: 30px;
   }
@@ -516,11 +513,6 @@ body {
   .Hero p {
     font-size: 2.4rem;
     padding-top: 10px;
-  }
-
-  .form-container .logo-login {
-   
-
   }
   
 
