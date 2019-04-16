@@ -75,12 +75,13 @@ class App extends Component {
 	}
 
 	logOut = () => {
+		console.log('logged out');
 		localStorage.removeItem('jwtToken');
 		this.setState({ loggedIn: false });
 	};
 
 	render() {
-		if (this.isAdmin()) {
+		if (!this.state.loggedIn) {
 			return (
 				<div>
 					<Route exact path={'/'} component={LandingView} />
@@ -90,7 +91,7 @@ class App extends Component {
 				</div>
 			);
 		} else {
-			if (this.state.isAdmin) {
+			if (this.isAdmin()) {
 				return (
 					<div className="dashboard-container">
 						<div className="left-side">
