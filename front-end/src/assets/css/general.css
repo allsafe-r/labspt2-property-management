@@ -336,6 +336,7 @@ body {
   .hide-menu {
     display: none;
   }
+
 }
 
 /* Hero */
@@ -680,7 +681,7 @@ body {
 
 .anchor-wrap > span {
   font-size: 1.3rem;
-  margin-bottom: 8px;
+  margin-bottom: 15px;
 }
 
 .anchor-wrap {
