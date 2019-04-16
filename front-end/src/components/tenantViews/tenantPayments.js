@@ -6,8 +6,10 @@ import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardHeader from '@material-ui/core/CardHeader';
 import Divider from '@material-ui/core/Divider';
-import axios from 'axios';
+import Typography from '@material-ui/core/Typography';
+import Paper from '@material-ui/core/Paper';
 import './../WorkOrders/workorders.css';
+import axios from 'axios';
 
 const url = 'http://localhost:9000/stripe/charges'
 // const url = 'https://tenantly-back.herokuapp.com/stripe/charges';
@@ -60,14 +62,16 @@ export default class tenantPayments extends Component {
 				<Grid item sm={12} lg={6}>
 
 					<Card>
-					 
+					<Paper elevation={1}>
 						{this.state.charges.map((charge) => 
+
+<div>						
+						<CardHeader variant='h1' title={charge.name}/>
 						
-						<ul><li>Date: {this.convertToTime(charge.created)}</li>
-						<li>Name: {charge.billing_details.name}</li>
-						<li>Amount Paid:${charge.amount}.00</li>
-						{/* <Divider /> */}
-						</ul>
+
+						<Typography variant='h4' component='h2'>Amount: {charge.amount}</Typography>
+						
+</div>						
 						
 						
 						
@@ -76,7 +80,7 @@ export default class tenantPayments extends Component {
 						
 
 
-
+                       </Paper>
 						</Card>				
 			</Grid>
 
