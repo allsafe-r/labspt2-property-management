@@ -8,6 +8,7 @@ const IndexPage = () => (
   <div className="Hero">
       <div className="intro-section">
         <div className="bg-stretch">
+          <div className="cta">
       <h1>
         Property management <br />
         made easier.
@@ -16,6 +17,7 @@ const IndexPage = () => (
       <Link to={"/register"}>
         <button>GET A CUSTOMIZED DEMO</button>
       </Link>
+      </div>
       <div class="anchor-wrap">
 					  <a href="#footer" className="anchor"><span></span></a>
 				</div>
