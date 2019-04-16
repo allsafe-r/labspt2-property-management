@@ -403,7 +403,14 @@ body {
   .intro-section {
 		min-height: 60vw;
 		padding-top: 40px;
-	}
+  }
+  
+  .intro-section .slide-frame .text h1 {
+    display:none;
+  }
+
+
+
 
 }
 
