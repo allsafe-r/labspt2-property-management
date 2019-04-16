@@ -980,6 +980,12 @@ button[type="submit"] {
 }
 
 /* Billing */
+.Billing {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
 
 @media (max-width: 600px) {
   .Billing {
@@ -994,8 +1000,4 @@ button[type="submit"] {
 
 .MuiFormControl-root-29 .MuiFormLabel-root-44 {
   font-size: 1.2rem;
-}
-
-.billingColumn1 {
-  width: 40%;
 }
