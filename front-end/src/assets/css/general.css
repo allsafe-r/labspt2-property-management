@@ -430,10 +430,19 @@ body {
   animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
+@media (max-width: 1199px) {
+  .intro-section .bg-stretch h1 {
+    font-size: 5rem;
+  }
+
+  .intro-section .bg-stretch p {
+    font-size: 1.2rem;
+  }
+}
+
 
 .intro-section .bg-stretch p {
   color: black;
-
   font-size: 2.5rem;
   line-height: 1.5;
   animation: HeroAnimation 3s 0.2s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
