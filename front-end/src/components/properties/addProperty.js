@@ -22,7 +22,7 @@ class AddProperty extends Component {
 		};
 	}
 
-	addNote = (e) => {
+	addProperty = (e) => {
 		e.preventDefault();
 		console.log(this.state);
 		axios
@@ -44,7 +44,7 @@ class AddProperty extends Component {
 		return (
 			<div className="addProperty">
 				<h2>Add New Property</h2>
-				<form onSubmit={this.addNote}>
+				<form onSubmit={this.addProperty}>
 					<input
 						type="text"
 						name="propertyName"
