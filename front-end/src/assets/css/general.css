@@ -601,6 +601,16 @@ body {
 
 }
 
+@media (max-width: 767px) {
+  .anchor {
+		width: 35px;
+		height: 35px;
+	}
+
+
+
+}
+
 
 
 /*Body*/
