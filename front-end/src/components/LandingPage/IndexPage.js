@@ -6,7 +6,8 @@ import "../../assets/css/general.css";
 
 const IndexPage = () => (
   <div className="Hero">
-    <div className="HeroGroup">
+      <div className="intro-section">
+        <div className="bg-stretch">
       <h1>
         Property management <br />
         made easier.
@@ -18,7 +19,8 @@ const IndexPage = () => (
       <div class="anchor-wrap">
 					  <a href="#footer" className="anchor"><span></span></a>
 				</div>
-    </div>
+       </div>
+        </div>
   </div>
 );
 
