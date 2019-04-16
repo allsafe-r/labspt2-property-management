@@ -119,7 +119,7 @@ class TenantSideMenu extends Component {
   render() {
 
     const {loggedIn} = this.state;
-   if(!loggedIn){
+   if(loggedIn === false){
     return <Link push to="/"/> 
    }
     else {
