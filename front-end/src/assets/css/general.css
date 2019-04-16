@@ -618,7 +618,13 @@ body {
 	.anchor span:after {
 		left: -1px;
 		width: 14px;
+  }
+  
+  .anchor span:after {
+		left: auto;
+		right: -1px;
 	}
+
 
 
 
