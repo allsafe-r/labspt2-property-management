@@ -413,10 +413,11 @@ body {
     display:none;
 
   }
+  
+  .intro-section .slide-frame .text button {
+    display:none;
 
-
-
-
+  }
 
 }
 
