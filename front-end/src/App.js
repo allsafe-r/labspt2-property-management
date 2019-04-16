@@ -30,8 +30,7 @@ const decode = require('jwt-decode');
 
 class App extends Component {
 	state = {
-		loggedIn: false,
-		isAdmin: null
+		loggedIn: false
 	};
 
 	componentDidMount() {
@@ -53,7 +52,7 @@ class App extends Component {
 				.get(url, auth)
 				.then((res) => {
 					if (res.data) {
-						this.setState({ loggedIn: true, isAdmin: admin });
+						this.setState({ loggedIn: true });
 					} else {
 						throw new Error();
 					}
