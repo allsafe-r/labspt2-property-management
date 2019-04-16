@@ -80,7 +80,7 @@ class App extends Component {
 	};
 
 	render() {
-		if (this.state.loggedIn === false) {
+		if (this.isAdmin()) {
 			return (
 				<div>
 					<Route exact path={'/'} component={LandingView} />
@@ -90,7 +90,7 @@ class App extends Component {
 				</div>
 			);
 		} else {
-			if (this.isAdmin()) {
+			if (this.state.isAdmin) {
 				return (
 					<div className="dashboard-container">
 						<div className="left-side">
@@ -102,6 +102,7 @@ class App extends Component {
 							<Route path="/worklist" component={Workorderlist} />
 							<Route path="/view-property/:id" component={DisplayProperty} />
 							<Route path="/add-property" component={AddProperty} />
+							<Route exact path="/add-tenant" component={AddTenant} />
 							<Route exact path="/edit/:id" component={EditProperty} />
 							<Route exact path="/workorders/form" component={Workorderform} />
 							<Route exact path="/settings" component={AdminSettings} />
