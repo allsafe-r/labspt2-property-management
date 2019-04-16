@@ -614,6 +614,12 @@ body {
 		height: 10px;
 	}
 
+	.anchor span:before,
+	.anchor span:after {
+		left: -1px;
+		width: 14px;
+	}
+
 
 
 
