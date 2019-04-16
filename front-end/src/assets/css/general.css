@@ -999,3 +999,17 @@ button[type="submit"] {
 .billingColumn1 {
   width: 40%;
 }
+
+/* Top Bar */
+
+.flex-top-bar {
+  display: flex;
+  flex-direction: space-between;
+  max-height: 50px;
+}
+.log-out {
+  position: fixed;
+  top: 8px;
+  right: 0;
+  z-index: 300;
+}
