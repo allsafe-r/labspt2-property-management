@@ -17,7 +17,6 @@ class AddProperty extends Component {
 			bedrooms: '',
 			bathrooms: '',
 			yearBuilt: '',
-			owner: '',
 			maxOccupants: '',
 			tenant1: ''
 		};
@@ -27,9 +26,8 @@ class AddProperty extends Component {
 		e.preventDefault();
 		const token = localStorage.getItem('jwtToken');
 		const userId = decode(token).userId;
-		this.setState({ owner: userId });
 		axios
-			.post(url, this.state)
+			.post(url, { ...this.state, owner: userId })
 			.then((response) => {
 				console.log('in here', response);
 			})

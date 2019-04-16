@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import PropertyCard from './propertyCard';
 import '../../assets/css/general.css';
-const decode = require('jwt-decode')
+const decode = require('jwt-decode');
 
 // const url = 'http://localhost:9000/properties';
 const url = `https://tenantly-back.herokuapp.com/properties`;
@@ -14,14 +14,16 @@ export default class propertyList extends Component {
 	};
 
 	componentDidMount() {
-		const token = localStorage.getItem('jwtToken')
-		const userId = decode(token).userId
-		axios.get(url).then((response) => {
-		this.setState({ properties: response.data.filter(property => property.owner === userId) })
-		})
-		.catch((err) => {
-			console.error('Server Error', err);
-		});
+		const token = localStorage.getItem('jwtToken');
+		const userId = decode(token).userId;
+		axios
+			.get(url)
+			.then((response) => {
+				this.setState({ properties: response.data.filter((property) => property.owner === userId) });
+			})
+			.catch((err) => {
+				console.error('Server Error', err);
+			});
 	}
 
 	render() {
@@ -41,7 +43,7 @@ export default class propertyList extends Component {
 						/>
 					))}
 				</div>
-				<Link to="/admin/add-property">
+				<Link to="/add-property">
 					<button>+ Add New Property</button>
 				</Link>
 			</div>
