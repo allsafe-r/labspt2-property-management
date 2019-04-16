@@ -119,20 +119,13 @@ class AddProperty extends Component {
 					/>
 					<input
 						type="text"
-						name="owner"
-						value={this.state.owner}
-						placeholder="Owner Name"
-						onChange={this.inputHandler}
-					/>
-					<input
-						type="text"
 						name="maxOccupants"
 						value={this.state.maxOccupants}
 						placeholder="maxOccupants"
 						onChange={this.inputHandler}
 						required
 					/>
-					<button type="submit"> Save</button>
+					<button type="submit">Save</button>
 				</form>
 			</div>
 		);
