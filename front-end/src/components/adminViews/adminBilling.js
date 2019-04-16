@@ -14,7 +14,6 @@ import { Button } from '@material-ui/core';
 const url = `https://tenantly-back.herokuapp.com/properties`;
 const url2 = `http://localhost:9000/billing`
 
-
 export default class Billing extends Component {
 	state = {
 		 properties: [],

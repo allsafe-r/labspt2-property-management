@@ -22,11 +22,17 @@ import TenantDashboard from './components/tenantViews/tenantDashboard';
 import TenantPayments from './components/tenantViews/tenantPayments';
 import Billing from './components/adminViews/adminBilling.js';
 import AdminSettings from './components/adminViews/adminSettings';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faEnvelope, faKey } from '@fortawesome/free-solid-svg-icons';
+import AddTenant from './components/AddTenant/addTenant';
+
+library.add(faEnvelope, faKey);
+
+// const url = process.env.home || 'http://localhost:9000';
 
 // const url = 'http://localhost:9000';
 const url = 'https://tenantly-back.herokuapp.com';
 const axios = require('axios');
-const decode = require('jwt-decode');
 
 class App extends Component {
 	state = {

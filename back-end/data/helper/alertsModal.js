@@ -7,7 +7,7 @@ module.exports = {
 	deleteAlert,
 	editAlert
 };
-s;
+
 function getAlerts() {
 	return db('alerts');
 }
