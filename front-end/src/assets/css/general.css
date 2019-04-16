@@ -493,8 +493,7 @@ body {
 .bg-stretch .text {
   padding-top: 0;
   align-items: center;
-  
-  border: 1px solid red;
+
 }
 
 @media (max-width: 650px) {
@@ -503,6 +502,14 @@ body {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    padding-top: 200px;
+    align-items: flex-start;
+
+  }
+
+  .bg-stretch .text {
+    align-items: flex-start;
+   
   }
 
 
@@ -510,8 +517,12 @@ body {
     margin-top: 30px;
   }
 
-  .Hero p {
-    font-size: 2.4rem;
+  .bg-stretch .text h1 {
+    font-size: 6vw;
+  }
+
+  .bg-stretch .text p {
+    font-size: 2vw;
     padding-top: 10px;
   }
   
