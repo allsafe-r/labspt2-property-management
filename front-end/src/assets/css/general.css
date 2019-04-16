@@ -775,6 +775,15 @@ body {
   
 }
 
+.form-container .logo-register {
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  width: 60%;
+  
+}
 
 
 
