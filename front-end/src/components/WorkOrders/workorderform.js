@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import axios from 'axios';
 import Imageform from './imageform';
@@ -12,13 +13,7 @@ import Button from '@material-ui/core/Button';
 // const url = process.env.workorderURL || 'http://localhost:9000/workorders'
 const url = 'https://tenantly-back.herokuapp.com/workorders';
 
-const styles = theme =>({
-  button: {
-    margin: theme.spacing.unit,
-  },
-})
-
-class Workorderform extends Component {
+export default class Workorderform extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -71,7 +66,6 @@ class Workorderform extends Component {
 	};
 
 	render() {
-		const { classes } = this.props;
 		return (
 			<div className='workorderform'>
 			<Grid container className='innerworkorderform' spacing={24}>
@@ -99,7 +93,7 @@ class Workorderform extends Component {
 					<Input onChange={this.inputhandler} name="unsupervisedEntry" className="#" type="checkbox" />
 					<Imageform url={this.urlUpdater} />
          {/*<input name="attachimage" type='file'/> */}
-					<Button color='primary' variant='contained'type="submit" className={classes.button}>
+					<Button variant='contained'type="submit" className="button-2">
 					<SaveIcon  />
 						Save
 					</Button>
@@ -109,7 +103,5 @@ class Workorderform extends Component {
 				</Grid>
 			</div>
 		);
-	}
+  }
 }
-
-export default withStyles(styles)(Workorderform);

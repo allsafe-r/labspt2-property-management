@@ -1,3 +1,4 @@
+
 .landingpage {
   margin: 0 auto;
   background-color: white;
@@ -52,7 +53,6 @@
 .MuiSvgIcon-root-60 {
   color: #FC7869;
 }
-
 .sideMenu-container {
   border: 1px solid blue;
   display: flex;
@@ -915,3 +915,17 @@ button[type="submit"] {
   width:40%;
 }
 
+/* Top Bar */
+
+.flex-top-bar {
+  display:flex;
+  flex-direction: space-between;
+  max-height: 50px;
+  
+}
+.log-out {
+  position:fixed; 
+  top: 8px;
+  right:0;
+  z-index:300
+}

@@ -1,16 +1,7 @@
-
 import React from 'react';
-import Button from '@material-ui/core/Button';
-import { withStyles } from '@material-ui/core/styles';
 const axios = require('axios');
 // const url = process.env.imagePost || 'http://localhost:9000/images';
 const url = 'https://tenantly-back.herokuapp.com/images';
-
-const styles = theme =>({
-  button: {
-    margin: theme.spacing.unit,
-  },
-})
 
 class Imageform extends React.Component {
 	constructor(props) {
@@ -50,14 +41,15 @@ class Imageform extends React.Component {
 	}
 
 	render() {
-		const { classes } = this.props;
 		return (
+			// TENANT 
 			<form>
 				<h1>File Upload</h1>
 				<input type="file" name="image" onChange={this.onChange} />
-				<Button color='secondary' variant='contained' className={classes.button} onClick={this.onFormSubmit}>Upload</Button>
+				<button onClick={this.onFormSubmit}>Upload</button>
 			</form>
 		);
 	}
 }
-export default withStyles(styles) (Imageform);
+
+export default Imageform;
