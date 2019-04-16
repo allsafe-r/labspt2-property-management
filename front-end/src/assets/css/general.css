@@ -368,6 +368,9 @@ body {
 	background-size: cover;
 	background-repeat: no-repeat;
   background-position: 50% 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .intro-section .bg-stretch {
@@ -425,13 +428,8 @@ body {
   animation-delay: 0.1s;
   animation-fill-mode: forwards;
   animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
-  border: 1px solid red;
 }
 
-.cta {
- border: 9px solid black;
-
-}
 
 .intro-section .bg-stretch p {
   color: black;
@@ -463,6 +461,30 @@ body {
 .Hero a:hover {
   background: white;
   color: black;
+}
+
+
+
+.bg-stretch .slide-frame {
+  display: block;
+}
+
+.bg-stretch .slide-frame {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid red;
+
+
+  
+}
+
+.bg-stretch .text {
+  border: 1px solid red;
+  padding-top: 0; align-items: center;
+  
 }
 
 @media (max-width: 650px) {
