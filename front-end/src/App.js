@@ -3,12 +3,12 @@ import './assets/css/App.css';
 import Login from './components/auth/login';
 import Register from './components/auth/register';
 // import RegisterTwo from './components/auth/register2';
-import Pricing from './components/LandingPage/Pricing';
-import { logPageView } from './utils/analytics';
-import { initGA } from './utils/analytics';
-import LandingView from './components/LandingPage/LandingView';
-import { Route } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import Pricing from "./components/LandingPage/Pricing";
+import { logPageView } from "./utils/analytics";
+import { initGA } from "./utils/analytics";
+import LandingView from "./components/LandingPage/LandingView";
+import { Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 import PropertyList from "./components/properties/propertyList";
 import TenantSideMenu from "./components/tenantViews/tenantSideMenu";
 import SideMenu from "./components/adminViews/adminSideMenu";
@@ -22,13 +22,16 @@ import TenantDashboard from "./components/tenantViews/tenantDashboard";
 import TenantPayments from "./components/tenantViews/tenantPayments";
 import Billing from "./components/adminViews/adminBilling.js";
 import AdminSettings from "./components/adminViews/adminSettings";
-
-
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faEnvelope, faKey } from '@fortawesome/free-solid-svg-icons';
 
- library.add(faEnvelope, faKey);
- 
+library.add(faEnvelope, faKey);
+
+
+// const url = process.env.home || 'http://localhost:9000';
+
+
+
 // const url = 'http://localhost:9000';
 const url = 'https://tenantly-back.herokuapp.com';
 const axios = require('axios');
@@ -131,5 +134,6 @@ class App extends Component {
 			}
 	  }}
 	}
+
 
 export default App;
