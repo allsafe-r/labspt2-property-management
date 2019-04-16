@@ -337,6 +337,10 @@ body {
     display: none;
   }
 
+  .anchor-wrap {
+    margin-bottom: 40px;
+  }
+
 }
 
 /* Hero */
