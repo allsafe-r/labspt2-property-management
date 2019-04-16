@@ -55,7 +55,7 @@ class Register extends Component {
 						<p className="radio-p">Tenant</p>
 					</div>
 
-					<div>
+					<div className="input-form">
 						<input
 							placeholder="username"
 							name="username"

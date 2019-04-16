@@ -878,6 +878,9 @@ button[type="submit"] {
   background-color: white;
 }
 
+.input-form {
+  padding-top: 5px;
+}
 
 @media (max-width: 411px) {
  .logo-login{
@@ -893,16 +896,19 @@ button[type="submit"] {
 
 /* REGISTER FORM */
 .register-radio-container {
-  padding-bottom: 20px;
+  /* padding-bottom: 20px; */
   width: 30%;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content:center;
+  align-content: center;
+  align-items: center;
 }
 
 .register-radio-container .radio-p {
   font-family: "Montserrat";
-  font-size: 1rem;
+  font-size: 1.2vw;
+  padding: 10px;
 }
 
 /* PRICING */
