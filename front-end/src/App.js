@@ -26,6 +26,7 @@ import AdminSettings from './components/adminViews/adminSettings';
 // const url = 'http://localhost:9000';
 const url = 'https://tenantly-back.herokuapp.com';
 const axios = require('axios');
+const decode = require('jwt-decode');
 
 class App extends Component {
 	state = {
@@ -62,6 +63,8 @@ class App extends Component {
 			console.log('Register and/or login to receive a token');
 		}
 	};
+
+	isAdmin() {}
 
 	logOut = () => {
 		localStorage.removeItem('jwtToken');
