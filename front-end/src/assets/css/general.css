@@ -749,6 +749,7 @@ body {
   align-items: center;
   justify-content: center;
   background-color: #fff2f1;
+  border: 10px solid black;
 }
 
 .form-container form {
@@ -765,7 +766,13 @@ body {
 }
 
 .form-container .logo-login {
-  height: 100px;
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  width: 70%;
+  
 }
 
 .form-container .user-container {
@@ -857,6 +864,13 @@ button[type="submit"] {
   left: 1px;
   top: -3.1px;
   background-color: white;
+}
+
+
+@media (max-width: 411px) {
+ .logo-login{
+    width: 200px;
+  }
 }
 
 /* REGISTER PRICING */
