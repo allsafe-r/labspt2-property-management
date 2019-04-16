@@ -9,19 +9,19 @@ import { initGA } from './utils/analytics';
 import LandingView from './components/LandingPage/LandingView';
 import { Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import PropertyList from "./components/properties/propertyList";
-import TenantSideMenu from "./components/tenantViews/tenantSideMenu";
-import SideMenu from "./components/adminViews/adminSideMenu";
-import Workorderlist from "./components/WorkOrders/workorderList";
-import Workorderform from "./components/WorkOrders/workorderform";
-import AddProperty from "./components/properties/addProperty";
-import DisplayProperty from "./components/properties/displayProperty";
-import EditProperty from "./components/properties/editProperty";
-import TenantSettings from "./components/tenantViews/tenantSettings";
-import TenantDashboard from "./components/tenantViews/tenantDashboard";
-import TenantPayments from "./components/tenantViews/tenantPayments";
-import Billing from "./components/adminViews/adminBilling.js";
-import AdminSettings from "./components/adminViews/adminSettings";
+import PropertyList from './components/properties/propertyList';
+import TenantSideMenu from './components/tenantViews/tenantSideMenu';
+import SideMenu from './components/adminViews/adminSideMenu';
+import Workorderlist from './components/WorkOrders/workorderList';
+import Workorderform from './components/WorkOrders/workorderform';
+import AddProperty from './components/properties/addProperty';
+import DisplayProperty from './components/properties/displayProperty';
+import EditProperty from './components/properties/editProperty';
+import TenantSettings from './components/tenantViews/tenantSettings';
+import TenantDashboard from './components/tenantViews/tenantDashboard';
+import TenantPayments from './components/tenantViews/tenantPayments';
+import Billing from './components/adminViews/adminBilling.js';
+import AdminSettings from './components/adminViews/adminSettings';
 
 // const url = 'http://localhost:9000';
 const url = 'https://tenantly-back.herokuapp.com';
@@ -52,7 +52,7 @@ class App extends Component {
 				.get(url, auth)
 				.then((res) => {
 					if (res.data) {
-						this.setState({ loggedIn: true, isAdmin: admin});
+						this.setState({ loggedIn: true, isAdmin: admin });
 					} else {
 						throw new Error();
 					}
@@ -67,31 +67,26 @@ class App extends Component {
 		localStorage.removeItem('jwtToken');
 		this.setState({ loggedIn: false });
 	};
+
 	render() {
 		if (this.state.loggedIn === false) {
-		  return (
-			<div>
-			  <Route exact path={"/"} component={LandingView} />
-			  <Route exact path={"/register"} component={Register} />
-			  <Route path={"/register/plan"} component={Pricing} />
-			  <Route
-				exact
-				path={"/login"}
-				render={props => (
-				  <Login {...props} authenticate={this.authenticate} />
-				)}
-			  />
-			</div>
-		  );
-		} else { 
-			if(this.state.isAdmin) {
+			return (
+				<div>
+					<Route exact path={'/'} component={LandingView} />
+					<Route exact path={'/register'} component={Register} />
+					<Route path={'/register/plan'} component={Pricing} />
+					<Route exact path={'/login'} render={(props) => <Login {...props} authenticate={this.authenticate} />} />
+				</div>
+			);
+		} else {
+			if (this.state.isAdmin) {
 				return (
 					<div className="dashboard-container">
 						<div className="left-side">
 							<Route path="/" component={SideMenu} />
 						</div>
 						<div className="right-side">
-							<Route exact path="/properties" component={PropertyList}/>
+							<Route exact path="/properties" component={PropertyList} />
 							<Route exact path="/billing" component={Billing} />
 							<Route path="/worklist" component={Workorderlist} />
 							<Route path="/view-property/:id" component={DisplayProperty} />
@@ -100,11 +95,11 @@ class App extends Component {
 							<Route exact path="/workorders/form" component={Workorderform} />
 							<Route exact path="/settings" component={AdminSettings} />
 						</div>
-						<Link to={"/"}>
+						<Link to={'/'}>
 							<button onClick={this.logOut}>Logout</button>
 						</Link>
 					</div>
-				)
+				);
 			} else {
 				return (
 					<div className="dashboard-container">
@@ -117,13 +112,14 @@ class App extends Component {
 							<Route exact path="/maintenance" component={Workorderform} />
 							<Route exact path="/settings" component={TenantSettings} />
 						</div>
-						  <Link to={"/"}>
+						<Link to={'/'}>
 							<button onClick={this.logOut}>Logout</button>
 						</Link>
 					</div>
-				)
+				);
 			}
-	  }}
+		}
 	}
+}
 
 export default App;
