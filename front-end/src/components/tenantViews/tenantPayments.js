@@ -7,38 +7,41 @@ import CardMedia from '@material-ui/core/CardMedia';
 import CardHeader from '@material-ui/core/CardHeader';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
+import Paper from '@material-ui/core/Paper';
 import './../WorkOrders/workorders.css';
+import axios from 'axios';
+
+const url = 'http://localhost:9000/stripe/charges'
+// const url = 'https://tenantly-back.herokuapp.com/stripe/charges';
 
 export default class tenantPayments extends Component {
 	constructor(props) {
     super(props);
     this.state = {
-      charges: [
-				{ 
-					name: 'Matt',
-					amount: 120000
-				},
-				{ 
-					name: 'Matt',
-					amount: 120000
-				},
-				{ 
-					name: 'Matt',
-					amount: 120000
-				},
-			]
+      charges: []
     };
     
 	}
-	
-	addcharge = (charge) => {
-		const currentcharges = this.state.charges;
-		let newcharge = charge;
-		currentcharges.push(newcharge)
-		this.setState({
-			charges: currentcharges,
-		})
+
+	componentDidMount() {
+		axios.get(url).then((response) => this.setState({ charges: response.data })).catch((error) => {
+			console.error('Server Error', error);
+		});
 	}
+	
+
+	updatestate =() => {
+		axios.get(url).then((response) => this.setState({ charges: response.data })).catch((error) => {
+			console.error('Server Error', error);
+		});
+	}
+
+	convertToTime =(e) =>{
+		const d = new Date(e * 1000)
+		return d.toLocaleString();
+}
+
+	
 	
 	
 	render() {
@@ -51,7 +54,7 @@ export default class tenantPayments extends Component {
 			<Card className = 'form-card'>
 			  <h1>React Stripe Elements Example</h1>
 			  <Elements fonts={fonts}>
-				<CheckoutForm  charge={this.addcharge} />
+				<CheckoutForm charge={this.updatestate} />
 				
 			  </Elements>
 			  </Card>
@@ -59,7 +62,7 @@ export default class tenantPayments extends Component {
 				<Grid item sm={12} lg={6}>
 
 					<Card>
-
+					<Paper elevation={1}>
 						{this.state.charges.map((charge) => 
 
 <div>						
@@ -77,7 +80,7 @@ export default class tenantPayments extends Component {
 						
 
 
-
+                       </Paper>
 						</Card>				
 			</Grid>
 
