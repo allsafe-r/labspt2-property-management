@@ -20,10 +20,10 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClipboard, faBuilding, faUserPlus, faFileInvoiceDollar , faCog} from '@fortawesome/free-solid-svg-icons';
 
-const drawerWidth = 240;
+const drawerWidth = 200;
 
 const styles = theme => ({
   root: {
@@ -71,20 +71,21 @@ const styles = theme => ({
     overflowX: 'hidden',
     width: theme.spacing.unit * 7 + 1,
     [theme.breakpoints.up('sm')]: {
-      width: theme.spacing.unit * 9 + 1,
+      width: theme.spacing.unit * 7 + 1,
     },
   },
   toolbar: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-end',
-    padding: '0 8px',
+    padding: '0 0px',
     ...theme.mixins.toolbar,
   },
   content: {
     flexGrow: 1,
     padding: theme.spacing.unit * 3,
   },
+
 });
 
 
@@ -160,7 +161,7 @@ class SideMenu extends Component {
           <List>
             <Link to={"/admin/properties"}>
               <ListItem button>
-                <ListItemIcon><InboxIcon /></ListItemIcon>
+                <ListItemIcon><FontAwesomeIcon icon={faBuilding} /></ListItemIcon>
                 <ListItemText primary={'Properties'} />
               </ListItem>
             </Link>
@@ -169,7 +170,8 @@ class SideMenu extends Component {
           <List>
             <Link to={"/admin/worklist"}>
               <ListItem button>
-                <ListItemIcon><InboxIcon /></ListItemIcon>
+                <ListItemIcon><FontAwesomeIcon icon={faClipboard} />
+                </ListItemIcon>
                 <ListItemText primary={'Work Orders'} />
               </ListItem>
             </Link>
@@ -178,7 +180,7 @@ class SideMenu extends Component {
           <List>
             <Link to={"/admin/add-tenant"}>
               <ListItem button>
-                <ListItemIcon><InboxIcon /></ListItemIcon>
+                <ListItemIcon><FontAwesomeIcon icon={faUserPlus} /></ListItemIcon>
                 <ListItemText primary={'Add Tenant'} />
               </ListItem>
             </Link>
@@ -187,7 +189,7 @@ class SideMenu extends Component {
           <List>
             <Link to={"/admin/billing"}>
               <ListItem button>
-                <ListItemIcon><InboxIcon /></ListItemIcon>
+                <ListItemIcon><FontAwesomeIcon icon={faFileInvoiceDollar} /></ListItemIcon>
                 <ListItemText primary={'Billing'} />
               </ListItem>
             </Link>
@@ -196,7 +198,7 @@ class SideMenu extends Component {
           <List>
             <Link to={"/admin/settings"}>
               <ListItem button>
-                <ListItemIcon><InboxIcon /></ListItemIcon>
+                <ListItemIcon><FontAwesomeIcon icon={faCog} /></ListItemIcon>
                 <ListItemText primary={'Settings'} />
               </ListItem>
             </Link>
