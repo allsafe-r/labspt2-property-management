@@ -13,15 +13,15 @@
 
 .right-side {
   padding: 15px;
-  margin-top: 80px;
-  width:100%;
+  margin-top: 40px;
+  width: 75%;
 }
 
-/* .left-side {
+.left-side {
   background-color: white;
   width: 25%;
   box-shadow: 3px 0 1px -2px rgba(192, 191, 191, 0.349);
-} */
+}
 .dashboard-wrapper {
   display: flex;
   justify-content: space-between;
@@ -34,7 +34,7 @@
 /* DashBoard Logo */
 
 .dashboardLogo {
-  width: 150px;
+  width: 100%;
 }
 
 .logo-wrapper {
@@ -44,14 +44,6 @@
 }
 
 /* Side Menu */
-
-.Toolbar {
-  background-color: white;
-}
-
-.MuiSvgIcon-root-60 {
-  color: #FC7869;
-}
 .sideMenu-container {
   border: 1px solid blue;
   display: flex;
@@ -902,14 +894,3 @@ button[type="submit"] {
   }
 }
 
-.MuiFormControl-root-29 {
-  width: 100%;
-}
-
-.MuiFormControl-root-29 .MuiFormLabel-root-44 {
-  font-size: 1.2rem;
-}
-
-.billingColumn1 {
-  width:40%;
-}
