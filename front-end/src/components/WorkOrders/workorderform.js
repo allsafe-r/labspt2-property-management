@@ -70,52 +70,6 @@ class Workorderform extends Component {
       .catch(error => console.log("we've encountered an error"));
   };
 
-<<<<<<< HEAD
-  render() {
-    return (
-      <div className="workorderform">
-        <Grid container className="innerworkorderform" spacing={24}>
-          <Grid item className="griditem" lg={12}>
-            <Card className="carditems">
-              <h3>Type Your Notes Here:</h3>
-              <form onSubmit={this.submithandler}>
-                <Input
-                  onChange={this.inputhandler}
-                  value={this.state.description}
-                  name="description"
-                  placeholder="Description"
-                  className="#"
-                  type="text"
-                />
-
-                <Input
-                  onChange={this.inputhandler}
-                  name="phone"
-                  value={this.state.phone}
-                  placeholder="(555)555-5555"
-                  className="#"
-                  type="text"
-                />
-                <Input
-                  onChange={this.inputhandler}
-                  name="unsupervisedEntry"
-                  className="#"
-                  type="checkbox"
-                />
-                <Imageform url={this.urlUpdater} />
-                {/*<input name="attachimage" type='file'/> */}
-                <Button variant="contained" type="submit" className="button-2">
-                  <SaveIcon />
-                  Save
-                </Button>
-              </form>
-            </Card>
-          </Grid>
-        </Grid>
-      </div>
-    );
-  }
-=======
 	render() {
 		const { classes } = this.props;
 		return (
@@ -156,6 +110,5 @@ class Workorderform extends Component {
 			</div>
 		);
 	}
->>>>>>> 8e6f8c81fc005300d741759d87f3fc5799b28610
 }
 export default withStyles(styles)(Workorderform);

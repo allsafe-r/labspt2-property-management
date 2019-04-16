@@ -48,18 +48,6 @@ class Imageform extends React.Component {
     this.setState({ file: e.target.files[0] });
   }
 
-<<<<<<< HEAD
-  render() {
-    return (
-      // TENANT
-      <form>
-        <h1>File Upload</h1>
-        <input type="file" name="image" onChange={this.onChange} />
-        <button onClick={this.onFormSubmit}>Upload</button>
-      </form>
-    );
-  }
-=======
 	render() {
 		const { classes } = this.props;
 		return (
@@ -71,7 +59,6 @@ class Imageform extends React.Component {
 			</form>
 		);
 	}
->>>>>>> 8e6f8c81fc005300d741759d87f3fc5799b28610
 }
 
 export default withStyles(styles) (Imageform);
