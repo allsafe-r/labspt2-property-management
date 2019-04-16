@@ -109,9 +109,9 @@ class App extends Component {
 							<Route exact path="/workorders/form" component={Workorderform} />
 							<Route exact path="/settings" component={AdminSettings} />
 						</div>
-						<Link to={"/"}>
+						{/* <Link to={"/"}>
 							<button onClick={this.logOut}>Logout</button>
-						</Link>
+						</Link> */}
 					</div>
 				)
 			} else {
@@ -126,9 +126,9 @@ class App extends Component {
 							<Route exact path="/maintenance" component={Workorderform} />
 							<Route exact path="/settings" component={TenantSettings} />
 						</div>
-						  <Link to={"/"}>
+						  {/* <Link to={"/"}>
 							<button onClick={this.logOut}>Logout</button>
-						</Link>
+						</Link> */}
 					</div>
 				)
 			}

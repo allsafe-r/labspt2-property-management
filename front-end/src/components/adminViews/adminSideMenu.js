@@ -4,6 +4,8 @@ import "../../assets/css/general.css";
 import Logo from "./../../assets/images/logo.png";
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { Route } from "react-router-dom";
+import LandingView from "../../components/LandingPage/LandingView";
 import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
@@ -125,6 +127,7 @@ class SideMenu extends Component {
     return (
     <div className={classes.root}>
         <CssBaseline />
+        <Route exact path={"/"} component={LandingView} />
         <AppBar
           position="fixed"
           className={classNames(classes.appBar, {
