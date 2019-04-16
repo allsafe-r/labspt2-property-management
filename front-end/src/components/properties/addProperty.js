@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+const decode = require('jwt-decode');
 // const url = process.env.properties || 'http://localhost:9000/properties';
 const url = 'https://tenantly-back.herokuapp.com/properties';
 
@@ -24,7 +25,9 @@ class AddProperty extends Component {
 
 	addProperty = (e) => {
 		e.preventDefault();
-		console.log(this.state);
+		const token = localStorage.getItem('jwtToken');
+		const userId = decode(token).userId;
+		this.setState({ owner: userId });
 		axios
 			.post(url, this.state)
 			.then((response) => {
@@ -33,7 +36,7 @@ class AddProperty extends Component {
 			.catch((err) => {
 				console.log('Error', err);
 			});
-		this.props.history.push(`/admin/`);
+		this.props.history.push(`/properties`);
 	};
 
 	inputHandler = (e) => {
