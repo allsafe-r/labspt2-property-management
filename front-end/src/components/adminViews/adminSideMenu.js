@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "../../assets/css/general.css";
 import Logo from "./../../assets/images/logo.png";
-
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
@@ -115,6 +114,12 @@ class SideMenu extends Component {
   };
 
   render() {
+
+    const {loggedIn} = this.state;
+    if(loggedIn === false) {
+      return <Link push to="/"/>
+    }
+    else{
     const { classes, theme } = this.props;
 
     return (
@@ -226,6 +231,7 @@ class SideMenu extends Component {
       </div>
     );
   }
+}
 }
 
 SideMenu.propTypes = {

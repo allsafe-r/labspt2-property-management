@@ -4,7 +4,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "../../assets/css/general.css";
 import Logo from "./../../assets/images/logo.png";
-import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
@@ -113,14 +112,14 @@ class TenantSideMenu extends Component {
   logOut = () => {
     localStorage.removeItem('jwtToken');
     this.setState({ loggedIn: false });
-   
+    this.props.history.push("/login");
   };
 
   render() {
 
     const {loggedIn} = this.state;
    if(loggedIn === false){
-    return <Link push to="/"/> 
+    return <Link push to="/login"/> 
    }
     else {
     const { classes, theme } = this.props;
