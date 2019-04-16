@@ -350,6 +350,13 @@ body {
 } */
  
 
+.intro-section {
+	position: relative;
+	min-height: 100vh;
+  text-align: center;
+  border: 1px solid black;
+}
+
 /* 
 .HeroGroup {
   margin: 0 auto;
