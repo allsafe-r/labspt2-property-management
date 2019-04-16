@@ -33,6 +33,7 @@ library.add(faEnvelope, faKey);
 // const url = 'http://localhost:9000';
 const url = 'https://tenantly-back.herokuapp.com';
 const axios = require('axios');
+const decode = require('jwt-decode');
 
 class App extends Component {
 	state = {
