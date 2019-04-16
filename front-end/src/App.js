@@ -64,7 +64,11 @@ class App extends Component {
 		}
 	};
 
-	isAdmin() {}
+	isAdmin() {
+		const token = localStorage.getItem('jwtToken');
+		const isAdmin = decode(token).isAdmin;
+		return isAdmin;
+	}
 
 	logOut = () => {
 		localStorage.removeItem('jwtToken');
@@ -82,7 +86,7 @@ class App extends Component {
 				</div>
 			);
 		} else {
-			if (this.state.isAdmin) {
+			if (this.isAdmin()) {
 				return (
 					<div className="dashboard-container">
 						<div className="left-side">
