@@ -90,7 +90,7 @@ class propertyList extends Component {
           />
         ))}
         <Card className={classes.root}>
-          <Link to="/admin/add-property">
+          <Link to="/add-property">
             <Button size="medium" className={classes.margin}>
               + Add New Property
             </Button>

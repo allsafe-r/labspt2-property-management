@@ -33,7 +33,7 @@ class AddProperty extends Component {
       .catch(err => {
         console.log("Error", err);
       });
-    this.props.history.push(`/admin/`);
+    this.props.history.push(`/`);
   };
 
   inputHandler = e => {
