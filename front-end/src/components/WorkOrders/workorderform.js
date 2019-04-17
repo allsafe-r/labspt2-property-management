@@ -47,17 +47,7 @@ class Workorderform extends Component {
 
 	submithandler = (e) => {
 		e.preventDefault();
-
-		let newWorkOrder = {
-			property: this.state.property,
-			tenant: this.state.tenant,
-			description: this.state.description,
-			phone: this.state.phone,
-			unsupervisedEntry: this.state.unsupervisedEntry,
-			status: this.state.status,
-			image: this.state.url
-		};
-	};
+  }
 	render() {
 		const { classes } = this.props;
 		return (
