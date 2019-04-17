@@ -12,9 +12,9 @@ const IndexPage = () => (
                 <h1 className="slide-title">
                   Manage properties, at ease.
                   </h1>
-      <p>Manage tasks, payments, work orders anywhere, anytime. </p>
+      <p>Take care of tedious property management tasks in one place. <br />Be in charge of your properties, anytime, anywhere. </p>
       <Link to={"/register"}>
-        <button>GET A CUSTOMIZED DEMO</button>
+        <button>GET STARTED</button>
       </Link>
       </div>
       </div>
