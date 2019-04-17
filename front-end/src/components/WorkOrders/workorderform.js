@@ -57,19 +57,7 @@ class Workorderform extends Component {
 			status: this.state.status,
 			image: this.state.url
 		};
-
-		axios
-			.post(url, newWorkOrder)
-			.then((response) => {
-				this.setState({
-					description: '',
-					phone: '',
-					unsupervisedEntry: false
-				});
-			})
-			.catch((error) => console.log("we've encountered an error"));
 	};
-
 	render() {
 		const { classes } = this.props;
 		return (
