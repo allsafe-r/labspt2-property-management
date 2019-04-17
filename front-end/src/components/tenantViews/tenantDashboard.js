@@ -57,7 +57,7 @@ export default class tenantDashboard extends Component {
 						<Link to="/tenant/payments">Make a Payment</Link>
 					</div>
 					<div>
-						<Link to="/tenant/maintenance">Submit a Work Order</Link>
+						<Link to="/maintenance">Submit a Work Order</Link>
 					</div>
 					<div>
 						{this.state.alerts.map((alert) => {
