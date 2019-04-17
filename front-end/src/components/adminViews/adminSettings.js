@@ -22,9 +22,9 @@ class AdminSettings extends Component {
 			.then((user) => {
 				this.setState({
 					firstName: user.data.firstName,
+					lastName: user.data.lastName,
 					email: user.data.email,
-					phone: user.data.phone,
-					lastName: user.data.lastName
+					phone: user.data.phone
 				});
 			})
 			.catch((err) => console.log(err));
