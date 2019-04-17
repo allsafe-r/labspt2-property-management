@@ -54,7 +54,7 @@ export default class tenantDashboard extends Component {
 			<div>
 				<div className="left-tenant-dash">
 					<div>
-						<Link to="/tenant/payments">Make a Payment</Link>
+						<Link to="/payments">Make a Payment</Link>
 					</div>
 					<div>
 						<Link to="/maintenance">Submit a Work Order</Link>
