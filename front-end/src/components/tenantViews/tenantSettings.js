@@ -24,11 +24,11 @@ class TenantSettings extends Component {
 			.then((user) => {
 				this.setState({
 					firstName: user.data.firstName,
+					lastName: user.data.lastName,
 					email: user.data.email,
 					phone: user.data.phone,
 					textSubscribe: user.data.textSubscribe,
-					emailSubscribe: user.data.emailSubscribe,
-					lastName: user.data.lastName
+					emailSubscribe: user.data.emailSubscribe
 				});
 			})
 			.catch((err) => console.log(err));
