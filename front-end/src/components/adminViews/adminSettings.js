@@ -1,6 +1,38 @@
+<<<<<<< HEAD
 import React, { Component } from 'react';
 import axios from 'axios';
 const decode = require('jwt-decode');
+=======
+import React, { Component } from "react";
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import Button from '@material-ui/core/Button';
+import { withStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+
+import axios from "axios";
+
+const styles = theme => ({
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    flexWrap: 'wrap',
+  },
+
+  margin: {
+    margin: theme.spacing.unit,
+  },
+
+  textField: {
+    marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit,
+  },
+
+
+});
+
+const decode = require('jwt-decode')
+>>>>>>> db6842f2fe48273de93bb7a1a9c31edd244dc5dd
 class AdminSettings extends Component {
 	state = {
 		firstName: '',
@@ -72,6 +104,7 @@ class AdminSettings extends Component {
 		this.setState({ [e.target.name]: e.target.checked });
 	};
 
+<<<<<<< HEAD
 	render() {
 		return (
 			<div>
@@ -143,6 +176,68 @@ class AdminSettings extends Component {
 			</div>
 		);
 	}
+=======
+  render() {
+    const { classes } = this.props;
+    return (
+        <form className={classes.container} onSubmit={this.onSubmit}>
+            <h6>{this.state.username}</h6>
+            <TextField
+              placeholder="displayName"
+              name="displayName"
+              value={this.state.displayName}
+              onChange={this.onChange}
+              type="text"
+              required
+            />
+            <TextField
+              placeholder="email"
+              name="email"
+              value={this.state.email}
+              onChange={this.onChange}
+              type="text"
+              required
+            />
+            <TextField
+              placeholder="phone"
+              name="phone"
+              value={this.state.phone}
+              onChange={this.onChange}
+              type="text"
+              required
+            />
+            <TextField
+              placeholder="password"
+              name="oldPW"
+              value={this.state.oldPW}
+              onChange={this.onChange}
+              type="password"
+            />
+
+            <TextField
+              placeholder="new password"
+              name="newPW1"
+              value={this.state.newPW1}
+              onChange={this.onChange}
+              type="password"
+            />
+            <TextField
+              placeholder="new password"
+              name="newPW2"
+              value={this.state.newPW2}
+              onChange={this.onChange}
+              type="password"
+            />
+            <Button variant="contained" size="large" color="secondary" className={classes.margin}>
+              Update
+            </Button>
+        </form>
+    );
+  }
+>>>>>>> db6842f2fe48273de93bb7a1a9c31edd244dc5dd
 }
 
-export default AdminSettings;
+AdminSettings.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+export default withStyles(styles)(AdminSettings);

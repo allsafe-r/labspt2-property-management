@@ -1,5 +1,36 @@
 import React, { Component } from 'react';
+import classNames from 'classnames';
+import { withStyles } from '@material-ui/core/styles';
+import Checkbox from '@material-ui/core/Checkbox';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import PropTypes from 'prop-types';
 import axios from 'axios';
+import InputLabel from '@material-ui/core/InputLabel';
+
+const styles = (theme) => ({
+	container: {
+		display: 'flex',
+		flexDirection: 'column',
+		flexWrap: 'wrap',
+		width: '80%'
+	},
+
+	heading: {
+		paddingBottom: 20
+	},
+
+	margin: {
+		margin: theme.spacing.unit
+	},
+
+	textField: {
+		marginLeft: theme.spacing.unit,
+		marginRight: theme.spacing.unit
+	}
+});
+
 const decode = require('jwt-decode');
 
 class TenantSettings extends Component {
@@ -75,92 +106,103 @@ class TenantSettings extends Component {
 	};
 
 	render() {
+		const { classes } = this.props;
 		return (
-			<div>
-				<form onSubmit={this.onSubmit}>
-					<div>
-						<h6>
-							{this.state.firstName} {this.state.lastName}
-						</h6>
-					</div>
-					<div>
-						<input
-							placeholder="lastName"
-							name="lastName"
-							value={this.state.lastName}
-							onChange={this.onChange}
-							type="text"
-							required
-						/>
-					</div>
-					<div>
-						<input
-							placeholder="email"
-							name="email"
-							value={this.state.email}
-							onChange={this.onChange}
-							type="text"
-							required
-						/>
-					</div>
-					<div>
-						<input
-							placeholder="phone"
-							name="phone"
-							value={this.state.phone}
-							onChange={this.onChange}
-							type="text"
-							required
-						/>
-					</div>
-					<div>
-						<input
+			<form className={classes.container} onSubmit={this.onSubmit}>
+				<h6 className={classes.heading}>
+					Name: {this.state.firstName} {this.state.lastName}
+				</h6>
+				<TextField
+					label="First Name"
+					placeholder="firstName"
+					name="firstName"
+					value={this.state.firstName}
+					onChange={this.onChange}
+					type="text"
+					required
+				/>
+
+				<TextField
+					label="Last Name"
+					placeholder="lastName"
+					name="lastName"
+					value={this.state.lastName}
+					onChange={this.onChange}
+					type="text"
+					required
+				/>
+
+				<TextField
+					label="Email"
+					placeholder="email"
+					name="email"
+					value={this.state.email}
+					onChange={this.onChange}
+					type="text"
+					required
+				/>
+				<TextField
+					label="Phone Number"
+					placeholder="phone"
+					name="phone"
+					value={this.state.phone}
+					onChange={this.onChange}
+					type="text"
+					required
+				/>
+				{/* <Checkbox
 							type="checkbox"
 							name="textSubscribe"
 							value={this.state.textSubscribe}
 							onChange={this.handleCheckboxChange}
 						/>
-						<span>Get texts</span>
-						<input
+						<Checkbox
 							type="checkbox"
 							name="emailSubscribe"
 							value={this.state.emailSubscribe}
 							onChange={this.handleCheckboxChange}
-						/>
-						<span>Get emails?</span>
-					</div>
-					<div>
-						<input
-							placeholder="password"
-							name="oldPW"
-							value={this.state.oldPW}
-							onChange={this.onChange}
-							type="password"
-						/>
-					</div>
-					<div>
-						<input
-							placeholder="new password"
-							name="newPW1"
-							value={this.state.newPW1}
-							onChange={this.onChange}
-							type="password"
-						/>
-					</div>{' '}
-					<div>
-						<input
-							placeholder="new password"
-							name="newPW2"
-							value={this.state.newPW2}
-							onChange={this.onChange}
-							type="password"
-						/>
-					</div>
-					<button>Update</button>
-				</form>
-			</div>
+						/> */}
+				<FormControlLabel
+					control={<Checkbox value={this.state.emailSubscribe} onChange={this.handleCheckboxChange} color="primary" />}
+					label="Get Texts"
+				/>
+				<FormControlLabel
+					control={<Checkbox onChange={this.handleCheckboxChange} color="primary" />}
+					label="Get Emails"
+				/>
+				<TextField
+					label="Password"
+					placeholder="password"
+					name="oldPW"
+					value={this.state.oldPW}
+					onChange={this.onChange}
+					type="password"
+				/>
+				<TextField
+					label="New Password"
+					placeholder="new password"
+					name="newPW1"
+					value={this.state.newPW1}
+					onChange={this.onChange}
+					type="password"
+				/>
+				<TextField
+					label="Confirm New Password"
+					placeholder="new password"
+					name="newPW2"
+					value={this.state.newPW2}
+					onChange={this.onChange}
+					type="password"
+				/>
+				<Button variant="outlined" size="large" color="primary" className={classes.margin}>
+					Update
+				</Button>
+			</form>
 		);
 	}
 }
 
-export default TenantSettings;
+TenantSettings.propTypes = {
+	classes: PropTypes.object.isRequired
+};
+export default withStyles(styles)(TenantSettings);
