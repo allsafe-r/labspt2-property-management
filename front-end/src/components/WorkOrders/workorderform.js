@@ -133,17 +133,9 @@ class Workorderform extends Component {
 		);
 	}
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-export default withStyles(styles)(Workorderform);
-=======
-export default withStyles(styles)(Workorderform);
->>>>>>> feed1fa1e064af46ed5e0da70d74e92f986d04bb
-=======
 
 Workorderform.propTypes = {
 	classes: PropTypes.object.isRequired,
   };
 
 export default withStyles(styles)(Workorderform);
->>>>>>> ee570471252027e3056b21989b5395449c21125d

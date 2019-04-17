@@ -40,6 +40,84 @@ class Register extends Component {
       });
   };
 
+	render() {
+		return (
+			<div className="form-container">
+				<form onSubmit={this.onSubmit}>
+					<Link to={'/'}>
+						<img className="logo-register" src={logo} alt="Logo" />
+					</Link>
+					<div className="register-radio-container">
+						<input type="radio" onClick={this.isAdmin} value="LANDLORD" name="account" />{' '}
+						<p className="radio-p">Landlord</p>
+						<input type="radio" onClick={this.isNotAdmin} value="TENANT" name="account" />{' '}
+						<p className="radio-p">Tenant</p>
+					</div>
+
+					<div className="input-form">
+						<input
+							placeholder="username"
+							name="username"
+							value={this.state.username}
+							onChange={this.onChange}
+							type="text"
+							required
+						/>
+					</div>
+					<div>
+						<input
+							placeholder="password"
+							name="password"
+							value={this.state.password}
+							onChange={this.onChange}
+							type="password"
+							required
+						/>
+					</div>
+					<div>
+						<input
+							placeholder="email"
+							name="email"
+							value={this.state.email}
+							onChange={this.onChange}
+							type="text"
+							required
+						/>
+					</div>
+					<div>
+						<input
+							placeholder="phone number"
+							name="phone"
+							value={this.state.phone}
+							onChange={this.onChange}
+							type="text"
+							required
+						/>
+					</div>
+					<div>
+						<input
+							placeholder="display name"
+							name="displayName"
+							value={this.state.displayName}
+							onChange={this.onChange}
+							type="text"
+							required
+						/>
+					</div>
+					<div>
+						<button className="form__button">Register</button>
+					</div>
+					<div className="no-account">
+						<p className="login-p">Already have an account?</p>
+						<Link to={'/login'}>
+							<button className="register-button">Login here</button>
+						</Link>
+					</div>
+				</form>
+			</div>
+		);
+	}
+
   render() {
     return (
       <div className="form-container">

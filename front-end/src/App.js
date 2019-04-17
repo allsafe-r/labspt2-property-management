@@ -108,11 +108,8 @@ class App extends Component {
 							<Route exact path="/workorders/form" component={Workorderform} />
 							<Route exact path="/settings" component={AdminSettings} />
 						</div>
-<<<<<<< HEAD
 						{/* <Link to={"/"}>
-=======
 						<Link to={'/'}>
->>>>>>> ee570471252027e3056b21989b5395449c21125d
 							<button onClick={this.logOut}>Logout</button>
 						</Link> */}
 					</div>
@@ -129,11 +126,8 @@ class App extends Component {
 							<Route exact path="/maintenance" component={Workorderform} />
 							<Route exact path="/settings" component={TenantSettings} />
 						</div>
-<<<<<<< HEAD
 						  {/* <Link to={"/"}>
-=======
 						<Link to={'/'}>
->>>>>>> ee570471252027e3056b21989b5395449c21125d
 							<button onClick={this.logOut}>Logout</button>
 						</Link> */}
 					</div>

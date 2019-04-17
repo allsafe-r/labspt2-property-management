@@ -843,6 +843,7 @@ body {
   align-items: center;
   justify-content: center;
   background-color: #fff2f1;
+  border: 10px solid black;
 }
 
 .form-container form {
@@ -859,8 +860,26 @@ body {
 }
 
 .form-container .logo-login {
-  height: 100px;
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  width: 70%;
+  
 }
+
+.form-container .logo-register {
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  width: 60%;
+  
+}
+
+
 
 .form-container .user-container {
   margin: 10px;
@@ -953,6 +972,16 @@ button[type="submit"] {
   background-color: white;
 }
 
+.input-form {
+  padding-top: 5px;
+}
+
+@media (max-width: 411px) {
+ .logo-login{
+    width: 200px;
+  }
+}
+
 /* REGISTER PRICING */
 
 .register-pricing {
@@ -961,16 +990,19 @@ button[type="submit"] {
 
 /* REGISTER FORM */
 .register-radio-container {
-  padding-bottom: 20px;
+  /* padding-bottom: 20px; */
   width: 30%;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content:center;
+  align-content: center;
+  align-items: center;
 }
 
 .register-radio-container .radio-p {
   font-family: "Montserrat";
-  font-size: 1rem;
+  font-size: 1.2vw;
+  padding: 10px;
 }
 
 /* PRICING */
