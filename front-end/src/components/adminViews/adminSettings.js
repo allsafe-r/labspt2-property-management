@@ -4,9 +4,9 @@ const decode = require('jwt-decode');
 class AdminSettings extends Component {
 	state = {
 		firstName: '',
+		lastName: '',
 		email: '',
 		phone: '',
-		lastName: '',
 		oldPW: '',
 		newPW1: '',
 		newPW2: ''
