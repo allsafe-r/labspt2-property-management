@@ -110,7 +110,7 @@ class App extends Component {
 						</div>
 						{/* <Link to={'/'}> */}
 							{/* <button onClick={this.logOut}>Logout</button>
-						</Link> */} */}
+						</Link> */} 
 					</div>
 				);
 			} else {

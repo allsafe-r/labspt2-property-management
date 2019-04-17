@@ -10,7 +10,7 @@ const LandingView = () => {
     <div className="landingpage">
       <Menu />
       <IndexPage />
-      <Body />
+      {/* <Body /> */}
     </div>
   );
 };
