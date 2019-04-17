@@ -227,6 +227,10 @@ body {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif; */
 }
 
+.intro-section .slide-frame .text button {
+  /* background-color: ##FFBFBA */
+}
+
 .Header p {
   color: black;
 }
@@ -386,7 +390,7 @@ body {
 
 .bg-stretch .slide-frame .text p {
   padding-top: 5px;
-  font-size: .8vw;
+  font-size: 1vw;
   color: gray;
   opacity: .5;
   font-family: 'GTEestiDisplay-Medium',-apple-system,system-ui,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
@@ -459,14 +463,15 @@ body {
 
 .intro-section .bg-stretch p {
   font-size: 1.4vw;
+  font-weight: 1200;
 }
 
 .intro-section .bg-stretch h1 {
   font-family: 'GTEestiDisplay-Medium',-apple-system,system-ui,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
   font-weight: 500;
   margin: 0;
-  color: #BC2B20;
-  font-size: 2vw;
+  color: black;
+  font-size: 3.3vw;
   line-height: 1.2;
   opacity: 0;
   animation: HeroAnimation;
@@ -520,8 +525,7 @@ body {
 
 .bg-stretch .slide-frame {
   display: block;
-  margin-left: 50px;
-  border: 1px solid red;
+  margin-left: 100px;
 }
 
 .bg-stretch .slide-frame {

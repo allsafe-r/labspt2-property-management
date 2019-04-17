@@ -10,7 +10,8 @@ const IndexPage = () => (
         <div className="slide-frame">
 							<div className="text">
                 <h1 className="slide-title">
-                  Manage properties, at ease.
+                  Manage properties
+                  <br /> at ease.
                   </h1>
       <p>Take care of tedious property management tasks in one place. <br />Be in charge of your properties, anytime, anywhere. </p>
       <Link to={"/register"}>
