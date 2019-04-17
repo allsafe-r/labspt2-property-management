@@ -7,44 +7,38 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import InputLabel from "@material-ui/core/InputLabel";
+import InputLabel from '@material-ui/core/InputLabel';
 
-
-const styles = theme => ({
+const styles = (theme) => ({
 	container: {
-	  display: 'flex',
-	  flexDirection: 'column',
-	  flexWrap: 'wrap',
-	  width: '80%',
-
+		display: 'flex',
+		flexDirection: 'column',
+		flexWrap: 'wrap',
+		width: '80%'
 	},
 
 	heading: {
-		paddingBottom: 20,
+		paddingBottom: 20
 	},
 
 	margin: {
-		margin: theme.spacing.unit,
+		margin: theme.spacing.unit
 	},
-  
+
 	textField: {
-	  marginLeft: theme.spacing.unit,
-	  marginRight: theme.spacing.unit,
-	},
+		marginLeft: theme.spacing.unit,
+		marginRight: theme.spacing.unit
+	}
+});
 
-
-  
-  
-  });
-
-const decode = require('jwt-decode')
+const decode = require('jwt-decode');
 
 class TenantSettings extends Component {
 	state = {
-		username: '',
+		firstName: '',
+		lastName: '',
 		email: '',
 		phone: '',
-		displayName: '',
 		textSubscribe: false,
 		emailSubscribe: false,
 		oldPW: '',
@@ -53,19 +47,19 @@ class TenantSettings extends Component {
 	};
 
 	componentDidMount() {
-		const token = localStorage.getItem('jwtToken')
-		const id = decode(token).userId
+		const token = localStorage.getItem('jwtToken');
+		const id = decode(token).userId;
 		axios
 			.get(`https://tenantly-back.herokuapp.com/users/${id}`)
 			// .get(`http://localhost:9000/users/${id}`)
 			.then((user) => {
 				this.setState({
-					username: user.data.username,
+					firstName: user.data.firstName,
+					lastName: user.data.lastName,
 					email: user.data.email,
 					phone: user.data.phone,
 					textSubscribe: user.data.textSubscribe,
-					emailSubscribe: user.data.emailSubscribe,
-					displayName: user.data.displayName
+					emailSubscribe: user.data.emailSubscribe
 				});
 			})
 			.catch((err) => console.log(err));
@@ -79,8 +73,8 @@ class TenantSettings extends Component {
 		e.preventDefault();
 
 		// grabbing ID off local storage to access specific user info
-		const token = localStorage.getItem('jwtToken')
-		const id = decode(token).userId
+		const token = localStorage.getItem('jwtToken');
+		const id = decode(token).userId;
 
 		// If the user enters old password without trying to change password, it throws warning
 		if (this.state.oldPW !== '' && this.state.newPW1 === '') {
@@ -114,37 +108,49 @@ class TenantSettings extends Component {
 	render() {
 		const { classes } = this.props;
 		return (
-				<form className={classes.container}  onSubmit={this.onSubmit}>
-						<h6 className={classes.heading}>Username: {this.state.username}</h6>
-						<TextField
-							label='Display Name'
-							placeholder="displayName"
-							name="displayName"
-							value={this.state.displayName}
-							onChange={this.onChange}
-							type="text"
-							required
-						/>
-						
-						<TextField
-							label='Email'
-							placeholder="email"
-							name="email"
-							value={this.state.email}
-							onChange={this.onChange}
-							type="text"
-							required
-						/>
-						<TextField
-							label='Phone Number'
-							placeholder="phone"
-							name="phone"
-							value={this.state.phone}
-							onChange={this.onChange}
-							type="text"
-							required
-						/>
-						{/* <Checkbox
+			<form className={classes.container} onSubmit={this.onSubmit}>
+				<h6 className={classes.heading}>
+					Name: {this.state.firstName} {this.state.lastName}
+				</h6>
+				<TextField
+					label="First Name"
+					placeholder="firstName"
+					name="firstName"
+					value={this.state.firstName}
+					onChange={this.onChange}
+					type="text"
+					required
+				/>
+
+				<TextField
+					label="Last Name"
+					placeholder="lastName"
+					name="lastName"
+					value={this.state.lastName}
+					onChange={this.onChange}
+					type="text"
+					required
+				/>
+
+				<TextField
+					label="Email"
+					placeholder="email"
+					name="email"
+					value={this.state.email}
+					onChange={this.onChange}
+					type="text"
+					required
+				/>
+				<TextField
+					label="Phone Number"
+					placeholder="phone"
+					name="phone"
+					value={this.state.phone}
+					onChange={this.onChange}
+					type="text"
+					required
+				/>
+				{/* <Checkbox
 							type="checkbox"
 							name="textSubscribe"
 							value={this.state.textSubscribe}
@@ -156,58 +162,47 @@ class TenantSettings extends Component {
 							value={this.state.emailSubscribe}
 							onChange={this.handleCheckboxChange}
 						/> */}
-						<FormControlLabel
-							control={
-								<Checkbox
-								value={this.state.emailSubscribe}
-								onChange={this.handleCheckboxChange}
-								color="primary"
-								/>
-							}
-							label="Get Texts"
-        					/>
-						<FormControlLabel
-							control={
-								<Checkbox
-								onChange={this.handleCheckboxChange}
-								color="primary"
-								/>
-							}
-         					label="Get Emails"
-        					/>
-						<TextField
-							label='Password'
-							placeholder="password"
-							name="oldPW"
-							value={this.state.oldPW}
-							onChange={this.onChange}
-							type="password"
-						/>
-						<TextField
-							label='New Password'
-							placeholder="new password"
-							name="newPW1"
-							value={this.state.newPW1}
-							onChange={this.onChange}
-							type="password"
-						/>
-						<TextField
-							label='Confirm New Password'
-							placeholder="new password"
-							name="newPW2"
-							value={this.state.newPW2}
-							onChange={this.onChange}
-							type="password"
-						/>
-						<Button variant="outlined" size="large" color="primary" className={classes.margin}>
-							Update
-						</Button>
-				</form>
+				<FormControlLabel
+					control={<Checkbox value={this.state.emailSubscribe} onChange={this.handleCheckboxChange} color="primary" />}
+					label="Get Texts"
+				/>
+				<FormControlLabel
+					control={<Checkbox onChange={this.handleCheckboxChange} color="primary" />}
+					label="Get Emails"
+				/>
+				<TextField
+					label="Password"
+					placeholder="password"
+					name="oldPW"
+					value={this.state.oldPW}
+					onChange={this.onChange}
+					type="password"
+				/>
+				<TextField
+					label="New Password"
+					placeholder="new password"
+					name="newPW1"
+					value={this.state.newPW1}
+					onChange={this.onChange}
+					type="password"
+				/>
+				<TextField
+					label="Confirm New Password"
+					placeholder="new password"
+					name="newPW2"
+					value={this.state.newPW2}
+					onChange={this.onChange}
+					type="password"
+				/>
+				<Button variant="outlined" size="large" color="primary" className={classes.margin}>
+					Update
+				</Button>
+			</form>
 		);
 	}
 }
 
 TenantSettings.propTypes = {
-	classes: PropTypes.object.isRequired,
-  };
-  export default withStyles(styles)(TenantSettings);
+	classes: PropTypes.object.isRequired
+};
+export default withStyles(styles)(TenantSettings);

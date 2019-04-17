@@ -8,7 +8,7 @@ const url = `https://tenantly-back.herokuapp.com/alerts`;
 export default class tenantDashboard extends Component {
 	state = {
 		houseId: 1,
-		residenceOwner: 1,
+		residenceOwner: null,
 		alerts: [],
 		address: '',
 		contact: '',
