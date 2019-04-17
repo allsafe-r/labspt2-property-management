@@ -23,7 +23,8 @@ class Login extends Component {
 			.then((res) => {
 				localStorage.setItem('jwtToken', res.data.token);
 				// this.props.history.push('/');
-				this.props.authenticate(res.data.isAdmin);
+        this.props.authenticate(res.data.isAdmin);
+        this.props.history.push('/properties');
 			})
 			.catch((err) => {
 				console.log({ Error: err });
