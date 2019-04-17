@@ -21,6 +21,7 @@ server.use('/stripe', stripe);
 server.use('/api', login);
 server.use('/images', images);
 server.use('/alerts', alerts);
+server.use('/billing', billing);
 
 server.get('/', (req, res) => {
 	res.status(200).send('Hi');
