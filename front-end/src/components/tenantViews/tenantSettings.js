@@ -5,9 +5,9 @@ const decode = require('jwt-decode');
 class TenantSettings extends Component {
 	state = {
 		firstName: '',
+		lastName: '',
 		email: '',
 		phone: '',
-		lastName: '',
 		textSubscribe: false,
 		emailSubscribe: false,
 		oldPW: '',
