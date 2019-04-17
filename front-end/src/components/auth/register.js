@@ -76,7 +76,7 @@ class Register extends Component {
 					</div>
 					<div>
 						<input
-							placeholder="password"
+							placeholder="Password"
 							name="password"
 							value={this.state.password}
 							onChange={this.onChange}
@@ -86,7 +86,7 @@ class Register extends Component {
 					</div>
 					<div>
 						<input
-							placeholder="email"
+							placeholder="E-mail"
 							name="email"
 							value={this.state.email}
 							onChange={this.onChange}
@@ -96,7 +96,7 @@ class Register extends Component {
 					</div>
 					<div>
 						<input
-							placeholder="phone number"
+							placeholder="Phone Number"
 							name="phone"
 							value={this.state.phone}
 							onChange={this.onChange}
