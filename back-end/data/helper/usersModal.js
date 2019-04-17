@@ -3,7 +3,7 @@ const db = require('../../knex');
 module.exports = {
 	createUser,
 	findByUserId,
-	findByUserName,
+	findByEmail,
 	getAdmins,
 	editUser,
 	getTenants,
@@ -15,8 +15,8 @@ function createUser(user) {
 	return db('users').insert(user, 'id');
 }
 
-function findByUserName(username) {
-	return db('users').where({ username });
+function findByEmail(email) {
+	return db('users').where({ email });
 }
 
 function findByUserId(id) {

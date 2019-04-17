@@ -8,7 +8,7 @@ const url = 'https://tenantly-back.herokuapp.com/api/login';
 
 class Login extends Component {
 	state = {
-		username: '',
+		email: '',
 		password: ''
 	};
 
@@ -39,9 +39,9 @@ class Login extends Component {
 					</Link>
 					<div className="user-container">
 						<input
-							placeholder="username"
-							name="username"
-							value={this.state.username}
+							placeholder="email"
+							name="email"
+							value={this.state.email}
 							onChange={this.onChange}
 							type="text"
 							required
