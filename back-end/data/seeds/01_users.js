@@ -4,51 +4,47 @@ exports.seed = function(knex, Promise) {
 	return knex('users').del().then(function() {
 		return knex('users').insert([
 			{
-				username: 'Lee',
+				firstName: 'Lee',
+				lastName: 'Secret',
 				password: process.env.password,
 				isAdmin: true,
 				email: 'lee@tenantly.com',
 				phone: '203-555-1234',
-				displayName: 'Lee',
 				emailSubscribe: false,
 				textSubscribe: false,
-				// residence_id: 1,
 				application: ''
 			},
 			{
-				username: 'Matt',
+				firstName: 'Matt',
+				lastName: 'Secret',
 				password: process.env.password,
 				isAdmin: true,
 				email: 'matt@tenantly.com',
 				phone: '203-555-1234',
-				displayName: 'Matt',
 				emailSubscribe: false,
 				textSubscribe: false,
-				// residence_id: 1,
 				application: ''
 			},
 			{
-				username: 'Victor',
+				firstName: 'Victor',
+				lastName: 'Secret',
 				password: process.env.password,
 				isAdmin: true,
 				email: 'victor@tenantly.com',
 				phone: '203-555-1234',
-				displayName: 'Victor',
 				emailSubscribe: false,
 				textSubscribe: false,
-				// residence_id: 1,
 				application: ''
 			},
 			{
-				username: 'Kyle',
+				firstName: 'Kyle',
+				lastName: 'Secret',
 				password: process.env.password,
 				isAdmin: false,
 				email: 'kyle@tenantly.com',
 				phone: '203-555-1234',
-				displayName: 'Kyle',
 				emailSubscribe: false,
 				textSubscribe: false,
-				// residence_id: 1,
 				application: ''
 			}
 		]);
