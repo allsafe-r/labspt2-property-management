@@ -47,3 +47,24 @@ router.post('/', (req, res, next) => {
 			next('h500', err);
 		});
 });
+
+// edit alert
+router.put('/:id', (req, res, next) => {
+	const { id } = req.params;
+	const edit = req.body;
+
+	db
+		.editAlert(id, edit)
+		.then((updated) => {
+			if (updated) {
+				res.status(200).json({
+					message: 'Alert updated.'
+				});
+			} else {
+				res.status(404).json({ error: 'No alert found.' });
+			}
+		})
+		.catch((err) => {
+			next('h500', err);
+		});
+});
