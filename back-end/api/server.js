@@ -20,6 +20,7 @@ server.use('/properties', properties);
 server.use('/stripe', stripe);
 server.use('/api', login);
 server.use('/images', images);
+server.use('/alerts', alerts);
 
 server.get('/', (req, res) => {
 	res.status(200).send('Hi');
