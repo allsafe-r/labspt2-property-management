@@ -25,7 +25,7 @@ export default class tenantDashboard extends Component {
 				// console.log(user);
 				this.setState({ houseId: user.data.residenceId });
 			})
-			// go into users residence, grab some information and set it to state, grab owner of residence to supply rest of information
+ // go into users residence, grab some information and set it to state, grab owner of residence to supply rest of information
 			.then(
 				axios
 					.get(`https://tenantly-back.herokuapp.com/properties/${this.state.houseId}`)
