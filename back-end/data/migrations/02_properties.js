@@ -6,7 +6,6 @@ exports.up = function(knex, Promise) {
 		table.string('propertyCity').notNullable();
 		table.string('propertyState').notNullable();
 		table.string('propertyZipcode').notNullable();
-		// ?
 		table.integer('owner').notNullable().references('id').inTable('users');
 		table.integer('tenant1').notNullable().references('id').inTable('users');
 		table.integer('tenant2').references('id').inTable('users');

@@ -1,6 +1,9 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
+import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+import Button from '@material-ui/core/Button';
+
 const axios = require('axios');
 // const url = process.env.imagePost || 'http://localhost:9000/images';
 const url = 'https://tenantly-back.herokuapp.com/images';
@@ -54,13 +57,20 @@ class Imageform extends React.Component {
 			// TENANT
 			<form>
 				<h1>File Upload</h1>
-				<input type="file" name="image" onChange={this.onChange} />
-				<Button color="secondary" variant="contained" className={classes.button} onClick={this.onFormSubmit}>
+				{/* <input type="file" name="image" onChange={this.onChange}  style="width:200px"/> */}
+				<label class="custom-file-upload">
+					<input type="file"/>
+				</label>
+				<Button variant="contained" color="default" className={classes.button}  onClick={this.onFormSubmit}>
 					Upload
+					<CloudUploadIcon className={classes.rightIcon} />
 				</Button>
 			</form>
 		);
 	}
 }
+Imageform.propTypes = {
+	classes: PropTypes.object.isRequired,
+  };
 
 export default withStyles(styles)(Imageform);

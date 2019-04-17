@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import '../../assets/css/general.css';
-import Logo from './../../assets/images/logo.png';
-
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import "../../assets/css/general.css";
+import Logo from "./../../assets/images/logo.png";
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { Route } from "react-router-dom";
+import LandingView from "../../components/LandingPage/LandingView";
 import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
@@ -219,6 +220,7 @@ class SideMenu extends Component {
 		);
 	}
 }
+
 
 SideMenu.propTypes = {
 	classes: PropTypes.object.isRequired,
