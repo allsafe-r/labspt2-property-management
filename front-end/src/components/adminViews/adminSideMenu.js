@@ -1,15 +1,7 @@
-<<<<<<< HEAD
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "../../assets/css/general.css";
 import Logo from "./../../assets/images/logo.png";
-=======
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import '../../assets/css/general.css';
-import Logo from './../../assets/images/logo.png';
-
->>>>>>> ee570471252027e3056b21989b5395449c21125d
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Route } from "react-router-dom";
@@ -104,150 +96,6 @@ const styles = (theme) => ({
 });
 
 class SideMenu extends Component {
-<<<<<<< HEAD
-  constructor() {
-    super();
-    this.state = {
-      admin: true,
-      open: false,
-    };
-  }
-
-  
-  handleDrawerOpen = () => {
-    this.setState({ open: true });
-  };
-
-  handleDrawerClose = () => {
-    this.setState({ open: false });
-  };
-
-  logOut = () => {
-    localStorage.removeItem('jwtToken');
-    this.setState({ loggedIn: false });
-    window.location.reload();
-  };
-
-  render() {
-
-    const {loggedIn} = this.state;
-    if(loggedIn === false) {
-      return <Link push to="/"/>
-    }
-    else{
-    const { classes, theme } = this.props;
-
-    return (
-    <div className={classes.root}>
-        <CssBaseline />
-        <Route exact path={"/"} component={LandingView} />
-        <AppBar
-          position="fixed"
-          className={classNames(classes.appBar, {
-            [classes.appBarShift]: this.state.open,
-          })}
-        >
-          <Toolbar disableGutters={!this.state.open} className="Toolbar">
-            <IconButton
-              color="#FC7869"
-              aria-label="Open drawer"
-              onClick={this.handleDrawerOpen}
-              className={classNames(classes.menuButton, {
-                [classes.hide]: this.state.open,
-              })}
-              
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" color="inherit" noWrap >
-              <div className="flex-top-bar" >
-                  <img src={Logo} className="dashboardLogo" alt="Dash logo" />
-
-              <Link to={'/'} className="log-out">
-                    <ListItem button onClick={this.logOut}>
-                      <FontAwesomeIcon icon={faSignOutAlt} color="slategray" size="2x" />
-                  </ListItem>
-              </Link>
-              </div>
-            </Typography>
-          </Toolbar>
-        </AppBar>
-        <Drawer
-          variant="permanent"
-          className={classNames(classes.drawer, {
-            [classes.drawerOpen]: this.state.open,
-            [classes.drawerClose]: !this.state.open,
-          })}
-          classes={{
-            paper: classNames({
-              [classes.drawerOpen]: this.state.open,
-              [classes.drawerClose]: !this.state.open,
-            }),
-          }}
-          open={this.state.open}
-        >
-          <div className={classes.toolbar}>
-            <IconButton onClick={this.handleDrawerClose}>
-              {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-            </IconButton>
-          </div>
-          <Divider />
-        
-          <List>
-            <Link to={"/properties"}>
-              <ListItem button>
-                <ListItemIcon><FontAwesomeIcon icon={faBuilding} /></ListItemIcon>
-                <ListItemText primary={'Properties'} />
-              </ListItem>
-            </Link>
-          </List>
-
-          <List>
-            <Link to={"/worklist"}>
-              <ListItem button>
-                <ListItemIcon><FontAwesomeIcon icon={faClipboard} />
-                </ListItemIcon>
-                <ListItemText primary={'Work Orders'} />
-              </ListItem>
-            </Link>
-          </List>
-
-          <List>
-            <Link to={"/add-tenant"}>
-              <ListItem button>
-                <ListItemIcon><FontAwesomeIcon icon={faUserPlus} /></ListItemIcon>
-                <ListItemText primary={'Add Tenant'} />
-              </ListItem>
-            </Link>
-          </List>
-
-          <List>
-            <Link to={"/billing"}>
-              <ListItem button>
-                <ListItemIcon><FontAwesomeIcon icon={faFileInvoiceDollar} /></ListItemIcon>
-                <ListItemText primary={'Billing'} />
-              </ListItem>
-            </Link>
-          </List>
-
-          <List>
-            <Link to={"/settings"}>
-              <ListItem button>
-                <ListItemIcon><FontAwesomeIcon icon={faCog} /></ListItemIcon>
-                <ListItemText primary={'Settings'} />
-              </ListItem>
-
-            </Link>
-          </List>
-
-
-
-        </Drawer>
-        
-      </div>
-    );
-  }
-=======
 	constructor() {
 		super();
 		this.state = {
@@ -369,10 +217,8 @@ class SideMenu extends Component {
 					</List>
 				</Drawer>
 			</div>
-		);
-	}
->>>>>>> ee570471252027e3056b21989b5395449c21125d
-}
+    )
+  }
 }
 
 SideMenu.propTypes = {
