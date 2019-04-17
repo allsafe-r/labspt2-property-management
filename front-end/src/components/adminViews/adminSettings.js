@@ -77,7 +77,9 @@ class AdminSettings extends Component {
 			<div>
 				<form onSubmit={this.onSubmit}>
 					<div>
-						<h6>{this.state.firstName}</h6>
+						<h6>
+							{this.state.firstName} {this.state.lastName}
+						</h6>
 					</div>
 					<div>
 						<input
