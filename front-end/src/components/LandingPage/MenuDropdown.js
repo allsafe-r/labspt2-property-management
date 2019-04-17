@@ -31,7 +31,7 @@ function MenuDropdown() {
             <Menu id="render-props-menu" anchorEl={anchorEl} open={open} onClose={handleClose}>
               <MenuItem onClick={handleClose}>Profile</MenuItem>
               <MenuItem onClick={handleClose}>My account</MenuItem>
-              <MenuItem onClick={handleClose}>Logout</MenuItem>
+              {/* <MenuItem onClick={handleClose}>Logout</MenuItem> */}
             </Menu>
           </React.Fragment>
         );
