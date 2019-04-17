@@ -26,6 +26,7 @@ const styles = theme => ({
 
 });
 
+const decode = require('jwt-decode')
 class AdminSettings extends Component {
   state = {
     username: "",
@@ -38,7 +39,9 @@ class AdminSettings extends Component {
   };
 
   componentDidMount() {
-    let id = localStorage.getItem("userId");
+    const token = localStorage.getItem('jwtToken')
+		const id = decode(token).userId
+
     axios
       .get(`https://tenantly-back.herokuapp.com/users/${id}`)
       // .get(`http://localhost:9000/users/${id}`)
