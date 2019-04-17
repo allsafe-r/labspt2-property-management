@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+const decode = require('jwt-decode');
 // const url = process.env.properties || 'http://localhost:9000/properties';
-const url = 'https://tenantly-back.herokuapp.com/properties';
+const url = 'https://tenantly-back.herokuapp.com/properties/';
 
 class AddProperty extends Component {
 	constructor(props) {
@@ -16,24 +17,24 @@ class AddProperty extends Component {
 			bedrooms: '',
 			bathrooms: '',
 			yearBuilt: '',
-			owner: '',
 			maxOccupants: '',
 			tenant1: ''
 		};
 	}
 
-	addNote = (e) => {
+	addProperty = (e) => {
 		e.preventDefault();
-		console.log(this.state);
+		const token = localStorage.getItem('jwtToken');
+		const userId = decode(token).userId;
 		axios
-			.post(url, this.state)
+			.post(url, { ...this.state, owner: userId })
 			.then((response) => {
 				console.log('in here', response);
 			})
 			.catch((err) => {
 				console.log('Error', err);
 			});
-		this.props.history.push(`/admin/`);
+		this.props.history.push(`/properties`);
 	};
 
 	inputHandler = (e) => {
@@ -44,7 +45,7 @@ class AddProperty extends Component {
 		return (
 			<div className="addProperty">
 				<h2>Add New Property</h2>
-				<form onSubmit={this.addNote}>
+				<form onSubmit={this.addProperty}>
 					<input
 						type="text"
 						name="propertyName"
@@ -119,20 +120,13 @@ class AddProperty extends Component {
 					/>
 					<input
 						type="text"
-						name="owner"
-						value={this.state.owner}
-						placeholder="Owner Name"
-						onChange={this.inputHandler}
-					/>
-					<input
-						type="text"
 						name="maxOccupants"
 						value={this.state.maxOccupants}
 						placeholder="maxOccupants"
 						onChange={this.inputHandler}
 						required
 					/>
-					<button type="submit"> Save</button>
+					<button type="submit">Save</button>
 				</form>
 			</div>
 		);

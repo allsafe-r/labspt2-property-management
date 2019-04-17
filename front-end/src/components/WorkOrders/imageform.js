@@ -8,13 +8,11 @@ const axios = require('axios');
 // const url = process.env.imagePost || 'http://localhost:9000/images';
 const url = 'https://tenantly-back.herokuapp.com/images';
 
-const styles = theme => ({
-
-
-  
-  
+const styles = (theme) => ({
+	button: {
+		margin: theme.spacing.unit
+	}
 });
-
 
 class Imageform extends React.Component {
 	constructor(props) {
@@ -56,6 +54,7 @@ class Imageform extends React.Component {
 	render() {
 		const { classes } = this.props;
 		return (
+			// TENANT
 			<form>
 				<h1>File Upload</h1>
 				{/* <input type="file" name="image" onChange={this.onChange}  style="width:200px"/> */}

@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Imageform from './imageform';
 import Grid from '@material-ui/core/Grid';
-import Card from "@material-ui/core/Card";
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
+import Card from '@material-ui/core/Card';
+import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import SaveIcon from '@material-ui/icons/Save';
 import Button from '@material-ui/core/Button';
@@ -73,29 +74,7 @@ class Workorderform extends Component {
 
 	submithandler = (e) => {
 		e.preventDefault();
-
-		let newWorkOrder = {
-			property: this.state.property,
-			tenant: this.state.tenant,
-			description: this.state.description,
-			phone: this.state.phone,
-			unsupervisedEntry: this.state.unsupervisedEntry,
-			status: this.state.status,
-			image: this.state.url
-		};
-
-		axios
-			.post(url, newWorkOrder)
-			.then((response) => {
-				this.setState({
-					description: '',
-					phone: '',
-					unsupervisedEntry: false
-				});
-			})
-			.catch((error) => console.log("we've encountered an error"));
-	};
-
+  }
 	render() {
 		const { classes } = this.props;
 		return (
