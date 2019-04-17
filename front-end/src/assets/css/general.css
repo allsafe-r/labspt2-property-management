@@ -413,20 +413,18 @@ body {
 @media (max-width: 1024px) {
   .intro-section .bg-stretch {
     background-image: url("../images/finalhero_ipad2.png");
-
   }
 
   .bg-stretch {
-    border: 1px solid red;
     align-items: flex-start;
     justify-content: center;
-    padding-top: 190px;
+    padding-top: 150px;
   }
 
-   /* .slide-title h1 {
-    border: 1px solid red;
-    font-size: 4vw;
-  } */
+    .slide-frame .text .slide-title {
+    font-size: 6vw;
+
+  } 
   
 
 
