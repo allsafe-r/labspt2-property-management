@@ -11,7 +11,7 @@ import Paper from '@material-ui/core/Paper';
 import './../WorkOrders/workorders.css';
 import axios from 'axios';
 
-const url = 'http://localhost:9000/stripe/charges'
+const url = 'https://tenantly-back.herokuapp.com/stripe/charges'
 // const url = 'https://tenantly-back.herokuapp.com/stripe/charges';
 
 export default class tenantPayments extends Component {
