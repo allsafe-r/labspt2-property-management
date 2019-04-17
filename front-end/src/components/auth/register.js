@@ -9,11 +9,11 @@ const url = 'https://tenantly-back.herokuapp.com/api/register';
 class Register extends Component {
 	state = {
 		firstName: '',
+		lastName: '',
 		password: '',
 		isAdmin: false,
 		email: '',
-		phone: '',
-		lastName: ''
+		phone: ''
 	};
 
 	onChange = (e) => {
