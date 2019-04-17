@@ -412,19 +412,23 @@ body {
 
 @media (max-width: 1024px) {
   .intro-section .bg-stretch {
-    background-image: url("../images/finalhero_ipad2.png");
+    background-image: url("../images/finalhero_ipad3.png");
   }
 
   .bg-stretch {
     align-items: flex-start;
     justify-content: center;
-    padding-top: 150px;
+    padding-top: 100px;
   }
 
     .slide-frame .text .slide-title {
     font-size: 6vw;
-
   } 
+
+  .bg-stretch .slide-frame .text p {
+    color: black;
+    font-size: 1.7vw;
+  }
   
 
 
@@ -565,9 +569,10 @@ body {
 .bg-stretch .text {
   padding-top: 0;
   align-items: center;
+  padding:60px;
 
 }
-
+/* 
 @media (max-width: 650px) {
   .Hero .intro-section .bg-stretch {
     background: url("../images/wallpaper9_mobile.png");
@@ -604,7 +609,7 @@ body {
   .down-arrow {
     bottom: 0px;
   }
-}
+} */
 
 @keyframes HeroAnimation {
   0% {
