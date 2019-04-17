@@ -4,11 +4,12 @@ import "./../../assets/css/general.css";
 import axios from "axios";
 import Image from "../../assets/images/blue-on-dark.png";
 import Card from "@material-ui/core/Card";
+import Typography from "@material-ui/core/Typography";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import InputLabel from "@material-ui/core/InputLabel";
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles, withTheme } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import "../../assets/css/general.css";
 import { Button } from "@material-ui/core";
@@ -17,14 +18,41 @@ const url = `https://tenantly-back.herokuapp.com/properties`;
 const url2 = `http://localhost:9000/billing`;
 
 const styles = theme => ({
-  heading: {
+  root: {
+    margin: "0 auto",
     width: "100%",
     display: "flex",
-    fontSize: "2rem"
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-evenly",
+    backgroundColor: "white",
+    fontSize: "2em",
+    [theme.breakpoints.down("sm")]: {
+      flexDirection: "column",
+      justifyContent: "center"
+    }
   },
   form: {
-    width: 80,
-    height: 300
+    width: "40%",
+
+    [theme.breakpoints.down("sm")]: {
+      width: "100%"
+    }
+  },
+  img: {
+    width: "80%",
+    [theme.breakpoints.down("sm")]: {
+      width: "100%"
+    },
+    [theme.breakpoints.down("md")]: {
+      width: "50%"
+    },
+    [theme.breakpoints.up("md")]: {
+      width: "50%"
+    }
+  },
+  button: {
+    width: "100%"
   }
 });
 
@@ -94,10 +122,23 @@ class Billing extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <Grid container spacing={24} style={{ padding: 20 }}>
+      <Grid
+        container
+        spacing={24}
+        style={{ padding: 20 }}
+        className={classes.root}
+      >
         <Grid className={classes.form}>
-          <FormControl>
-            <InputLabel>Select a property to view payment history</InputLabel>
+          <FormControl className={classes.formControl}>
+            <Typography
+              className={classes.inputLabel}
+              variant="h5"
+              component="h2"
+              gutterBottom
+            >
+              Select a property to view payment history
+            </Typography>
+
             <Select
               native
               value={this.state.houseId}
@@ -106,6 +147,7 @@ class Billing extends Component {
               inputProps={{
                 id: "property-native-required"
               }}
+              className={classes.select}
             >
               <option value={0} />
               {this.state.properties.map((property, index) => (
@@ -114,26 +156,26 @@ class Billing extends Component {
                 </option>
               ))}
             </Select>
-            <FormHelperText>Required</FormHelperText>
           </FormControl>
-
-          <Card>
-            <a href="https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_Eh0R1RXhYNXEq9z56aVKr04CVDrJvxMc&scope=read_write">
-              <img src={Image} alt="Logo" />
+          <FormHelperText>Required</FormHelperText>
+          <div className={classes.button}>
+            <a
+              href="https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_Eh0R1RXhYNXEq9z56aVKr04CVDrJvxMc&scope=read_write"
+              className={classes.a}
+            >
+              <img src={Image} alt="Logo" className={classes.img} />
             </a>
-          </Card>
+          </div>
         </Grid>
-        <Grid>
-          <Card>
-            <p>Billing History</p>
+        <Grid className={classes.billing}>
+          <p>Billing History</p>
 
-            {this.state.propertySelected.map(bill => (
-              <ul>
-                <li>{bill.propertyName}</li>
-                <li>{bill.amount}</li>
-              </ul>
-            ))}
-          </Card>
+          {this.state.propertySelected.map(bill => (
+            <ul>
+              <li>{bill.propertyName}</li>
+              <li>{bill.amount}</li>
+            </ul>
+          ))}
         </Grid>
       </Grid>
     );
