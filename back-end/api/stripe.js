@@ -26,8 +26,15 @@ router.post('/charge', (req, res) => {
 
 
 router.get('/charges', (req, res) => {
-  const charges = stripe.charges.list({limit: 3})
-  res.status(200).json(charges)
+
+  stripe.charges.list(
+    {limit: 3},
+    function(err, charges) {
+
+      // Do something with the returned values
+        res.status(200).json(charges.data)
+    }
+  )
 });
 
 module.exports = router;

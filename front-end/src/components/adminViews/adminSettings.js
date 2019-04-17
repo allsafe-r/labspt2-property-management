@@ -1,6 +1,32 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import Button from '@material-ui/core/Button';
+import { withStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+
 import axios from "axios";
 
+const styles = theme => ({
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    flexWrap: 'wrap',
+  },
+
+  margin: {
+    margin: theme.spacing.unit,
+  },
+
+  textField: {
+    marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit,
+  },
+
+
+});
+
+const decode = require('jwt-decode')
 class AdminSettings extends Component {
   state = {
     username: "",
@@ -13,7 +39,9 @@ class AdminSettings extends Component {
   };
 
   componentDidMount() {
-    let id = localStorage.getItem("userId");
+    const token = localStorage.getItem('jwtToken')
+		const id = decode(token).userId
+
     axios
       .get(`https://tenantly-back.herokuapp.com/users/${id}`)
       // .get(`http://localhost:9000/users/${id}`)
@@ -77,14 +105,11 @@ class AdminSettings extends Component {
   };
 
   render() {
+    const { classes } = this.props;
     return (
-      <div>
-        <form onSubmit={this.onSubmit}>
-          <div>
+        <form className={classes.container} onSubmit={this.onSubmit}>
             <h6>{this.state.username}</h6>
-          </div>
-          <div>
-            <input
+            <TextField
               placeholder="displayName"
               name="displayName"
               value={this.state.displayName}
@@ -92,9 +117,7 @@ class AdminSettings extends Component {
               type="text"
               required
             />
-          </div>
-          <div>
-            <input
+            <TextField
               placeholder="email"
               name="email"
               value={this.state.email}
@@ -102,9 +125,7 @@ class AdminSettings extends Component {
               type="text"
               required
             />
-          </div>
-          <div>
-            <input
+            <TextField
               placeholder="phone"
               name="phone"
               value={this.state.phone}
@@ -112,39 +133,37 @@ class AdminSettings extends Component {
               type="text"
               required
             />
-          </div>
-          <div>
-            <input
+            <TextField
               placeholder="password"
               name="oldPW"
               value={this.state.oldPW}
               onChange={this.onChange}
               type="password"
             />
-          </div>
-          <div>
-            <input
+
+            <TextField
               placeholder="new password"
               name="newPW1"
               value={this.state.newPW1}
               onChange={this.onChange}
               type="password"
             />
-          </div>{" "}
-          <div>
-            <input
+            <TextField
               placeholder="new password"
               name="newPW2"
               value={this.state.newPW2}
               onChange={this.onChange}
               type="password"
             />
-          </div>
-          <button>Update</button>
+            <Button variant="contained" size="large" color="secondary" className={classes.margin}>
+              Update
+            </Button>
         </form>
-      </div>
     );
   }
 }
 
-export default AdminSettings;
+AdminSettings.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+export default withStyles(styles)(AdminSettings);

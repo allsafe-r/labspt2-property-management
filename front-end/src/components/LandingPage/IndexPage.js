@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import PropTypes from 'prop-types';
-import Wave from "./Wave";
+// import Wave from "./Wave";
 import "../../assets/css/general.css";
 
 const IndexPage = () => (
