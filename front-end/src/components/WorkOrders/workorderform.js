@@ -111,4 +111,8 @@ class Workorderform extends Component {
 		);
 	}
 }
+<<<<<<< HEAD
 export default withStyles(styles)(Workorderform);
+=======
+export default withStyles(styles)(Workorderform);
+>>>>>>> feed1fa1e064af46ed5e0da70d74e92f986d04bb
