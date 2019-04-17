@@ -96,7 +96,7 @@ class Register extends Component {
 					</div>
 					<div>
 						<input
-							placeholder="display name"
+							placeholder="Last Name"
 							name="lastName"
 							value={this.state.lastName}
 							onChange={this.onChange}
