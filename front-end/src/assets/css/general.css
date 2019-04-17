@@ -453,7 +453,7 @@ body {
 .intro-section .bg-stretch h1 {
   margin: 0;
   color: black;
-  font-size: 4vw;
+  font-size: 2vw;
   line-height: 1.2;
   opacity: 0;
   animation: HeroAnimation;
@@ -507,7 +507,8 @@ body {
 
 .bg-stretch .slide-frame {
   display: block;
-  margin-left: 50px;
+  margin-left: 150px;
+  border: 1px solid red;
 }
 
 .bg-stretch .slide-frame {

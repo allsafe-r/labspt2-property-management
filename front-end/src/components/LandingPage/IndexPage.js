@@ -10,10 +10,9 @@ const IndexPage = () => (
         <div className="slide-frame">
 							<div className="text">
                 <h1 className="slide-title">
-                  Property <br />management<br />
-                  made easier.
-          </h1>
-      <p>Manage tasks, payments, work orders anywhere, anytime. </p>
+                  Manage properties, at ease.
+                  </h1>
+      {/* <p>Manage tasks, payments, work orders anywhere, anytime. </p> */}
       <Link to={"/register"}>
         <button>GET A CUSTOMIZED DEMO</button>
       </Link>
