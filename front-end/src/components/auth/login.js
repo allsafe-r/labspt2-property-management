@@ -12,7 +12,6 @@ class Login extends Component {
 		password: ''
 	};
 
-
 	onChange = (e) => {
 		this.setState({ [e.target.name]: e.target.value });
 	};
@@ -22,7 +21,6 @@ class Login extends Component {
 		axios
 			.post(url, this.state)
 			.then((res) => {
-				
 				localStorage.setItem('jwtToken', res.data.token);
 				// this.props.history.push('/');
 				this.props.authenticate(res.data.isAdmin);

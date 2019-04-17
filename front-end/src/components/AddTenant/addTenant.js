@@ -1,19 +1,19 @@
 import React, { Component } from "react";
 
 import TenantCard from "./tenantCard";
-import InfoCard from "./infoCard";
+import HousingInfo from "./infoCard";
 
-import "../general.css";
+import "../../assets/css/general.css";
 
 const AddTenant = () => {
   return (
     <div className="addTenant-container">
-      <div className="top-container">
+      <div className="tenantInfo-container">
         <TenantCard />
         <TenantCard />
       </div>
-      <div>
-        <InfoCard />
+      <div className="contract-container">
+        <HousingInfo />
       </div>
     </div>
   );
