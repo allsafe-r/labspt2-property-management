@@ -13,7 +13,7 @@ class Register extends Component {
 		isAdmin: false,
 		email: '',
 		phone: '',
-		displayName: ''
+		lastName: ''
 	};
 
 	onChange = (e) => {
@@ -97,8 +97,8 @@ class Register extends Component {
 					<div>
 						<input
 							placeholder="display name"
-							name="displayName"
-							value={this.state.displayName}
+							name="lastName"
+							value={this.state.lastName}
 							onChange={this.onChange}
 							type="text"
 							required
