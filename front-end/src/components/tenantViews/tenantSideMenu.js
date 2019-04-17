@@ -157,6 +157,7 @@ class TenantSideMenu extends Component {
                       <FontAwesomeIcon icon={faSignOutAlt} color="slategray" size="2x" />
                   </ListItem>
               </Link>
+              
               </div>
             </Typography>
           </Toolbar>

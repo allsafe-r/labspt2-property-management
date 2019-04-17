@@ -8,7 +8,7 @@ import axios from 'axios';
 import 'typeface-roboto';
 import './../WorkOrders/workorders.css';
 
-const url = 'http://localhost:9000/stripe/charge' 
+const url = 'https://tenantly-back.herokuapp.com/stripe/charge' 
 
 const styles ={
   button:

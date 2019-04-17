@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-const decode = require('jwt-decode')
+const decode = require('jwt-decode');
 const axios = require('axios');
 const url = `https://tenantly-back.herokuapp.com/alerts`;
 // const url = `http://localhost:9000/alerts`;
@@ -16,8 +16,8 @@ export default class tenantDashboard extends Component {
 	};
 
 	componentDidMount() {
-		const token = localStorage.getItem('jwtToken')
-		const id = decode(token).userId
+		const token = localStorage.getItem('jwtToken');
+		const id = decode(token).userId;
 		// go into users to find which residence you live at
 		axios
 			.get(`https://tenantly-back.herokuapp.com/users/${id}`)
