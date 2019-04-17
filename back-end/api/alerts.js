@@ -25,3 +25,25 @@ router.get('/:id', (req, res) => {
 			res.status(500).json({ error: `${err}` });
 		});
 });
+
+// create alert
+router.post('/', (req, res, next) => {
+	const newAlert = req.body;
+	db
+		.createAlert(newAlert)
+		.then((ids) => {
+			db
+				.getAlert(ids[0])
+				.then((newAlert) => {
+					res.status(201).json({ newAlert: newAlert.id });
+				})
+				.catch((err) => {
+					console.log('error1', err);
+					res.status(500).json({ error: `${err}` });
+				});
+		})
+		.catch((err) => {
+			console.log('error2', err);
+			next('h500', err);
+		});
+});
