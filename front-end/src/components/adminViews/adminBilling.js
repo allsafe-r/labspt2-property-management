@@ -21,28 +21,10 @@ const styles = theme => ({
     width: "100%",
     display: "flex",
     fontSize: "2rem"
-  },
-  root: {
-    display: "flex",
-    flexDirection: "column",
-    height: 200,
-    justifyContent: "center",
-    alignItems: "center",
-    fontSize: "1.5rem",
-    width: 250,
-    border: "1px solid black",
-    margin: 10
-  },
-  margin: {
-    margin: theme.spacing.unit,
-    fontSize: " 1.3rem"
-  },
-  extendedIcon: {
-    marginRight: theme.spacing.unit
   }
 });
 
-export default class Billing extends Component {
+class Billing extends Component {
   state = {
     properties: [],
     billing: [],
@@ -110,48 +92,48 @@ export default class Billing extends Component {
     return (
       <Grid container spaceing={24} style={{ padding: 20 }}>
         <Grid>
-          <Card>
-            <FormControl>
-              <InputLabel htmlFor="property-native-required">
-                Select a property to view payment history
-              </InputLabel>
-              <Select
-                native
-                value={this.state.houseId}
-                onChange={this.handleInputChange(this.value)}
-                name="Property"
-                inputProps={{
-                  id: "property-native-required"
-                }}
-              >
-                <option value={0} />
-                {this.state.properties.map((property, index) => (
-                  <option key={index} value={property.houseId}>
-                    {property.propertyName}
-                  </option>
-                ))}
-              </Select>
-              <FormHelperText>Required</FormHelperText>
-            </FormControl>
-          </Card>
+          <FormControl>
+            <InputLabel>Select a property to view payment history</InputLabel>
+            <Select
+              native
+              value={this.state.houseId}
+              onChange={this.handleInputChange(this.value)}
+              name="Property"
+              inputProps={{
+                id: "property-native-required"
+              }}
+            >
+              <option value={0} />
+              {this.state.properties.map((property, index) => (
+                <option key={index} value={property.houseId}>
+                  {property.propertyName}
+                </option>
+              ))}
+            </Select>
+            <FormHelperText>Required</FormHelperText>
+          </FormControl>
+
           <Card>
             <a href="https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_Eh0R1RXhYNXEq9z56aVKr04CVDrJvxMc&scope=read_write">
               <img src={Image} alt="Logo" />
             </a>
           </Card>
         </Grid>
+        <Grid>
+          <Card>
+            <p>Billing History</p>
 
-        <Card>
-          <p>Billing History</p>
-
-          {this.state.propertySelected.map(bill => (
-            <ul>
-              <li>{bill.propertyName}</li>
-              <li>{bill.amount}</li>
-            </ul>
-          ))}
-        </Card>
+            {this.state.propertySelected.map(bill => (
+              <ul>
+                <li>{bill.propertyName}</li>
+                <li>{bill.amount}</li>
+              </ul>
+            ))}
+          </Card>
+        </Grid>
       </Grid>
     );
   }
 }
+
+export default withStyles(styles)(Billing);
