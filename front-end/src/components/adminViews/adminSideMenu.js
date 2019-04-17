@@ -116,6 +116,7 @@ class SideMenu extends Component {
     localStorage.removeItem('jwtToken');
     this.setState({ loggedIn: false });
     window.location.reload();
+    
   };
 
 	render() {
