@@ -507,6 +507,7 @@ body {
 
 .bg-stretch .slide-frame {
   display: block;
+  margin-left: 50px;
 }
 
 .bg-stretch .slide-frame {
