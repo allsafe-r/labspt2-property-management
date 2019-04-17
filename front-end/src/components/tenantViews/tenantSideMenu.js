@@ -4,7 +4,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "../../assets/css/general.css";
 import Logo from "./../../assets/images/logo.png";
-
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
@@ -12,6 +11,8 @@ import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
+import LandingView from "../../components/LandingPage/LandingView";
+import { Route } from "react-router-dom";
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
@@ -114,14 +115,21 @@ class TenantSideMenu extends Component {
     localStorage.removeItem('jwtToken');
     this.setState({ loggedIn: false });
     window.location.reload();
-};
+  };
 
   render() {
+
+    const {loggedIn} = this.state;
+   if(loggedIn === false){
+    return <Link push to="/login"/> 
+   }
+    else {
     const { classes, theme } = this.props;
 
     return (
     <div className={classes.root}>
         <CssBaseline />
+        <Route exact path={"/"} component={LandingView} />
         <AppBar
           position="fixed"
           className={classNames(classes.appBar, {
@@ -151,7 +159,6 @@ class TenantSideMenu extends Component {
               </Link>
               
               </div>
-            
             </Typography>
           </Toolbar>
         </AppBar>
@@ -221,6 +228,7 @@ class TenantSideMenu extends Component {
       </div>
     );
   }
+}
 }
 
 TenantSideMenu.propTypes = {
