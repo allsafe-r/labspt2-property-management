@@ -83,7 +83,7 @@ class AdminSettings extends Component {
 					</div>
 					<div>
 						<input
-							placeholder="lastName"
+							placeholder="Last Name"
 							name="lastName"
 							value={this.state.lastName}
 							onChange={this.onChange}
@@ -93,7 +93,7 @@ class AdminSettings extends Component {
 					</div>
 					<div>
 						<input
-							placeholder="email"
+							placeholder="E-mail"
 							name="email"
 							value={this.state.email}
 							onChange={this.onChange}
@@ -103,7 +103,7 @@ class AdminSettings extends Component {
 					</div>
 					<div>
 						<input
-							placeholder="phone"
+							placeholder="Phone Number"
 							name="phone"
 							value={this.state.phone}
 							onChange={this.onChange}
@@ -113,7 +113,7 @@ class AdminSettings extends Component {
 					</div>
 					<div>
 						<input
-							placeholder="password"
+							placeholder="Password"
 							name="oldPW"
 							value={this.state.oldPW}
 							onChange={this.onChange}
@@ -122,7 +122,7 @@ class AdminSettings extends Component {
 					</div>
 					<div>
 						<input
-							placeholder="new password"
+							placeholder="New Password"
 							name="newPW1"
 							value={this.state.newPW1}
 							onChange={this.onChange}
@@ -131,7 +131,7 @@ class AdminSettings extends Component {
 					</div>{' '}
 					<div>
 						<input
-							placeholder="new password"
+							placeholder="New Password"
 							name="newPW2"
 							value={this.state.newPW2}
 							onChange={this.onChange}
