@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-const decode = require('jwt-decode')
+const decode = require('jwt-decode');
 
 class TenantSettings extends Component {
 	state = {
-		username: '',
+		firstName: '',
 		email: '',
 		phone: '',
 		displayName: '',
@@ -16,14 +16,14 @@ class TenantSettings extends Component {
 	};
 
 	componentDidMount() {
-		const token = localStorage.getItem('jwtToken')
-		const id = decode(token).userId
+		const token = localStorage.getItem('jwtToken');
+		const id = decode(token).userId;
 		axios
 			.get(`https://tenantly-back.herokuapp.com/users/${id}`)
 			// .get(`http://localhost:9000/users/${id}`)
 			.then((user) => {
 				this.setState({
-					username: user.data.username,
+					firstName: user.data.firstName,
 					email: user.data.email,
 					phone: user.data.phone,
 					textSubscribe: user.data.textSubscribe,
@@ -42,8 +42,8 @@ class TenantSettings extends Component {
 		e.preventDefault();
 
 		// grabbing ID off local storage to access specific user info
-		const token = localStorage.getItem('jwtToken')
-		const id = decode(token).userId
+		const token = localStorage.getItem('jwtToken');
+		const id = decode(token).userId;
 
 		// If the user enters old password without trying to change password, it throws warning
 		if (this.state.oldPW !== '' && this.state.newPW1 === '') {
@@ -79,7 +79,7 @@ class TenantSettings extends Component {
 			<div>
 				<form onSubmit={this.onSubmit}>
 					<div>
-						<h6>{this.state.username}</h6>
+						<h6>{this.state.firstName}</h6>
 					</div>
 					<div>
 						<input
