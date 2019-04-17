@@ -21,6 +21,10 @@ const styles = theme => ({
     width: "100%",
     display: "flex",
     fontSize: "2rem"
+  },
+  form: {
+    width: 80,
+    height: 300
   }
 });
 
@@ -90,8 +94,8 @@ class Billing extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <Grid container spaceing={24} style={{ padding: 20 }}>
-        <Grid>
+      <Grid container spacing={24} style={{ padding: 20 }}>
+        <Grid className={classes.form}>
           <FormControl>
             <InputLabel>Select a property to view payment history</InputLabel>
             <Select
