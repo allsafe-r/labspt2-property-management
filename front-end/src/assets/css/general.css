@@ -340,25 +340,100 @@ body {
   .hide-menu {
     display: none;
   }
+
+  .anchor-wrap {
+    margin-bottom: 40px;
+  }
+
 }
 
 /* Hero */
-.Hero {
-  display: flex;
+/* .Hero {
+  /* display: flex;
   flex-direction: column;
-  background: url("../images/wallpaper9.png");
-  height: 920px;
-  background-size: contain;
-  background-repeat: no-repeat;
+  /* background: url("../images/wallpaper9.png"); */
+  /* height: 920px; */ 
+  /* min-height: 100vh;
 
-  background-position: center;
+ 
+} */
+ 
+
+.intro-section {
+	position: relative;
+	min-height: 100vh;
+  text-align: center;
 }
 
+
+
+.bg-stretch {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-size: cover;
+	background-repeat: no-repeat;
+  background-position: 50% 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro-section .bg-stretch {
+	width: 100%;
+    /* height: 100vh; */
+    background-image: url("../images/wallpaper9.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    
+}
+
+/* 
 .HeroGroup {
   margin: 0 auto;
-  max-width: 500px;
-  padding: 150px 50px;
   text-align: center;
+  width: 100%;
+  height: 100%;
+  border: 1px solid red;
+} */
+
+@media (max-width: 1023px) {
+  .intro-section {
+		padding-top: 50px;
+	}
+
+}
+
+@media (max-width: 479px) {
+  .intro-section {
+		min-height: 60vw;
+		padding-top: 40px;
+  }
+  
+  .intro-section .slide-frame .text h1 {
+    display:none;
+  }
+
+  .intro-section .slide-frame .text p {
+    display:none;
+
+  }
+  
+  .intro-section .slide-frame .text button {
+    display:none;
+
+  }
+  .anchor-wrap {
+    margin-bottom: -65px;
+  }
+
+  
+
+
 }
 
 .jumbo {
@@ -370,10 +445,14 @@ body {
   background-position: center;
 }
 
-.Hero h1 {
+.intro-section .bg-stretch p {
+  font-size: 1.4vw;
+}
+
+.intro-section .bg-stretch h1 {
   margin: 0;
   color: black;
-  font-size: 6rem;
+  font-size: 4vw;
   line-height: 1.2;
   opacity: 0;
   animation: HeroAnimation;
@@ -382,17 +461,25 @@ body {
   animation-fill-mode: forwards;
   animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
+/* 
+@media (max-width: 1199px) {
+  .intro-section .bg-stretch h1 {
+    font-size: 5rem;
+  }
 
-.Hero p {
+  .intro-section .bg-stretch p {
+    font-size: 1.2rem;
+  }
+}
+.intro-section .bg-stretch p {
   color: black;
-
-  font-size: 2.5rem;
+  font-size: vw;
   line-height: 1.5;
   animation: HeroAnimation 3s 0.2s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
   opacity: 0;
-}
+} */
 
-.Hero button {
+.intro-section .bg-stretch button {
   cursor: pointer;
   font-size: 17px;
   font-weight: 600;
@@ -415,31 +502,56 @@ body {
   color: black;
 }
 
+
+
+.bg-stretch .slide-frame {
+  display: block;
+}
+
+.bg-stretch .slide-frame {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+
+  
+}
+
+.bg-stretch .text {
+  padding-top: 0;
+  align-items: center;
+
+}
+
 @media (max-width: 650px) {
-  .Hero {
+  .Hero .intro-section .bg-stretch {
     background: url("../images/wallpaper9_mobile.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-  }
-  .HeroGroup {
-    padding-top: 100px;
+    padding-top: 200px;
+    align-items: flex-start;
+
   }
 
-  .Hero .HeroGroup h1 {
-    font-size: 40px;
-    padding-top: 60px;
+  .bg-stretch .text {
+    align-items: flex-start;
+   
   }
+
+
   .Hero button {
     margin-top: 30px;
   }
 
-  .Hero p {
-    font-size: 2.4rem;
-    padding-top: 10px;
+  .bg-stretch .text h1 {
+    font-size: 6vw;
   }
 
-  .form-container .logo-login {
+  .bg-stretch .text p {
+    font-size: 2vw;
+    padding-top: 10px;
   }
 
   svg {
@@ -567,7 +679,7 @@ body {
 
 .anchor-wrap > span {
   font-size: 1.3rem;
-  margin-bottom: 8px;
+  margin-bottom: 15px;
 }
 
 .anchor-wrap {
@@ -577,11 +689,51 @@ body {
   width: 100%;
 }
 
-@media (max-width: 650px) {
-  .down-arrow {
-    bottom: 0px;
+@media (max-width: 1023px) {
+
+  .anchor {
+		width: 50px;
+		height: 50px;
+	}
+
+	.anchor span {
+		top: 22px;
+		left: 13px;
   }
+
 }
+
+@media (max-width: 767px) {
+  .anchor {
+		width: 35px;
+		height: 35px;
+  }
+  
+  .anchor span {
+		top: 14px;
+		left: 7px;
+		width: 21px;
+		height: 10px;
+	}
+
+	.anchor span:before,
+	.anchor span:after {
+		left: -1px;
+		width: 14px;
+  }
+  
+  .anchor span:after {
+		left: auto;
+		right: -1px;
+	}
+
+
+
+
+
+}
+
+
 
 /*Body*/
 .titleCenter {
@@ -843,7 +995,6 @@ body {
   align-items: center;
   justify-content: center;
   background-color: #fff2f1;
-  border: 10px solid black;
 }
 
 .form-container form {
