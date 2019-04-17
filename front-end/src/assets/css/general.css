@@ -410,6 +410,16 @@ body {
     
 }
 
+@media (max-width: 1024px) {
+  .intro-section .bg-stretch {
+    background-image: url("../images/finalhero_ipad2.png");
+
+  }
+  
+
+
+}
+
 /* 
 .HeroGroup {
   margin: 0 auto;
@@ -527,7 +537,8 @@ body {
 
 .bg-stretch .slide-frame {
   display: block;
-  margin-left: 100px;
+  /* margin-left: 100px; */
+  margin: 0 80;
 }
 
 .bg-stretch .slide-frame {
