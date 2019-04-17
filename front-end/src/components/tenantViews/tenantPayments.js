@@ -8,10 +8,11 @@ import CardHeader from '@material-ui/core/CardHeader';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
-import './../WorkOrders/workorders.css';
 import axios from 'axios';
+import './../WorkOrders/workorders.css';
 
-const url = 'http://localhost:9000/stripe/charges'
+
+const url = 'https://tenantly-back.herokuapp.com/stripe/charges'
 // const url = 'https://tenantly-back.herokuapp.com/stripe/charges';
 
 export default class tenantPayments extends Component {
@@ -44,7 +45,7 @@ export default class tenantPayments extends Component {
 	
 	
 	
-	render() {
+	render(){
 		const fonts = [{ cssSrc: "https://fonts.googleapis.com/css?family=Podkova:400" }]
 		return (
 		  <StripeProvider apiKey="pk_test_uGZWgKZiorkYlZ8MsxYEIrA2">
@@ -54,7 +55,7 @@ export default class tenantPayments extends Component {
 			<Card className = 'form-card'>
 			  <h1>React Stripe Elements Example</h1>
 			  <Elements fonts={fonts}>
-				<CheckoutForm charge={this.updatestate} />
+				<CheckoutForm  charge={this.updatestate} />
 				
 			  </Elements>
 			  </Card>
@@ -66,10 +67,15 @@ export default class tenantPayments extends Component {
 						{this.state.charges.map((charge) => 
 
 <div>						
-						<CardHeader variant='h1' title={charge.name}/>
+						<CardHeader variant='h1' title={charge.billing_details.name}/>
+						<Divider/>
+						<Typography variant='h4'>Date: {this.convertToTime(charge.created)}</Typography>
+						<Divider/>
+						<Typography variant='h4' component='h2'>Amount Paid:${charge.amount}.00</Typography>
+						<Divider/>
 						
 
-						<Typography variant='h4' component='h2'>Amount: {charge.amount}</Typography>
+						
 						
 </div>						
 						
