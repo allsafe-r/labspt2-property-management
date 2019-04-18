@@ -41,15 +41,15 @@ const footers = [
   },
   {
     title: 'Product',
-    description: ['Property Manager', 'Tenant Portal', ],
+    description: ['Overview', 'Pricing'],
   },
   {
-    title: 'Contact',
-    description: ['info@tenantly.com', 'Locations'],
+    title: 'Company',
+    description: ['About', 'Careers', 'Contact'],
   },
   {
-    title: 'Call',
-    description: ['1-800-555-5555'],
+    title: 'Resources',
+    description: ['FAQs', 'Say Hello', 'Blog', 'Privacy'],
   },
   
 ];
