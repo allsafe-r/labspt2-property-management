@@ -414,21 +414,45 @@ body {
   /* border: 10px solid red; */
   display: block;
   margin-right: 80px;
+  border: 2px solid brown;
 
 }
 
 .bg-2-stretch .slide-2-frame .text {
-  padding: 50px;
-  border: 1px solid black;
+  margin-bottom: 200px;
+  border: 1px solid red;
 }
+
+.bg-2-stretch .slide-2-frame .text p {
+  font-size: 2vw;
+  line-height: 16px;
+  letter-spacing: 0.6px;
+  border: 1px solid black;
+
+}
+
 
 .bg-2-stretch .slide-2-frame .text .slide-title {
   font-family: 'GTEestiDisplay-Medium',-apple-system,system-ui,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
   font-weight: 500;
   font-size: 4vw;
-  border: 1px solid red;
+  /* border: 1px solid red; */
+  padding-bottom: 20px;
+  border: 1px solid yellow;
+
 }
 
+.bg-2-stretch .slide-2-frame .text p {
+  padding-top: 5px;
+  font-size: 1vw;
+  color: gray;
+  opacity: .5;
+  font-family: 'GTEestiDisplay-Medium',-apple-system,system-ui,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
+  font-weight: 500;
+  color: rgb(46, 37, 37);
+
+
+}
 
 .bg-stretch .slide-frame .text p {
   padding-top: 5px;
@@ -440,16 +464,6 @@ body {
 
 }
 
-.bg-2-stretch .slide-2-frame .text p {
-  padding-top: 5px;
-  font-size: 1vw;
-  color: gray;
-  opacity: .5;
-  font-family: 'GTEestiDisplay-Medium',-apple-system,system-ui,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
-  font-weight: 500;
-
-
-}
 
 .intro-section .bg-stretch {
 	width: 100%;

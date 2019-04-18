@@ -8,8 +8,8 @@ const SecondHero = () => (
         <div className="slide-2-frame">
 							<div className="text">
                 <h1 className="slide-title">
-                  Manage properties
-                  <br /> at ease.
+                  For the modern
+                  <br /> property manager.
                   </h1>
       <p>Take care of tedious property management tasks in one place. <br />Be in charge of your properties, anytime, anywhere. </p>
       <Link to={"/register"}>
