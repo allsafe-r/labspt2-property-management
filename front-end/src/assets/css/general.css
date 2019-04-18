@@ -404,9 +404,24 @@ body {
   background-position: 50% 50%;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: flex-end;
+
 
 }
+
+
+.bg-2-stretch .slide-2-frame {
+  /* border: 10px solid red; */
+  display: block;
+  margin-right: 80px;
+
+}
+
+.bg-2-stretch .slide-2-frame .text {
+  padding: 50px;
+  border: 1px solid black;
+}
+
 
 .bg-stretch .slide-frame .text p {
   padding-top: 5px;
@@ -425,6 +440,7 @@ body {
   opacity: .5;
   font-family: 'GTEestiDisplay-Medium',-apple-system,system-ui,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
   font-weight: 500;
+
 
 }
 
