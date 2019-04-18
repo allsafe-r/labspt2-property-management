@@ -428,7 +428,8 @@ body {
 
   .intro-section .bg-stretch {
     /* background-image: url("../images/finalhero_ipad3.png"); */
-    background-image: url("../images/ipadhero.png");
+    /* background-image: url("../images/ipadhero.png"); */
+    background-image: url("../images/finalhero_ipad3.png");
 
   }
 
@@ -441,11 +442,15 @@ body {
 }
 
 @media (max-width: 1024px) {
-  .intro-section .bg-stretch {
-    /* background-image: url("../images/finalhero_ipad3.png"); */
-    background-image: url("../images/ipadpro.png");
+  /* .intro-section .bg-stretch {
+    background-image: url("../images/finalhero_ipad3.png");
+    /* background-image: url("../images/finalhero_ipadpro.png"); */
+    /* height: auto; 
+    width: auto;
+    margin: 0 auto; */
 
-  }
+
+  /* } */ 
 
   .bg-stretch {
     align-items: flex-start;
