@@ -36,8 +36,8 @@ const styles = theme => ({
 
 const footers = [
   {
-    title: 'Company',
-    description: ['About Us', 'Locations'],
+    title: 'How it works',
+    description: ['For Tenants', 'For Landlords', 'For Partners'],
   },
   {
     title: 'Product',
