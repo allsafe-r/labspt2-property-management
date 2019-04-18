@@ -500,6 +500,16 @@ body {
     padding: 10px;
   
   }
+
+  .bg-stretch .slide-frame .text .slide-title {
+    font-size: 7.3vw;
+  }
+
+  .bg-stretch .slide-frame .text p {
+    padding-top: 10px;
+    font-size: 2.5vw;
+  }
+
 /*   
   .intro-section .slide-frame .text h1 {
     display:none;
