@@ -422,6 +422,13 @@ body {
   border: 1px solid black;
 }
 
+.bg-2-stretch .slide-2-frame .text .slide-title {
+  font-family: 'GTEestiDisplay-Medium',-apple-system,system-ui,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
+  font-weight: 500;
+  font-size: 4vw;
+  border: 1px solid red;
+}
+
 
 .bg-stretch .slide-frame .text p {
   padding-top: 5px;
