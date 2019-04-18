@@ -418,6 +418,11 @@ body {
     background-size: contain;
 
   }
+
+  .anchor-wrap {
+    padding: 0;
+    margin-bottom: 100px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -808,9 +813,6 @@ body {
 		left: auto;
 		right: -1px;
 	}
-
-
-
 
 
 }
