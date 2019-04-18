@@ -390,7 +390,35 @@ body {
 
 }
 
+.bg-2-stretch {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	bottom: 0;
+	left: 0;
+  right: 0;
+  width: 100%;
+  height: auto;
+	background-size: contain;
+	background-repeat: no-repeat;
+  background-position: 50% 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+}
+
 .bg-stretch .slide-frame .text p {
+  padding-top: 5px;
+  font-size: 1vw;
+  color: gray;
+  opacity: .5;
+  font-family: 'GTEestiDisplay-Medium',-apple-system,system-ui,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
+  font-weight: 500;
+
+}
+
+.bg-2-stretch .slide-2-frame .text p {
   padding-top: 5px;
   font-size: 1vw;
   color: gray;
@@ -407,6 +435,15 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
+    
+}
+
+.intro-section .bg-2-stretch {
+	  width: 100%;
+    background-image: url("../images/compguy.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* background-position: 50% 50%; */
     
 }
     /* background-image: url("../images/iphonex_bg.png"); */
@@ -466,6 +503,11 @@ body {
     color: black;
     font-size: 1.7vw;
   }
+
+  .bg-2-stretch .slide-2-frame .text p {
+    color: black;
+    font-size: 1.7vw;
+  }
   
 
 
@@ -511,6 +553,11 @@ body {
   }
 
   .bg-stretch .slide-frame .text p {
+    padding-top: 10px;
+    font-size: 2.5vw;
+  }
+
+  .bg-2-stretch .slide-2-frame .text p {
     padding-top: 10px;
     font-size: 2.5vw;
   }
@@ -623,6 +670,16 @@ body {
     /* align-items: center; */
 
   
+}
+
+.bg-2-stretch .slide-2-frame {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+
+
 }
 
 
