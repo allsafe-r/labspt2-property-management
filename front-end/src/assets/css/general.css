@@ -1196,3 +1196,18 @@ button[type="submit"] {
   right: 0;
   z-index: 300;
 }
+
+/* Tenant Dashboard */
+.tenant-dash {
+  display: flex;
+}
+
+.tenant-dash .tenant-button div {
+  margin: 20px;
+  padding: 20px;
+}
+
+.dash-info {
+  margin-left: 10px;
+}
+
