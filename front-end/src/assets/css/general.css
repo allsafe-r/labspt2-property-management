@@ -510,9 +510,9 @@ body {
     display:none;
 
   }
-  /* .anchor-wrap {
-    margin-bottom: -65px;
-  } */
+  .anchor-wrap {
+    margin-bottom: 100px;
+  }
 
   
 
