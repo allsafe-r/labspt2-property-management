@@ -10,6 +10,7 @@ const login = require('./login.js');
 const billing = require('./billinghistory.js');
 const errorHandler = require('../errorHandler/errors.js');
 const server = express();
+const alerts = require('./alerts');
 
 server.use(express.json(), cors(), helmet());
 server.use(errorHandler);
@@ -19,9 +20,11 @@ server.use('/properties', properties);
 server.use('/stripe', stripe);
 server.use('/api', login);
 server.use('/images', images);
+server.use('/alerts', alerts);
+server.use('/billing', billing);
 
 server.get('/', (req, res) => {
-	res.status(200).send("Hi");
+	res.status(200).send('Hi');
 });
 
 module.exports = server;
