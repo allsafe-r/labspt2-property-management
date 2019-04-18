@@ -409,19 +409,18 @@ body {
     background-position: 50% 50%;
     
 }
+    /* background-image: url("../images/iphonex_bg.png"); */
 
 @media (max-width: 375px) {
-
-  .intro-section .bg-stretch {
-    /* background-image: url("../images/finalhero_ipad3.png"); */
-    background-image: url("../images/iphonex.png");
+  /* .intro-section .bg-stretch {
     background-size: contain;
+    width: 100%;
+  
 
-  }
+  } */
 
   .anchor-wrap {
-    padding: 0;
-    margin-bottom: 100px;
+    padding-bottom: 50px;
   }
 }
 
@@ -490,7 +489,11 @@ body {
   } */
 
   .intro-section .bg-stretch {
-    background-image: url("../images/finaliphone678.png");
+    /* background-image: url("../images/finaliphone678.png"); */
+    background-image: url("../images/ipadhero.png");
+    background-size: contain;
+
+
   }
 
   
