@@ -113,7 +113,7 @@ class tenantDashboard extends Component {
 				<Grid item xs={6} sm={12}>
 						<List>
 							<ListItem>
-								<Avatar className="dash-info-icon">
+								<Avatar>
 									<FontAwesomeIcon icon={faMapMarkerAlt} />
 								</Avatar>
 								<div className="dash-info">Address: {this.state.address}</div>
