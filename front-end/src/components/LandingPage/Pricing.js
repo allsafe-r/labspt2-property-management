@@ -60,7 +60,7 @@ function Footer(props) {
     <React.Fragment>
       {/* Footer */}
       <footer className={classNames(classes.footer, classes.layout)}>
-        <Grid container spacing={32} justify="space-evenly">
+        <Grid container spacing={20} justify="space-around">
           {footers.map(footer => (
             <Grid item xs key={footer.title}>
               <Typography variant="h6" color="textPrimary" gutterBottom>
