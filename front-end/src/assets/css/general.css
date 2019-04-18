@@ -412,7 +412,9 @@ body {
 
 @media (max-width: 1024px) {
   .intro-section .bg-stretch {
-    background-image: url("../images/finalhero_ipad3.png");
+    /* background-image: url("../images/finalhero_ipad3.png"); */
+    background-image: url("../images/ipad33.png");
+
   }
 
   .bg-stretch {
