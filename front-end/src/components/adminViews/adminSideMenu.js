@@ -110,14 +110,25 @@ class SideMenu extends Component {
 
 	handleDrawerClose = () => {
 		this.setState({ open: false });
-	};
+  };
+
+  logOut = () => {
+    localStorage.removeItem('jwtToken');
+    this.setState({ loggedIn: false });
+    window.location.reload();
+  };
 
 	render() {
 		const { classes, theme } = this.props;
-
+    const {loggedIn} = this.state;
+    if(loggedIn === false){
+     return <Link push to="/login"/> 
+    }
+     else {
 		return (
 			<div className={classes.root}>
 				<CssBaseline />
+        <Route exact path={"/"} component={LandingView} />
 				<AppBar
 					position="fixed"
 					className={classNames(classes.appBar, {
@@ -135,9 +146,18 @@ class SideMenu extends Component {
 						>
 							<MenuIcon />
 						</IconButton>
-						<Typography variant="h6" color="inherit" noWrap>
-							<img src={Logo} className="dashboardLogo" alt="Dash logo" />
-						</Typography>
+						<Typography variant="h6" color="inherit" noWrap >
+              <div className="flex-top-bar" >
+                  <img src={Logo} className="dashboardLogo" alt="Dash logo" />
+
+              <Link to={'/'} className="log-out">
+                    <ListItem button onClick={this.logOut}>
+                      <FontAwesomeIcon icon={faSignOutAlt} color="slategray" size="2x" />
+                  </ListItem>
+              </Link>
+              
+              </div>
+            </Typography>
 					</Toolbar>
 				</AppBar>
 				<Drawer
@@ -217,8 +237,9 @@ class SideMenu extends Component {
 					</List>
 				</Drawer>
 			</div>
-		);
-	}
+    )
+  }
+}
 }
 
 
