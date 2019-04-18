@@ -441,7 +441,7 @@ body {
 .intro-section .bg-2-stretch {
 	  width: 100%;
     background-image: url("../images/compguy.png");
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     /* background-position: 50% 50%; */
     

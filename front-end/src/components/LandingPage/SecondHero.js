@@ -5,7 +5,7 @@ const SecondHero = () => (
  <div className="Hero">
       <div className="intro-section">
         <div className="bg-2-stretch">
-        <div className="slide-2-frame">
+        <div className="slide-frame">
 							<div className="text">
                 <h1 className="slide-title">
                   Manage properties
