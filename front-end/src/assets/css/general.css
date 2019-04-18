@@ -451,10 +451,15 @@ body {
 }
 
 @media (max-width: 479px) {
-  .intro-section {
+  /* .intro-section {
 		min-height: 60vw;
 		padding-top: 40px;
+  } */
+
+  .intro-section .bg-stretch {
+    background-image: url("../images/finaliphone678.png");
   }
+
   
   .intro-section .slide-frame .text h1 {
     display:none;
@@ -469,9 +474,9 @@ body {
     display:none;
 
   }
-  .anchor-wrap {
+  /* .anchor-wrap {
     margin-bottom: -65px;
-  }
+  } */
 
   
 
