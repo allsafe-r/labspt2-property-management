@@ -410,6 +410,16 @@ body {
     
 }
 
+@media (max-width: 375px) {
+
+  .intro-section .bg-stretch {
+    /* background-image: url("../images/finalhero_ipad3.png"); */
+    background-image: url("../images/iphonex.png");
+    background-size: contain;
+
+  }
+}
+
 @media (max-width: 768px) {
 
   .intro-section .bg-stretch {
