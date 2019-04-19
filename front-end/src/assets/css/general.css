@@ -1215,7 +1215,7 @@ button[type="submit"] {
   font-size: 18px;
 }
 
-.right-side .tenant-dash .tenant-button div .outstanding {
+.tenant-button div .outstanding {
   padding: 0px;
   margin: 0px;
 }

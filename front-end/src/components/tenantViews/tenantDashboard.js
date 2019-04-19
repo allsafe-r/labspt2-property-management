@@ -15,7 +15,7 @@ import ImageIcon from '@material-ui/icons/Image';
 import WorkIcon from '@material-ui/icons/Work';
 import BeachAccessIcon from '@material-ui/icons/BeachAccess';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMapMarkerAlt, faIdCardAlt, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faMapMarkerAlt, faIdCardAlt, faEnvelope, faPhone, faMoneyBillAlt, faTools } from '@fortawesome/free-solid-svg-icons';
 import "../../assets/css/general.css";
 import Grid from '@material-ui/core/Grid';
 import Icon from '@material-ui/core/Icon';
@@ -99,20 +99,20 @@ class tenantDashboard extends Component {
 			<div className="tenant-dash" >
 				<Grid item xs={6} sm={12} className="tenant-button">
 					<Card>
-						<div className="oustanding">Outstanding Balance</div>
-						<div className="oustanding">-$350.00</div>
+						<div className="outstanding">Outstanding Balance</div>
+						<div className="outstanding">-$350.00</div>
 					</Card>
 					<Card>
 						<Link to="/payments">
 							<Button variant="extended" color="default" className="dash-button">
-								Make a Payment
+							<FontAwesomeIcon icon={faMoneyBillAlt} /> Make a Payment
       						</Button>
 						</Link>
 					</Card>
 					<Card>
 						<Link to="/maintenance">
 							<Button variant="extended" color="default" className="dash-button">
-								Submit a Workorder
+							<FontAwesomeIcon icon={faTools} /> Submit a Workorder
       						</Button>
 						</Link>
 					</Card>
