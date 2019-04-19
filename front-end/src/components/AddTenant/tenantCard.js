@@ -56,7 +56,10 @@ class TenantInfo extends Component {
 						<div className="tenantCard-top">
 							<div className="inputInfo">
 								<div className="name-input">
-									<input type="displayName" name="displayName" placeholder="Name" onChange={this.inputHandler} />
+									<input type="firstName" name="firstName" placeholder="First Name" onChange={this.inputHandler} />
+								</div>
+								<div className="name-input">
+									<input type="lastName" name="lastName" placeholder="Last Name" onChange={this.inputHandler} />
 								</div>
 								<div className="eN-input">
 									<input type="email" name="email" placeholder="Email" onChange={this.inputHandler} />
