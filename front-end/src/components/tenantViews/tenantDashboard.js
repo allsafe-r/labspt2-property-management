@@ -97,7 +97,7 @@ class tenantDashboard extends Component {
 		
 		return (
 			<div className="tenant-dash" >
-				<Grid item xs={6} sm={12} className="tenant-button">
+				<Grid item sm={12} className="tenant-button">
 					<Card>
 						<div className="outstanding">Outstanding Balance</div>
 						<div className="outstanding">-$350.00</div>
@@ -125,7 +125,7 @@ class tenantDashboard extends Component {
 					</div>
 					</Card>
 				</Grid>
-				<Grid item xs={6} sm={12}>
+				<Grid item sm={12}>
 						<List>
 							<ListItem>
 								<Avatar>
