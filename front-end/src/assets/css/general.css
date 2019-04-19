@@ -438,6 +438,7 @@ body {
   padding-bottom: 20px;
   border: 1px solid yellow;
 
+
 }
 
 .bg-2-stretch .slide-2-frame .text p {
@@ -519,21 +520,22 @@ body {
 
   .intro-section .bg-2-stretch {
     display: flex;
+    align-items: flex-start;
     justify-content: center;
     margin: 0 auto;
   }
   
-/* 
+
   .bg-2-stretch .slide-2-frame .text {
     border: 1px solid red;
-    margin-bottom: 0px;
+    margin-left: 80px;
+    padding: 50px;
+    margin-top: -40px;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
-    padding-left: 10px;
   
 
-    } */
+    }
 
 
  

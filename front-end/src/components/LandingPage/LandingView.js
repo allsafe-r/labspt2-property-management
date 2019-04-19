@@ -1,7 +1,7 @@
 import React from "react";
 import Menu from "./Menu";
 import IndexPage from "./IndexPage";
-// import Pricing from "./Pricing"
+import Pricing from "./Pricing"
 import SecondHero from "./SecondHero"
 
 // import Body from "./Body";
@@ -15,7 +15,7 @@ const LandingView = () => {
       <IndexPage />
       {/* <Body /> */}
       <SecondHero />
-      {/* <Pricing /> */}
+      <Pricing />
     </div>
   );
 };
