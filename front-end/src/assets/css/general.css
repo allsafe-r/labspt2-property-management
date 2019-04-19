@@ -505,8 +505,6 @@ body {
     /* background-image: url("../images/finalhero_ipad3.png"); */
     /* background-image: url("../images/ipadhero.png"); */
     background-image: url("../images/finalhero_ipad3.png");
-    background-position: contain;
-    width: 116%;
 
   }
 
@@ -520,11 +518,9 @@ body {
   }
 
   .intro-section .bg-2-stretch {
-    padding: 60px;
     display: flex;
     justify-content: center;
     margin: 0 auto;
-    border: 1px solid red;
   }
   
 /* 
