@@ -428,9 +428,10 @@ body {
 
 .bg-2-stretch .slide-2-frame .text p {
   font-size: 2vw;
-  line-height: 16px;
+  line-height: 30px;
   letter-spacing: 0.6px;
-  border: 1px solid black;
+  word-spacing: 20px;
+
 
 }
 
@@ -441,7 +442,6 @@ body {
   font-size: 4vw;
   /* border: 1px solid red; */
   padding-bottom: 20px;
-  border: 1px solid yellow;
 
 
 }
@@ -532,17 +532,22 @@ body {
   
 
   .bg-2-stretch .slide-2-frame .text {
-    border: 1px solid red;
     margin-left: 80px;
-    padding: 50px;
-    margin-top: -40px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 10px;
+    margin-top: -30px;
     justify-content: center;
     align-items: center;
   
     }
 
+    .bg-2-stretch .slide-2-frame .text {
+
+    }
+
   .bg-2-stretch .slide-2-frame .text .slide-title {
-    font-size: 8vw;
+    font-size: 5.8vw;
 
     }
 

@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 const SecondHero = () => (
  <div className="Hero">
@@ -11,10 +10,14 @@ const SecondHero = () => (
                   For the modern
                   <br /> property manager.
                   </h1>
-      <p>Take care of tedious property management tasks in one place. <br />Be in charge of your properties, anytime, anywhere. </p>
-      <Link to={"/register"}>
-        <button>GET STARTED</button>
-      </Link>
+      <p>Take care of tedious property management tasks in one place. <br />Be in charge of your properties, anytime, anywhere.<br />
+      </p>
+      <p>
+      Lorem Ipsum. Lorem Ipsum. Lorem Ipsum. Lorem Ipsum.  
+      </p>
+      {/* <Link to={"/register"}>
+        <button>Learn More</button>
+      </Link> */}
       </div>
       </div>
       </div>

@@ -13,7 +13,8 @@ const IndexPage = () => (
                   Manage properties
                   <br /> at ease.
                   </h1>
-      <p>Take care of tedious property management tasks in one place. <br />Be in charge of your properties, anytime, anywhere. </p>
+      <p>Take care of tedious property management tasks in one place. <br />Be in charge of your properties, anytime, anywhere.
+       </p>
       <Link to={"/register"}>
         <button>GET STARTED</button>
       </Link>
