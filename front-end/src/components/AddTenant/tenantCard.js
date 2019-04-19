@@ -9,12 +9,12 @@ class TenantInfo extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			username: '',
+			firstName: '',
+			lastName: '',
 			password: '',
 			isAdmin: false,
 			email: '',
 			phone: '',
-			displayName: '',
 			emailSubscribe: false,
 			textSubscribe: false,
 			application: null
