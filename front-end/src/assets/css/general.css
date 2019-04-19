@@ -505,6 +505,8 @@ body {
     /* background-image: url("../images/finalhero_ipad3.png"); */
     /* background-image: url("../images/ipadhero.png"); */
     background-image: url("../images/finalhero_ipad3.png");
+    background-position: contain;
+    width: 116%;
 
   }
 
