@@ -96,10 +96,14 @@ class tenantDashboard extends Component {
 			<div className="tenant-dash" >
 				<Grid item xs={6} sm={12} className="tenant-button">
 					<Card>
-						<Link to="/tenant/payments">Make a Payment</Link>
+						<div>Outstanding Balance</div>
+						<div>-$350.00</div>
 					</Card>
 					<Card>
-						<Link to="/tenant/maintenance">Submit a Work Order</Link>
+						<Link to="/payments">Make a Payment</Link>
+					</Card>
+					<Card>
+						<Link to="/maintenance">Submit a Work Order</Link>
 					</Card>
 					<Card>
 						<div>Alerts</div>
