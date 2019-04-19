@@ -99,17 +99,22 @@ class tenantDashboard extends Component {
 			<div className="tenant-dash" >
 				<Grid item xs={6} sm={12} className="tenant-button">
 					<Card>
-						<div>Outstanding Balance</div>
-						<div>-$350.00</div>
+						<div className="oustanding">Outstanding Balance</div>
+						<div className="oustanding">-$350.00</div>
 					</Card>
 					<Card>
-					<Button variant="contained" color="primary">
-        			Send
-      				</Button>
-						<Link to="/payments">Make a Payment</Link>
+						<Link to="/payments">
+							<Button variant="extended" color="default" className="dash-button">
+								Make a Payment
+      						</Button>
+						</Link>
 					</Card>
 					<Card>
-						<Link to="/maintenance">Submit a Work Order</Link>
+						<Link to="/maintenance">
+							<Button variant="extended" color="default" className="dash-button">
+								Submit a Workorder
+      						</Button>
+						</Link>
 					</Card>
 					<Card>
 						<div>Alerts</div>
