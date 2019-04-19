@@ -493,12 +493,7 @@ body {
     /* background-image: url("../images/iphonex_bg.png"); */
 
 @media (max-width: 375px) {
-  /* .intro-section .bg-stretch {
-    background-size: contain;
-    width: 100%;
-  
 
-  } */
 
   .anchor-wrap {
     padding-bottom: 50px;
@@ -572,10 +567,7 @@ body {
   }
 
   .intro-section .bg-stretch-2 {
-    /* height: auto; 
-    width: auto; */
     background-size: contain;
-    /* background-position: 50% 50%; */
     background-image: url("../images/compguyipadpro.png");
 
   }
@@ -650,11 +642,23 @@ body {
     background-image: url("../images/ipadhero.png");
     background-size: contain;
 
+  }
 
+  .intro-section .bg-stretch-2 {
+    background-image: url("../images/compguyiphonex.png");
+    background-size: contain;
+  
+
+
+  }
+
+  .bg-stretch {
+    border: 1px solid red;
   }
 
   .bg-stretch .slide-frame .text {
     padding: 15px;
+    
   
   }
 
@@ -686,9 +690,17 @@ body {
     display:none;
 
   } */
+
+    /* padding-bottom: 100px; */
+
+
   .anchor-wrap {
-    margin-bottom: 100px;
-  }
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    margin-bottom: 115px;
+    width: 100%;
+}
 
   
 
