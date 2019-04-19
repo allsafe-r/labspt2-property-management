@@ -414,13 +414,11 @@ body {
   /* border: 10px solid red; */
   display: block;
   margin-right: 80px;
-  border: 2px solid brown;
 
 }
 
 .bg-2-stretch .slide-2-frame .text {
   margin-bottom: 200px;
-  border: 1px solid red;
 }
 
 .bg-2-stretch .slide-2-frame .text p {
@@ -445,11 +443,12 @@ body {
 .bg-2-stretch .slide-2-frame .text p {
   padding-top: 5px;
   font-size: 1vw;
-  color: gray;
   opacity: .5;
   font-family: 'GTEestiDisplay-Medium',-apple-system,system-ui,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
   font-weight: 500;
   color: rgb(46, 37, 37);
+  word-spacing: 1px;
+  line-height: 20px;
 
 
 }
@@ -457,8 +456,10 @@ body {
 .bg-stretch .slide-frame .text p {
   padding-top: 5px;
   font-size: 1vw;
-  color: gray;
-  opacity: .5;
+  color: black;
+
+  /* color: gray;
+  opacity: .5; */
   font-family: 'GTEestiDisplay-Medium',-apple-system,system-ui,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
   font-weight: 500;
 
@@ -507,6 +508,35 @@ body {
 
   }
 
+  .intro-section .bg-2-stretch {
+    /* background-image: url("../images/finalhero_ipad3.png"); */
+    /* background-image: url("../images/ipadhero.png"); */
+    background-image: url("../images/compguy_ipad.png");
+    /* background-position: contain; */
+
+
+  }
+
+  .intro-section .bg-2-stretch {
+    display: flex;
+    align-items:flex-start;
+    justify-content: center;
+    margin: 0 auto;
+  }
+  
+
+  .bg-2-stretch .slide-2-frame .text {
+    border: 1px solid red;
+    margin-bottom: 0px;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding-left: 10px;
+  
+
+    }
+
+
  
   .anchor-wrap {
     margin-bottom: 40px;
@@ -545,6 +575,27 @@ body {
     color: black;
     font-size: 1.7vw;
   }
+
+  .bg-2-stretch {
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 100px;
+  }
+
+    .slide-2-frame .text .slide-title {
+    font-size: 6vw;
+  } 
+
+  .bg-stretch .slide-frame .text p {
+    color: black;
+    font-size: 1.7vw;
+  }
+
+  .bg-2-stretch .slide-2-frame .text p {
+    color: black;
+    font-size: 1.7vw;
+  }
+  
   
 
 
@@ -706,7 +757,16 @@ body {
     /* justify-content: center; */
     /* align-items: center; */
 
-  
+}
+
+.bg-2-stretch .slide-2-frame {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+
+
 }
 
 .bg-2-stretch .slide-2-frame {
