@@ -17,8 +17,9 @@ import BeachAccessIcon from '@material-ui/icons/BeachAccess';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt, faIdCardAlt, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 import "../../assets/css/general.css";
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import Icon from '@material-ui/core/Icon';
+import { makeStyles } from '@material-ui/core/styles';
 import { red } from '@material-ui/core/colors';
 const decode = require('jwt-decode');
 const axios = require('axios');
@@ -45,6 +46,7 @@ const styles = {
 		maxWidth: 360,
 	  },
   };
+
   
 
 class tenantDashboard extends Component {
@@ -92,6 +94,7 @@ class tenantDashboard extends Component {
 			);
 	}
 	render() {
+		
 		return (
 			<div className="tenant-dash" >
 				<Grid item xs={6} sm={12} className="tenant-button">
@@ -100,6 +103,9 @@ class tenantDashboard extends Component {
 						<div>-$350.00</div>
 					</Card>
 					<Card>
+					<Button variant="contained" color="primary">
+        			Send
+      				</Button>
 						<Link to="/payments">Make a Payment</Link>
 					</Card>
 					<Card>
