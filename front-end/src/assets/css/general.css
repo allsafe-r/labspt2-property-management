@@ -561,15 +561,15 @@ body {
 }
 
 @media (max-width: 1024px) {
-  /* .intro-section .bg-stretch {
+  .intro-section .bg-stretch {
     background-image: url("../images/finalhero_ipad3.png");
-    /* background-image: url("../images/finalhero_ipadpro.png"); */
-    /* height: auto; 
+    /* /background-image: url("../images/finalhero_ipadpro.png"); */ 
+     height: auto; 
     width: auto;
-    margin: 0 auto; */
+    margin: 0 auto; 
 
 
-  /* } */ 
+  }
 
   .bg-stretch {
     align-items: flex-start;
