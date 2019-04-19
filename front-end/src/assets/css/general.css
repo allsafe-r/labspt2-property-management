@@ -571,6 +571,17 @@ body {
 
   }
 
+  .intro-section .bg-stretch-2 {
+    /* height: auto; 
+    width: auto; */
+    background-size: contain;
+    /* background-position: 50% 50%; */
+    background-image: url("../images/compguyipadpro.png");
+
+  }
+
+ 
+
   .bg-stretch {
     align-items: flex-start;
     justify-content: center;
