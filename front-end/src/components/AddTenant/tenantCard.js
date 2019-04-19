@@ -23,7 +23,7 @@ class TenantInfo extends Component {
 	inputHandler = (e) => {
 		this.setState({ [e.target.name]: e.target.value });
 		this.setState({
-			username: this.state.email,
+			email: this.state.email,
 			password: this.state.phone
 		});
 	};
