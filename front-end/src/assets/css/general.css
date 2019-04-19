@@ -364,6 +364,11 @@ body {
 } */
  
 
+/* ========HOME PAGE =========*/
+
+
+/* ==========FIRST HERO ==========*/
+
 .intro-section {
 	position: relative;
 	min-height: 100vh;
@@ -534,6 +539,10 @@ body {
     justify-content: center;
     align-items: center;
   
+    }
+
+  .bg-2-stretch .slide-2-frame .text .slide-title {
+    font-size: 8vw;
 
     }
 
@@ -560,20 +569,16 @@ body {
   .bg-stretch {
     align-items: flex-start;
     justify-content: center;
-    padding-top: 100px;
+    padding-top: 85px;
   }
 
     .slide-frame .text .slide-title {
-    font-size: 6vw;
+    font-size: 6.5vw;
   } 
 
-  .bg-stretch .slide-frame .text p {
-    color: black;
-    font-size: 1.7vw;
-  }
 
   .bg-2-stretch .slide-2-frame .text p {
-    color: black;
+    color: gray;
     font-size: 1.7vw;
   }
 
@@ -588,7 +593,7 @@ body {
   } 
 
   .bg-stretch .slide-frame .text p {
-    color: black;
+    color: gray;
     font-size: 1.7vw;
   }
 
