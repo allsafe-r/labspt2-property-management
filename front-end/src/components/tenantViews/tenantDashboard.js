@@ -105,19 +105,19 @@ class tenantDashboard extends Component {
 					<Card>
 						<Link to="/payments">
 							<Button variant="extended" color="default" className="dash-button">
-							<FontAwesomeIcon icon={faMoneyBillAlt} /> Make a Payment
+							<FontAwesomeIcon icon={faMoneyBillAlt} />&nbsp;&nbsp;Make a Payment
       						</Button>
 						</Link>
 					</Card>
 					<Card>
 						<Link to="/maintenance">
 							<Button variant="extended" color="default" className="dash-button">
-							<FontAwesomeIcon icon={faTools} /> Submit a Workorder
+							<FontAwesomeIcon icon={faTools} />&nbsp;&nbsp;Submit a Workorder
       						</Button>
 						</Link>
 					</Card>
 					<Card>
-						<div>Alerts</div>
+						<div className="outstanding">Alerts</div>
 					<div>
 						{this.state.alerts.map((alert) => {
 							return <li key={alert.id}>{alert.alert}</li>;
