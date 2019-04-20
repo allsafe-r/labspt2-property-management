@@ -101,29 +101,49 @@ class tenantDashboard extends Component {
 		const d = new Date(e * 1000)
 		return d.toLocaleString();
 }
+
+
+//  CalculateOutstanding() {
+// 	 {this.state.charges.map((charge) => {
+// 		if (this.state.user == charge.billing_details.name) {
+// 	}
+// }
+// 	 )
+// }
+
 	render() {
+		var timestamp = new Date().getTime() - (30 * 24 * 60 * 60 * 1000);
+		this.state.charges.map((charge) => {
+			this.setState({charge: this.charge})
+		}
+		
 		
 		return (
 			<div className="tenant-dash">
 			
 				<Grid item sm={12} className="tenant-button">
 			<Card>
+			
 				<StripeProvider apiKey="pk_test_uGZWgKZiorkYlZ8MsxYEIrA2">
+					
+
+	  
+
 					<Paper elevation={1}>
 						{this.state.charges.map((charge) => 
 
-						<div>			
-						if ({this.state.user} == {charge.billing_details.name}	)	{		
-						<CardHeader variant='h1' title={charge.billing_details.name}/>
-						<Divider/>
-						<Typography variant='h4'>Date: {this.convertToTime(charge.created)}</Typography>
-						<Divider/>
-						<Typography variant='h4' component='h2'>Amount Paid:${charge.amount}.00</Typography>
-						<Divider/>	
-						}				
-						</div>						
+
+						// <div>					
+						// <CardHeader variant='h1' title={charge.billing_details.name}/>
+						// <Divider/>
+						// <Typography variant='h4'>Date: {this.convertToTime(charge.created)}</Typography>
+						// <Divider/>
+						// <Typography variant='h4' component='h2'>Amount Paid:${charge.amount}.00</Typography>
+						// <Divider/>					
+						// </div>						
 						)}
 					</Paper>
+
 					</StripeProvider>
 					</Card>
 
@@ -189,6 +209,7 @@ class tenantDashboard extends Component {
 			</div>
 		);
 	}
+
 }
 
 tenantDashboard.propTypes = {
