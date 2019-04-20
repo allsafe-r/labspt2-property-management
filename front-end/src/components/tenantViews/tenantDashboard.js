@@ -103,14 +103,6 @@ class tenantDashboard extends Component {
 }
 
 
-//  CalculateOutstanding() {
-// 	 {this.state.charges.map((charge) => {
-// 		if (this.state.user == charge.billing_details.name) {
-// 	}
-// }
-// 	 )
-// }
-
 	render() {
 		var today = new Date()
 		var priorDate = new Date().setDate(today.getDate()-30)
@@ -125,31 +117,22 @@ class tenantDashboard extends Component {
 			
 				<Grid item sm={12} className="tenant-button">
 			
+			{/* This pulls the stripe info and the Outstanding payments for the user based on payments made in the last 30 days. */}
 				<StripeProvider apiKey="pk_test_uGZWgKZiorkYlZ8MsxYEIrA2">
 					<Paper elevation={1}>
 						{this.state.charges.map((charge) => 
 							<div>
 							{priorDate < charge.created && this.state.user === charge.billing_details.name &&
 							  <p>
-							
-								{/* <CardHeader variant='h1' title={charge.billing_details.name}/> */}
 								{/* Prior date is {priorDate} charge made  {charge.created}. */}
 								{/* Current user {this.state.user} charge made to {charge.billing_details.name}. */}
 									<div className="outstanding">Outstanding Balance</div>
 									<div className="outstanding">${charge.amount - 120000}</div>
-								{/* <Typography variant='h4' component='h2'>Amount Paid:${charge.amount - 120000}</Typography> */}
+							
 							  </p>
 							}
 						  </div>
-
-						// <div>					
-						// <CardHeader variant='h1' title={charge.billing_details.name}/>
-						// <Divider/>
-						// <Typography variant='h4'>Date: {this.convertToTime(charge.created)}</Typography>
-						// <Divider/>
-						// <Typography variant='h4' component='h2'>Amount Paid:${charge.amount}.00</Typography>
-						// <Divider/>					
-						// </div>						
+					
 						)}
 					</Paper>
 
