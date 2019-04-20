@@ -124,23 +124,20 @@ class tenantDashboard extends Component {
 			<div className="tenant-dash">
 			
 				<Grid item sm={12} className="tenant-button">
-			<Card>
 			
 				<StripeProvider apiKey="pk_test_uGZWgKZiorkYlZ8MsxYEIrA2">
-					
-
-	  
-
 					<Paper elevation={1}>
 						{this.state.charges.map((charge) => 
 							<div>
 							{priorDate < charge.created && this.state.user === charge.billing_details.name &&
 							  <p>
 							
-								<CardHeader variant='h1' title={charge.billing_details.name}/>
-								{/* You have {priorDate} unread {charge.created} messages. */}
-								You have {this.state.user} unread {charge.billing_details.name} messages.
-								<Typography variant='h4' component='h2'>Amount Paid:${charge.amount - 120000}</Typography>
+								{/* <CardHeader variant='h1' title={charge.billing_details.name}/> */}
+								{/* Prior date is {priorDate} charge made  {charge.created}. */}
+								{/* Current user {this.state.user} charge made to {charge.billing_details.name}. */}
+									<div className="outstanding">Outstanding Balance</div>
+									<div className="outstanding">${charge.amount - 120000}</div>
+								{/* <Typography variant='h4' component='h2'>Amount Paid:${charge.amount - 120000}</Typography> */}
 							  </p>
 							}
 						  </div>
@@ -157,12 +154,8 @@ class tenantDashboard extends Component {
 					</Paper>
 
 					</StripeProvider>
-					</Card>
 
-					{/* <Card>
-						<div className="outstanding">Outstanding Balance</div>
-						<div className="outstanding">-$350.00</div>
-					</Card> */}
+			
 					<Card>
 						<Link to="/payments">
 							<Button variant="extended" color="default" className="dash-button">
