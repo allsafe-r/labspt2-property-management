@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import Typography from '@material-ui/core/Typography';
+import {Elements, StripeProvider} from 'react-stripe-elements';
 import { withStyles } from '@material-ui/core/styles';
+import Divider from '@material-ui/core/Divider';
 import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Avatar from '@material-ui/core/Avatar';
+import CardHeader from '@material-ui/core/CardHeader';
+import Paper from '@material-ui/core/Paper';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt, faIdCardAlt, faEnvelope, faPhone, faMoneyBillAlt, faTools } from '@fortawesome/free-solid-svg-icons';
 import "../../assets/css/general.css";
@@ -46,10 +51,15 @@ class tenantDashboard extends Component {
 		alerts: [],
 		address: '',
 		contact: '',
-		maintenancePhone: ''
+		maintenancePhone: '',
+		charges:[]
 	};
 
 	componentDidMount() {
+		// Stripe Data
+		axios.get(url).then((response) => this.setState({ charges: response.data })).catch((error) => {
+			console.error('Server Error', error);
+		});
 		const token = localStorage.getItem('jwtToken');
 		const id = decode(token).userId;
 		// go into users to find which residence you live at
@@ -86,8 +96,28 @@ class tenantDashboard extends Component {
 	render() {
 		
 		return (
-			<div className="tenant-dash" >
+			<div className="tenant-dash">
+			
 				<Grid item sm={12} className="tenant-button">
+
+				<StripeProvider apiKey="pk_test_uGZWgKZiorkYlZ8MsxYEIrA2">
+					<Paper elevation={1}>
+						{this.state.charges.map((charge) => 
+
+						<div>							
+						<CardHeader variant='h1' title={charge.billing_details.name}/>
+						<Divider/>
+						<Typography variant='h4'>Date: {this.convertToTime(charge.created)}</Typography>
+						<Divider/>
+						<Typography>Hi</Typography>
+						<Typography variant='h4' component='h2'>Amount Paid:${charge.amount}.00</Typography>
+						<Divider/>					
+						</div>						
+						)}
+					</Paper>
+					</StripeProvider>
+
+					
 					<Card>
 						<div className="outstanding">Outstanding Balance</div>
 						<div className="outstanding">-$350.00</div>
