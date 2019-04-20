@@ -70,6 +70,7 @@ class tenantDashboard extends Component {
 			.then((user) => {
 				// console.log(user);
 				this.setState({ houseId: user.data.residenceId });
+				this.setState({ user: user.data.firstName });
 			})
  // go into users residence, grab some information and set it to state, grab owner of residence to supply rest of information
 			.then(
@@ -111,13 +112,15 @@ class tenantDashboard extends Component {
 					<Paper elevation={1}>
 						{this.state.charges.map((charge) => 
 
-						<div>							
+						<div>			
+						if ({this.state.user} == {charge.billing_details.name}	)	{		
 						<CardHeader variant='h1' title={charge.billing_details.name}/>
 						<Divider/>
 						<Typography variant='h4'>Date: {this.convertToTime(charge.created)}</Typography>
 						<Divider/>
 						<Typography variant='h4' component='h2'>Amount Paid:${charge.amount}.00</Typography>
-						<Divider/>					
+						<Divider/>	
+						}				
 						</div>						
 						)}
 					</Paper>
