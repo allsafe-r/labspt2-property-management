@@ -134,12 +134,14 @@ class tenantDashboard extends Component {
 					<Paper elevation={1}>
 						{this.state.charges.map((charge) => 
 							<div>
-							{priorDate < charge.created && this.state.user != charge.billing_details.name &&
-							  <h2>
-								You have {priorDate} unread {charge.created} messages.
+							{priorDate < charge.created && this.state.user === charge.billing_details.name &&
+							  <p>
+							
+								<CardHeader variant='h1' title={charge.billing_details.name}/>
+								{/* You have {priorDate} unread {charge.created} messages. */}
 								You have {this.state.user} unread {charge.billing_details.name} messages.
-								<Typography variant='h4' component='h2'>Amount Paid:${charge.amount}.00</Typography>
-							  </h2>
+								<Typography variant='h4' component='h2'>Amount Paid:${charge.amount - 120000}</Typography>
+							  </p>
 							}
 						  </div>
 
