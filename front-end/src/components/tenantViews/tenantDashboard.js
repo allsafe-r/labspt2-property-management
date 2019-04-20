@@ -18,8 +18,10 @@ import "../../assets/css/general.css";
 import Grid from '@material-ui/core/Grid';
 const decode = require('jwt-decode');
 const axios = require('axios');
+
 const url = `https://tenantly-back.herokuapp.com/alerts`;
 // const url = `http://localhost:9000/alerts`;
+const url2 = 'https://tenantly-back.herokuapp.com/stripe/charges'
 
 const styles = {
 	card: {
@@ -57,7 +59,7 @@ class tenantDashboard extends Component {
 
 	componentDidMount() {
 		// Stripe Data
-		axios.get(url).then((response) => this.setState({ charges: response.data })).catch((error) => {
+		axios.get(url2).then((response) => this.setState({ charges: response.data })).catch((error) => {
 			console.error('Server Error', error);
 		});
 		const token = localStorage.getItem('jwtToken');
@@ -93,13 +95,18 @@ class tenantDashboard extends Component {
 				})
 			);
 	}
+
+	convertToTime =(e) =>{
+		const d = new Date(e * 1000)
+		return d.toLocaleString();
+}
 	render() {
 		
 		return (
 			<div className="tenant-dash">
 			
 				<Grid item sm={12} className="tenant-button">
-
+			<Card>
 				<StripeProvider apiKey="pk_test_uGZWgKZiorkYlZ8MsxYEIrA2">
 					<Paper elevation={1}>
 						{this.state.charges.map((charge) => 
@@ -109,19 +116,18 @@ class tenantDashboard extends Component {
 						<Divider/>
 						<Typography variant='h4'>Date: {this.convertToTime(charge.created)}</Typography>
 						<Divider/>
-						<Typography>Hi</Typography>
 						<Typography variant='h4' component='h2'>Amount Paid:${charge.amount}.00</Typography>
 						<Divider/>					
 						</div>						
 						)}
 					</Paper>
 					</StripeProvider>
+					</Card>
 
-					
-					<Card>
+					{/* <Card>
 						<div className="outstanding">Outstanding Balance</div>
 						<div className="outstanding">-$350.00</div>
-					</Card>
+					</Card> */}
 					<Card>
 						<Link to="/payments">
 							<Button variant="extended" color="default" className="dash-button">
