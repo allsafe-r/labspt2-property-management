@@ -9,12 +9,12 @@ class TenantInfo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
-      password: "",
-      isAdmin: false,
       email: "",
+      password: "",
+      firstName: "",
+      lastName: "",
+      isAdmin: false,
       phone: "",
-      displayName: "",
       emailSubscribe: false,
       textSubscribe: false,
       application: null
@@ -23,7 +23,6 @@ class TenantInfo extends Component {
   inputHandler = e => {
     this.setState({ [e.target.name]: e.target.value });
     this.setState({
-      username: this.state.email,
       password: this.state.phone
     });
   };
@@ -57,9 +56,15 @@ class TenantInfo extends Component {
               <div className="inputInfo">
                 <div className="name-input">
                   <input
-                    type="displayName"
-                    name="displayName"
-                    placeholder="Name"
+                    type="firstName"
+                    name="firstName"
+                    placeholder="First Name"
+                    onChange={this.inputHandler}
+                  />
+                  <input
+                    type="lastName"
+                    name="lastName"
+                    placeholder="Last Name"
                     onChange={this.inputHandler}
                   />
                 </div>
