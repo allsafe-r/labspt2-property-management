@@ -112,11 +112,13 @@ class tenantDashboard extends Component {
 // }
 
 	render() {
-		var timestamp = new Date().getTime() - (30 * 24 * 60 * 60 * 1000);
-		this.state.charges.map((charge) => {
-			this.setState({charge: this.charge})
-		}
-		
+		var today = new Date()
+		var priorDate = new Date().setDate(today.getDate()-30)
+		priorDate = priorDate.toString();
+		console.log("Original data: ",priorDate);
+		priorDate = priorDate.slice(0, -3);
+		priorDate = parseInt(priorDate);
+		console.log("After truncate: ",priorDate);
 		
 		return (
 			<div className="tenant-dash">
@@ -131,7 +133,13 @@ class tenantDashboard extends Component {
 
 					<Paper elevation={1}>
 						{this.state.charges.map((charge) => 
-
+							<div>
+							{priorDate < charge.created &&
+							  <h2>
+								You have {priorDate} unread {charge.created} messages.
+							  </h2>
+							}
+						  </div>
 
 						// <div>					
 						// <CardHeader variant='h1' title={charge.billing_details.name}/>
