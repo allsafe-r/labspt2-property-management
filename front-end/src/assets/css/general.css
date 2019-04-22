@@ -652,7 +652,7 @@ body {
 
   .intro-section .bg-stretch {
     /* background-image: url("../images/finaliphone678.png"); */
-    background-image: url("../images/isthis2.png");
+    background-image: url("../images/isthis3.png");
     background-size: cover;
 
 
@@ -660,7 +660,7 @@ body {
 
   .intro-section .bg-stretch-2 {
     background-image: url("../images/compguyiphonex.png");
-    background-size: cover;
+    background-size: contain;
   
 
 
