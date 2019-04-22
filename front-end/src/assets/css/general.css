@@ -1172,3 +1172,18 @@ button[type="submit"] {
   right: 0;
   z-index: 300;
 }
+
+/*tenant settings*/
+
+.font label {
+  font-size: 0.7em;
+  margin-top: 0.5em;
+}
+
+.font span {
+  font-size: 0.6em;
+}
+
+.fonts label {
+  font-size: 0.6em;
+}
