@@ -641,7 +641,7 @@ body {
     /* padding-top: 40px;
     padding-right: 20px;
     padding-left: 20px; */
-    min-height: 80vh;
+    min-height: 79vh;
 
   }
 
@@ -714,7 +714,7 @@ body {
     position: absolute;
     bottom: 0px;
     left: 0;
-    margin-bottom: 1px;
+    margin-bottom: -20px;
     width: 100%;
 }
 
