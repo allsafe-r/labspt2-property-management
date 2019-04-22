@@ -46,7 +46,7 @@ class App extends Component {
 		this.authenticate();
 	}
 
-	authenticate = (admin) => {
+	authenticate = () => {
 		// console.log(admin.isAdmin)
 		const token = localStorage.getItem('jwtToken');
 		const auth = {
@@ -81,12 +81,8 @@ class App extends Component {
 		// this.props.history.push('/');
 	};
 
-	loggedIn() {
-		return this.state.loggedIn;
-	}
-
 	render() {
-		if (!this.loggedIn()) {
+		if (!this.state.loggedIn) {
 			return (
 				<div>
 					<Route exact path={'/'} component={LandingView} />
