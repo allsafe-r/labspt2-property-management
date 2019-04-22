@@ -26,7 +26,8 @@ class Login extends Component {
 				this.props.authenticate(res.data.isAdmin);
 			})
 			.catch((err) => {
-				console.log({ Error: err });
+				console.log(err);
+				alert('This e-mail and/or password does not match our records');
 			});
 	};
 
