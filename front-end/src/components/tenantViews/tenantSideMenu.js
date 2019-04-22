@@ -146,7 +146,7 @@ class TenantSideMenu extends Component {
 									<img src={Logo} className="dashboardLogo" alt="Dash logo" />
 
 									<Link to={'/'} className="log-out">
-										<ListItem button onClick={this.logOut}>
+										<ListItem button onClick={this.props.logOut}>
 											<FontAwesomeIcon icon={faSignOutAlt} color="slategray" size="2x" />
 										</ListItem>
 									</Link>

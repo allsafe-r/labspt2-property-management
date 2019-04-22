@@ -78,11 +78,15 @@ class App extends Component {
 		console.log('logged out');
 		localStorage.removeItem('jwtToken');
 		this.setState({ loggedIn: false });
-		this.props.history.push('/');
+		// this.props.history.push('/');
 	};
 
+	loggedIn() {
+		return this.state.loggedIn;
+	}
+
 	render() {
-		if (!this.state.loggedIn) {
+		if (!this.loggedIn()) {
 			return (
 				<div>
 					<Route exact path={'/'} component={LandingView} />
