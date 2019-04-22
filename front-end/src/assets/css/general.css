@@ -645,13 +645,14 @@ body {
     /* background-image: url("../images/finaliphone678.png"); */
     background-image: url("../images/isthis.png");
     background-size: cover;
+    height: 500px;
+
 
   }
 
   .intro-section .bg-stretch-2 {
     background-image: url("../images/compguyiphonex.png");
     background-size: cover;
-    height: 812px;
   
 
 
@@ -661,7 +662,6 @@ body {
   }
 
   .bg-stretch-2 {
-    padding-bottom: -500px;
   }
 
   .bg-stretch .slide-frame .text {
