@@ -112,11 +112,11 @@ class SideMenu extends Component {
 		this.setState({ open: false });
 	};
 
-	logOut = () => {
-		localStorage.removeItem('jwtToken');
-		this.setState({ loggedIn: false });
-		this.props.history.push('/');
-	};
+	// logOut = () => {
+	// 	localStorage.removeItem('jwtToken');
+	// 	this.setState({ loggedIn: false });
+	// 	this.props.history.push('/');
+	// };
 
 	render() {
 		const { classes, theme } = this.props;
@@ -150,7 +150,7 @@ class SideMenu extends Component {
 									<img src={Logo} className="dashboardLogo" alt="Dash logo" />
 
 									<Link to={'/'} className="log-out">
-										<ListItem button onClick={this.logOut}>
+										<ListItem button onClick={this.props.logOut}>
 											<FontAwesomeIcon icon={faSignOutAlt} color="slategray" size="2x" />
 										</ListItem>
 									</Link>
