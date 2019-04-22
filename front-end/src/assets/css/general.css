@@ -650,7 +650,7 @@ body {
 
   .intro-section .bg-stretch-2 {
     background-image: url("../images/compguyiphonex.png");
-    background-size: contain;
+    background-size: cover;
   
 
 
