@@ -636,16 +636,23 @@ body {
 }
 
 @media (max-width: 479px) {
+  .intro-section {
+		height: 300px;
+    /* padding-top: 40px;
+    padding-right: 20px;
+    padding-left: 20px; */
+    border: 1px solid red;
+  }
+
   /* .intro-section {
-		min-height: 60vw;
-		padding-top: 40px;
+    height: 300px;
+    border: 1px solid red;
   } */
 
   .intro-section .bg-stretch {
     /* background-image: url("../images/finaliphone678.png"); */
     background-image: url("../images/isthis.png");
     background-size: cover;
-    height: 560px;
 
 
   }
