@@ -119,6 +119,7 @@ class App extends Component {
 						</div>
 						<div className="right-side">
 							<Route exact path="/dashboard" component={TenantDashboard} logout={this.logOut} />
+							<Route exact path="/" component={TenantDashboard} />
 							<Route exact path="/payments" component={TenantPayments} />
 							<Route exact path="/maintenance" component={Workorderform} />
 							<Route exact path="/settings" component={TenantSettings} />
