@@ -105,13 +105,13 @@ class TenantSideMenu extends Component {
 		this.setState({ open: false });
 	};
 
-	logOut = () => {
-		console.log(this.props);
-		localStorage.removeItem('jwtToken');
-		this.setState({ loggedIn: false });
-		this.props.history.push('/');
-		// window.location.reload();
-	};
+	// logOut = () => {
+	// 	console.log(this.props);
+	// 	localStorage.removeItem('jwtToken');
+	// 	this.setState({ loggedIn: false });
+	// 	this.props.history.push('/');
+	// 	// window.location.reload();
+	// };
 
 	render() {
 		const { loggedIn } = this.state;

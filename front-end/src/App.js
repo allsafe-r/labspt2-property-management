@@ -100,7 +100,7 @@ class App extends Component {
 				return (
 					<div className="dashboard-container">
 						<div className="left-side">
-							<Route path="/" component={SideMenu} logout={this.logOut} />
+							<Route path="/" render={() => <SideMenu logOut={this.logOut} />} />
 						</div>
 						<div className="right-side">
 							<Route exact path="/properties" component={PropertyList} />
