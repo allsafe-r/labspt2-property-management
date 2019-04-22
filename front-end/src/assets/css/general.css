@@ -628,7 +628,7 @@ body {
   height: 100%;
 } */
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .intro-section {
 		padding-top: 50px;
 	}
@@ -637,11 +637,13 @@ body {
 
 @media (max-width: 479px) {
   .intro-section {
-		height: 300px;
+		height: 100%;;
     /* padding-top: 40px;
     padding-right: 20px;
     padding-left: 20px; */
     border: 1px solid red;
+    min-height: 70vh;
+
   }
 
   /* .intro-section {
@@ -651,7 +653,7 @@ body {
 
   .intro-section .bg-stretch {
     /* background-image: url("../images/finaliphone678.png"); */
-    background-image: url("../images/isthis.png");
+    background-image: url("../images/isthis2.png");
     background-size: cover;
 
 
@@ -713,7 +715,7 @@ body {
     position: absolute;
     bottom: 0px;
     left: 0;
-    margin-bottom: 60px;
+    margin-bottom: 1px;
     width: 100%;
 }
 
