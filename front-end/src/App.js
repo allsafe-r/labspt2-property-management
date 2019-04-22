@@ -91,43 +91,39 @@ class App extends Component {
 					<Route exact path={'/login'} render={(props) => <Login {...props} authenticate={this.authenticate} />} />
 				</div>
 			);
-		} else {
-			if (this.isAdmin()) {
-				return (
-					<div className="dashboard-container">
-						<div className="left-side">
-							<Route path="/" render={() => <SideMenu logOut={this.logOut} />} />
-						</div>
-						<div className="right-side">
-							<Route exact path="/properties" component={PropertyList} />
-							<Route exact path="/" component={PropertyList} />
-							<Route exact path="/billing" component={Billing} />
-							<Route path="/worklist" component={Workorderlist} />
-							<Route path="/view-property/:id" component={DisplayProperty} />
-							<Route path="/add-property" component={AddProperty} />
-							<Route exact path="/add-tenant" component={AddTenant} />
-							<Route exact path="/edit/:id" component={EditProperty} />
-							<Route exact path="/workorders/form" component={Workorderform} />
-							<Route exact path="/settings" component={AdminSettings} />
-						</div>
+		} else if (this.isAdmin()) {
+			return (
+				<div className="dashboard-container">
+					<div className="left-side">
+						<Route path="/" render={() => <SideMenu logOut={this.logOut} />} />
 					</div>
-				);
-			} else {
-				return (
-					<div className="dashboard-container">
-						<div className="left-side">
-							<Route path="/" render={() => <TenantSideMenu logOut={this.logOut} />} />
-						</div>
-						<div className="right-side">
-							<Route exact path="/dashboard" component={TenantDashboard} />
-							<Route exact path="/dashboard" component={TenantDashboard} />
-							<Route exact path="/payments" component={TenantPayments} />
-							<Route exact path="/maintenance" component={Workorderform} />
-							<Route exact path="/settings" component={TenantSettings} />
-						</div>
+					<div className="right-side">
+						<Route path="/properties" component={PropertyList} />
+						<Route exact path="/billing" component={Billing} />
+						<Route path="/worklist" component={Workorderlist} />
+						<Route path="/view-property/:id" component={DisplayProperty} />
+						<Route path="/add-property" component={AddProperty} />
+						<Route exact path="/add-tenant" component={AddTenant} />
+						<Route exact path="/edit/:id" component={EditProperty} />
+						<Route exact path="/workorders/form" component={Workorderform} />
+						<Route exact path="/settings" component={AdminSettings} />
 					</div>
-				);
-			}
+				</div>
+			);
+		} else if (!this.isAdmin()) {
+			return (
+				<div className="dashboard-container">
+					<div className="left-side">
+						<Route path="/" render={() => <TenantSideMenu logOut={this.logOut} />} />
+					</div>
+					<div className="right-side">
+						<Route path="/dashboard" component={TenantDashboard} />
+						<Route exact path="/payments" component={TenantPayments} />
+						<Route exact path="/maintenance" component={Workorderform} />
+						<Route exact path="/settings" component={TenantSettings} />
+					</div>
+				</div>
+			);
 		}
 	}
 }
