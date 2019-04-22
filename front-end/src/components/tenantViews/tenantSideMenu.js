@@ -89,7 +89,7 @@ const styles = (theme) => ({
 });
 
 class TenantSideMenu extends Component {
-	constructor() {
+	constructor(props) {
 		super();
 		this.state = {
 			admin: true,
@@ -106,10 +106,11 @@ class TenantSideMenu extends Component {
 	};
 
 	logOut = () => {
+		console.log(this.props);
 		localStorage.removeItem('jwtToken');
 		this.setState({ loggedIn: false });
 		this.props.history.push('/');
-		window.location.reload();
+		// window.location.reload();
 	};
 
 	render() {

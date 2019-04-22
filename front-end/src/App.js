@@ -78,6 +78,7 @@ class App extends Component {
 		console.log('logged out');
 		localStorage.removeItem('jwtToken');
 		this.setState({ loggedIn: false });
+		this.props.history.push('/');
 	};
 
 	render() {
@@ -115,11 +116,11 @@ class App extends Component {
 				return (
 					<div className="dashboard-container">
 						<div className="left-side">
-							<Route path="/" component={TenantSideMenu} />
+							<Route path="/" render={() => <TenantSideMenu logOut={this.logOut} />} />
 						</div>
 						<div className="right-side">
-							<Route exact path="/dashboard" component={TenantDashboard} logout={this.logOut} />
-							<Route exact path="/" component={TenantDashboard} />
+							<Route exact path="/dashboard" component={TenantDashboard} />
+							<Route exact path="/dashboard" component={TenantDashboard} />
 							<Route exact path="/payments" component={TenantPayments} />
 							<Route exact path="/maintenance" component={Workorderform} />
 							<Route exact path="/settings" component={TenantSettings} />
