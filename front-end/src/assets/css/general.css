@@ -651,6 +651,7 @@ body {
   .intro-section .bg-stretch-2 {
     background-image: url("../images/compguyiphonex.png");
     background-size: cover;
+    height: 100vh;
   
 
 
@@ -705,7 +706,7 @@ body {
     position: absolute;
     bottom: 0px;
     left: 0;
-    margin-bottom: 10px;
+    margin-bottom: 60px;
     width: 100%;
 }
 
