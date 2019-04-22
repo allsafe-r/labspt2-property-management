@@ -556,19 +556,26 @@ body {
 }
 
 @media (max-width: 1024px) {
-  .intro-section .bg-stretch {
-    background-image: url("../images/finalhero_ipad3.png");
+  /* .intro-section .bg-stretch {
+    background-image: url("../images/compguys.png");
     /* /background-image: url("../images/finalhero_ipadpro.png"); */ 
-     height: auto; 
+     /* height: auto; 
     width: auto;
-    margin: 0 auto; 
+    margin: 0 auto;  */
 
 
-  }
-
+  /* }  */
+/* 
   .intro-section .bg-stretch-2 {
-    background-size: contain;
-    background-image: url("../images/compguyipadpro.png");
+    background-size: cover;
+    background-image: url("../images/compguys.png");
+    border: 10px solid red;
+  } */
+
+  .intro-section .bg-2-stretch {
+    /* background-image: url("../images/finalhero_ipad3.png"); */
+    /* background-image: url("../images/ipadhero.png"); */
+    background-image: url("../images/compguys.png");
 
   }
 
