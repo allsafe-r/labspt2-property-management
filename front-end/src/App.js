@@ -37,7 +37,7 @@ const decode = require('jwt-decode');
 
 class App extends Component {
 	state = {
-		loggedIn: false
+		loggedIn: null
 	};
 
 	componentDidMount() {
