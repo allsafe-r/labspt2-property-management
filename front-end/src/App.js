@@ -8,7 +8,7 @@ import { logPageView } from './utils/analytics';
 import { initGA } from './utils/analytics';
 import LandingView from './components/LandingPage/LandingView';
 import { Route } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import PropertyList from './components/properties/propertyList';
 import TenantSideMenu from './components/tenantViews/tenantSideMenu';
 import SideMenu from './components/adminViews/adminSideMenu';
