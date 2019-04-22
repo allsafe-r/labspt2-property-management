@@ -47,7 +47,6 @@ class App extends Component {
 	}
 
 	authenticate = () => {
-		// console.log(admin.isAdmin)
 		const token = localStorage.getItem('jwtToken');
 		const auth = {
 			headers: {
