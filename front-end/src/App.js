@@ -99,6 +99,7 @@ class App extends Component {
 						</div>
 						<div className="right-side">
 							<Route exact path="/properties" component={PropertyList} />
+							<Route exact path="/" component={PropertyList} />
 							<Route exact path="/billing" component={Billing} />
 							<Route path="/worklist" component={Workorderlist} />
 							<Route path="/view-property/:id" component={DisplayProperty} />
