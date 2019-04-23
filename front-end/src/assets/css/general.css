@@ -718,8 +718,7 @@ body {
   .intro-section .bg-stretch-2 {
     background-image: url("../images/Untitled-2.png");
     background-size: cover;
-  
-
+    height: 100vh;
 
   }
   
