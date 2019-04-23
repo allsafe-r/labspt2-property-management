@@ -51,7 +51,7 @@ class CheckoutForm extends Component {
       description: 'Pay rent now',
       source: token.id,
       currency: 'USD',
-      amount: 1200
+      amount: 120000
     })
     .then(this.props.charge)
     .then(this.successPayment) 
@@ -67,7 +67,7 @@ class CheckoutForm extends Component {
       <div className="checkoutform">
         <Input placeholder="name" name="name" value={this.state.name} onChange={this.inputHandler} className='checkoutinput'/>
         <CardElement style={{base: {fontSize: '18px'}}} />
-        <Button variant='contained' color='primary' className='button' onClick={this.submit}>Pay 1200</Button>
+        <Button variant='contained' color='primary' className='button' onClick={this.submit}>Pay $1200</Button>
       </div>
     );
   }

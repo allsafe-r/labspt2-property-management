@@ -1,30 +1,27 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import {Elements, StripeProvider} from 'react-stripe-elements';
+import { withStyles } from '@material-ui/core/styles';
+import Divider from '@material-ui/core/Divider';
+import Card from '@material-ui/core/Card';
+import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
 import Avatar from '@material-ui/core/Avatar';
-import ImageIcon from '@material-ui/icons/Image';
-import WorkIcon from '@material-ui/icons/Work';
-import BeachAccessIcon from '@material-ui/icons/BeachAccess';
+import CardHeader from '@material-ui/core/CardHeader';
+import Paper from '@material-ui/core/Paper';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt, faIdCardAlt, faEnvelope, faPhone, faMoneyBillAlt, faTools } from '@fortawesome/free-solid-svg-icons';
 import "../../assets/css/general.css";
 import Grid from '@material-ui/core/Grid';
-import Icon from '@material-ui/core/Icon';
-import { makeStyles } from '@material-ui/core/styles';
-import { red } from '@material-ui/core/colors';
 const decode = require('jwt-decode');
 const axios = require('axios');
+
 const url = `https://tenantly-back.herokuapp.com/alerts`;
 // const url = `http://localhost:9000/alerts`;
+const url2 = 'https://tenantly-back.herokuapp.com/stripe/charges'
 
 const styles = {
 	card: {
@@ -56,10 +53,15 @@ class tenantDashboard extends Component {
 		alerts: [],
 		address: '',
 		contact: '',
-		maintenancePhone: ''
+		maintenancePhone: '',
+		charges:[]
 	};
 
 	componentDidMount() {
+		// Stripe Data
+		axios.get(url2).then((response) => this.setState({ charges: response.data })).catch((error) => {
+			console.error('Server Error', error);
+		});
 		const token = localStorage.getItem('jwtToken');
 		const id = decode(token).userId;
 		// go into users to find which residence you live at
@@ -68,6 +70,7 @@ class tenantDashboard extends Component {
 			.then((user) => {
 				// console.log(user);
 				this.setState({ houseId: user.data.residenceId });
+				this.setState({ user: user.data.firstName });
 			})
  // go into users residence, grab some information and set it to state, grab owner of residence to supply rest of information
 			.then(
@@ -93,15 +96,49 @@ class tenantDashboard extends Component {
 				})
 			);
 	}
+
+	convertToTime =(e) =>{
+		const d = new Date(e * 1000)
+		return d.toLocaleString();
+}
+
+
 	render() {
+		var today = new Date()
+		var priorDate = new Date().setDate(today.getDate()-30)
+		priorDate = priorDate.toString();
+		console.log("Original data: ",priorDate);
+		priorDate = priorDate.slice(0, -3);
+		priorDate = parseInt(priorDate);
+		console.log("After truncate: ",priorDate);
 		
 		return (
-			<div className="tenant-dash" >
+			<div className="tenant-dash">
+			
 				<Grid item sm={12} className="tenant-button">
-					<Card>
-						<div className="outstanding">Outstanding Balance</div>
-						<div className="outstanding">-$350.00</div>
-					</Card>
+			
+			{/* This pulls the stripe info and the Outstanding payments for the user based on payments made in the last 30 days. */}
+				<StripeProvider apiKey="pk_test_uGZWgKZiorkYlZ8MsxYEIrA2">
+					<Paper elevation={1}>
+						{this.state.charges.map((charge) => 
+							<div>
+							{priorDate < charge.created && this.state.user === charge.billing_details.name &&
+							  <p>
+								{/* Prior date is {priorDate} charge made  {charge.created}. */}
+								{/* Current user {this.state.user} charge made to {charge.billing_details.name}. */}
+									<div className="outstanding">Outstanding Balance</div>
+									<div className="outstanding">${charge.amount - 120000}</div>
+							
+							  </p>
+							}
+						  </div>
+					
+						)}
+					</Paper>
+
+					</StripeProvider>
+
+			
 					<Card>
 						<Link to="/payments">
 							<Button variant="extended" color="default" className="dash-button">
@@ -160,6 +197,7 @@ class tenantDashboard extends Component {
 			</div>
 		);
 	}
+
 }
 
 tenantDashboard.propTypes = {
