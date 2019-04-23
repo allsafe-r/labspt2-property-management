@@ -743,6 +743,11 @@ body {
   }
 
 
+  .anchor-wrap {
+    margin-bottom: 50px;
+  }
+
+
   .bg-2-stretch .slide-2-frame .text .slide-title {
     font-size: 8vw;
 
