@@ -115,8 +115,10 @@ class App extends Component {
 					<div className="dashboard-container">
 						<div className="left-side">
 							<Route path="/" component={TenantSideMenu} />
+							
 						</div>
 						<div className="right-side">
+							<Route exact path="/" component={TenantDashboard} />
 							<Route exact path="/dashboard" component={TenantDashboard} logout={this.logOut} />
 							<Route exact path="/payments" component={TenantPayments} />
 							<Route exact path="/maintenance" component={Workorderform} />
