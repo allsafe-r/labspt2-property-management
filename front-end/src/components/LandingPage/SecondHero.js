@@ -3,9 +3,10 @@ import ScrollableAnchor from 'react-scrollable-anchor'
 
 const SecondHero = () => (
 
-<ScrollableAnchor id={'section1'}>
  <div className="Hero">
       <div className="intro-section">
+        <ScrollableAnchor id={'section1'}>
+
         <div className="bg-2-stretch">
         <div className="slide-2-frame">
 							<div className="text">
@@ -24,9 +25,9 @@ const SecondHero = () => (
       </div>
       </div>
       </div>
-      </div>
-      </div>
       </ScrollableAnchor>
+      </div>
+      </div>
 
 );
 
