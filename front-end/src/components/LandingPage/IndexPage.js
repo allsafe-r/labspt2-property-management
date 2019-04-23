@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 // import Wave from "./Wave";
+import ScrollableAnchor from 'react-scrollable-anchor'
+
 import "../../assets/css/general.css";
 
 const IndexPage = () => (
@@ -22,7 +24,7 @@ const IndexPage = () => (
       </div>
    
       <div class="anchor-wrap">
-					  <a href="#footer" className="anchor"><span></span></a>
+					  <a href="#section1" className="anchor"><span></span></a>
 				</div>
        </div>
         </div>

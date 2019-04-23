@@ -1,7 +1,9 @@
 import React from "react";
+import ScrollableAnchor from 'react-scrollable-anchor'
 
 const SecondHero = () => (
  <div className="Hero">
+  <ScrollableAnchor id={'section1'}>
       <div className="intro-section">
         <div className="bg-2-stretch">
         <div className="slide-2-frame">
@@ -22,6 +24,7 @@ const SecondHero = () => (
       </div>
       </div>
       </div>
+      </ScrollableAnchor>
       </div>
 );
 
