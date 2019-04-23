@@ -440,7 +440,6 @@ body {
   font-family: 'GTEestiDisplay-Medium',-apple-system,system-ui,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
   font-weight: 500;
   font-size: 4vw;
-  /* border: 1px solid red; */
   padding-bottom: 20px;
 
 
@@ -497,8 +496,8 @@ body {
   .Hero .intro-section {
     max-width: 100%;
     margin: 0 auto;
-    padding: 100px 0px 100px 0px;
     height: 72vh;
+    padding: 30px;
    
   
   }
@@ -689,6 +688,7 @@ body {
 		position: relative;
 	  min-height: 40vh;
     text-align: center;
+    padding: 30px;
     /* padding-top: 40px;
     padding-right: 20px;
     padding-left: 20px; */
@@ -703,7 +703,6 @@ body {
   .Hero .intro-section {
     max-width: 100%;
     margin: 0 auto;
-    padding: 100px 0px 100px 0px;
     height: 72vh;
    
   
@@ -713,7 +712,7 @@ body {
     background-image: url("../images/isthis3.png");
     background-size: cover;
     border: 2px solid black;
-    height: 86vh;
+    height: 70vh;
 
   }
 
@@ -749,6 +748,8 @@ body {
 
   .bg-2-stretch {
     border: 1px solid red;
+    height: 70vh;
+
     
   }
 
