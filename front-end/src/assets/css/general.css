@@ -494,6 +494,36 @@ body {
 
 @media (max-width: 375px) {
 
+  .intro-section {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 100px 0px 100px 0px;
+   
+  
+  }
+
+    .intro-section .bg-2-stretch {
+      /* background-image: url("../images/finaliphone678.png"); */
+      background-image: url("../images/Untitled-2.png");
+      background-size: contain;
+
+
+      
+    }  
+
+
+    .bg-2-stretch .slide-2-frame .text p {
+      display: none;
+    }  
+
+  .intro-section .bg-2-stretch {
+    background-image: url("../images/Untitled-2.png");
+    background-size: cover;
+
+  
+  }
+
+
 
   .anchor-wrap {
     padding-bottom: 50px;
@@ -536,9 +566,6 @@ body {
 
 
 
-    .bg-2-stretch .slide-2-frame .text {
-
-    }
 
   .bg-2-stretch .slide-2-frame .text .slide-title {
     font-size: 5.8vw;
@@ -674,8 +701,8 @@ body {
   }
 
   .intro-section .bg-stretch-2 {
-    background-image: url("../images/compguyiphonex.png");
-    background-size: contain;
+    background-image: url("../images/Untitled-2.png");
+    background-size: cover;
   
 
 
@@ -688,23 +715,37 @@ body {
   }
 
   .bg-stretch .slide-frame .text {
-    padding: 15px;
-    
+    padding: 15px;    
   
   }
+
+
 
   .bg-stretch .slide-frame .text .slide-title {
     font-size: 7.3vw;
   }
 
-  .bg-stretch .slide-frame .text p {
+  /* .bg-stretch .slide-frame .text p {
     padding-top: 10px;
     font-size: 2.5vw;
-  }
+  } */
 
   .bg-2-stretch .slide-2-frame .text p {
-    padding-top: 10px;
-    font-size: 2.5vw;
+    display: none;
+  }
+
+  .bg-2-stretch {
+  }
+
+  .bg-2-stretch .slide-2-frame .text {
+    padding: 0px 20px 0px 20px;
+
+  }
+
+
+  .bg-2-stretch .slide-2-frame .text .slide-title {
+    font-size: 8vw;
+
   }
 
 /*   
