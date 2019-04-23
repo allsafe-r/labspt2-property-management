@@ -518,7 +518,7 @@ body {
 
   .intro-section .bg-2-stretch {
     background-image: url("../images/Untitled-2.png");
-    background-size: cover;
+    background-size: contain;
 
   
   }
@@ -526,7 +526,7 @@ body {
 
 
   .anchor-wrap {
-    padding-bottom: 50px;
+    /* padding-bottom: 100px; */
   }
 }
 
