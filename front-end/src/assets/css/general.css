@@ -1163,6 +1163,12 @@ button[type="submit"] {
 }
 
 /* Billing */
+.Billing {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
 
 @media (max-width: 600px) {
   .Billing {
