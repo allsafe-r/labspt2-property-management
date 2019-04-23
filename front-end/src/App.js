@@ -108,9 +108,6 @@ class App extends Component {
 							<Route exact path="/workorders/form" component={Workorderform} />
 							<Route exact path="/settings" component={AdminSettings} />
 						</div>
-						{/* <Link to={'/'}> */}
-							{/* <button onClick={this.logOut}>Logout</button>
-						</Link> */} 
 					</div>
 				);
 			} else {
@@ -118,17 +115,15 @@ class App extends Component {
 					<div className="dashboard-container">
 						<div className="left-side">
 							<Route path="/" component={TenantSideMenu} />
+							
 						</div>
 						<div className="right-side">
+							<Route exact path="/" component={TenantDashboard} />
 							<Route exact path="/dashboard" component={TenantDashboard} logout={this.logOut} />
 							<Route exact path="/payments" component={TenantPayments} />
 							<Route exact path="/maintenance" component={Workorderform} />
 							<Route exact path="/settings" component={TenantSettings} />
 						</div>
-						  
-						{/* <Link to={'/'}>
-							<button onClick={this.logOut}>Logout</button>
-						</Link>  */}
 					</div>
 				);
 			}

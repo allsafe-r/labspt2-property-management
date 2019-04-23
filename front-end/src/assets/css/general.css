@@ -1555,6 +1555,12 @@ button[type="submit"] {
 }
 
 /* Billing */
+.Billing {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
 
 @media (max-width: 600px) {
   .Billing {
@@ -1587,4 +1593,32 @@ button[type="submit"] {
   top: 8px;
   right: 0;
   z-index: 300;
+}
+
+/* Tenant Dashboard */
+.tenant-dash {
+  display: flex;
+}
+@media(max-width:650px){
+  .tenant-dash {
+    display:block;
+  }
+}
+
+.tenant-dash .tenant-button div {
+  margin: 20px;
+  padding: 20px;
+}
+
+.dash-info {
+  margin-left: 10px;
+}
+
+.dash-button span {
+  font-size: 18px;
+}
+
+.tenant-button div .outstanding {
+  padding: 0px;
+  margin: 0px;
 }
