@@ -703,6 +703,7 @@ body {
   .intro-section .bg-stretch-2 {
     background-image: url("../images/Untitled-2.png");
     background-size: cover;
+    height: 30vh;
   
 
 
@@ -742,10 +743,13 @@ body {
 
   }
 
-
   .anchor-wrap {
-    margin-bottom: 50px;
+    margin-bottom: 100px;
+    border: 1px solid red;
   }
+
+
+
 
 
   .bg-2-stretch .slide-2-frame .text .slide-title {
