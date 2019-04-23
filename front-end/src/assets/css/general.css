@@ -711,7 +711,8 @@ body {
     /* background-image: url("../images/finaliphone678.png"); */
     background-image: url("../images/isthis3.png");
     background-size: cover;
-    height: 70vh;
+    border: 2px solid black;
+    height: 72vh;
 
   }
 
@@ -746,6 +747,7 @@ body {
   }
 
   .bg-2-stretch {
+    border: 1px solid red;
     height: 70vh;
 
     
