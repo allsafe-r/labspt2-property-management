@@ -113,9 +113,9 @@ class SideMenu extends Component {
 	};
 
 	// logOut = () => {
-	// 	localStorage.removeItem('jwtToken');
-	// 	this.setState({ loggedIn: false });
-	// 	this.props.history.push('/');
+	//   localStorage.removeItem("jwtToken");
+	//   this.setState({ loggedIn: false });
+	//   window.location.reload();
 	// };
 
 	render() {
@@ -180,18 +180,18 @@ class SideMenu extends Component {
 						<Divider />
 
 						<List>
-							<Link to={'/properties'}>
+							<Link to={'/properties'} className="list">
 								<ListItem button>
 									<ListItemIcon>
 										<FontAwesomeIcon icon={faBuilding} />
 									</ListItemIcon>
-									<ListItemText primary={'Properties'} />
+									<ListItemText primary={'Properties'} className="list-item" />
 								</ListItem>
 							</Link>
 						</List>
 
 						<List>
-							<Link to={'/worklist'}>
+							<Link to={'/worklist'} className="list">
 								<ListItem button>
 									<ListItemIcon>
 										<FontAwesomeIcon icon={faClipboard} />
@@ -202,7 +202,7 @@ class SideMenu extends Component {
 						</List>
 
 						<List>
-							<Link to={'/add-tenant'}>
+							<Link to={'/add-tenant'} className="list">
 								<ListItem button>
 									<ListItemIcon>
 										<FontAwesomeIcon icon={faUserPlus} />
@@ -213,7 +213,7 @@ class SideMenu extends Component {
 						</List>
 
 						<List>
-							<Link to={'/billing'}>
+							<Link to={'/billing'} className="list">
 								<ListItem button>
 									<ListItemIcon>
 										<FontAwesomeIcon icon={faFileInvoiceDollar} />
@@ -224,7 +224,7 @@ class SideMenu extends Component {
 						</List>
 
 						<List>
-							<Link to={'/settings'}>
+							<Link to={'/settings'} className="list">
 								<ListItem button>
 									<ListItemIcon>
 										<FontAwesomeIcon icon={faCog} />

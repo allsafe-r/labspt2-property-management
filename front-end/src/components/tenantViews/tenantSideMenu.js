@@ -176,7 +176,7 @@ class TenantSideMenu extends Component {
 						<Divider />
 
 						<List>
-							<Link to={'/dashboard'}>
+							<Link to={'/dashboard'} className="list">
 								<ListItem button>
 									<ListItemIcon>
 										<FontAwesomeIcon icon={faColumns} />
@@ -187,7 +187,7 @@ class TenantSideMenu extends Component {
 						</List>
 
 						<List>
-							<Link to={'/payments'}>
+							<Link to={'/payments'} className="list">
 								<ListItem button>
 									<ListItemIcon>
 										<FontAwesomeIcon icon={faMoneyCheckAlt} />
@@ -198,7 +198,7 @@ class TenantSideMenu extends Component {
 						</List>
 
 						<List>
-							<Link to={'/maintenance'}>
+							<Link to={'/maintenance'} className="list">
 								<ListItem button>
 									<ListItemIcon>
 										<FontAwesomeIcon icon={faHardHat} />
@@ -209,7 +209,7 @@ class TenantSideMenu extends Component {
 						</List>
 
 						<List>
-							<Link to={'/settings'}>
+							<Link to={'/settings'} className="list">
 								<ListItem button>
 									<ListItemIcon>
 										<FontAwesomeIcon icon={faCog} />
