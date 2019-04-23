@@ -9,6 +9,7 @@ const images = require('./images.js');
 const login = require('./login.js');
 const billing = require('./billinghistory.js');
 const errorHandler = require('../errorHandler/errors.js');
+const mail = require('./nodemailer.js');
 const server = express();
 const alerts = require('./alerts');
 
