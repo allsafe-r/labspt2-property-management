@@ -502,6 +502,11 @@ body {
   
   }
 
+  .intro-section .bg-stretch {
+    height: 70vh;
+
+  }
+
     .intro-section .bg-2-stretch {
       /* background-image: url("../images/finaliphone678.png"); */
       background-image: url("../images/Untitled-2.png");
@@ -525,8 +530,9 @@ body {
 
 
 
-  .anchor-wrap {
+   .bg-stretch .slide-frame .slide-title .anchor-wrap {
     /* padding-bottom: 100px; */
+    margin-bottom: -200px;
   }
 }
 
@@ -744,9 +750,16 @@ body {
   }
 
   .anchor-wrap {
-    margin-bottom: 100px;
-    border: 1px solid red;
+    /* padding-bottom: 100px; */
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    margin-bottom: -200px;
+    width: 100%;  
+     border: 1px solid red;
+
   }
+
 
 
 
