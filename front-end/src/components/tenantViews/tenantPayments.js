@@ -66,27 +66,16 @@ export default class tenantPayments extends Component {
 					<Paper elevation={1}>
 						{this.state.charges.map((charge) => 
 
-<div>						
+						<div>							
 						<CardHeader variant='h1' title={charge.billing_details.name}/>
 						<Divider/>
 						<Typography variant='h4'>Date: {this.convertToTime(charge.created)}</Typography>
 						<Divider/>
 						<Typography variant='h4' component='h2'>Amount Paid:${charge.amount}.00</Typography>
-						<Divider/>
-						
-
-						
-						
-</div>						
-						
-						
-						
+						<Divider/>					
+						</div>						
 						)}
-
-						
-
-
-                       </Paper>
+					</Paper>
 						</Card>				
 			</Grid>
 

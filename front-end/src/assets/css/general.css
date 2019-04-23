@@ -1173,7 +1173,35 @@ button[type="submit"] {
   z-index: 300;
 }
 
-/*tenant settings*/
+/* Tenant Dashboard */
+.tenant-dash {
+  display: flex;
+}
+@media (max-width: 650px) {
+  .tenant-dash {
+    display: block;
+  }
+}
+
+.tenant-dash .tenant-button div {
+  margin: 20px;
+  padding: 20px;
+}
+
+.dash-info {
+  margin-left: 10px;
+}
+
+.dash-button span {
+  font-size: 18px;
+}
+
+.tenant-button div .outstanding {
+  padding: 0px;
+  margin: 0px;
+}
+
+/*Fonts*/
 
 .font label {
   font-size: 0.7em;
