@@ -10,7 +10,9 @@
   height: 100vh;
   width: 100%;
 }
-
+.list span {
+  font-size: 0.8em;
+}
 .right-side {
   padding: 15px;
   margin-top: 80px;
@@ -349,7 +351,6 @@ body {
   .anchor-wrap {
     margin-bottom: 40px;
   }
-
 }
 
 /* Hero */
@@ -357,12 +358,11 @@ body {
   /* display: flex;
   flex-direction: column;
   /* background: url("../images/wallpaper9.png"); */
-  /* height: 920px; */ 
-  /* min-height: 100vh;
+/* height: 920px; */
+/* min-height: 100vh;
 
  
 } */
- 
 
 /* ========HOME PAGE =========*/
 
@@ -370,12 +370,10 @@ body {
 /* ==========FIRST HERO ==========*/
 
 .intro-section {
-	position: relative;
-	min-height: 100vh;
+  position: relative;
+  min-height: 100vh;
   text-align: center;
 }
-
-
 
 .bg-stretch {
 	position: absolute;
@@ -678,9 +676,8 @@ body {
 
 @media (max-width: 1024px) {
   .intro-section {
-		padding-top: 50px;
-	}
-
+    padding-top: 50px;
+  }
 }
 
 @media (max-width: 479px) {
@@ -775,7 +772,7 @@ body {
 
 /*   
   .intro-section .slide-frame .text h1 {
-    display:none;
+    display: none;
   }
 
   .intro-section .slide-frame .text p {
@@ -882,8 +879,6 @@ body {
   color: black;
 }
 
-
-
 .bg-stretch .slide-frame {
   display: block;
   /* margin-left: 100px; */
@@ -935,14 +930,11 @@ body {
     background-position: center;
     padding-top: 200px;
     align-items: flex-start;
-
   }
 
   .bg-stretch .text {
     align-items: flex-start;
-   
   }
-
 
   .Hero button {
     margin-top: 30px;
@@ -1093,25 +1085,23 @@ body {
 }
 
 @media (max-width: 1023px) {
-
   .anchor {
-		width: 50px;
-		height: 50px;
-	}
-
-	.anchor span {
-		top: 22px;
-		left: 13px;
+    width: 50px;
+    height: 50px;
   }
 
+  .anchor span {
+    top: 22px;
+    left: 13px;
+  }
 }
 
 @media (max-width: 767px) {
   .anchor {
-		width: 35px;
-		height: 35px;
+    width: 35px;
+    height: 35px;
   }
-  
+
   .anchor span {
 		top: 14px;
 		left: 7px;
@@ -1134,8 +1124,6 @@ body {
 
 
 }
-
-
 
 /*Body*/
 .titleCenter {
@@ -1407,7 +1395,9 @@ body {
   align-items: center;
   align-content: center;
   height: 500px;
-  width: 50%;
+  max-width: 400px;
+  width: 100%;
+  margin: 1em;
   justify-content: center;
   border-radius: 20px;
 }
@@ -1419,7 +1409,6 @@ body {
   align-content: center;
   justify-content: center;
   width: 70%;
-  
 }
 
 .form-container .logo-register {
@@ -1429,10 +1418,7 @@ body {
   align-content: center;
   justify-content: center;
   width: 60%;
-  
 }
-
-
 
 .form-container .user-container {
   margin: 10px;
@@ -1496,8 +1482,7 @@ button[type="submit"] {
 .login-p {
   text-align: center;
   /* padding-top: 8px; */
-  font-family: "Montserrat";
-  font-size: 0.8rem;
+  font-family: "Roboto";
 }
 
 .no-account {
@@ -1506,6 +1491,7 @@ button[type="submit"] {
   align-items: center;
   justify-content: center;
   align-content: center;
+  font-size: 0.6em;
 }
 
 .no-account .register-button {
@@ -1514,7 +1500,6 @@ button[type="submit"] {
   text-decoration: none;
   color: #fc766a;
   font-family: sans-serif;
-  font-size: 0.8rem;
   cursor: pointer;
   text-align: center;
   -webkit-appearance: none;
@@ -1530,7 +1515,7 @@ button[type="submit"] {
 }
 
 @media (max-width: 411px) {
- .logo-login{
+  .logo-login {
     width: 200px;
   }
 }
@@ -1547,14 +1532,14 @@ button[type="submit"] {
   width: 30%;
   display: flex;
   flex-direction: row;
-  justify-content:center;
+  justify-content: center;
   align-content: center;
   align-items: center;
+  font-size: 0.7em;
 }
 
 .register-radio-container .radio-p {
   font-family: "Montserrat";
-  font-size: 1.2vw;
   padding: 10px;
 }
 
@@ -1609,9 +1594,9 @@ button[type="submit"] {
 .tenant-dash {
   display: flex;
 }
-@media(max-width:650px){
+@media (max-width: 650px) {
   .tenant-dash {
-    display:block;
+    display: block;
   }
 }
 
@@ -1631,4 +1616,19 @@ button[type="submit"] {
 .tenant-button div .outstanding {
   padding: 0px;
   margin: 0px;
+}
+
+/*Fonts*/
+
+.font label {
+  font-size: 0.7em;
+  margin-top: 0.5em;
+}
+
+.font span {
+  font-size: 0.6em;
+}
+
+.fonts label {
+  font-size: 0.6em;
 }

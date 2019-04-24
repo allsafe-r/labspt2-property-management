@@ -89,7 +89,7 @@ const styles = (theme) => ({
 });
 
 class TenantSideMenu extends Component {
-	constructor() {
+	constructor(props) {
 		super();
 		this.state = {
 			admin: true,
@@ -105,11 +105,13 @@ class TenantSideMenu extends Component {
 		this.setState({ open: false });
 	};
 
-	logOut = () => {
-		localStorage.removeItem('jwtToken');
-		this.setState({ loggedIn: false });
-		window.location.reload();
-	};
+	// logOut = () => {
+	// 	console.log(this.props);
+	// 	localStorage.removeItem('jwtToken');
+	// 	this.setState({ loggedIn: false });
+	// 	this.props.history.push('/');
+	// 	// window.location.reload();
+	// };
 
 	render() {
 		const { loggedIn } = this.state;
@@ -144,7 +146,7 @@ class TenantSideMenu extends Component {
 									<img src={Logo} className="dashboardLogo" alt="Dash logo" />
 
 									<Link to={'/'} className="log-out">
-										<ListItem button onClick={this.logOut}>
+										<ListItem button onClick={this.props.logOut}>
 											<FontAwesomeIcon icon={faSignOutAlt} color="slategray" size="2x" />
 										</ListItem>
 									</Link>
@@ -174,7 +176,7 @@ class TenantSideMenu extends Component {
 						<Divider />
 
 						<List>
-							<Link to={'/dashboard'}>
+							<Link to={'/dashboard'} className="list">
 								<ListItem button>
 									<ListItemIcon>
 										<FontAwesomeIcon icon={faColumns} />
@@ -185,7 +187,7 @@ class TenantSideMenu extends Component {
 						</List>
 
 						<List>
-							<Link to={'/payments'}>
+							<Link to={'/payments'} className="list">
 								<ListItem button>
 									<ListItemIcon>
 										<FontAwesomeIcon icon={faMoneyCheckAlt} />
@@ -196,7 +198,7 @@ class TenantSideMenu extends Component {
 						</List>
 
 						<List>
-							<Link to={'/maintenance'}>
+							<Link to={'/maintenance'} className="list">
 								<ListItem button>
 									<ListItemIcon>
 										<FontAwesomeIcon icon={faHardHat} />
@@ -207,7 +209,7 @@ class TenantSideMenu extends Component {
 						</List>
 
 						<List>
-							<Link to={'/settings'}>
+							<Link to={'/settings'} className="list">
 								<ListItem button>
 									<ListItemIcon>
 										<FontAwesomeIcon icon={faCog} />
