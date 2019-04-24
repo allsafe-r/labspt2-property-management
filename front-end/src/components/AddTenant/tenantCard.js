@@ -4,6 +4,7 @@ import axios from "axios";
 import HouseApp from "./houseApp";
 
 const url = "https://tenantly-back.herokuapp.com/api/register";
+const mail = "http://localhost:9000/send";
 
 class TenantInfo extends Component {
   constructor(props) {
@@ -27,12 +28,27 @@ class TenantInfo extends Component {
     });
   };
 
+
+
   addTenant = e => {
     e.preventDefault();
     axios
       .post(url, this.state)
       .then(() => {
         console.log("working");
+        let email = { 
+          "name": this.state.firstName,
+          "email": this.state.email,
+          "password": this.state.password
+        }
+        axios
+            .post(mail, email)
+            .then(()=>{
+              console.log('sent');
+            })
+            .catch(err=> {
+              console.log({Error: err});
+            })
       })
       .catch(err => {
         console.log({ Error: err });
