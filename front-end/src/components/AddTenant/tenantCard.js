@@ -4,7 +4,7 @@ import axios from "axios";
 import HouseApp from "./houseApp";
 
 const url = "https://tenantly-back.herokuapp.com/api/register";
-const mail = "http://localhost:9000/send";
+const mail = "https://tenantly-back.herokuapp.com/send";
 
 class TenantInfo extends Component {
   constructor(props) {
@@ -39,7 +39,7 @@ class TenantInfo extends Component {
         let email = { 
           "name": this.state.firstName,
           "email": this.state.email,
-          "password": this.state.password
+          "password": this.state.phone
         }
         axios
             .post(mail, email)
