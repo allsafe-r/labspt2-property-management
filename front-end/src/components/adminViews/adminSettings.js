@@ -76,6 +76,7 @@ class AdminSettings extends Component {
 			alert('You new passwords do not match');
 		} else {
 			// If old password is entered AND new passwords match, then it continues to attempt update
+			console.log(this.state)
 			axios
 				.put(`https://tenantly-back.herokuapp.com/users/${id}`, {
 					...this.state,
@@ -145,7 +146,7 @@ class AdminSettings extends Component {
 				/>
 
 				<TextField
-					placeholder="Mew Password"
+					placeholder="New Password"
 					name="newPW1"
 					value={this.state.newPW1}
 					onChange={this.onChange}
