@@ -25,9 +25,12 @@ class EditProperty extends Component {
   }
 
   SingleProperty = () => {
-
     axios
-      .get(`https://tenantly-back.herokuapp.com/properties/${this.props.match.params.id}`)
+      .get(
+        `https://tenantly-back.herokuapp.com/properties/${
+          this.props.match.params.id
+        }`
+      )
       .then(response => {
         this.setState({
           houseId: response.data.houseId,
@@ -58,7 +61,7 @@ class EditProperty extends Component {
       .catch(err => {
         console.log(err);
       });
-    this.props.history.push(`/admin/view-property/${id}`);
+    this.props.history.push(`/view-property/${id}`);
   };
 
   handleInput = e => {
