@@ -6,6 +6,7 @@ import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 
 import axios from 'axios';
+const decode = require('jwt-decode');
 
 const styles = (theme) => ({
 	container: {
