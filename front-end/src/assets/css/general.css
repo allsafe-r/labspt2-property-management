@@ -172,8 +172,9 @@ body {
   z-index: 100;
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); */
   position: fixed;
+  /* 50px 0 */
   width: 100%;
-  padding: 50px 0;
+  padding: 30px 0;
   z-index: 100;
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
@@ -224,8 +225,12 @@ body {
   grid-template-columns: repeat(5, auto);
   align-items: center;
   justify-items: center;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif; */
+}
+
+.intro-section .slide-frame .text button {
+  /* background-color: ##FFBFBA */
 }
 
 .Header p {
@@ -359,6 +364,11 @@ body {
  
 } */
 
+/* ========HOME PAGE =========*/
+
+
+/* ==========FIRST HERO ==========*/
+
 .intro-section {
   position: relative;
   min-height: 100vh;
@@ -366,27 +376,294 @@ body {
 }
 
 .bg-stretch {
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  bottom: 0;
-  left: 0;
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	bottom: 0;
+	left: 0;
   right: 0;
-  background-size: cover;
-  background-repeat: no-repeat;
+  width: 100%;
+  height: auto;
+	background-size: contain;
+	background-repeat: no-repeat;
   background-position: 50% 50%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+
 }
 
-.intro-section .bg-stretch {
+.bg-2-stretch {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	bottom: 0;
+	left: 0;
+  right: 0;
   width: 100%;
-  /* height: 100vh; */
-  background-image: url("../images/wallpaper9.png");
-  background-size: cover;
-  background-repeat: no-repeat;
+  height: auto;
+	background-size: contain;
+	background-repeat: no-repeat;
   background-position: 50% 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+
+}
+
+
+.bg-2-stretch .slide-2-frame {
+  /* border: 10px solid red; */
+  display: block;
+  margin-right: 80px;
+
+}
+
+.bg-2-stretch .slide-2-frame .text {
+  margin-bottom: 200px;
+}
+
+.bg-2-stretch .slide-2-frame .text p {
+  font-size: 2vw;
+  line-height: 30px;
+  letter-spacing: 0.6px;
+  word-spacing: 20px;
+
+
+}
+
+
+.bg-2-stretch .slide-2-frame .text .slide-title {
+  font-family: 'GTEestiDisplay-Medium',-apple-system,system-ui,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
+  font-weight: 500;
+  font-size: 4vw;
+  padding-bottom: 20px;
+
+
+}
+
+.bg-2-stretch .slide-2-frame .text p {
+  padding-top: 5px;
+  font-size: 1vw;
+  opacity: .5;
+  font-family: 'GTEestiDisplay-Medium',-apple-system,system-ui,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
+  font-weight: 500;
+  color: rgb(46, 37, 37);
+  word-spacing: 1px;
+  line-height: 20px;
+
+
+}
+
+.bg-stretch .slide-frame .text p {
+  padding-top: 5px;
+  font-size: 1vw;
+  color: black;
+
+  /* color: gray;
+  opacity: .5; */
+  font-family: 'GTEestiDisplay-Medium',-apple-system,system-ui,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
+  font-weight: 500;
+
+}
+
+
+.intro-section .bg-stretch {
+	width: 100%;
+    /* height: 100vh; */
+    background-image: url("../images/finalhero.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    
+}
+
+.intro-section .bg-2-stretch {
+	  width: 100%;
+    background-image: url("../images/compguy.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background-position: 50% 50%; */
+    
+}
+    /* background-image: url("../images/iphonex_bg.png"); */
+
+@media (max-width: 375px) {
+
+  .Hero .intro-section {
+    max-width: 100%;
+    margin: 0 auto;
+    height: 72vh;
+    padding: 30px;
+   
+  
+  }
+
+  .bg-stretch {
+    height: 72vh;
+
+  }
+
+    .intro-section .bg-2-stretch {
+      /* background-image: url("../images/finaliphone678.png"); */
+      background-image: url("../images/Untitled-2.png");
+      background-size: contain;
+
+
+      
+    }  
+
+
+    .bg-2-stretch .slide-2-frame .text p {
+      display: none;
+    }  
+
+  .intro-section .bg-2-stretch {
+    background-image: url("../images/Untitled-2.png");
+    background-size: contain;
+
+  
+  }
+
+
+
+   .bg-stretch .slide-frame .slide-title .anchor-wrap {
+    /* padding-bottom: 100px; */
+    margin-bottom: -200px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .intro-section .bg-stretch {
+    /* background-image: url("../images/finalhero_ipad3.png"); */
+    /* background-image: url("../images/ipadhero.png"); */
+    background-image: url("../images/finalhero_ipad3.png");
+
+  }
+
+  .intro-section .bg-2-stretch {
+
+    background-image: url("../images/compguys.png");
+
+
+  }
+
+  .intro-section .bg-2-stretch {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 0 auto;
+  }
+  
+  .bg-2-stretch .slide-2-frame {
+    margin-right: 0px;
+    margin-bottom: 0px;
+  }
+
+  .bg-2-stretch .slide-2-frame .text {
+    text-align: center;
+    margin-top: -70px;
+
+  }
+
+
+
+
+  .bg-2-stretch .slide-2-frame .text .slide-title {
+    font-size: 5.8vw;
+
+    }
+
+
+ 
+  .anchor-wrap {
+    margin-bottom: 40px;
+  }
+  
+
+}
+
+@media (max-width: 1024px) {
+  .intro-section .bg-stretch {
+    /* background-image: url("../images/finalhero_ipadpro.png"); */
+     /* height: auto; 
+    width: auto;
+    margin: 0 auto;  */
+    /* background-image: url("../images/finalhero_ipad3.png"); */
+
+
+
+   } 
+/* 
+  .intro-section .bg-stretch-2 {
+    background-size: cover;
+    background-image: url("../images/compguys.png");
+    border: 10px solid red;
+  } */
+
+  .intro-section .bg-2-stretch {
+    /* background-image: url("../images/finalhero_ipad3.png"); */
+    /* background-image: url("../images/ipadhero.png"); */
+    background-image: url("../images/compguys.png");
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+  }
+
+ 
+
+  .bg-stretch {
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 85px;
+  }
+
+  .bg-2-stretch .slide-2-frame {
+    margin-right: 0px;
+  }
+
+  .slide-2-frame .text {
+    text-align: center;
+    padding-bottom: 20px;
+
+  }
+    .slide-frame .text .slide-title {
+    font-size: 6.5vw;
+  } 
+
+
+  .bg-2-stretch .slide-2-frame .text p {
+    color: gray;
+    font-size: 1.7vw;
+  }
+
+  .bg-2-stretch {
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 100px;
+  }
+
+    .slide-2-frame .text .slide-title {
+    font-size: 6vw;
+  } 
+
+  .bg-stretch .slide-frame .text p {
+    color: gray;
+    font-size: 1.7vw;
+  }
+
+  .bg-2-stretch .slide-2-frame .text p {
+    color: black;
+    font-size: 1.7vw;
+  }
+  
+  
+
+
 }
 
 /* 
@@ -395,10 +672,9 @@ body {
   text-align: center;
   width: 100%;
   height: 100%;
-  border: 1px solid red;
 } */
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .intro-section {
     padding-top: 50px;
   }
@@ -406,24 +682,132 @@ body {
 
 @media (max-width: 479px) {
   .intro-section {
-    min-height: 60vw;
-    padding-top: 40px;
+		position: relative;
+	  min-height: 40vh;
+    text-align: center;
+    padding: 30px;
+    /* padding-top: 40px;
+    padding-right: 20px;
+    padding-left: 20px; */
+
   }
 
+  /* .intro-section {
+    height: 300px;
+    border: 1px solid red;
+  } */
+
+  .Hero .intro-section {
+    max-width: 100%;
+    margin: 0 auto;
+    height: 72vh;
+   
+  
+  }
+  .intro-section .bg-stretch {
+    /* background-image: url("../images/finaliphone678.png"); */
+    background-image: url("../images/isthis3.png");
+    background-size: cover;
+    height: 72vh;
+
+  }
+
+  .intro-section .bg-stretch-2 {
+    background-image: url("../images/Untitled-2.png");
+    background-size: cover;
+    height: 100vh;
+
+  }
+  
+
+
+  .bg-stretch .slide-frame .text {
+    padding: 15px;    
+  
+  }
+
+
+
+  .bg-stretch .slide-frame .text .slide-title {
+    font-size: 7.3vw;
+  }
+
+  /* .bg-stretch .slide-frame .text p {
+    padding-top: 10px;
+    font-size: 2.5vw;
+  } */
+
+  .bg-2-stretch .slide-2-frame .text p {
+    display: none;
+  }
+
+  .bg-2-stretch .slide-2-frame .text .slide-title {
+
+  
+  }
+
+  .bg-2-stretch .slide-2-frame .text {
+    padding-top: 25px;
+
+  }
+
+  .anchor-wrap {
+    /* padding-bottom: 100px; */
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    width: 100%;  
+
+  }
+
+
+
+
+
+
+  .bg-2-stretch .slide-2-frame .text .slide-title {
+    font-size: 8vw;
+
+  }
+
+/*   
   .intro-section .slide-frame .text h1 {
     display: none;
   }
 
   .intro-section .slide-frame .text p {
-    display: none;
-  }
+    display:none;
 
-  .intro-section .slide-frame .text button {
-    display: none;
-  }
+  } */
+  
+  /* .intro-section .slide-frame .text button {
+    display:none;
+
+  } */
+
+    /* padding-bottom: 100px; */
+
+
   .anchor-wrap {
-    margin-bottom: -65px;
-  }
+   	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	position: absolute;
+	bottom: 25px;
+	left: 0;
+	width: 100%;
+}
+
+  
+
+
 }
 
 .jumbo {
@@ -437,12 +821,15 @@ body {
 
 .intro-section .bg-stretch p {
   font-size: 1.4vw;
+  font-weight: 1200;
 }
 
 .intro-section .bg-stretch h1 {
+  font-family: 'GTEestiDisplay-Medium',-apple-system,system-ui,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
+  font-weight: 500;
   margin: 0;
   color: black;
-  font-size: 4vw;
+  font-size: 3.3vw;
   line-height: 1.2;
   opacity: 0;
   animation: HeroAnimation;
@@ -494,21 +881,47 @@ body {
 
 .bg-stretch .slide-frame {
   display: block;
+  /* margin-left: 100px; */
+  margin: 0 80;
 }
 
 .bg-stretch .slide-frame {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
+
+}
+
+.bg-2-stretch .slide-2-frame {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   /* align-items: center; */
+
+
 }
+
+.bg-2-stretch .slide-2-frame {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+
+
+}
+
 
 .bg-stretch .text {
   padding-top: 0;
   align-items: center;
-}
+  padding:60px;
 
+}
+/* 
 @media (max-width: 650px) {
   .Hero .intro-section .bg-stretch {
     background: url("../images/wallpaper9_mobile.png");
@@ -542,7 +955,7 @@ body {
   .down-arrow {
     bottom: 0px;
   }
-}
+} */
 
 @keyframes HeroAnimation {
   0% {
@@ -593,17 +1006,17 @@ body {
 }
 
 .anchor:hover span {
-  -webkit-animation-duration: 4s;
-  animation-duration: 5s;
-  -webkit-animation-name: bounce;
-  animation-name: bounce;
-  -webkit-animation-timing-function: ease-in-out;
-  animation-timing-function: ease-in-out;
-  -webkit-animation-play-state: running;
-  animation-play-state: running;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-  will-change: translate;
+	/* -webkit-animation-duration: .9s;
+	animation-duration: .9s;
+	-webkit-animation-name: bounce;
+	animation-name: bounce;
+	-webkit-animation-timing-function: ease-in-out;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-play-state: running;
+	animation-play-state: running;
+	-webkit-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+	will-change: translate; */
 }
 
 .anchor span {
@@ -690,22 +1103,26 @@ body {
   }
 
   .anchor span {
-    top: 14px;
-    left: 7px;
-    width: 21px;
-    height: 10px;
+		top: 14px;
+		left: 7px;
+		width: 21px;
+		height: 10px;
   }
+  
+  
 
-  .anchor span:before,
-  .anchor span:after {
-    left: -1px;
-    width: 14px;
+	.anchor span:before,
+	.anchor span:after {
+		left: -1px;
+		width: 14px;
   }
+  
+  .anchor span:after {
+		left: auto;
+		right: -1px;
+	}
 
-  .anchor span:after {
-    left: auto;
-    right: -1px;
-  }
+
 }
 
 /*Body*/

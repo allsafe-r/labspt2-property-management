@@ -22,11 +22,12 @@ class Login extends Component {
 			.post(url, this.state)
 			.then((res) => {
 				localStorage.setItem('jwtToken', res.data.token);
-				// this.props.history.push('/');
+				this.props.history.push('/');
 				this.props.authenticate(res.data.isAdmin);
 			})
 			.catch((err) => {
-				console.log({ Error: err });
+				console.log(err);
+				alert('This e-mail and/or password does not match our records');
 			});
 	};
 
