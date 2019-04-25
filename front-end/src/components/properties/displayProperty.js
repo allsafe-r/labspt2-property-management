@@ -40,7 +40,7 @@ export default class DisplayProperty extends Component {
       .catch(err => {
         console.log(err);
       });
-    this.props.history.push("/admin");
+    this.props.history.push("/properties");
   };
 
   editProperty = e => {
