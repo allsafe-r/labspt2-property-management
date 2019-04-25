@@ -119,8 +119,40 @@
   flex-direction: row;
 }
 
-.buttons-container {
+.addProperty-container {
   display: flex;
+  flex-direction: column;
+}
+
+.addProperty-container form input {
+  padding: 1em;
+  margin: 0.5em;
+}
+
+.addProperty-container form input:hover {
+  border: 2px #fc766a solid;
+}
+.addProperty-container form input:focus {
+  border: 2px #fc766a solid;
+}
+
+.addProperty-container form button {
+  padding: 0.5em 1.5em;
+  font-size: 20px;
+  border: none;
+  background-color: #fc766a;
+  color: white;
+  font-weight: 700;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.addProperty-container form button:hover {
+  background-color: white;
+  color: #fc766a;
+  border: 1px solid #fc766a;
 }
 
 .noteInfo {
