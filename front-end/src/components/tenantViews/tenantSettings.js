@@ -221,6 +221,7 @@ class TenantSettings extends Component {
           className="fonts"
         />
         <Button
+          type="submit"
           variant="outlined"
           size="large"
           color="primary"
