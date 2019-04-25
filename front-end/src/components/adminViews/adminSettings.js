@@ -62,7 +62,8 @@ class AdminSettings extends Component {
 		e.preventDefault();
 
 		// grabbing ID off local storage to access specific user info
-		let id = localStorage.getItem('userId');
+		const token = localStorage.getItem('jwtToken');
+		const id = decode(token).userId;
 
 		// If the user enters old password without trying to change password, it throws warning
 		if (this.state.oldPW !== '' && this.state.newPW1 === '') {
