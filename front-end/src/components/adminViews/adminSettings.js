@@ -76,7 +76,6 @@ class AdminSettings extends Component {
 			alert('You new passwords do not match');
 		} else {
 			// If old password is entered AND new passwords match, then it continues to attempt update
-			console.log(this.state)
 			axios
 				.put(`https://tenantly-back.herokuapp.com/users/${id}`, {
 					...this.state,
