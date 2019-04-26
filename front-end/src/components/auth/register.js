@@ -31,8 +31,15 @@ class Register extends Component {
 
 	onSubmit = (e) => {
 		e.preventDefault();
+		const reg = {firstName: this.state.firstName,
+		lastName: this.state.lastName,
+		password: this.state.password,
+		isAdmin: this.state.isAdmin,
+		email: this.state.email,
+		phone: this.state.phone}
+
 		axios
-			.post(url, this.state)
+			.post(url, reg)
 			.then(() => {
 				this.props.history.push('/login');
 			})
