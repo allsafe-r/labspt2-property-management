@@ -31,23 +31,27 @@ class Register extends Component {
 
 	onSubmit = (e) => {
 		e.preventDefault();
-		const reg = {
-			firstName: this.state.firstName,
-			lastName: this.state.lastName,
-			password: this.state.password,
-			isAdmin: this.state.isAdmin,
-			email: this.state.email,
-			phone: this.state.phone
-		}
+		if(this.state.password !== this.state.password2) {
+			alert('Please double check that your passwords match')
+		} else {
+			const reg = {
+				firstName: this.state.firstName,
+				lastName: this.state.lastName,
+				password: this.state.password,
+				isAdmin: this.state.isAdmin,
+				email: this.state.email,
+				phone: this.state.phone
+			}
 
-		axios
-			.post(url, reg)
-			.then(() => {
-				this.props.history.push('/login');
-			})
-			.catch((err) => {
-				console.log({ Error: err });
-			});
+			axios
+				.post(url, reg)
+				.then(() => {
+					this.props.history.push('/login');
+				})
+				.catch((err) => {
+					console.log({ Error: err });
+				});
+		}
 	};
 
 	render() {
