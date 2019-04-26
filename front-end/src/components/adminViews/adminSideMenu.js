@@ -21,6 +21,8 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import adminProperties from './adminProperties';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
 	faSignOutAlt,
@@ -127,7 +129,7 @@ class SideMenu extends Component {
 			return (
 				<div className={classes.root}>
 					<CssBaseline />
-					{/* <Route exact path={'/'} component={LandingView} /> */}
+					<Route exact path={'/properties'} component={adminProperties} />
 					<AppBar
 						position="fixed"
 						className={classNames(classes.appBar, {
