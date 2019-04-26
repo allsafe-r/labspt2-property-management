@@ -124,7 +124,7 @@ class TenantSideMenu extends Component {
 			return (
 				<div className={classes.root}>
 					<CssBaseline />
-					<Route exact path={'/dashboard'} component={tenantDashboard} />
+					<Route exact path={'/dashboard'} />
 					<AppBar
 						position="fixed"
 						className={classNames(classes.appBar, {
