@@ -23,6 +23,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignOutAlt, faHardHat, faMoneyCheckAlt, faColumns, faCog } from '@fortawesome/free-solid-svg-icons';
+import tenantDashboard from './tenantDashboard'
 
 const drawerWidth = 200;
 
@@ -123,7 +124,7 @@ class TenantSideMenu extends Component {
 			return (
 				<div className={classes.root}>
 					<CssBaseline />
-					<Route exact path={'/'} component={LandingView} />
+					<Route exact path={'/dashboard'} component={tenantDashboard} />
 					<AppBar
 						position="fixed"
 						className={classNames(classes.appBar, {

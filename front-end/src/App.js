@@ -78,6 +78,7 @@ class App extends Component {
 		localStorage.removeItem('jwtToken');
 		this.setState({ loggedIn: false });
 		// this.props.history.push('/');
+		
 	};
 
 	render() {

@@ -127,7 +127,7 @@ class SideMenu extends Component {
 			return (
 				<div className={classes.root}>
 					<CssBaseline />
-					<Route exact path={'/'} component={LandingView} />
+					{/* <Route exact path={'/'} component={LandingView} /> */}
 					<AppBar
 						position="fixed"
 						className={classNames(classes.appBar, {
