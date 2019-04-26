@@ -11,6 +11,7 @@ class Register extends Component {
 		firstName: '',
 		lastName: '',
 		password: '',
+		password2: '',
 		isAdmin: false,
 		email: '',
 		phone: ''
@@ -79,6 +80,16 @@ class Register extends Component {
 							placeholder="Password"
 							name="password"
 							value={this.state.password}
+							onChange={this.onChange}
+							type="password"
+							required
+						/>
+					</div>
+					<div>
+						<input
+							placeholder="Confirm password"
+							name="password2"
+							value={this.state.password2}
 							onChange={this.onChange}
 							type="password"
 							required
