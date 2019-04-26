@@ -58,13 +58,30 @@ class AdminSettings extends Component {
 		this.setState({ [e.target.name]: e.target.value });
 	};
 
+	emailCheck = (email) => {
+		if(email.length > 40) {
+			alert('Your e-mail can be a max of 40 characters')
+			return false;
+		} else if (!email.indexOf('.com') || !email.indexOf('@')) {
+			alert('Please enter a valid e-mail address')
+			return false;
+		} else return true
+	}
+
 	onSubmit = (e) => {
 		e.preventDefault();
 
 		// grabbing ID off local storage to access specific user info
 		const token = localStorage.getItem('jwtToken');
 		const id = decode(token).userId;
-
+		
+		if(this.state.email.length > 40) {
+			alert('Your e-mail can be a max of 40 characters')
+			return false;
+		} else if (this.state.email.indexOf('.com') < 0 || this.state.email.indexOf('@') < 0) {
+			alert('Please enter a valid e-mail address')
+			return false;
+		} else{
 		// If the user enters old password without trying to change password, it throws warning
 		if (this.state.oldPW !== '' && this.state.newPW1 === '') {
 			alert('Only enter in your old password if you want to change your password');
@@ -90,7 +107,7 @@ class AdminSettings extends Component {
 					console.log(err);
 				})
 				.then(this.setState({ oldPW: '', newPW1: '', newPW2: '' }));
-		}
+		}}
 	};
 
 	handleCheckboxChange = (e) => {
