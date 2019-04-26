@@ -98,7 +98,7 @@ class App extends Component {
 						<Route path="/" render={() => <SideMenu logOut={this.logOut} />} />
 					</div>
 					<div className="right-side">
-						<Route path="/properties" component={PropertyList} />
+						<Route path="/" component={PropertyList} />
 						<Route exact path="/billing" component={Billing} />
 						<Route path="/worklist" component={Workorderlist} />
 						<Route path="/view-property/:id" component={DisplayProperty} />
@@ -117,7 +117,7 @@ class App extends Component {
 						<Route path="/" render={() => <TenantSideMenu logOut={this.logOut} />} />
 					</div>
 					<div className="right-side">
-						<Route path="/dashboard" component={TenantDashboard} />
+						<Route path="/" component={TenantDashboard} />
 						<Route exact path="/payments" component={TenantPayments} />
 						<Route exact path="/maintenance" component={Workorderform} />
 						<Route exact path="/settings" component={TenantSettings} />
