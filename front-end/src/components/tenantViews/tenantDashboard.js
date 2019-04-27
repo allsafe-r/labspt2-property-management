@@ -55,7 +55,7 @@ class tenantDashboard extends Component {
 		contact: '',
 		maintenancePhone: '',
 		charges:[],
-		cost: 400,
+		cost: '',
 	};
 
 	componentDidMount() {
@@ -67,11 +67,13 @@ class tenantDashboard extends Component {
 		const id = decode(token).userId;
 		// go into users to find which residence you live at
 		axios
-			.get(`https://tenantly-back.herokuapp.com/users/${id}`)
+			// .get(`https://tenantly-back.herokuapp.com/users/${id}`)
+			.get(`http://localhost:9000/users/${id}`)
 			.then((user) => {
 				// console.log(user);
 				this.setState({ houseId: user.data.residenceId });
 				this.setState({ user: user.data.firstName });
+				this.setState({ cost: user.data.cost });
 			})
  // go into users residence, grab some information and set it to state, grab owner of residence to supply rest of information
 			.then(
@@ -121,7 +123,7 @@ class tenantDashboard extends Component {
 			{/* This pulls the stripe info and the Outstanding payments for the user based on payments made in the last 30 days. */}
 				<StripeProvider apiKey="pk_test_uGZWgKZiorkYlZ8MsxYEIrA2">
 					<Paper elevation={1}>
-					 <p>{this.state.cost}</p>
+					<p>{this.state.user}</p>
 						{this.state.charges.map((charge) => 
 							<div>
 							{priorDate < charge.created && this.state.user === charge.billing_details.name &&
@@ -129,7 +131,7 @@ class tenantDashboard extends Component {
 								{/* Prior date is {priorDate} charge made  {charge.created}. */}
 								{/* Current user {this.state.user} charge made to {charge.billing_details.name}. */}
 									<div className="outstanding">Outstanding Balance</div>
-									<div className="outstanding">${charge.amount - this.state.cost}</div>
+									<div className="outstanding">${this.state.cost}</div>
 							
 							  </p>
 							}
