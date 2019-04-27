@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import axios from 'axios';
 import './../WorkOrders/workorders.css';
+const decode = require('jwt-decode');
 
 
 const url = 'https://tenantly-back.herokuapp.com/stripe/charges'
@@ -28,6 +29,13 @@ export default class tenantPayments extends Component {
 		axios.get(url).then((response) => this.setState({ charges: response.data })).catch((error) => {
 			console.error('Server Error', error);
 		});
+		const token = localStorage.getItem('jwtToken');
+		const id = decode(token).userId;
+		axios
+			.get(`https://tenantly-back.herokuapp.com/users/${id}`)
+			.then((user) => {
+				this.setState({ user: user.data.firstName });
+			})
 	}
 	
 
@@ -65,7 +73,8 @@ export default class tenantPayments extends Component {
 					<Card>
 					<Paper elevation={1}>
 						{this.state.charges.map((charge) => 
-
+						<div>
+							{this.state.user === charge.billing_details.name &&
 						<div>							
 						<CardHeader variant='h1' title={charge.billing_details.name}/>
 						<Divider/>
@@ -73,7 +82,9 @@ export default class tenantPayments extends Component {
 						<Divider/>
 						<Typography variant='h4' component='h2'>Amount Paid:${charge.amount}.00</Typography>
 						<Divider/>					
-						</div>						
+						</div>	
+							}
+							</div>					
 						)}
 					</Paper>
 						</Card>				
