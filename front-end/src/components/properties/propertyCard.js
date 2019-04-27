@@ -24,7 +24,7 @@ const PropertyCard = props => {
   const { classes } = props;
   return (
     <Card className={classes.root}>
-      <Link to={`/admin/view-property/${props.id}`}>
+      <Link to={`/view-property/${props.id}`}>
         <h1>{props.name}</h1>
         <h1>{props.address}</h1>
         <h1>{props.city}</h1>
