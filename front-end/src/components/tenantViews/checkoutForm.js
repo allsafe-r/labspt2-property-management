@@ -81,7 +81,7 @@ class CheckoutForm extends Component {
   
     return (
       <div className="checkoutform">
-        <Input placeholder="name" name="name" value={this.state.name} onChange={this.inputHandler} className='checkoutinput'/>
+        <Input placeholder="name" name="name" value={this.state.name}  className='checkoutinput'/>
         <CardElement className='checkout-line' style={{base: {fontSize: '18px'}}} />
         <Button variant='contained' color='primary' className='button' onClick={this.submit}>Pay ${this.state.cost/100}</Button>
       </div>
