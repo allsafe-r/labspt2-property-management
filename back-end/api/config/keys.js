@@ -5,5 +5,9 @@ module.exports = {
 	},
 	postgres: {
 		postgresURI: 'http://tenantly-back.herokuapp.com'
+	},
+	nodemailer: {
+		USER: 'alexie.kuhlman44@ethereal.email', 
+		PASS: '97amWB6yG9wjshcbTP'
 	}
 };

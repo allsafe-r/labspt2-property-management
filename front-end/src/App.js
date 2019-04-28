@@ -8,7 +8,7 @@ import { logPageView } from "./utils/analytics";
 import { initGA } from "./utils/analytics";
 import LandingView from "./components/LandingPage/LandingView";
 import { Route } from "react-router-dom";
-import { Link } from "react-router-dom";
+// import { Link } from 'react-router-dom';
 import PropertyList from "./components/properties/propertyList";
 import TenantSideMenu from "./components/tenantViews/tenantSideMenu";
 import SideMenu from "./components/adminViews/adminSideMenu";
@@ -37,7 +37,7 @@ const decode = require("jwt-decode");
 
 class App extends Component {
   state = {
-    loggedIn: false
+    loggedIn: null
   };
 
   componentDidMount() {
@@ -46,8 +46,7 @@ class App extends Component {
     this.authenticate();
   }
 
-  authenticate = admin => {
-    // console.log(admin.isAdmin)
+  authenticate = () => {
     const token = localStorage.getItem("jwtToken");
     const auth = {
       headers: {
@@ -78,6 +77,7 @@ class App extends Component {
     console.log("logged out");
     localStorage.removeItem("jwtToken");
     this.setState({ loggedIn: false });
+    // this.props.history.push('/');
   };
 
   render() {
@@ -96,47 +96,42 @@ class App extends Component {
           />
         </div>
       );
-    } else {
-      if (this.isAdmin()) {
-        return (
-          <div className="dashboard-container">
-            <div className="left-side">
-              <Route path="/" component={SideMenu} logout={this.logOut} />
-            </div>
-            <div className="right-side">
-              <Route exact path="/properties" component={PropertyList} />
-              <Route exact path="/billing" component={Billing} />
-              <Route path="/worklist" component={Workorderlist} />
-              <Route path="/view-property/:id" component={DisplayProperty} />
-              <Route path="/add-property" component={AddProperty} />
-              <Route exact path="/add-tenant" component={AddTenant} />
-              <Route exact path="/edit/:id" component={EditProperty} />
-              <Route exact path="/workorders/form" component={Workorderform} />
-              <Route exact path="/settings" component={AdminSettings} />
-            </div>
+    } else if (this.isAdmin()) {
+      return (
+        <div className="dashboard-container">
+          <div className="left-side">
+            <Route path="/" render={() => <SideMenu logOut={this.logOut} />} />
           </div>
-        );
-      } else {
-        return (
-          <div className="dashboard-container">
-            <div className="left-side">
-              <Route path="/" component={TenantSideMenu} />
-            </div>
-            <div className="right-side">
-              <Route exact path="/" component={TenantDashboard} />
-              <Route
-                exact
-                path="/dashboard"
-                component={TenantDashboard}
-                logout={this.logOut}
-              />
-              <Route exact path="/payments" component={TenantPayments} />
-              <Route exact path="/maintenance" component={Workorderform} />
-              <Route exact path="/settings" component={TenantSettings} />
-            </div>
+          <div className="right-side">
+            <Route path="/properties" component={PropertyList} />
+            <Route exact path="/billing" component={Billing} />
+            <Route path="/worklist" component={Workorderlist} />
+            <Route path="/view-property/:id" component={DisplayProperty} />
+            <Route path="/add-property" component={AddProperty} />
+            <Route exact path="/add-tenant" component={AddTenant} />
+            <Route exact path="/edit/:id" component={EditProperty} />
+            <Route exact path="/workorders/form" component={Workorderform} />
+            <Route exact path="/settings" component={AdminSettings} />
           </div>
-        );
-      }
+        </div>
+      );
+    } else if (!this.isAdmin()) {
+      return (
+        <div className="dashboard-container">
+          <div className="left-side">
+            <Route
+              path="/"
+              render={() => <TenantSideMenu logOut={this.logOut} />}
+            />
+          </div>
+          <div className="right-side">
+            <Route path="/dashboard" component={TenantDashboard} />
+            <Route exact path="/payments" component={TenantPayments} />
+            <Route exact path="/maintenance" component={Workorderform} />
+            <Route exact path="/settings" component={TenantSettings} />
+          </div>
+        </div>
+      );
     }
   }
 }

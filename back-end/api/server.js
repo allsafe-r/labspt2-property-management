@@ -9,6 +9,7 @@ const images = require('./images.js');
 const login = require('./login.js');
 const billing = require('./billinghistory.js');
 const errorHandler = require('../errorHandler/errors.js');
+const mail = require('./nodemailer.js');
 const server = express();
 const alerts = require('./alerts');
 
@@ -22,6 +23,7 @@ server.use('/api', login);
 server.use('/images', images);
 server.use('/alerts', alerts);
 server.use('/billing', billing);
+server.use('/send', mail);
 
 server.get('/', (req, res) => {
 	res.status(200).send('Hi');
