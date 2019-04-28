@@ -106,7 +106,7 @@ class TenantSettings extends Component {
           .catch(err => {
             console.log(err);
             alert('That e-mail or phone number already exists in our system')
-          });
+          })
           .then(this.setState({ oldPW: "", newPW1: "", newPW2: "" }));
       }
   };
