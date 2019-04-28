@@ -353,16 +353,19 @@
 }
 
 .edit-rightSide button {
-  padding: 3.5em 1.5em;
-  font-size: 20px;
+  padding: 2.9em 1.2em;
+  font-size: 1em;
   border: none;
   border: 1px solid #fc766a;
   color: #fc766a;
-  font-weight: 700;
   border-radius: 10px;
   outline: none;
   cursor: pointer;
   transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.edit-rightSide button {
+  font-size: 1.2em;
+  font-family: Robot;
 }
 .edit-rightSide button:hover {
   background-color: #fc766a;

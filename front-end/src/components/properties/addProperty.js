@@ -42,7 +42,7 @@ class AddProperty extends Component {
       .catch(err => {
         console.log("Error", err);
       });
-    this.props.history.push(`/dashboard`);
+    this.props.history.push(`/properties`);
   };
 
   inputHandler = e => {

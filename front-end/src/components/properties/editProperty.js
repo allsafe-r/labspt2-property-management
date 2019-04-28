@@ -167,7 +167,7 @@ class EditProperty extends Component {
             </div>
           </div>
           <div className="edit-rightSide">
-            <button type="submit">Save</button>
+            <button>Save</button>
           </div>
         </form>
       </div>
