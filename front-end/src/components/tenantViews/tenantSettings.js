@@ -152,7 +152,7 @@ class TenantSettings extends Component {
           onChange={this.onChange}
           className="font"
           type="email"
-          pattern=".+@globex.com" 
+          // pattern=".+@globex.com" 
 					size="30"
           required
         />

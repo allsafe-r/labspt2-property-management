@@ -134,7 +134,7 @@ class AdminSettings extends Component {
 					placeholder="E-mail"
 					name="email"
 					type="email"
-       				pattern=".+@globex.com" 
+       				// pattern=".+@globex.com" 
 					size="30"
 					value={this.state.email}
 					onChange={this.onChange}

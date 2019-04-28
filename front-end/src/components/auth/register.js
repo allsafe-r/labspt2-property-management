@@ -113,11 +113,10 @@ class Register extends Component {
 						<input
 							placeholder="E-mail"
 							name="email"
+							type="email"
+							size="30"
 							value={this.state.email}
 							onChange={this.onChange}
-							type="email"
-							pattern=".+@globex.com" 
-							size="30"
 							required
 						/>
 					</div>
