@@ -57,25 +57,64 @@ export default class DisplayProperty extends Component {
 
   render() {
     return (
-      <div className="property">
-        <button onClick={this.editProperty}>Edit</button>
-        <button onClick={this.showModal}>Delete</button>
-        <div className="propertyBody">
-          <h1>Name: {this.state.property.propertyName}</h1>
-          <h1>Address:{this.state.property.propertyAddress}</h1>
-          <h1>City: {this.state.property.propertyCity}</h1>
-          <h1>Zipcode: {this.state.property.propertyZipcode}</h1>
-          <h1>Sqft" {this.state.property.sqFt}</h1>
-          <h1>Bed #: {this.state.property.bedrooms}</h1>
-          <h1>Bathroom #: {this.state.property.bathrooms}</h1>
-          <h1>Year Built: {this.state.property.yearBuilt}</h1>
+      <div className="property-display">
+        <div className="options-right">
+          <button
+            className=" filled-button edit-button"
+            onClick={this.editProperty}
+          >
+            Edit
+          </button>
+          <button className=" notFilled-button" onClick={this.showModal}>
+            Delete
+          </button>
         </div>
+
         {this.state.show ? (
           <DeleteModal
             deleteNote={this.deleteProperty}
             hideModal={this.hideModal}
           />
         ) : null}
+
+        <div className="property-body">
+          <div className="propertyBody-left">
+            <div className="propertyBody-info">
+              <h1>Name: </h1>
+              <p>{this.state.property.propertyName}</p>
+            </div>
+            <div className="propertyBody-info">
+              <h1>Address:</h1>
+              <p>{this.state.property.propertyAddress}</p>
+            </div>
+            <div className="propertyBody-info">
+              <h1>City: </h1>
+              <p>{this.state.property.propertyCity}</p>
+            </div>
+            <div className="propertyBody-info">
+              <h1>Zipcode: </h1>
+              <p>{this.state.property.propertyZipcode}</p>
+            </div>
+          </div>
+          <div className="propertyBody-right">
+            <div className="propertyBody-info">
+              <h1>Sqft" </h1>
+              <p>{this.state.property.sqFt}</p>
+            </div>
+            <div className="propertyBody-info">
+              <h1>Bed #: </h1>
+              <p>{this.state.property.bedrooms}</p>
+            </div>
+            <div className="propertyBody-info">
+              <h1>Bathroom #:</h1>
+              <p> {this.state.property.bathrooms}</p>
+            </div>
+            <div className="propertyBody-info">
+              <h1>Year Built: </h1>
+              <p>{this.state.property.yearBuilt}</p>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
