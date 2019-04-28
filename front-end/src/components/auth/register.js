@@ -48,9 +48,10 @@ class Register extends Component {
 				.then(() => {
 					this.props.history.push('/login');
 				})
-				.catch((err) => {
-					console.log({ Error: err });
-				});
+				.catch(err => {
+					console.log(err);
+					alert('That e-mail or phone number already exists in our system')
+				})
 		}
 	};
 
