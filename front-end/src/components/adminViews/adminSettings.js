@@ -133,7 +133,7 @@ class AdminSettings extends Component {
 				<TextField
 					placeholder="E-mail"
 					name="email"
-					type="email" id="email"
+					type="email"
        				pattern=".+@globex.com" 
 					size="30"
 					value={this.state.email}
