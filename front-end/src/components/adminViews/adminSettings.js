@@ -75,13 +75,6 @@ class AdminSettings extends Component {
 		const token = localStorage.getItem('jwtToken');
 		const id = decode(token).userId;
 		
-		if(this.state.email.length > 40) {
-			alert('Your e-mail can be a max of 40 characters')
-			return false;
-		} else if (this.state.email.indexOf('.com') < 0 || this.state.email.indexOf('@') < 0) {
-			alert('Please enter a valid e-mail address')
-			return false;
-		} else {
 		// If the user enters old password without trying to change password, it throws warning
 			if (this.state.oldPW !== '' && this.state.newPW1 === '') {
 				alert('Only enter in your old password if you want to change your password');
@@ -108,7 +101,6 @@ class AdminSettings extends Component {
 					})
 					.then(this.setState({ oldPW: '', newPW1: '', newPW2: '' }));
 			}
-		}
 	};
 
 	handleCheckboxChange = (e) => {
@@ -141,9 +133,11 @@ class AdminSettings extends Component {
 				<TextField
 					placeholder="E-mail"
 					name="email"
+					type="email" id="email"
+       				pattern=".+@globex.com" 
+					size="30"
 					value={this.state.email}
 					onChange={this.onChange}
-					type="text"
 					required
 				/>
 				<TextField
