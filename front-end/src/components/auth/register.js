@@ -114,7 +114,9 @@ class Register extends Component {
 							name="email"
 							value={this.state.email}
 							onChange={this.onChange}
-							type="text"
+							type="email"
+							pattern=".+@globex.com" 
+							size="30"
 							required
 						/>
 					</div>
