@@ -62,7 +62,10 @@ class TenantSettings extends Component {
           emailSubscribe: user.data.emailSubscribe
         });
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+        console.log(err);
+        alert('That e-mail or phone number already exists in our system')
+      });
   }
 
   onChange = e => {
