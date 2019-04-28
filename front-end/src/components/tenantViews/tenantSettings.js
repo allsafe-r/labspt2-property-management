@@ -151,7 +151,9 @@ class TenantSettings extends Component {
           value={this.state.email}
           onChange={this.onChange}
           className="font"
-          type="text"
+          type="email"
+          pattern=".+@globex.com" 
+					size="30"
           required
         />
         <TextField
