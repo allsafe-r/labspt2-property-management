@@ -283,31 +283,91 @@
 }
 
 /*Edit Property*/
-.textarea form input {
+
+.edit-property {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.edit-property h1 {
+  font-size: 1.3em;
+}
+.edit-property form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-size: 0.9em;
+  margin-top: 1em;
+}
+.edit-leftSide {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-rightSide {
+  width: 20%;
+  display: flex;
+
+  align-items: center;
+}
+
+.edit-topInfo {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.edit-botInfo {
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+}
+
+.input-info h1 {
+  margin: 0 auto;
+}
+
+.input-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.edit-property form input {
   padding: 1em;
   margin: 0.5em;
   border: 0;
   border-bottom: 0.1em solid black;
 }
 
-.textarea form input:hover {
+.edit-property form input:hover {
   border-bottom: 2px #fc766a solid;
 }
-.textarea form input:focus {
+.edit-property form input:focus {
   border: 2px #fc766a solid;
 }
 
-.textarea form button {
-  padding: 0.5em 1.5em;
+.edit-rightSide button {
+  padding: 3.5em 1.5em;
   font-size: 20px;
   border: none;
-  background-color: #fc766a;
-  color: white;
+  border: 1px solid #fc766a;
+  color: #fc766a;
   font-weight: 700;
   border-radius: 10px;
   outline: none;
   cursor: pointer;
   transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.edit-rightSide button:hover {
+  background-color: #fc766a;
+  border-color: white;
+  color: white;
 }
 .noteInfo {
   padding: 10px;

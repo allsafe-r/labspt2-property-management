@@ -80,37 +80,37 @@ export default class DisplayProperty extends Component {
         <div className="property-body">
           <div className="propertyBody-left">
             <div className="propertyBody-info">
-              <h1>Name: </h1>
+              <h1>Name </h1>
               <p>{this.state.property.propertyName}</p>
             </div>
             <div className="propertyBody-info">
-              <h1>Address:</h1>
+              <h1>Address</h1>
               <p>{this.state.property.propertyAddress}</p>
             </div>
             <div className="propertyBody-info">
-              <h1>City: </h1>
+              <h1>City </h1>
               <p>{this.state.property.propertyCity}</p>
             </div>
             <div className="propertyBody-info">
-              <h1>Zipcode: </h1>
+              <h1>Zipcode </h1>
               <p>{this.state.property.propertyZipcode}</p>
             </div>
           </div>
           <div className="propertyBody-right">
             <div className="propertyBody-info">
-              <h1>Sqft" </h1>
+              <h1>Sq. Ft. </h1>
               <p>{this.state.property.sqFt}</p>
             </div>
             <div className="propertyBody-info">
-              <h1>Bed #: </h1>
+              <h1>Beds </h1>
               <p>{this.state.property.bedrooms}</p>
             </div>
             <div className="propertyBody-info">
-              <h1>Bathroom #:</h1>
+              <h1>Baths</h1>
               <p> {this.state.property.bathrooms}</p>
             </div>
             <div className="propertyBody-info">
-              <h1>Year Built: </h1>
+              <h1>Year Built </h1>
               <p>{this.state.property.yearBuilt}</p>
             </div>
           </div>
