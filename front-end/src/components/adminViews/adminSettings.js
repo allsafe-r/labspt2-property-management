@@ -58,37 +58,56 @@ class AdminSettings extends Component {
 		this.setState({ [e.target.name]: e.target.value });
 	};
 
+	emailCheck = (email) => {
+		if(email.length > 40) {
+			alert('Your e-mail can be a max of 40 characters')
+			return false;
+		} else if (!email.indexOf('.com') || !email.indexOf('@')) {
+			alert('Please enter a valid e-mail address')
+			return false;
+		} else return true
+	}
+
 	onSubmit = (e) => {
 		e.preventDefault();
 
 		// grabbing ID off local storage to access specific user info
-		let id = localStorage.getItem('userId');
-
-		// If the user enters old password without trying to change password, it throws warning
-		if (this.state.oldPW !== '' && this.state.newPW1 === '') {
-			alert('Only enter in your old password if you want to change your password');
-		} else if (this.state.oldPW === '' && this.state.newPW1 !== '') {
-			// If they try to create a new password without entering old password
-			alert('Please enter your previous password to update to new password');
-		} else if (this.state.oldPW !== '' && this.state.newPW1 !== '' && this.state.newPW1 !== this.state.newPW2) {
-			// If new passwords do not match it throws error
-			alert('You new passwords do not match');
+		const token = localStorage.getItem('jwtToken');
+		const id = decode(token).userId;
+		
+		if(this.state.email.length > 40) {
+			alert('Your e-mail can be a max of 40 characters')
+			return false;
+		} else if (this.state.email.indexOf('.com') < 0 || this.state.email.indexOf('@') < 0) {
+			alert('Please enter a valid e-mail address')
+			return false;
 		} else {
-			// If old password is entered AND new passwords match, then it continues to attempt update
-			axios
-				.put(`https://tenantly-back.herokuapp.com/users/${id}`, {
-					...this.state,
-					id: parseInt(id)
-				})
-				// .put(`http://www.localhost:9000/users/${id}`, { ...this.state, id: parseInt(id) })
-				.then((res) => {
-					console.log(res);
-					alert(res.data.message);
-				})
-				.catch((err) => {
-					console.log(err);
-				})
-				.then(this.setState({ oldPW: '', newPW1: '', newPW2: '' }));
+		// If the user enters old password without trying to change password, it throws warning
+			if (this.state.oldPW !== '' && this.state.newPW1 === '') {
+				alert('Only enter in your old password if you want to change your password');
+			} else if (this.state.oldPW === '' && this.state.newPW1 !== '') {
+				// If they try to create a new password without entering old password
+				alert('Please enter your previous password to update to new password');
+			} else if (this.state.oldPW !== '' && this.state.newPW1 !== '' && this.state.newPW1 !== this.state.newPW2) {
+				// If new passwords do not match it throws error
+				alert('You new passwords do not match');
+			} else {
+				// If old password is entered AND new passwords match, then it continues to attempt update
+				axios
+					.put(`https://tenantly-back.herokuapp.com/users/${id}`, {
+						...this.state,
+						id: parseInt(id)
+					})
+					// .put(`http://www.localhost:9000/users/${id}`, { ...this.state, id: parseInt(id) })
+					.then((res) => {
+						console.log(res);
+						alert(res.data.message);
+					})
+					.catch((err) => {
+						console.log(err);
+					})
+					.then(this.setState({ oldPW: '', newPW1: '', newPW2: '' }));
+			}
 		}
 	};
 
@@ -144,7 +163,7 @@ class AdminSettings extends Component {
 				/>
 
 				<TextField
-					placeholder="Mew Password"
+					placeholder="New Password"
 					name="newPW1"
 					value={this.state.newPW1}
 					onChange={this.onChange}
@@ -157,7 +176,7 @@ class AdminSettings extends Component {
 					onChange={this.onChange}
 					type="password"
 				/>
-				<Button variant="contained" size="large" color="secondary" className={classes.margin}>
+				<Button type="submit" variant="contained" size="large" color="secondary" className={classes.margin}>
 					Update
 				</Button>
 			</form>
