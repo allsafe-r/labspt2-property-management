@@ -1804,6 +1804,9 @@ button[type="submit"] {
 }
 
 /*Icons*/
+.ring-container {
+  margin: 0 auto;
+}
 .lds-ring {
   display: inline-block;
   position: relative;
