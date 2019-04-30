@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 // import { withStyles } from '@material-ui/core/styles';
 import Input from '@material-ui/core/Input';
 import axios from 'axios';
+import Switch from 'react-input-switch';
 // import Typography from '@material-ui/core/Typography';
 import 'typeface-roboto';
 import './../WorkOrders/workorders.css';
@@ -29,6 +30,7 @@ class CheckoutForm extends Component {
       name: "",
       cost: '',
       altCost: '',
+      value: 0,
     };
     this.submit = this.submit.bind(this);
   }
@@ -87,7 +89,7 @@ class CheckoutForm extends Component {
       description: 'Pay rent now',
       source: token.id,
       currency: 'USD',
-      amount: this.state.altCost * 100
+      amount: this.state.altCost
     })
     .then(this.props.charge)
     .then(this.successPayment) 
@@ -98,20 +100,27 @@ class CheckoutForm extends Component {
   
   render() {
     if (this.state.complete) return <h1>Purchase Complete</h1>;
-  
     return (
-      <div>
+      <Switch
+        value={this.state.value}
+        onChange={value => this.setState({ value })}
+      />
+    );
+
+     if (this.state.value === 0) return (
       <div className="checkoutform">
         <Input placeholder="name" name="name" value={this.state.name}  className='checkoutinput'/>
         <CardElement className='checkout-line' style={{base: {fontSize: '18px'}}} />
         <Button variant='contained' color='primary' className='button' onClick={this.submit}>Pay Full Amount (${this.state.cost/100})</Button>
       </div>
-
+    );
+  
+    if (this.state.value === 1) return (
       <div>
+        <Input placeholder="name" name="name" value={this.state.name}  className='checkoutinput'/>
         <Input placeholder="Installment Amount" name="altCost" value={this.state.altCost} onChange={this.inputHandler} className='checkoutinput'/>
+        <CardElement style={{base: {fontSize: '18px'}}} />
         <Button variant='contained' color='primary' className='button' onClick={this.submitInstallment}>Pay ${this.state.altCost} today!</Button>
-      </div>
-
       </div>
     );
   }
