@@ -28,6 +28,7 @@ class CheckoutForm extends Component {
       complete: false,
       name: "",
       cost: '',
+      altCost: '',
     };
     this.submit = this.submit.bind(this);
   }
@@ -77,15 +78,40 @@ class CheckoutForm extends Component {
     
 
   }
+
+  async submitInstallment(ev) {
+    ev.preventDefault();
+    let {token} = await this.props.stripe.createToken({name: this.state.name});
+    axios
+    .post(url, {
+      description: 'Pay rent now',
+      source: token.id,
+      currency: 'USD',
+      amount: this.state.altCost * 100
+    })
+    .then(this.props.charge)
+    .then(this.successPayment) 
+    .catch(this.errorPayment);
+    
+
+  }
   
   render() {
     if (this.state.complete) return <h1>Purchase Complete</h1>;
   
     return (
+      <div>
       <div className="checkoutform">
         <Input placeholder="name" name="name" value={this.state.name}  className='checkoutinput'/>
         <CardElement className='checkout-line' style={{base: {fontSize: '18px'}}} />
-        <Button variant='contained' color='primary' className='button' onClick={this.submit}>Pay Full Amoutn (${this.state.cost/100})</Button>
+        <Button variant='contained' color='primary' className='button' onClick={this.submit}>Pay Full Amount (${this.state.cost/100})</Button>
+      </div>
+
+      <div>
+        <Input placeholder="Installment Amount" name="altCost" value={this.state.altCost} onChange={this.inputHandler} className='checkoutinput'/>
+        <Button variant='contained' color='primary' className='button' onClick={this.submitInstallment}>Pay ${this.state.altCost} today!</Button>
+      </div>
+
       </div>
     );
   }
