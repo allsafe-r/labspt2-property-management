@@ -27,7 +27,7 @@ class CheckoutForm extends Component {
     this.state = {
       complete: false,
       name: "",
-      cost: 86500,
+      cost: '',
     };
     this.submit = this.submit.bind(this);
   }
@@ -51,11 +51,13 @@ class CheckoutForm extends Component {
     const token = localStorage.getItem('jwtToken');
 		const id = decode(token).userId;
     axios
-			.get(`https://tenantly-back.herokuapp.com/users/${id}`)
+    // ****Please change to public url when deploying
+      // .get(`https://tenantly-back.herokuapp.com/users/${id}`)
+      .get(`http://localhost:9000/users/${id}`)
 			.then((user) => {
 				// console.log(user);
         this.setState({ name: user.data.firstName});
-        // this.setState({ cost: user.data.cost});
+        this.setState({ cost: user.data.cost});
 			})
   }
   
@@ -83,7 +85,7 @@ class CheckoutForm extends Component {
       <div className="checkoutform">
         <Input placeholder="name" name="name" value={this.state.name}  className='checkoutinput'/>
         <CardElement className='checkout-line' style={{base: {fontSize: '18px'}}} />
-        <Button variant='contained' color='primary' className='button' onClick={this.submit}>Pay ${this.state.cost/100}</Button>
+        <Button variant='contained' color='primary' className='button' onClick={this.submit}>Pay Full Amoutn (${this.state.cost/100})</Button>
       </div>
     );
   }
