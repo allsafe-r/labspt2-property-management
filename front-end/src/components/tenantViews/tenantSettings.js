@@ -76,13 +76,6 @@ class TenantSettings extends Component {
     const token = localStorage.getItem("jwtToken");
     const id = decode(token).userId;
 
-    if(this.state.email.length > 40) {
-			alert('Your e-mail can be a max of 40 characters')
-			return false;
-		} else if (this.state.email.indexOf('.com') < 0 || this.state.email.indexOf('@') < 0) {
-			alert('Please enter a valid e-mail address')
-			return false;
-		} else {
       // If the user enters old password without trying to change password, it throws warning
       if (this.state.oldPW !== "" && this.state.newPW1 === "") {
         alert(
@@ -112,10 +105,10 @@ class TenantSettings extends Component {
           })
           .catch(err => {
             console.log(err);
+            alert('That e-mail or phone number already exists in our system')
           })
           .then(this.setState({ oldPW: "", newPW1: "", newPW2: "" }));
       }
-    }
   };
 
   handleCheckboxChange = e => {
@@ -158,7 +151,9 @@ class TenantSettings extends Component {
           value={this.state.email}
           onChange={this.onChange}
           className="font"
-          type="text"
+          type="email"
+          // pattern=".+@globex.com" 
+					size="30"
           required
         />
         <TextField
