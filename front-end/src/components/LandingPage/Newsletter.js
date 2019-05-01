@@ -3,7 +3,13 @@ import "../../assets/css/general.css"
 
 const Newsletter = props (
     		<div className="f-email-area">
-
+                <div class="page-holder">
+				    <form action="#">
+					    <label><strong>Sign up on our newsletter! </strong></label>
+					    <input type="text" placeholder="Enter your email address" />
+					    <input type="submit" value="sign up" />
+				    </form>
+			    </div>
 		</div>
 )
 
