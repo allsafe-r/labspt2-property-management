@@ -10,6 +10,7 @@ exports.seed = function(knex, Promise) {
 				password: process.env.password,
 				isAdmin: true,
 				phone: '203-555-1234',
+				cost: 750,
 				emailSubscribe: false,
 				textSubscribe: false,
 				application: ''
@@ -21,6 +22,7 @@ exports.seed = function(knex, Promise) {
 				password: process.env.password,
 				isAdmin: true,
 				phone: '203-555-1234',
+				cost: 800,
 				emailSubscribe: false,
 				textSubscribe: false,
 				application: ''
@@ -32,6 +34,7 @@ exports.seed = function(knex, Promise) {
 				password: process.env.password,
 				isAdmin: true,
 				phone: '203-555-1234',
+				cost: 1000,
 				emailSubscribe: false,
 				textSubscribe: false,
 				application: ''
@@ -43,6 +46,7 @@ exports.seed = function(knex, Promise) {
 				password: process.env.password,
 				isAdmin: false,
 				phone: '203-555-1234',
+				cost: 865,
 				emailSubscribe: false,
 				textSubscribe: false,
 				application: ''

@@ -97,3 +97,33 @@
     height: 300px;
 
 }
+
+.payment-history {
+    padding:20px;
+    border:none;
+}
+
+.card-header div span {
+    font-size: 25px;
+    font-style: italic;
+}
+
+.form-card {
+    padding-top: 20px;
+}
+
+.checkout-line {
+    padding: 20px 0px 20px 0px;
+}
+
+.flex-component {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media(max-width: 745px) {
+    .flex-cards {
+        display:flex;
+    }
+    
+}
