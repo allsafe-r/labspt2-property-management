@@ -19,6 +19,12 @@ const Footer = () => (
 							<li><a href="#">For Partners</a></li>
 						</ul>
                         </div>
+					<div className="box">
+						<ul className="f-nav">
+							<li><a href="#">Terms &amp; Conditions</a></li>
+							<li><a href="#">Privacy Policy</a></li>
+						</ul>
+					</div>
 					</div>
 				</div>
 			</div>
