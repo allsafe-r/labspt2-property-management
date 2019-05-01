@@ -1643,4 +1643,20 @@ button[type="submit"] {
 	display:flex;
 	align-items:center;
 	justify-content:center;
+
 }
+  .f-email-area label{
+    font:24px/1.2 "bodoni-urw", Arial, Helvetica, sans-serif;
+    padding:0 31px 0 0;
+  }
+
+  .f-email-area input[type="text"]{
+    border:1px solid #191a1a;
+    background:#f5f6f8;
+    text-align:center;
+    padding:7px 15px 9px;
+    height:45px;
+    font-size:20px;
+    width:316px;
+    margin:0 26px 0 0;
+  }
