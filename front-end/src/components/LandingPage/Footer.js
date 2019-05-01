@@ -31,6 +31,13 @@ const Footer = () => (
 							<li><a href="#">Privacy Policy</a></li>
 						</ul>
 					</div>
+					<div className="box">
+						<ul className="social-nav">
+							<li><a target="_blank" href="#"><span class="fab fa-instagram"></span></a></li>
+
+						</ul>
+
+					</div>
 				</div>
 			</div>
 		</div>
