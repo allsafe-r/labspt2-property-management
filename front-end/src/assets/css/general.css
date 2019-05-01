@@ -1803,3 +1803,7 @@ button[type="submit"] {
 	vertical-align:top;
 	padding:0 16px 0 0;
 }
+
+.social-nav .fab{
+	font-size:32px;
+}
