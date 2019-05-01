@@ -1,9 +1,9 @@
 import React from 'react';
 import "../../assets/css/general.css"
 
-const Newsletter = props (
+const Newsletter = () => (
     		<div className="f-email-area">
-                <div class="page-holder">
+                <div className="page-holder">
 				    <form action="#">
 					    <label><strong>Sign up on our newsletter! </strong></label>
 					    <input type="text" placeholder="Enter your email address" />
@@ -12,5 +12,4 @@ const Newsletter = props (
 			    </div>
 		</div>
 )
-
 export default Newsletter;
