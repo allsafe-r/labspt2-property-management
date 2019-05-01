@@ -8,6 +8,9 @@ import axios from 'axios';
 import 'typeface-roboto';
 import './../WorkOrders/workorders.css';
 
+const decode = require('jwt-decode');
+
+
 const url = 'https://tenantly-back.herokuapp.com/stripe/charge' 
 
 const styles ={
@@ -21,8 +24,10 @@ const styles ={
 class CheckoutForm extends Component {
   constructor(props) {
      super(props)
-    this.state = {complete: false,
+    this.state = {
+      complete: false,
       name: "",
+      cost: 86500,
     };
     this.submit = this.submit.bind(this);
   }
@@ -41,7 +46,18 @@ class CheckoutForm extends Component {
       [e.target.name]: e.target.value
     })
   }
-
+  
+  componentDidMount() {
+    const token = localStorage.getItem('jwtToken');
+		const id = decode(token).userId;
+    axios
+			.get(`https://tenantly-back.herokuapp.com/users/${id}`)
+			.then((user) => {
+				// console.log(user);
+        this.setState({ name: user.data.firstName});
+        // this.setState({ cost: user.data.cost});
+			})
+  }
   
   async submit(ev) {
     ev.preventDefault();
@@ -51,7 +67,7 @@ class CheckoutForm extends Component {
       description: 'Pay rent now',
       source: token.id,
       currency: 'USD',
-      amount: 120000
+      amount: this.state.cost
     })
     .then(this.props.charge)
     .then(this.successPayment) 
@@ -65,9 +81,9 @@ class CheckoutForm extends Component {
   
     return (
       <div className="checkoutform">
-        <Input placeholder="name" name="name" value={this.state.name} onChange={this.inputHandler} className='checkoutinput'/>
-        <CardElement style={{base: {fontSize: '18px'}}} />
-        <Button variant='contained' color='primary' className='button' onClick={this.submit}>Pay $1200</Button>
+        <Input placeholder="name" name="name" value={this.state.name}  className='checkoutinput'/>
+        <CardElement className='checkout-line' style={{base: {fontSize: '18px'}}} />
+        <Button variant='contained' color='primary' className='button' onClick={this.submit}>Pay ${this.state.cost/100}</Button>
       </div>
     );
   }
