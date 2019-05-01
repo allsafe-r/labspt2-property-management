@@ -34,6 +34,7 @@ const Footer = () => (
 					<div className="box">
 						<ul className="social-nav">
 							<li><a target="_blank" href="#"><span class="fab fa-instagram"></span></a></li>
+                            <li><a target="_blank" href="#"><span class="fab fa-facebook-square"></span></a></li>
 
 						</ul>
 
