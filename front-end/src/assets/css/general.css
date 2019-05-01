@@ -1807,3 +1807,15 @@ button[type="submit"] {
 .social-nav .fab{
 	font-size:32px;
 }
+
+.social-nav a:hover{
+  opacity:0.8;
+}
+
+.f-area-holder .box{
+	display:inline-block;
+	vertical-align:top;
+	margin:0 -4px 0 0;
+	padding:0 70px 0 0;
+	width:25.5%;
+}
