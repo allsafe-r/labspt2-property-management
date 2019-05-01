@@ -52,10 +52,9 @@ class propertyList extends Component {
 		this.fetchProperties()
 	}
 
-	// componentDidUpdate() {
-	// 	console.log('hi')
-	// 	this.fetchProperties();
-	// }
+	componentDidUpdate() {
+		this.fetchProperties();
+	}
 
 	fetchProperties() {
 		const token = localStorage.getItem('jwtToken');
@@ -63,9 +62,11 @@ class propertyList extends Component {
 		axios
 			.get(url)
 			.then((response) => {
+				let propArr = response.data.filter((property) => property.owner === userId)
+				if(propArr.length !== this.state.properties.length) {
 				this.setState({
-					properties: response.data.filter((property) => property.owner === userId)
-				});
+					properties: propArr
+				});}
 			})
 			.catch((err) => {
 				console.error('Server Error', err);
