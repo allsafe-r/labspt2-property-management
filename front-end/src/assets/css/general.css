@@ -1791,3 +1791,9 @@ button[type="submit"] {
 .footer-logo {
   width: 50%;
 }
+
+.social-nav{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
