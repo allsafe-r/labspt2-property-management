@@ -52,6 +52,11 @@ class propertyList extends Component {
 		this.fetchProperties()
 	}
 
+	componentDidUpdate() {
+		console.log('hi')
+		this.fetchProperties();
+	}
+
 	fetchProperties() {
 		const token = localStorage.getItem('jwtToken');
 		const userId = decode(token).userId;
