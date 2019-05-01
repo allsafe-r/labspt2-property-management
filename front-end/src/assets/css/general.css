@@ -543,6 +543,8 @@ body {
 
   }
 
+
+
   .intro-section .bg-2-stretch {
 
     background-image: url("../images/compguys.png");
@@ -581,7 +583,10 @@ body {
   .anchor-wrap {
     margin-bottom: 40px;
   }
-  
+
+  .f-email-area{
+    border:0;
+  }
 
 }
 
