@@ -1655,18 +1655,21 @@ button[type="submit"] {
 
 /* NEWSLETTER COLUMN */
 .f-email-area{
-	border-bottom:1px solid #191a1a;
-	padding:59px 0;
+  border-top:1px solid #191a1a;
+  border-bottom:1px solid #191a1a;
+  padding:59px 0;
 }
 
 .f-email-area form{
 	display:flex;
 	align-items:center;
-	justify-content:center;
+  justify-content:center;
+  padding: 0px 20px 0px 20px;
+  margin-top: 10px;
 
 }
   .f-email-area label{
-    font:24px/1.2 "bodoni-urw", Arial, Helvetica, sans-serif;
+    font-family: "Bodoni MT", Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;    font-size: 24px;
     padding:0 31px 0 0;
   }
 
@@ -1675,7 +1678,7 @@ button[type="submit"] {
     background:#f5f6f8;
     text-align:center;
     padding:7px 15px 9px;
-    height:45px;
+    height:20px;
     font-size:20px;
     width:316px;
     margin:0 26px 0 0;
@@ -1699,6 +1702,18 @@ button[type="submit"] {
     margin:0 auto;
   }
 
+  .page-holder:after{
+    content:"";
+    clear:both;
+    display:block;
+  }
+
+  @media screen and (max-width: 1240px){
+    .page-holder{
+      position:relative;
+    }
+  }
+
   @media screen and (max-width: 1005px){
     .f-email-area form{
       display:block;
@@ -1709,4 +1724,10 @@ button[type="submit"] {
       padding:0 0 15px;
     }
 
+  }
+
+  @media screen and (max-width: 1024px){
+    .page-holder{
+      position:static;
+    }
   }
