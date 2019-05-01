@@ -77,8 +77,6 @@ class CheckoutForm extends Component {
     .then(this.props.charge)
     .then(this.successPayment) 
     .catch(this.errorPayment);
-    
-
   }
 
   async submitInstallment(ev) {
@@ -94,8 +92,6 @@ class CheckoutForm extends Component {
     .then(this.props.charge)
     .then(this.successPayment) 
     .catch(this.errorPayment);
-    
-
   }
   
   render() {
