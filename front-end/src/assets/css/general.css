@@ -598,6 +598,10 @@ body {
 	.f-email-area input[type="submit"] {
     font-size:16px;
   }
+  .f-email-area input[type="text"]{
+    margin-bottom:16px;
+  }
+
 
 }
 
@@ -1687,6 +1691,12 @@ button[type="submit"] {
     border-radius:1px;
     width:316px;
     padding:10px 20px 9px;
+  }
+
+  .page-holder{
+    max-width:1374px;
+    padding:0 15px;
+    margin:0 auto;
   }
 
   @media screen and (max-width: 1005px){
