@@ -16,7 +16,7 @@ const LandingView = () => {
       {/* <Body /> */}
       <SecondHero />
       <Newsletter />
-      <Pricing />
+      {/* <Pricing /> */}
 
     </div>
   );
