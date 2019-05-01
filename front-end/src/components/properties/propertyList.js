@@ -49,6 +49,10 @@ class propertyList extends Component {
 	};
 
 	componentDidMount() {
+		this.fetchProperties()
+	}
+
+	fetchProperties() {
 		const token = localStorage.getItem('jwtToken');
 		const userId = decode(token).userId;
 		axios
