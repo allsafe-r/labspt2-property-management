@@ -6,25 +6,30 @@ const Footer = () => (
 			<div className="page-holder">
 				<div className="f-area-holder">
 					<div className="box">
-                    <h2>Tenantly</h2>
+                        						<h2>Tenantly</h2>
 						<ul>
                             <li><a href="#">About </a></li>
                             <li><a href="#">Pricing </a></li>
                             <li><a href="#">Careers </a></li>
 						</ul>
-                        <div className="box">
+					</div>
+					<div className="box">
 						<ul className="f-nav">
 							<li><a href="#">For Tenants </a></li>
 							<li><a href="#">For Landlords</a></li>
 							<li><a href="#">For Partners</a></li>
 						</ul>
-                        </div>
+						<ul className="social-nav s-hidden">
+							<li><a target="_blank" href="#"><span class="fab fa-instagram"></span></a></li>
+							<li><a target="_blank" href="#"><span class="fab fa-facebook-square"></span></a></li>
+							<li><a target="_blank" href="#"><span class="fab fa-pinterest-square"></span></a></li>
+						</ul>
+					</div>
 					<div className="box">
 						<ul className="f-nav">
 							<li><a href="#">Terms &amp; Conditions</a></li>
 							<li><a href="#">Privacy Policy</a></li>
 						</ul>
-					</div>
 					</div>
 				</div>
 			</div>
