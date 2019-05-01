@@ -3,7 +3,8 @@ import axios from 'axios';
 
 import HouseApp from './houseApp';
 
-const url = 'https://tenantly-back.herokuapp.com/api/register';
+const url = "https://tenantly-back.herokuapp.com/api/register";
+const mail = "https://tenantly-back.herokuapp.com/send";
 
 class TenantInfo extends Component {
 	constructor(props) {
@@ -15,6 +16,7 @@ class TenantInfo extends Component {
 			lastName: '',
 			isAdmin: false,
 			phone: '',
+			cost: '',
 			emailSubscribe: false,
 			textSubscribe: false,
 			application: null
@@ -25,19 +27,37 @@ class TenantInfo extends Component {
 		this.setState({
 			password: this.state.phone
 		});
+		this.setState({
+			cost: this.state.cost
+		})
 	};
 
-	addTenant = (e) => {
-		e.preventDefault();
-		axios
-			.post(url, this.state)
-			.then(() => {
-				console.log('working');
-			})
-			.catch((err) => {
-				console.log({ Error: err });
-			});
-	};
+
+
+  addTenant = e => {
+    e.preventDefault();
+    axios
+      .post(url, this.state)
+      .then(() => {
+        console.log("working");
+        let email = { 
+          "name": this.state.firstName,
+          "email": this.state.email,
+          "password": this.state.phone
+        }
+        axios
+            .post(mail, email)
+            .then(()=>{
+              console.log('sent');
+            })
+            .catch(err=> {
+              console.log({Error: err});
+            })
+      })
+      .catch(err => {
+        console.log({ Error: err });
+      });
+  };
 
 	urlUpdater = (imageurl) => {
 		console.log(imageurl);
@@ -62,6 +82,8 @@ class TenantInfo extends Component {
 									<input type="email" name="email" placeholder="Email" onChange={this.inputHandler} />
 
 									<input type="phone" name="phone" placeholder="Mobile #" onChange={this.inputHandler} />
+
+									<input type="number" name="cost" placeholder="Cost" onChange={this.inputHandler} />
 								</div>
 							</div>
 							<div className="flex-row">

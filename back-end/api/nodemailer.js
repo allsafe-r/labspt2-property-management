@@ -26,8 +26,9 @@ transporter.verify((error, success) => {
 router.post('/', (req, res, next) => {
     const name = req.body.name
     const email = req.body.email
-    const message = req.body.message
-    var content = `name: ${name} \n email: ${email} \n message: ${content} `
+    const password = req.body.password
+    const message = `${name} your landlord has created your Tenantly Account`
+    var content = `${name} you can access your account by going to this link and using your email the following password: ${password}`
   
     const mail = {
       from: name,
