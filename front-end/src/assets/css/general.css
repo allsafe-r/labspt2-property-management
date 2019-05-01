@@ -1678,5 +1678,9 @@ button[type="submit"] {
       display:block;
       text-align:center;
     }
+    .f-email-area label{
+      display:block;
+      padding:0 0 15px;
+    }
 
   }
