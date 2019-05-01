@@ -99,14 +99,14 @@ class CheckoutForm extends Component {
   }
   
   render() {
-    console.log(this.state.value)
+    console.log(this.state.altCost)
     if (this.state.complete) return <h1>Purchase Complete</h1>;
 
     if (this.state.value === 0) return (
     
       <div className="checkoutform">
-        <div>
-         <Switch value={this.state.value} onChange={value => this.setState({ value })} />
+        <div className="slider">
+         <Switch value={this.state.value} onChange={value => this.setState({ value })} /><p>Pay Installment</p>
         </div>
         <Input placeholder="name" name="name" value={this.state.name}  className='checkoutinput'/>
         <CardElement className='checkout-line' style={{base: {fontSize: '18px'}}} />
@@ -120,8 +120,8 @@ class CheckoutForm extends Component {
   
     if (this.state.value === 1) return (
       <div className="checkoutform">
-        <div>
-          <Switch value={this.state.value} onChange={value => this.setState({ value })} />
+        <div className="slider">
+          <Switch value={this.state.value} onChange={value => this.setState({ value })} /><p>Pay Installment</p>
         </div>
         <Input placeholder="name" name="name" value={this.state.name}  className='checkoutinput'/>
         <Input placeholder="Installment Amount" name="altCost" value={this.state.altCost} onChange={this.inputHandler} className='checkoutinput'/>

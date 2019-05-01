@@ -99,7 +99,7 @@
 }
 
 .payment-history {
-    padding:20px;
+    padding:60px;
     border:none;
 }
 
@@ -109,7 +109,11 @@
 }
 
 .form-card {
-    padding-top: 20px;
+    padding: 20px;
+}
+
+.form-card  h1{
+    padding: 20px;
 }
 
 .checkout-line {
@@ -119,6 +123,14 @@
 .flex-component {
     display: flex;
     justify-content: space-between;
+}
+.slider{
+    display: flex;
+    flex-direction: row;
+}
+.slider p{
+    font-size:12px;
+    padding-left: 10px;
 }
 
 @media(max-width: 745px) {
