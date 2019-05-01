@@ -1672,3 +1672,11 @@ button[type="submit"] {
     width:316px;
     padding:10px 20px 9px;
   }
+
+  @media screen and (max-width: 1005px){
+    .f-email-area form{
+      display:block;
+      text-align:center;
+    }
+
+  }
