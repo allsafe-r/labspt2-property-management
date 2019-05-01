@@ -16,6 +16,7 @@ class TenantInfo extends Component {
 			lastName: '',
 			isAdmin: false,
 			phone: '',
+			cost: '',
 			emailSubscribe: false,
 			textSubscribe: false,
 			application: null
@@ -26,6 +27,9 @@ class TenantInfo extends Component {
 		this.setState({
 			password: this.state.phone
 		});
+		this.setState({
+			cost: this.state.cost
+		})
 	};
 
 
@@ -78,6 +82,8 @@ class TenantInfo extends Component {
 									<input type="email" name="email" placeholder="Email" onChange={this.inputHandler} />
 
 									<input type="phone" name="phone" placeholder="Mobile #" onChange={this.inputHandler} />
+
+									<input type="number" name="cost" placeholder="Cost" onChange={this.inputHandler} />
 								</div>
 							</div>
 							<div className="flex-row">
