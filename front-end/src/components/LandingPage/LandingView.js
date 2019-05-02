@@ -4,6 +4,8 @@ import IndexPage from "./IndexPage";
 import Pricing from "./Pricing"
 import SecondHero from "./SecondHero"
 import Newsletter from "./Newsletter"
+import Footer from "./Footer"
+
 // import Body from "./Body";
 
 import "../../assets/css/general.css";
@@ -17,6 +19,7 @@ const LandingView = () => {
       <SecondHero />
       <Newsletter />
       {/* <Pricing /> */}
+      <Footer />
 
     </div>
   );

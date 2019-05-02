@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom'
 import "../../assets/css/general.css"
 
 const Footer = () => (
@@ -7,6 +7,10 @@ const Footer = () => (
 			<div className="page-holder">
 				<div className="f-area-holder">
 					<div className="box">
+                        <h2>Tenantly</h2>
+                                {/* <Link to={"/"}>
+                        <img className="footer-logo" src={require("../../assets/images/logo.png")} alt="Logo" />
+                     </Link> */}
 						<ul>
                             <li><a href="#">About </a></li>
                             <li><a href="#">Pricing </a></li>
@@ -38,6 +42,7 @@ const Footer = () => (
 							<li><a target="_blank" href="#"><span class="fab fa-instagram"></span></a></li>
                             <li><a target="_blank" href="#"><span class="fab fa-facebook-square"></span></a></li>
 						</ul>
+
 					</div>
 				</div>
 			</div>
