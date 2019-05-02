@@ -141,8 +141,17 @@
     flex-direction: row;
 }
 .slider p{
-    font-size:12px;
+    font-size:16px;
     padding-left: 10px;
+    font-style: italic;
+}
+
+.card-header div span {
+    font-size: 16px;
+}
+
+.flex-component div .payments {
+    font-size: 16px;
 }
 
 @media(max-width: 745px) {

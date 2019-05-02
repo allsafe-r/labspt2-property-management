@@ -106,7 +106,7 @@ class CheckoutForm extends Component {
     
       <div className="checkoutform">
         <div className="slider">
-         <Switch value={this.state.value} onChange={value => this.setState({ value })} /><p>Pay Installment</p>
+         <Switch value={this.state.value} onChange={value => this.setState({ value })} /><p>Pay in Installments</p>
         </div>
         <Input placeholder="name" name="name" value={this.state.name}  className='checkoutinput'/>
         <CardElement className='checkout-line' style={{base: {fontSize: '18px'}}} />
@@ -115,25 +115,12 @@ class CheckoutForm extends Component {
       
     );
 
-      
-    // if (this.state.value === 1) return (
-    
-    //   <div className="checkoutform">
-    //     <div className="slider">
-    //      <Switch value={this.state.value} onChange={value => this.setState({ value })} /><p>Pay Installment</p>
-    //     </div>
-    //     <Input placeholder="name" name="name" value={this.state.name}  className='checkoutinput'/>
-    //     <CardElement className='checkout-line' style={{base: {fontSize: '18px'}}} />
-    //     <Button variant='contained' color='primary' className='button' onClick={this.submit}>Pay Full Amount (${this.state.cost/100})</Button>
-    //   </div>
-      
-    // );
     
   
     if (this.state.value === 1) return (
       <div className="checkoutform">
         <div className="slider">
-          <Switch value={this.state.value} onChange={value => this.setState({ value })} /><p>Pay Installment</p>
+          <Switch value={this.state.value} onChange={value => this.setState({ value })} /><p>Pay Full</p>
         </div>
         <Input placeholder="name" name="name" value={this.state.name}  className='checkoutinput'/>
         <Input placeholder="Installment Amount" name="altCost" value={this.state.altCost} onChange={this.inputHandler} className='checkoutinput'/>
