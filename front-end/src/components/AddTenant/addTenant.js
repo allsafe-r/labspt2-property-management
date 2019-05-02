@@ -12,18 +12,20 @@ class AddTenant extends Component {
       newTenant: false
     };
   }
-  addAnotherTenant() {
+  addAnotherTenant = e => {
+    e.preventDefault();
     this.setState({ newTenant: true });
-  }
+  };
   render() {
     return (
       <div className="addTenant-container">
         <div className="tenantInfo-container">
           <TenantCard />
-          <TenantCard />
-          <div className="tenantAdd" onclick={this.newTenant}>
+
+          <div className="tenantAdd" onClick={this.addAnotherTenant}>
             <h1>Add Tenant</h1>
           </div>
+          {this.state.newTenant ? <TenantCard /> : null}
         </div>
         <div className="contract-container">
           <HousingInfo />
