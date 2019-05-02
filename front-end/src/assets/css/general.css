@@ -1767,13 +1767,17 @@ button[type="submit"] {
 	color: #191a1a;
 	text-decoration:none;
 }
-.f-area-holder .box ul a:hover{text-decoration:underline;}
+.f-area-holder .box ul a:hover{
+  text-decoration:underline;
+}
 .social-nav{
 	margin:0;
-	padding:0;
-	list-style:none;
+  padding:0;
+  list-style:none;
 }
-.social-nav.s-hidden{display:none;}
+.social-nav.s-hidden{
+  display:none;
+}
 .social-nav li{
 	display:inline-block;
 	vertical-align:top;
@@ -1794,11 +1798,6 @@ button[type="submit"] {
   width: 50%;
 }
 
-.social-nav{
-	margin:0;
-	padding:0;
-	list-style:none;
-}
 
 .social-nav li{
 	display:inline-block;
@@ -1852,3 +1851,5 @@ button[type="submit"] {
 .f-area-holder .f-nav li{
   padding:0 0 8px;
 }
+
+
