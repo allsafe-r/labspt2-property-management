@@ -543,6 +543,9 @@ body {
 
   }
 
+  .f-area-holder .box:nth-child(3) .f-nav li{
+    padding:0 0 3px;
+  }
 
 
   .intro-section .bg-2-stretch {
@@ -1735,7 +1738,6 @@ button[type="submit"] {
 
 .f-area{
   padding:0 0 25px;
-  border: 1px solid red;
 }
 .f-area-holder{
 	padding:40px 0 24px;
@@ -1818,4 +1820,35 @@ button[type="submit"] {
 	margin:0 -4px 0 0;
 	padding:0 70px 0 0;
 	width:25.5%;
+}
+
+.f-area-holder .box:last-child{
+  width:23.5%;
+}
+
+.f-area-holder .box h2{
+	margin:0 0 8px;
+	font:21px/1.2 "bodoni-urw", Arial, Helvetica, sans-serif;
+}
+
+.f-area-holder .box ul{
+	margin:0;
+	padding:0 0 20px;
+	list-style:none;
+	font-size:16px;
+	line-height:1.5;
+}
+
+.f-area-holder .f-nav li{padding:0 0 8px;}
+.f-area-holder .box ul a{
+	color: #191a1a;
+	text-decoration:none;
+}
+
+.f-area-holder .box ul a:hover{
+  text-decoration:underline;
+}
+
+.f-area-holder .f-nav li{
+  padding:0 0 8px;
 }
