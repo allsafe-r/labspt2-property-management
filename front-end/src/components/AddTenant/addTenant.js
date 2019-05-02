@@ -22,9 +22,14 @@ class AddTenant extends Component {
         <div className="tenantInfo-container">
           <TenantCard />
 
-          <div className="tenantAdd" onClick={this.addAnotherTenant}>
+          <div
+            className="tenantAdd"
+            onClick={this.addAnotherTenant}
+            style={this.state.newTenant ? { display: "none" } : null}
+          >
             <h1>Add Tenant</h1>
           </div>
+
           {this.state.newTenant ? <TenantCard /> : null}
         </div>
         <div className="contract-container">
