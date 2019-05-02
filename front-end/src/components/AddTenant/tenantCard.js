@@ -136,7 +136,11 @@ class TenantInfo extends Component {
             <HouseApp url={this.urlUpdater} />
           </div>
         </form>
-        <button onClick={this.addTenant}>Create</button>
+        <div className="addTenantB-container">
+          <button className="filled-button" onClick={this.addTenant}>
+            Create Tenant
+          </button>
+        </div>
       </div>
     );
   }
