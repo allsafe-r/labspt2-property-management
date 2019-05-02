@@ -66,6 +66,21 @@ class CheckoutForm extends Component {
   
   async submit(ev) {
     ev.preventDefault();
+    if (this.state.altCost){
+    let {token} = await this.props.stripe.createToken({name: this.state.name});
+    axios
+    .post(url, {
+      description: 'Pay rent now',
+      source: token.id,
+      currency: 'USD',
+      amount: this.state.altCost * 100
+    })
+    .then(this.props.charge)
+    .then(this.successPayment) 
+    .catch(this.errorPayment);
+    this.setState({ altCost: ''});
+  } 
+  else {
     let {token} = await this.props.stripe.createToken({name: this.state.name});
     axios
     .post(url, {
@@ -77,23 +92,12 @@ class CheckoutForm extends Component {
     .then(this.props.charge)
     .then(this.successPayment) 
     .catch(this.errorPayment);
-  }
+    this.setState({ altCost: ''});
+  } }
 
-  async submitInstallment(ev) {
-    ev.preventDefault();
-    let {token} = await this.props.stripe.createToken({name: this.state.name});
-    axios
-    .post(url, {
-      description: 'Pay rent now',
-      source: token.id,
-      currency: 'USD',
-      amount: this.state.altCost
-    })
-    .then(this.props.charge)
-    .then(this.successPayment) 
-    .catch(this.errorPayment);
-  }
   
+
+
   render() {
     console.log(this.state.altCost)
     if (this.state.complete) return <h1>Purchase Complete</h1>;
@@ -112,6 +116,18 @@ class CheckoutForm extends Component {
     );
 
       
+    // if (this.state.value === 1) return (
+    
+    //   <div className="checkoutform">
+    //     <div className="slider">
+    //      <Switch value={this.state.value} onChange={value => this.setState({ value })} /><p>Pay Installment</p>
+    //     </div>
+    //     <Input placeholder="name" name="name" value={this.state.name}  className='checkoutinput'/>
+    //     <CardElement className='checkout-line' style={{base: {fontSize: '18px'}}} />
+    //     <Button variant='contained' color='primary' className='button' onClick={this.submit}>Pay Full Amount (${this.state.cost/100})</Button>
+    //   </div>
+      
+    // );
     
   
     if (this.state.value === 1) return (
@@ -122,7 +138,7 @@ class CheckoutForm extends Component {
         <Input placeholder="name" name="name" value={this.state.name}  className='checkoutinput'/>
         <Input placeholder="Installment Amount" name="altCost" value={this.state.altCost} onChange={this.inputHandler} className='checkoutinput'/>
         <CardElement style={{base: {fontSize: '18px'}}} />
-        <Button variant='contained' color='primary' className='button' onClick={this.submitInstallment}>Pay ${this.state.altCost} today!</Button>
+        <Button variant='contained' color='primary' className='button' onClick={this.submit}>Pay ${this.state.altCost} today!</Button>
       </div>
     );
   }
