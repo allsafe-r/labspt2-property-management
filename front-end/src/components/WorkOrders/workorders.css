@@ -70,7 +70,19 @@
     
 }
 
+.checkoutform .button {
+    width: 100%;
+    margin-bottom:20px;
+}
 
+.checkoutform .button span {
+    font-size:14px;
+}
+
+.slider label {
+    width:35px;
+    height:25px;
+}
 
 .carditems {
     display: flex;
