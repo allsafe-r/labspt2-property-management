@@ -25,32 +25,14 @@ const styles = theme => ({
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "space-evenly",
-    backgroundColor: "white",
+    backgroundColor: "black",
     fontSize: "2em",
     [theme.breakpoints.down("sm")]: {
       flexDirection: "column",
       justifyContent: "center"
     }
   },
-  form: {
-    width: "40%",
 
-    [theme.breakpoints.down("sm")]: {
-      width: "100%"
-    }
-  },
-  img: {
-    width: "80%",
-    [theme.breakpoints.down("sm")]: {
-      width: "100%"
-    },
-    [theme.breakpoints.down("md")]: {
-      width: "50%"
-    },
-    [theme.breakpoints.up("md")]: {
-      width: "50%"
-    }
-  },
   button: {
     width: "100%"
   }
@@ -122,62 +104,43 @@ class Billing extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <Grid
-        container
-        spacing={24}
-        style={{ padding: 20 }}
-        className={classes.root}
-      >
-        <Grid className={classes.form}>
-          <FormControl className={classes.formControl}>
-            <Typography
-              className={classes.inputLabel}
-              variant="h5"
-              component="h2"
-              gutterBottom
-            >
-              Select a property to view payment history
-            </Typography>
-
-            <Select
-              native
-              value={this.state.houseId}
-              onChange={this.handleInputChange(this.value)}
-              name="Property"
-              inputProps={{
-                id: "property-native-required"
-              }}
-              className={classes.select}
-            >
-              <option value={0} />
-              {this.state.properties.map((property, index) => (
-                <option key={index} value={property.houseId}>
-                  {property.propertyName}
-                </option>
-              ))}
-            </Select>
-          </FormControl>
-          <FormHelperText>Required</FormHelperText>
-          <div className={classes.button}>
-            <a
-              href="https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_Eh0R1RXhYNXEq9z56aVKr04CVDrJvxMc&scope=read_write"
-              className={classes.a}
-            >
-              <img src={Image} alt="Logo" className={classes.img} />
+      <div className="billing">
+        <div className="billing-left">
+          <form>
+            <h1>Select a property to view payment history</h1>
+            <div className="input-select">
+              <select
+                value={this.state.houseId}
+                onChange={this.handleInputChange(this.value)}
+                name="Property"
+                className="select-billing"
+              >
+                {this.state.properties.map((property, index) => (
+                  <option key={index} value={property.houseId}>
+                    {property.propertyName}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </form>
+          <div className="stripe-button">
+            <a href="https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_Eh0R1RXhYNXEq9z56aVKr04CVDrJvxMc&scope=read_write">
+              <img src={Image} alt="Logo" />
             </a>
           </div>
-        </Grid>
-        <Grid className={classes.billing}>
-          <p>Billing History</p>
-
+        </div>
+        <div className="billing-right">
+          <h1>Billing History</h1>
           {this.state.propertySelected.map(bill => (
             <ul>
-              <li>{bill.propertyName}</li>
-              <li>{bill.amount}</li>
+              <div className="billingHistory-info">
+                <li>{bill.propertyName}</li>
+                <li>{bill.amount}</li>
+              </div>
             </ul>
           ))}
-        </Grid>
-      </Grid>
+        </div>
+      </div>
     );
   }
 }
