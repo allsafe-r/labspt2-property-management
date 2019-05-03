@@ -615,7 +615,6 @@ body {
 
 /* ========HOME PAGE =========*/
 
-
 /* ==========FIRST HERO ==========*/
 
 .intro-section {
@@ -625,48 +624,43 @@ body {
 }
 
 .bg-stretch {
-	position: absolute;
-	z-index: 1;
-	top: 0;
-	bottom: 0;
-	left: 0;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: 0;
   right: 0;
   width: 100%;
   height: auto;
-	background-size: contain;
-	background-repeat: no-repeat;
+  background-size: contain;
+  background-repeat: no-repeat;
   background-position: 50% 50%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-
 }
 
 .bg-2-stretch {
-	position: absolute;
-	z-index: 1;
-	top: 0;
-	bottom: 0;
-	left: 0;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: 0;
   right: 0;
   width: 100%;
   height: auto;
-	background-size: contain;
-	background-repeat: no-repeat;
+  background-size: contain;
+  background-repeat: no-repeat;
   background-position: 50% 50%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-
-
 }
-
 
 .bg-2-stretch .slide-2-frame {
   /* border: 10px solid red; */
   display: block;
   margin-right: 80px;
-
 }
 
 .bg-2-stretch .slide-2-frame .text {
@@ -678,31 +672,30 @@ body {
   line-height: 30px;
   letter-spacing: 0.6px;
   word-spacing: 20px;
-
-
 }
 
-
 .bg-2-stretch .slide-2-frame .text .slide-title {
-  font-family: 'GTEestiDisplay-Medium',-apple-system,system-ui,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
+  font-family: "GTEestiDisplay-Medium", -apple-system, system-ui,
+    BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+    "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
   font-weight: 500;
   font-size: 4vw;
   padding-bottom: 20px;
-
-
 }
 
 .bg-2-stretch .slide-2-frame .text p {
   padding-top: 5px;
   font-size: 1vw;
-  opacity: .5;
-  font-family: 'GTEestiDisplay-Medium',-apple-system,system-ui,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
+  opacity: 0.5;
+  font-family: "GTEestiDisplay-Medium", -apple-system, system-ui,
+    BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+    "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
   font-weight: 500;
   color: rgb(46, 37, 37);
   word-spacing: 1px;
   line-height: 20px;
-
-
 }
 
 .bg-stretch .slide-frame .text p {
@@ -712,91 +705,73 @@ body {
 
   /* color: gray;
   opacity: .5; */
-  font-family: 'GTEestiDisplay-Medium',-apple-system,system-ui,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
+  font-family: "GTEestiDisplay-Medium", -apple-system, system-ui,
+    BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+    "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
   font-weight: 500;
-
 }
 
-
 .intro-section .bg-stretch {
-	width: 100%;
-    /* height: 100vh; */
-    background-image: url("../images/finalhero.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    
+  width: 100%;
+  /* height: 100vh; */
+  background-image: url("../images/finalhero.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
 }
 
 .intro-section .bg-2-stretch {
-	  width: 100%;
-    background-image: url("../images/compguy.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    /* background-position: 50% 50%; */
-    
+  width: 100%;
+  background-image: url("../images/compguy.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* background-position: 50% 50%; */
 }
-    /* background-image: url("../images/iphonex_bg.png"); */
+/* background-image: url("../images/iphonex_bg.png"); */
 
 @media (max-width: 375px) {
-
   .Hero .intro-section {
     max-width: 100%;
     margin: 0 auto;
     height: 72vh;
     padding: 30px;
-   
-  
   }
 
   .bg-stretch {
     height: 72vh;
-
   }
 
-    .intro-section .bg-2-stretch {
-      /* background-image: url("../images/finaliphone678.png"); */
-      background-image: url("../images/Untitled-2.png");
-      background-size: contain;
+  .intro-section .bg-2-stretch {
+    /* background-image: url("../images/finaliphone678.png"); */
+    background-image: url("../images/Untitled-2.png");
+    background-size: contain;
+  }
 
-
-      
-    }  
-
-
-    .bg-2-stretch .slide-2-frame .text p {
-      display: none;
-    }  
+  .bg-2-stretch .slide-2-frame .text p {
+    display: none;
+  }
 
   .intro-section .bg-2-stretch {
     background-image: url("../images/Untitled-2.png");
     background-size: contain;
-
-  
   }
 
-
-
-   .bg-stretch .slide-frame .slide-title .anchor-wrap {
+  .bg-stretch .slide-frame .slide-title .anchor-wrap {
     /* padding-bottom: 100px; */
     margin-bottom: -200px;
   }
 }
 
 @media (max-width: 768px) {
-
   .intro-section .bg-stretch {
     /* background-image: url("../images/finalhero_ipad3.png"); */
     /* background-image: url("../images/ipadhero.png"); */
     background-image: url("../images/finalhero_ipad3.png");
-
   }
 
   .intro-section .bg-2-stretch {
-
     background-image: url("../images/compguys.png");
-
-
   }
 
   .intro-section .bg-2-stretch {
@@ -805,7 +780,7 @@ body {
     justify-content: center;
     margin: 0 auto;
   }
-  
+
   .bg-2-stretch .slide-2-frame {
     margin-right: 0px;
     margin-bottom: 0px;
@@ -814,38 +789,26 @@ body {
   .bg-2-stretch .slide-2-frame .text {
     text-align: center;
     margin-top: -70px;
-
   }
-
-
-
 
   .bg-2-stretch .slide-2-frame .text .slide-title {
     font-size: 5.8vw;
+  }
 
-    }
-
-
- 
   .anchor-wrap {
     margin-bottom: 40px;
   }
-  
-
 }
 
 @media (max-width: 1024px) {
   .intro-section .bg-stretch {
     /* background-image: url("../images/finalhero_ipadpro.png"); */
-     /* height: auto; 
+    /* height: auto; 
     width: auto;
     margin: 0 auto;  */
     /* background-image: url("../images/finalhero_ipad3.png"); */
-
-
-
-   } 
-/* 
+  }
+  /* 
   .intro-section .bg-stretch-2 {
     background-size: cover;
     background-image: url("../images/compguys.png");
@@ -860,10 +823,7 @@ body {
     display: flex;
     justify-content: center;
     align-content: center;
-
   }
-
- 
 
   .bg-stretch {
     align-items: flex-start;
@@ -878,12 +838,10 @@ body {
   .slide-2-frame .text {
     text-align: center;
     padding-bottom: 20px;
-
   }
-    .slide-frame .text .slide-title {
+  .slide-frame .text .slide-title {
     font-size: 6.5vw;
-  } 
-
+  }
 
   .bg-2-stretch .slide-2-frame .text p {
     color: gray;
@@ -896,9 +854,9 @@ body {
     padding-top: 100px;
   }
 
-    .slide-2-frame .text .slide-title {
+  .slide-2-frame .text .slide-title {
     font-size: 6vw;
-  } 
+  }
 
   .bg-stretch .slide-frame .text p {
     color: gray;
@@ -909,10 +867,6 @@ body {
     color: black;
     font-size: 1.7vw;
   }
-  
-  
-
-
 }
 
 /* 
@@ -931,14 +885,13 @@ body {
 
 @media (max-width: 479px) {
   .intro-section {
-		position: relative;
-	  min-height: 40vh;
+    position: relative;
+    min-height: 40vh;
     text-align: center;
     padding: 30px;
     /* padding-top: 40px;
     padding-right: 20px;
     padding-left: 20px; */
-
   }
 
   /* .intro-section {
@@ -950,32 +903,23 @@ body {
     max-width: 100%;
     margin: 0 auto;
     height: 72vh;
-   
-  
   }
   .intro-section .bg-stretch {
     /* background-image: url("../images/finaliphone678.png"); */
     background-image: url("../images/isthis3.png");
     background-size: cover;
     height: 72vh;
-
   }
 
   .intro-section .bg-stretch-2 {
     background-image: url("../images/Untitled-2.png");
     background-size: cover;
     height: 100vh;
-
   }
-  
-
 
   .bg-stretch .slide-frame .text {
-    padding: 15px;    
-  
+    padding: 15px;
   }
-
-
 
   .bg-stretch .slide-frame .text .slide-title {
     font-size: 7.3vw;
@@ -991,13 +935,10 @@ body {
   }
 
   .bg-2-stretch .slide-2-frame .text .slide-title {
-
-  
   }
 
   .bg-2-stretch .slide-2-frame .text {
     padding-top: 25px;
-
   }
 
   .anchor-wrap {
@@ -1005,21 +946,14 @@ body {
     position: absolute;
     bottom: 0px;
     left: 0;
-    width: 100%;  
-
+    width: 100%;
   }
-
-
-
-
-
 
   .bg-2-stretch .slide-2-frame .text .slide-title {
     font-size: 8vw;
-
   }
 
-/*   
+  /*   
   .intro-section .slide-frame .text h1 {
     display: none;
   }
@@ -1028,35 +962,30 @@ body {
     display:none;
 
   } */
-  
+
   /* .intro-section .slide-frame .text button {
     display:none;
 
   } */
 
-    /* padding-bottom: 100px; */
-
+  /* padding-bottom: 100px; */
 
   .anchor-wrap {
-   	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: column;
-	flex-direction: column;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	position: absolute;
-	bottom: 25px;
-	left: 0;
-	width: 100%;
-}
-
-  
-
-
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: absolute;
+    bottom: 25px;
+    left: 0;
+    width: 100%;
+  }
 }
 
 .jumbo {
@@ -1074,7 +1003,10 @@ body {
 }
 
 .intro-section .bg-stretch h1 {
-  font-family: 'GTEestiDisplay-Medium',-apple-system,system-ui,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
+  font-family: "GTEestiDisplay-Medium", -apple-system, system-ui,
+    BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+    "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
   font-weight: 500;
   margin: 0;
   color: black;
@@ -1135,12 +1067,11 @@ body {
 }
 
 .bg-stretch .slide-frame {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    /* justify-content: center; */
-    /* align-items: center; */
-
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
 }
 
 .bg-2-stretch .slide-2-frame {
@@ -1149,8 +1080,6 @@ body {
   display: flex;
   /* justify-content: center; */
   /* align-items: center; */
-
-
 }
 
 .bg-2-stretch .slide-2-frame {
@@ -1159,16 +1088,12 @@ body {
   display: flex;
   /* justify-content: center; */
   /* align-items: center; */
-
-
 }
-
 
 .bg-stretch .text {
   padding-top: 0;
   align-items: center;
-  padding:60px;
-
+  padding: 60px;
 }
 /* 
 @media (max-width: 650px) {
@@ -1255,7 +1180,7 @@ body {
 }
 
 .anchor:hover span {
-	/* -webkit-animation-duration: .9s;
+  /* -webkit-animation-duration: .9s;
 	animation-duration: .9s;
 	-webkit-animation-name: bounce;
 	animation-name: bounce;
@@ -1352,26 +1277,22 @@ body {
   }
 
   .anchor span {
-		top: 14px;
-		left: 7px;
-		width: 21px;
-		height: 10px;
+    top: 14px;
+    left: 7px;
+    width: 21px;
+    height: 10px;
   }
-  
-  
 
-	.anchor span:before,
-	.anchor span:after {
-		left: -1px;
-		width: 14px;
-  }
-  
+  .anchor span:before,
   .anchor span:after {
-		left: auto;
-		right: -1px;
-	}
+    left: -1px;
+    width: 14px;
+  }
 
-
+  .anchor span:after {
+    left: auto;
+    right: -1px;
+  }
 }
 
 /*Body*/
@@ -1880,4 +1801,44 @@ button[type="submit"] {
 
 .fonts label {
   font-size: 0.6em;
+}
+
+/*Icons*/
+.ring-container {
+  margin: 0 auto;
+}
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 51px;
+  height: 51px;
+  margin: 6px;
+  border: 6px solid #fff;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: transparent #fc766a transparent #fc766a;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
