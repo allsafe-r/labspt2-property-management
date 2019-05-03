@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
-import {Elements, StripeProvider} from 'react-stripe-elements';
+import { Elements, StripeProvider } from 'react-stripe-elements';
 import { withStyles } from '@material-ui/core/styles';
 import Divider from '@material-ui/core/Divider';
 import Card from '@material-ui/core/Card';
@@ -13,38 +13,43 @@ import Avatar from '@material-ui/core/Avatar';
 import CardHeader from '@material-ui/core/CardHeader';
 import Paper from '@material-ui/core/Paper';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMapMarkerAlt, faIdCardAlt, faEnvelope, faPhone, faMoneyBillAlt, faTools } from '@fortawesome/free-solid-svg-icons';
-import "../../assets/css/general.css";
+import {
+	faMapMarkerAlt,
+	faIdCardAlt,
+	faEnvelope,
+	faPhone,
+	faMoneyBillAlt,
+	faTools
+} from '@fortawesome/free-solid-svg-icons';
+import '../../assets/css/general.css';
 import Grid from '@material-ui/core/Grid';
 const decode = require('jwt-decode');
 const axios = require('axios');
 
 const url = `https://tenantly-back.herokuapp.com/alerts`;
 // const url = `http://localhost:9000/alerts`;
-const url2 = 'https://tenantly-back.herokuapp.com/stripe/charges'
+const url2 = 'https://tenantly-back.herokuapp.com/stripe/charges';
 
 const styles = {
 	card: {
-	  minWidth: 275,
+		minWidth: 275
 	},
 	bullet: {
-	  display: 'inline-block',
-	  margin: '0 2px',
-	  transform: 'scale(0.8)',
+		display: 'inline-block',
+		margin: '0 2px',
+		transform: 'scale(0.8)'
 	},
 	title: {
-	  fontSize: 14,
+		fontSize: 14
 	},
 	pos: {
-	  marginBottom: 12,
+		marginBottom: 12
 	},
 	root: {
 		width: '100%',
-		maxWidth: 360,
-	  },
-  };
-
-  
+		maxWidth: 360
+	}
+};
 
 class tenantDashboard extends Component {
 	state = {
@@ -54,8 +59,8 @@ class tenantDashboard extends Component {
 		address: '',
 		contact: '',
 		maintenancePhone: '',
-		charges:[],
-		cost: '',
+		charges: [],
+		cost: ''
 	};
 
 	componentDidMount() {
@@ -75,7 +80,7 @@ class tenantDashboard extends Component {
 				this.setState({ user: user.data.firstName });
 				this.setState({ cost: user.data.cost });
 			})
- // go into users residence, grab some information and set it to state, grab owner of residence to supply rest of information
+			// go into users residence, grab some information and set it to state, grab owner of residence to supply rest of information
 			.then(
 				axios
 					.get(`https://tenantly-back.herokuapp.com/properties/${this.state.houseId}`)
@@ -100,113 +105,104 @@ class tenantDashboard extends Component {
 			);
 	}
 
-	convertToTime =(e) =>{
-		const d = new Date(e * 1000)
+	convertToTime = (e) => {
+		const d = new Date(e * 1000);
 		return d.toLocaleString();
-}
-
+	};
 
 	render() {
-		var today = new Date()
-		var priorDate = new Date().setDate(today.getDate()-30)
+		var today = new Date();
+		var priorDate = new Date().setDate(today.getDate() - 30);
 		priorDate = priorDate.toString();
-		console.log("Original data: ",priorDate);
+		console.log('Original data: ', priorDate);
 		priorDate = priorDate.slice(0, -3);
 		priorDate = parseInt(priorDate);
-		console.log("After truncate: ",priorDate);
-		
+		console.log('After truncate: ', priorDate);
+
 		return (
 			<div className="tenant-dash">
-			
 				<Grid item sm={12} className="tenant-button">
-			
-			{/* This pulls the stripe info and the Outstanding payments for the user based on payments made in the last 30 days. */}
-				<StripeProvider apiKey="pk_test_uGZWgKZiorkYlZ8MsxYEIrA2">
-					<Paper elevation={1}>
-					<p>{this.state.user}</p>
-						{this.state.charges.map((charge) => 
-							<div>
-							{priorDate < charge.created && this.state.user === charge.billing_details.name &&
-							  <p>
-								{/* Prior date is {priorDate} charge made  {charge.created}. */}
-								{/* Current user {this.state.user} charge made to {charge.billing_details.name}. */}
-									<div className="outstanding">Outstanding Balance</div>
-									<div className="outstanding">${this.state.cost}</div>
-							
-							  </p>
-							}
-						  </div>
-					
-						)}
-					</Paper>
-
+					{/* This pulls the stripe info and the Outstanding payments for the user based on payments made in the last 30 days. */}
+					<StripeProvider apiKey="pk_test_uGZWgKZiorkYlZ8MsxYEIrA2">
+						<Paper elevation={1}>
+							<p>{this.state.user}</p>
+							{this.state.charges.map((charge) => (
+								<div>
+									{priorDate < charge.created &&
+									this.state.user === charge.billing_details.name && (
+										<p>
+											{/* Prior date is {priorDate} charge made  {charge.created}. */}
+											{/* Current user {this.state.user} charge made to {charge.billing_details.name}. */}
+											<div className="outstanding">Outstanding Balance</div>
+											<div className="outstanding">${this.state.cost}</div>
+										</p>
+									)}
+								</div>
+							))}
+						</Paper>
 					</StripeProvider>
 
-			
 					<Card>
 						<Link to="/payments">
 							<Button variant="extended" color="default" className="dash-button">
-							<FontAwesomeIcon icon={faMoneyBillAlt} />&nbsp;&nbsp;Make a Payment
-      						</Button>
+								<FontAwesomeIcon icon={faMoneyBillAlt} />&nbsp;&nbsp;Make a Payment
+							</Button>
 						</Link>
 					</Card>
 					<Card>
 						<Link to="/maintenance">
 							<Button variant="extended" color="default" className="dash-button">
-							<FontAwesomeIcon icon={faTools} />&nbsp;&nbsp;Submit a Workorder
-      						</Button>
+								<FontAwesomeIcon icon={faTools} />&nbsp;&nbsp;Submit a Workorder
+							</Button>
 						</Link>
 					</Card>
 					<Card>
 						<div className="outstanding">Alerts</div>
-					<div>
-						{this.state.alerts.map((alert) => {
-							return <li key={alert.id}>{alert.alert}</li>;
-						})}
-					</div>
+						<div>
+							{this.state.alerts.map((alert) => {
+								return <li key={alert.id}>{alert.alert}</li>;
+							})}
+						</div>
 					</Card>
 				</Grid>
 				<Grid item sm={12}>
-						<List>
-							<ListItem>
-								<Avatar>
-									<FontAwesomeIcon icon={faMapMarkerAlt} />
-								</Avatar>
-								<div className="dash-info">Address: {this.state.address}</div>
-							</ListItem>
-					
-							<ListItem>
-								<Avatar>
-									<FontAwesomeIcon icon={faIdCardAlt} />
-								</Avatar>
-								<div className="dash-info">Contact Info: {this.state.contact}</div>
-							</ListItem>
+					<List>
+						<ListItem>
+							<Avatar>
+								<FontAwesomeIcon icon={faMapMarkerAlt} />
+							</Avatar>
+							<div className="dash-info">Address: {this.state.address}</div>
+						</ListItem>
 
-							<ListItem>
-								<Avatar>
-									<FontAwesomeIcon icon={faEnvelope} />
-								</Avatar>
-								<div className="dash-info">Contact Email: {this.state.contactEmail}</div>
-							</ListItem>
+						<ListItem>
+							<Avatar>
+								<FontAwesomeIcon icon={faIdCardAlt} />
+							</Avatar>
+							<div className="dash-info">Contact Info: {this.state.contact}</div>
+						</ListItem>
 
-							<ListItem>
-								<Avatar>
-									<FontAwesomeIcon icon={faPhone} />
-								</Avatar>
-								<div className="dash-info">24/7 Phone: {this.state.maintenancePhone}</div>
-							</ListItem>
+						<ListItem>
+							<Avatar>
+								<FontAwesomeIcon icon={faEnvelope} />
+							</Avatar>
+							<div className="dash-info">Contact Email: {this.state.contactEmail}</div>
+						</ListItem>
 
+						<ListItem>
+							<Avatar>
+								<FontAwesomeIcon icon={faPhone} />
+							</Avatar>
+							<div className="dash-info">24/7 Phone: {this.state.maintenancePhone}</div>
+						</ListItem>
 					</List>
 				</Grid>
 			</div>
 		);
 	}
-
 }
 
 tenantDashboard.propTypes = {
-	classes: PropTypes.object.isRequired,
-  };
-  
-  export default withStyles(styles)(tenantDashboard);
-  
+	classes: PropTypes.object.isRequired
+};
+
+export default withStyles(styles)(tenantDashboard);
