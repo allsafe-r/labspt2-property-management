@@ -62,7 +62,7 @@ class Workorderform extends Component {
 		});
 	};
 
-	submithandler = (e) => {
+	submitHandler = (e) => {
 		e.preventDefault();
 	};
 
@@ -75,7 +75,7 @@ class Workorderform extends Component {
 						<Typography className={classes.typo} component="h2" variant="headline" gutterBottom>
 							Type Your Notes Here:
 						</Typography>
-						<form className={classes.container} onSubmit={this.submithandler}>
+						<form className={classes.container} onSubmit={this.submitHandler}>
 							<TextField
 								className={classes.textField}
 								onChange={this.inputhandler}
