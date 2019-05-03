@@ -10,12 +10,13 @@ import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormLabel from '@material-ui/core/FormLabel';
+import Button from '@material-ui/core/Button';
 // import red from '@material-ui/core/colors/red';
 import Divider from '@material-ui/core/Divider';
 // import List from '@material-ui/core/List';
 // import ListItem from '@material-ui/core/ListItem';
 // import ListItemText from '@material-ui/core/ListItemText';
-// import Modal from '@material-ui/core/Modal';
+import Modal from '@material-ui/core/Modal';
 // import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 //import './workorders.css';
@@ -64,7 +65,8 @@ class Workordercard extends Component {
 			description: props.work.description,
 			phone: props.work.phone,
 			unsupervisedEntry: props.work.unsupervisedEntry,
-			status: props.work.status
+			status: props.work.status,
+			open: false
 		};
 	}
 
@@ -97,13 +99,24 @@ class Workordercard extends Component {
 			});
 	};
 
+	handleOpen = () => {
+		this.setState({ open: true });
+	  };
+	
+	handleClose = () => {
+		this.setState({ open: false });
+	  };
+
 	render() {
 		const { classes } = this.props;
 		return (
 			<Card className={classes.root} raised={true}>
-				
+			<Button onClick={this.handleOpen}>Show Image</Button>
+				<Modal    open={this.state.open}
+						  onClose={this.handleClose}
+				>
 				<CardMedia style={{height:245, width: '100%',}} image={this.props.work.image} />
-				
+				</Modal>
 				
 				<CardHeader>{this.props.work.property}</CardHeader>
 				
