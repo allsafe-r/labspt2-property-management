@@ -1618,6 +1618,10 @@ button[type="submit"] {
   margin: 0px;
 }
 
+.outstandingBalance {
+  padding:0;
+  margin:0;
+}
 /*Fonts*/
 
 .font label {
@@ -1631,4 +1635,8 @@ button[type="submit"] {
 
 .fonts label {
   font-size: 0.6em;
+}
+
+.hidden {
+  display: none;
 }
