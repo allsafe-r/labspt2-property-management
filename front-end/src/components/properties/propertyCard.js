@@ -1,25 +1,22 @@
 import React from "react";
-import Card from '@material-ui/core/Card';
-import { withStyles } from '@material-ui/core/styles';
+import Card from "@material-ui/core/Card";
+import { withStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
-import Typography from '@material-ui/core/Typography';
+import Typography from "@material-ui/core/Typography";
 
-const styles = theme =>({
-	root:{
-		display: 'flex',
-		flexDirection: 'column',
-		height: 200,
-    justifyContent: 'center',
-    alignItems: 'center',
-		fontSize: '1.5rem',
-    width:250,
-    border: '1px solid black',
-    margin: 10,
-  },
-
-
-	
-})
+const styles = theme => ({
+  root: {
+    display: "flex",
+    flexDirection: "column",
+    height: 200,
+    justifyContent: "center",
+    alignItems: "center",
+    fontSize: "1.5rem",
+    width: 250,
+    border: "1px solid black",
+    margin: 10
+  }
+});
 const PropertyCard = props => {
   const { classes } = props;
   return (
