@@ -1646,13 +1646,9 @@ button[type="submit"] {
   display: none;
 }
 
-.currentOutstanding {
-  display:none;
+div.currentOutstanding {
+  display:flex;
   padding: 0;
   margin:0;
-}
-
-.currentOutstanding div:last-child {
-  background-color:red;
-  display: block;
+  flex-direction: column-reverse;
 }
