@@ -109,20 +109,269 @@
   flex-direction: row;
   align-items: center;
 }
-.property-card {
+
+.addProperty-container {
   display: flex;
-  width: 25%;
-  border: 1px black solid;
-  padding: 10px;
-  margin: 10px;
-  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.addProperty-container form input {
+  padding: 1em;
+  margin: 0.5em;
+}
+
+.addProperty-container form input:hover {
+  border: 2px #fc766a solid;
+}
+.addProperty-container form input:focus {
+  border: 2px #fc766a solid;
+}
+
+.addProperty-container form button {
+  padding: 0.5em 1.5em;
+  font-size: 20px;
+  border: none;
+  background-color: #fc766a;
+  color: white;
+  font-weight: 700;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.addProperty-container form button:hover {
+  background-color: white;
+  color: #fc766a;
+  border: 1px solid #fc766a;
+}
+/*Display Property*/
+.property-display {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.options-right {
+  width: 80%;
+  display: flex;
   flex-direction: row;
+  justify-content: flex-end;
+  margin-bottom: 1em;
 }
 
-.buttons-container {
+.property-body {
+  margin: 0 auto;
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
+.property-body h1 {
+  font-size: 1.2em;
+}
+
+.propertyBody-info {
+  margin: 0.5em;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.propertyBody-info p {
+  font-size: 1.2em;
+  margin-left: 0.4em;
+  color: #fc766a;
+}
+
+.edit-button {
+  margin-right: 0.5em;
+}
+
+/*Delete Modal*/
+
+.delete-modal {
+  margin: 0 auto;
+  border: 1px solid black;
+  padding: 0.5em;
+}
+
+.modal-buttons {
+  margin-top: 0.4em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  letter-spacing: 0.02em;
+}
+
+.btn-delete {
+  padding: 0.5em;
+  margin-left: 0.5em;
+  background-color: #dd4747;
+  color: white;
+  font-size: 0.8em;
+  border: none;
+  cursor: pointer;
+  font-family: Roboto;
+  border-radius: 3px;
+}
+
+.btn-delete:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn {
+  font-size: 0.8em;
+  background-color: white;
+  border: none;
+  border: 1px solid black;
+  cursor: pointer;
+  font-family: Roboto;
+  border-radius: 3px;
+}
+
+.btn:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+/*Reuseable */
+.notFilled-button {
+  padding: 8px 20px;
+  font-size: 20px;
+  border: none;
+  background-color: white;
+  border: 1px solid #fc766a;
+  color: black;
+
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.notFilled-button:hover {
+  background-color: #fc766a;
+  color: black;
+}
+
+.filled-button {
+  padding: 8px 20px;
+  font-size: 20px;
+  border: none;
+  background-color: #fc766a;
+  color: white;
+
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.filled-button:hover {
+  background-color: white;
+  color: #fc766a;
+  border: 1px solid #fc766a;
+}
+
+@media (max-width: 600px) {
+  .property-body {
+    justify-content: flex-start;
+  }
+  .propertyBody-info {
+    justify-content: flex-start;
+  }
+}
+
+/*Edit Property*/
+
+.edit-property {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.edit-property h1 {
+  font-size: 1.3em;
+}
+.edit-property form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-size: 0.9em;
+  margin-top: 1em;
+}
+.edit-leftSide {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-rightSide {
+  width: 20%;
+  display: flex;
+
+  align-items: center;
+}
+
+.edit-topInfo {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.edit-botInfo {
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+}
+
+.input-info h1 {
+  margin: 0 auto;
+}
+
+.input-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.edit-property form input {
+  padding: 1em;
+  margin: 0.5em;
+  border: 0;
+  border-bottom: 0.1em solid black;
+}
+
+.edit-property form input:hover {
+  border-bottom: 2px #fc766a solid;
+}
+.edit-property form input:focus {
+  border: 2px #fc766a solid;
+}
+
+.edit-rightSide button {
+  padding: 2.9em 1.2em;
+  font-size: 1em;
+  border: none;
+  border: 1px solid #fc766a;
+  color: #fc766a;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.edit-rightSide button {
+  font-size: 1.2em;
+  font-family: Robot;
+}
+.edit-rightSide button:hover {
+  background-color: #fc766a;
+  border-color: white;
+  color: white;
+}
 .noteInfo {
   padding: 10px;
 }
