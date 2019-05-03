@@ -1616,11 +1616,16 @@ button[type="submit"] {
 .tenant-button div .outstanding {
   padding: 0px;
   margin: 0px;
+  text-align: center;
 }
 
-.outstandingBalance {
-  padding:0;
+.tenant-button div .outstandingBalance {
+  padding: 10px;
   margin:0;
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  color: #fc766a;
 }
 /*Fonts*/
 
@@ -1639,4 +1644,15 @@ button[type="submit"] {
 
 .hidden {
   display: none;
+}
+
+.currentOutstanding {
+  display:none;
+  padding: 0;
+  margin:0;
+}
+
+.currentOutstanding div:last-child {
+  background-color:red;
+  display: block;
 }

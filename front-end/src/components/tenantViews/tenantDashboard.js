@@ -128,6 +128,7 @@ class tenantDashboard extends Component {
 				<StripeProvider apiKey="pk_test_uGZWgKZiorkYlZ8MsxYEIrA2">
 					<Paper elevation={1}>
 					{/* <p>{this.state.user}</p> */}
+					<div className="currentOutstanding">
 						{this.state.charges.map((charge) => 
 							<div>
 							{priorDate < charge.created && this.state.user === charge.billing_details.name &&
@@ -143,6 +144,7 @@ class tenantDashboard extends Component {
 						  </div>
 					
 						)}
+						</div>
 					</Paper>
 
 					</StripeProvider>
