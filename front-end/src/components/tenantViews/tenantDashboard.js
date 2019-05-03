@@ -56,6 +56,8 @@ class tenantDashboard extends Component {
 		maintenancePhone: '',
 		charges:[],
 		cost: '',
+		payments: [],
+		total: '',
 	};
 
 	componentDidMount() {
@@ -105,7 +107,9 @@ class tenantDashboard extends Component {
 		return d.toLocaleString();
 }
 
-
+	getSum = (total, num) =>{
+		return total + num;
+	}
 	render() {
 		var today = new Date()
 		var priorDate = new Date().setDate(today.getDate()-30)
@@ -128,11 +132,13 @@ class tenantDashboard extends Component {
 							<div>
 							{priorDate < charge.created && this.state.user === charge.billing_details.name &&
 							  <p>
-								  {/* {this.state.charges.push(charges:{charge.amount})} */}
+								  {this.state.payments.push(charge.amount)}
+								  var total = {this.state.payments.reduce(this.getSum)}
+								  {console.log(this.total)}
 								{/* Prior date is {priorDate} charge made  {charge.created}. */}
 								{/* Current user {this.state.user} charge made to {charge.billing_details.name}. */}
 									<div className="outstanding">Outstanding Balance</div>
-									<div className="outstanding">${(this.state.cost/100) - (charge.amount/100)}</div>
+									<div className="outstanding">${(this.state.cost/100) - (this.state.payments.reduce(this.getSum)/100)}</div>
 							
 							  </p>
 							}
