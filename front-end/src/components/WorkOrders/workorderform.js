@@ -49,7 +49,7 @@ class Workorderform extends Component {
 		};
 	}
 
-	inputhandler = (e) => {
+	inputHandler = (e) => {
 		this.setState({
 			[e.target.name]: e.target.value
 		});
@@ -78,7 +78,7 @@ class Workorderform extends Component {
 						<form className={classes.container} onSubmit={this.submitHandler}>
 							<TextField
 								className={classes.textField}
-								onChange={this.inputhandler}
+								onChange={this.inputHandler}
 								value={this.state.description}
 								name="description"
 								placeholder="Description"
@@ -88,7 +88,7 @@ class Workorderform extends Component {
 							<br />
 							<TextField
 								className={classes.textField}
-								onChange={this.inputhandler}
+								onChange={this.inputHandler}
 								name="phone"
 								value={this.state.phone}
 								placeholder="(555)555-5555"
@@ -101,7 +101,7 @@ class Workorderform extends Component {
 									<Checkbox
 										name="unsupervisedEntry"
 										checked={this.state.checkedB}
-										onChange={this.inputhandler}
+										onChange={this.inputHandler}
 										value="checkedB"
 										color="primary"
 										className="#"
