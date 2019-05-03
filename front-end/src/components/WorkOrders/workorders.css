@@ -73,15 +73,32 @@
 .checkoutform .button {
     width: 100%;
     margin-bottom:20px;
+    background-color: #fc766a;
+}
+
+.checkoutform .button:hover {
+    color: #fc766a;
+    background-color: white;
+    border: 1px solid #fc766a;
 }
 
 .checkoutform .button span {
     font-size:14px;
 }
 
+.slider label .css-5qfbhd-Switch {
+    background-color: #fc766a;
+}
 .slider label {
     width:35px;
     height:25px;
+}
+
+.slider {
+    margin-bottom: 10px;
+}
+.checkoutinput {
+    margin-bottom: 10px;
 }
 
 .carditems {
