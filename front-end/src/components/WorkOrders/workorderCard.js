@@ -30,10 +30,10 @@ const styles = theme =>({
 	root:{
 		display: 'flex',
 		flexDirection: 'column',
-		height: 400,
-		justifyContent: 'space-between',
-		fontSize: '1.5rem',
-		maxWidth:600
+		justifyContent: 'space-around',
+		fontSize: '5rem',
+		maxWidth: '100%',
+		alignItems: 'center',
 	},
 
 
@@ -111,7 +111,7 @@ class Workordercard extends Component {
 		const { classes } = this.props;
 		return (
 			<Card className={classes.root} raised={true}>
-			<Button onClick={this.handleOpen}>Show Image</Button>
+			
 				<Modal    open={this.state.open}
 						  onClose={this.handleClose}
 				>
@@ -135,16 +135,16 @@ class Workordercard extends Component {
 
 				
 
-					
+				<Typography c variant='title' component='p'>
 					{`Unsupervised Entry is ${this.props.work.unsupervisedEntry ? 'Allowed' : 'Not Allowed'}`} 
-					
+					</Typography>	
 					
 					
 					
 					
 					{/* Radio button form */}
 					<RadioGroup name="workstatus" area-label="Work Status" value={this.state.status}  onChange={this.statushandler} className={classes.radiogroup} row>
-					<FormLabel style={{fontSize: 20}}  component="legend">Work Status</FormLabel>
+					<FormLabel component="legend">Work Status</FormLabel>
 					<div className={classes.radiobuttons}>
 					{this.inputs.map((values, i) => (
 						
@@ -159,7 +159,7 @@ class Workordercard extends Component {
 					</div>
 					</RadioGroup>
 					
-				
+					<Button variant="contained" color="primary" onClick={this.handleOpen}>Show Image</Button>
 					</CardContent>
 			</Card>
 		);
