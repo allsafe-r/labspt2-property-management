@@ -128,10 +128,11 @@ class tenantDashboard extends Component {
 							<div>
 							{priorDate < charge.created && this.state.user === charge.billing_details.name &&
 							  <p>
+								  {/* {this.state.charges.push(charges:{charge.amount})} */}
 								{/* Prior date is {priorDate} charge made  {charge.created}. */}
 								{/* Current user {this.state.user} charge made to {charge.billing_details.name}. */}
 									<div className="outstanding">Outstanding Balance</div>
-									<div className="outstanding">${this.state.cost}</div>
+									<div className="outstanding">${(this.state.cost/100) - (charge.amount/100)}</div>
 							
 							  </p>
 							}
