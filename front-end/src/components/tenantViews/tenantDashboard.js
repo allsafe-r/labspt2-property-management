@@ -152,14 +152,14 @@ class tenantDashboard extends Component {
 
 			
 					<Card>
-						<Link to="/payments">
+						<Link to="/payments" style={{ textDecoration: 'none' }}>
 							<Button variant="extended" color="default" className="dash-button">
 							<FontAwesomeIcon icon={faMoneyBillAlt} />&nbsp;&nbsp;Make a Payment
       						</Button>
 						</Link>
 					</Card>
 					<Card>
-						<Link to="/maintenance">
+						<Link to="/maintenance" style={{ textDecoration: 'none' }}>
 							<Button variant="extended" color="default" className="dash-button">
 							<FontAwesomeIcon icon={faTools} />&nbsp;&nbsp;Submit a Workorder
       						</Button>
