@@ -26,7 +26,7 @@ import Grid from '@material-ui/core/Grid';
 const decode = require('jwt-decode');
 const axios = require('axios');
 
-const url = `https://tenantly-back.herokuapp.com/alerts`;
+const alertURL = `https://tenantly-back.herokuapp.com/alerts`;
 // const url = `http://localhost:9000/alerts`;
 const url2 = 'https://tenantly-back.herokuapp.com/stripe/charges';
 
@@ -122,7 +122,7 @@ class tenantDashboard extends Component {
 			)
 			.then(
 				// go into alerts and grab each alerts where the houseId matches logged in users residence, set to state
-				axios.get(url).then((res) => {
+				axios.get(alertURL).then((res) => {
 					let alertsObj = res.data.filter((alert) => alert.houseId === this.state.houseId);
 					if (alertsObj.length !== this.state.alerts.length) {
 						this.setState({ alerts: alertsObj });
