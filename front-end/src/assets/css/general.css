@@ -1652,3 +1652,11 @@ div.currentOutstanding {
   margin:0;
   flex-direction: column-reverse;
 }
+
+.currentOutstanding div {
+  display:none;
+}
+
+.currentOutstanding div:nth-of-type(2) {
+  display:block;
+}

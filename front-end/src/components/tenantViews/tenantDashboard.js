@@ -126,7 +126,7 @@ class tenantDashboard extends Component {
 			
 			{/* This pulls the stripe info and the Outstanding payments for the user based on payments made in the last 30 days. */}
 				<StripeProvider apiKey="pk_test_uGZWgKZiorkYlZ8MsxYEIrA2">
-					<Paper elevation={1}>
+					<Paper elevation={1} className="paperBorder">
 					{/* <p>{this.state.user}</p> */}
 					<div className="currentOutstanding">
 						{this.state.charges.map((charge) => 
