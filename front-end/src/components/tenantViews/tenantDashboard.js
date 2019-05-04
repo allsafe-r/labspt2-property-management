@@ -69,9 +69,14 @@ class tenantDashboard extends Component {
 
 	fetchData() {
 		// Stripe Data
-		axios.get(url2).then((response) => this.setState({ charges: response.data })).catch((error) => {
-			console.error('Server Error', error);
-		});
+		axios
+			.get(url2)
+			.then((response) => {
+				this.setState({ charges: response.data });
+			})
+			.catch((error) => {
+				console.error('Server Error', error);
+			});
 		const token = localStorage.getItem('jwtToken');
 		const id = decode(token).userId;
 		// go into users to find which residence you live at
