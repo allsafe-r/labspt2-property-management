@@ -72,7 +72,9 @@ class tenantDashboard extends Component {
 		axios
 			.get(url2)
 			.then((response) => {
-				this.setState({ charges: response.data });
+				if (this.state.charges.length !== response.data.length) {
+					this.setState({ charges: response.data });
+				}
 			})
 			.catch((error) => {
 				console.error('Server Error', error);
