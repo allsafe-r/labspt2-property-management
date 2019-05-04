@@ -99,34 +99,32 @@ class tenantDashboard extends Component {
 					// console.log(user);
 					this.setState({ houseId: user.data.residenceId, user: user.data.firstName, cost: user.data.cost });
 				}
-			});
-		// go into users residence, grab some information and set it to state, grab owner of residence to supply rest of information
-		// .then(
-		// 	axios
-		// 		.get(`https://tenantly-back.herokuapp.com/properties/${this.state.houseId}`)
-		// 		.then((res) => {
-		// 			let property = res.data;
-		// 			if (this.state.residenceOwner !== property.owner || this.state.address !== property.propertyAddress) {
-		// 				this.setState({ residenceOwner: property.owner, address: property.propertyAddress });
-		// 			}
-		// 		})
-		// 		// find the owner of logged in users residence to supply contact info for owner
-		// 		.then(
-		// 			axios.get(`https://tenantly-back.herokuapp.com/users/${this.state.residenceOwner}`).then((res) => {
-		// 				let owner = res.data;
-		// 				if (this.state.contact !== owner.phone || this.state.contactEmail !== owner.email) {
-		// 					this.setState({ contact: owner.phone, contactEmail: owner.email });
-		// 				}
-		// 			})
-		// 		)
-		// )
-		// .then(
-		// 	// go into alerts and grab each alerts where the houseId matches logged in users residence, set to state
-		// 	axios.get(url).then((res) => {
-		// 		let alertsObj = res.data.filter((alert) => alert.houseId === this.state.houseId);
-		// 		this.setState({ alerts: alertsObj });
-		// 	})
-		// );
+			})
+			// go into users residence, grab some information and set it to state, grab owner of residence to supply rest of information
+			.then(
+				axios.get(`https://tenantly-back.herokuapp.com/properties/${this.state.houseId}`).then((res) => {
+					let property = res.data;
+					if (this.state.residenceOwner !== property.owner || this.state.address !== property.propertyAddress) {
+						this.setState({ residenceOwner: property.owner, address: property.propertyAddress });
+					}
+				})
+				// 		// find the owner of logged in users residence to supply contact info for owner
+				// 		.then(
+				// 			axios.get(`https://tenantly-back.herokuapp.com/users/${this.state.residenceOwner}`).then((res) => {
+				// 				let owner = res.data;
+				// 				if (this.state.contact !== owner.phone || this.state.contactEmail !== owner.email) {
+				// 					this.setState({ contact: owner.phone, contactEmail: owner.email });
+				// 				}
+				// 			})
+				// 		)
+				// )
+				// .then(
+				// 	// go into alerts and grab each alerts where the houseId matches logged in users residence, set to state
+				// 	axios.get(url).then((res) => {
+				// 		let alertsObj = res.data.filter((alert) => alert.houseId === this.state.houseId);
+				// 		this.setState({ alerts: alertsObj });
+				// 	})
+			);
 	}
 
 	convertToTime = (e) => {
