@@ -1826,17 +1826,105 @@ button[type="submit"] {
 }
 
 /* Billing */
-.Billing {
+.billing {
+  max-width: 1300px;
   width: 100%;
+  margin: 0 auto;
   display: flex;
+  flex-direction: row;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  font-family: roboto;
+}
+
+.billing-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.5em;
+
+  width: 60%;
+  box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  background-color: white;
+}
+
+.billing-left h1 {
+  font-size: 1.1em;
+  text-align: center;
+  border-bottom: #fc766a solid 1px;
+}
+
+.input-select {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+
+.select-billing {
+  width: 80%;
+  font-size: 0.8em;
+  margin-top: 0.7em;
+  border: none;
+  border-bottom: black 1px solid;
+  background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png)
+    no-repeat right;
+  -webkit-appearance: none;
+}
+
+.stripe-button {
+  width: 80%;
+  display: flex;
+  margin: 0 auto;
+}
+
+.stripe-button a {
+  margin: 0 auto;
+}
+
+.stripe-button img {
+  width: 100%;
+}
+
+.billing-right {
+  max-width: 300px;
+  padding: 0.5em;
+  padding-bottom: 1em;
+
+  border: 1px black solid;
+  border-radius: 4px;
+}
+
+.billing-right h1 {
+  font-size: 1.1em;
+  text-align: center;
+  border-bottom: #fc766a solid 1px;
+}
+
+.billingHistory-info {
+  margin-top: 0.2em;
+  display: flex;
+  flex-direction: row;
+}
+
+.billingHistory-info li:first-child {
+  margin-right: 0.2em;
 }
 
 @media (max-width: 600px) {
-  .Billing {
+  .billing {
     display: flex;
     flex-direction: column;
+  }
+
+  .billing-left {
+    width: 100%;
+    margin-bottom: 3em;
+  }
+
+  .billing-right {
+    margin: 0 auto;
   }
 }
 
