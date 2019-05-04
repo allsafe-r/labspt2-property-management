@@ -127,16 +127,17 @@ class tenantDashboard extends Component {
 			{/* This pulls the stripe info and the Outstanding payments for the user based on payments made in the last 30 days. */}
 				<StripeProvider apiKey="pk_test_uGZWgKZiorkYlZ8MsxYEIrA2">
 					<Paper elevation={1} className="paperBorder">
-					{/* <p>{this.state.user}</p> */}
+					<div className="outstanding"> Outstanding Balance</div>
 					<div className="currentOutstanding">
 						{this.state.charges.map((charge) => 
+							
 							<div>
 							{priorDate < charge.created && this.state.user === charge.billing_details.name &&
 							  <p>
 								  <p className="hidden">{this.state.payments.push(charge.amount)}</p>
 								{/* Prior date is {priorDate} charge made  {charge.created}. */}
 								{/* Current user {this.state.user} charge made to {charge.billing_details.name}. */}
-									<div className="outstanding"> Outstanding Balance</div>
+								<div className="outstanding"> Outstanding Balance</div>
 									<div className="outstandingBalance">${(this.state.cost/100) - (this.state.payments.reduce(this.getSum)/100)}</div>
 							
 							  </p>

@@ -1646,11 +1646,11 @@ button[type="submit"] {
   display: none;
 }
 
-div.currentOutstanding {
+.paperBorder div.currentOutstanding {
   display:flex;
-  padding: 0;
-  margin:0;
-  flex-direction: column-reverse;
+  padding: 0px;
+  margin:0px;
+  flex-direction: column;
 }
 
 .currentOutstanding div {
