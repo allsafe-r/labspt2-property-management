@@ -60,7 +60,8 @@ class tenantDashboard extends Component {
 		contact: '',
 		maintenancePhone: '',
 		charges: [],
-		cost: ''
+		cost: '',
+		user: ''
 	};
 
 	componentDidMount() {
@@ -91,13 +92,14 @@ class tenantDashboard extends Component {
 			.get(`https://tenantly-back.herokuapp.com/users/${id}`)
 			// .get(`http://localhost:9000/users/${id}`)
 			.then((user) => {
+				// console.log(user);
 				if (
 					this.state.houseID !== user.data.residenceId ||
 					this.state.user !== user.data.firstName ||
 					this.state.cost !== user.data.cost
 				) {
-					// console.log(user);
-					this.setState({ houseId: user.data.residenceId, user: user.data.firstName, cost: user.data.cost });
+					this.setState({ houseId: user.data.residence_id, user: user.data.firstName, cost: user.data.cost });
+					// console.log(this.state.houseId);
 				}
 			})
 			// go into users residence, grab some information and set it to state, grab owner of residence to supply rest of information
@@ -140,10 +142,10 @@ class tenantDashboard extends Component {
 		var today = new Date();
 		var priorDate = new Date().setDate(today.getDate() - 30);
 		priorDate = priorDate.toString();
-		console.log('Original data: ', priorDate);
+		// console.log('Original data: ', priorDate);
 		priorDate = priorDate.slice(0, -3);
 		priorDate = parseInt(priorDate);
-		console.log('After truncate: ', priorDate);
+		// console.log('After truncate: ', priorDate);
 
 		return (
 			<div className="tenant-dash">
