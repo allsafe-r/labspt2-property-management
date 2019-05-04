@@ -2,8 +2,30 @@ import React from "react";
 import { Link } from "react-router-dom";
 // import Wave from "./Wave";
 import ScrollableAnchor from 'react-scrollable-anchor'
-
+import styled from 'styled-components'
 import "../../assets/css/general.css";
+
+
+const SectionCaption = styled.p`
+  font-weight: 600;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #94A4BA;
+  text-align: center;
+`
+
+const SectionCellGroup = styled.div`
+  max-width: 800px;
+  margin: 0 auto 100px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 20px;
+  padding: 0 20px;
+
+  @media (max-width: 800px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+`
 
 const IndexPage = () => (
   <div className="Hero">
