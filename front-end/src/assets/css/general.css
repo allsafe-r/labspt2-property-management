@@ -109,20 +109,261 @@
   flex-direction: row;
   align-items: center;
 }
-.property-card {
+
+.addProperty-container {
   display: flex;
-  width: 25%;
-  border: 1px black solid;
-  padding: 10px;
-  margin: 10px;
-  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.addProperty-container form input {
+  padding: 1em;
+  margin: 0.5em;
+}
+
+.addProperty-container form input:hover {
+  border: 2px #fc766a solid;
+}
+.addProperty-container form input:focus {
+  border: 2px #fc766a solid;
+}
+
+.addProperty-container form button:hover {
+  background-color: white;
+  color: #fc766a;
+  border: 1px solid #fc766a;
+}
+
+.addProperty-container button[type="submit"] {
+  font-family: Roboto;
+  font-size: 1em;
+}
+/*Display Property*/
+.property-display {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.options-right {
+  width: 80%;
+  display: flex;
   flex-direction: row;
+  justify-content: flex-end;
+  margin-bottom: 1em;
 }
 
-.buttons-container {
+.property-body {
+  margin: 0 auto;
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
+.property-body h1 {
+  font-size: 1.2em;
+}
+
+.propertyBody-info {
+  margin: 0.5em;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.propertyBody-info p {
+  font-size: 1.2em;
+  margin-left: 0.4em;
+  color: #fc766a;
+}
+
+.edit-button {
+  margin-right: 0.5em;
+}
+
+/*Delete Modal*/
+
+.delete-modal {
+  margin: 0 auto;
+  border: 1px solid black;
+  padding: 0.5em;
+}
+
+.modal-buttons {
+  margin-top: 0.4em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  letter-spacing: 0.02em;
+}
+
+.btn-delete {
+  padding: 0.5em;
+  margin-left: 0.5em;
+  background-color: #dd4747;
+  color: white;
+  font-size: 0.8em;
+  border: none;
+  cursor: pointer;
+  font-family: Roboto;
+  border-radius: 3px;
+}
+
+.btn-delete:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn {
+  font-size: 0.8em;
+  background-color: white;
+  border: none;
+  border: 1px solid black;
+  cursor: pointer;
+  font-family: Roboto;
+  border-radius: 3px;
+}
+
+.btn:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+/*Reuseable */
+.notFilled-button {
+  padding: 8px 20px;
+  font-size: 20px;
+  border: none;
+  background-color: white;
+  border: 1px solid #fc766a;
+  color: black;
+
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.notFilled-button:hover {
+  background-color: #fc766a;
+  color: black;
+}
+
+.filled-button {
+  font-family: Roboto;
+  padding: 8px 20px;
+  font-size: 1em;
+  border: none;
+  background-color: #fc766a;
+  color: white;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.filled-button:hover {
+  background-color: white;
+  color: #fc766a;
+  border: 1px solid #fc766a;
+}
+
+@media (max-width: 600px) {
+  .property-body {
+    justify-content: flex-start;
+  }
+  .propertyBody-info {
+    justify-content: flex-start;
+  }
+}
+
+/*Edit Property*/
+
+.edit-property {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.edit-property h1 {
+  font-size: 1.3em;
+}
+.edit-property form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-size: 0.9em;
+  margin-top: 1em;
+}
+.edit-leftSide {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-rightSide {
+  width: 20%;
+  display: flex;
+
+  align-items: center;
+}
+
+.edit-topInfo {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.edit-botInfo {
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+}
+
+.input-info h1 {
+  margin: 0 auto;
+}
+
+.input-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.edit-property form input {
+  padding: 1em;
+  margin: 0.5em;
+  border: 0;
+  border-bottom: 0.1em solid black;
+}
+
+.edit-property form input:hover {
+  border-bottom: 2px #fc766a solid;
+}
+.edit-property form input:focus {
+  border: 2px #fc766a solid;
+}
+
+.edit-rightSide button {
+  padding: 2.9em 1.2em;
+  font-size: 1em;
+  border: none;
+  border: 1px solid #fc766a;
+  color: #fc766a;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.edit-rightSide button {
+  font-size: 1.2em;
+  font-family: Robot;
+}
+.edit-rightSide button:hover {
+  background-color: #fc766a;
+  border-color: white;
+  color: white;
+}
 .noteInfo {
   padding: 10px;
 }
@@ -366,7 +607,6 @@ body {
 
 /* ========HOME PAGE =========*/
 
-
 /* ==========FIRST HERO ==========*/
 
 .intro-section {
@@ -376,48 +616,43 @@ body {
 }
 
 .bg-stretch {
-	position: absolute;
-	z-index: 1;
-	top: 0;
-	bottom: 0;
-	left: 0;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: 0;
   right: 0;
   width: 100%;
   height: auto;
-	background-size: contain;
-	background-repeat: no-repeat;
+  background-size: contain;
+  background-repeat: no-repeat;
   background-position: 50% 50%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-
 }
 
 .bg-2-stretch {
-	position: absolute;
-	z-index: 1;
-	top: 0;
-	bottom: 0;
-	left: 0;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: 0;
   right: 0;
   width: 100%;
   height: auto;
-	background-size: contain;
-	background-repeat: no-repeat;
+  background-size: contain;
+  background-repeat: no-repeat;
   background-position: 50% 50%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-
-
 }
-
 
 .bg-2-stretch .slide-2-frame {
   /* border: 10px solid red; */
   display: block;
   margin-right: 80px;
-
 }
 
 .bg-2-stretch .slide-2-frame .text {
@@ -429,31 +664,30 @@ body {
   line-height: 30px;
   letter-spacing: 0.6px;
   word-spacing: 20px;
-
-
 }
 
-
 .bg-2-stretch .slide-2-frame .text .slide-title {
-  font-family: 'GTEestiDisplay-Medium',-apple-system,system-ui,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
+  font-family: "GTEestiDisplay-Medium", -apple-system, system-ui,
+    BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+    "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
   font-weight: 500;
   font-size: 4vw;
   padding-bottom: 20px;
-
-
 }
 
 .bg-2-stretch .slide-2-frame .text p {
   padding-top: 5px;
   font-size: 1vw;
-  opacity: .5;
-  font-family: 'GTEestiDisplay-Medium',-apple-system,system-ui,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
+  opacity: 0.5;
+  font-family: "GTEestiDisplay-Medium", -apple-system, system-ui,
+    BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+    "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
   font-weight: 500;
   color: rgb(46, 37, 37);
   word-spacing: 1px;
   line-height: 20px;
-
-
 }
 
 .bg-stretch .slide-frame .text p {
@@ -463,91 +697,73 @@ body {
 
   /* color: gray;
   opacity: .5; */
-  font-family: 'GTEestiDisplay-Medium',-apple-system,system-ui,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
+  font-family: "GTEestiDisplay-Medium", -apple-system, system-ui,
+    BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+    "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
   font-weight: 500;
-
 }
 
-
 .intro-section .bg-stretch {
-	width: 100%;
-    /* height: 100vh; */
-    background-image: url("../images/finalhero.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    
+  width: 100%;
+  /* height: 100vh; */
+  background-image: url("../images/finalhero.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
 }
 
 .intro-section .bg-2-stretch {
-	  width: 100%;
-    background-image: url("../images/compguy.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    /* background-position: 50% 50%; */
-    
+  width: 100%;
+  background-image: url("../images/compguy.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* background-position: 50% 50%; */
 }
-    /* background-image: url("../images/iphonex_bg.png"); */
+/* background-image: url("../images/iphonex_bg.png"); */
 
 @media (max-width: 375px) {
-
   .Hero .intro-section {
     max-width: 100%;
     margin: 0 auto;
     height: 72vh;
     padding: 30px;
-   
-  
   }
 
   .bg-stretch {
     height: 72vh;
-
   }
 
-    .intro-section .bg-2-stretch {
-      /* background-image: url("../images/finaliphone678.png"); */
-      background-image: url("../images/Untitled-2.png");
-      background-size: contain;
+  .intro-section .bg-2-stretch {
+    /* background-image: url("../images/finaliphone678.png"); */
+    background-image: url("../images/Untitled-2.png");
+    background-size: contain;
+  }
 
-
-      
-    }  
-
-
-    .bg-2-stretch .slide-2-frame .text p {
-      display: none;
-    }  
+  .bg-2-stretch .slide-2-frame .text p {
+    display: none;
+  }
 
   .intro-section .bg-2-stretch {
     background-image: url("../images/Untitled-2.png");
     background-size: contain;
-
-  
   }
 
-
-
-   .bg-stretch .slide-frame .slide-title .anchor-wrap {
+  .bg-stretch .slide-frame .slide-title .anchor-wrap {
     /* padding-bottom: 100px; */
     margin-bottom: -200px;
   }
 }
 
 @media (max-width: 768px) {
-
   .intro-section .bg-stretch {
     /* background-image: url("../images/finalhero_ipad3.png"); */
     /* background-image: url("../images/ipadhero.png"); */
     background-image: url("../images/finalhero_ipad3.png");
-
   }
 
   .intro-section .bg-2-stretch {
-
     background-image: url("../images/compguys.png");
-
-
   }
 
   .intro-section .bg-2-stretch {
@@ -556,7 +772,7 @@ body {
     justify-content: center;
     margin: 0 auto;
   }
-  
+
   .bg-2-stretch .slide-2-frame {
     margin-right: 0px;
     margin-bottom: 0px;
@@ -565,38 +781,26 @@ body {
   .bg-2-stretch .slide-2-frame .text {
     text-align: center;
     margin-top: -70px;
-
   }
-
-
-
 
   .bg-2-stretch .slide-2-frame .text .slide-title {
     font-size: 5.8vw;
+  }
 
-    }
-
-
- 
   .anchor-wrap {
     margin-bottom: 40px;
   }
-  
-
 }
 
 @media (max-width: 1024px) {
   .intro-section .bg-stretch {
     /* background-image: url("../images/finalhero_ipadpro.png"); */
-     /* height: auto; 
+    /* height: auto; 
     width: auto;
     margin: 0 auto;  */
     /* background-image: url("../images/finalhero_ipad3.png"); */
-
-
-
-   } 
-/* 
+  }
+  /* 
   .intro-section .bg-stretch-2 {
     background-size: cover;
     background-image: url("../images/compguys.png");
@@ -611,10 +815,7 @@ body {
     display: flex;
     justify-content: center;
     align-content: center;
-
   }
-
- 
 
   .bg-stretch {
     align-items: flex-start;
@@ -629,12 +830,10 @@ body {
   .slide-2-frame .text {
     text-align: center;
     padding-bottom: 20px;
-
   }
-    .slide-frame .text .slide-title {
+  .slide-frame .text .slide-title {
     font-size: 6.5vw;
-  } 
-
+  }
 
   .bg-2-stretch .slide-2-frame .text p {
     color: gray;
@@ -647,9 +846,9 @@ body {
     padding-top: 100px;
   }
 
-    .slide-2-frame .text .slide-title {
+  .slide-2-frame .text .slide-title {
     font-size: 6vw;
-  } 
+  }
 
   .bg-stretch .slide-frame .text p {
     color: gray;
@@ -660,10 +859,6 @@ body {
     color: black;
     font-size: 1.7vw;
   }
-  
-  
-
-
 }
 
 /* 
@@ -682,14 +877,13 @@ body {
 
 @media (max-width: 479px) {
   .intro-section {
-		position: relative;
-	  min-height: 40vh;
+    position: relative;
+    min-height: 40vh;
     text-align: center;
     padding: 30px;
     /* padding-top: 40px;
     padding-right: 20px;
     padding-left: 20px; */
-
   }
 
   /* .intro-section {
@@ -701,32 +895,23 @@ body {
     max-width: 100%;
     margin: 0 auto;
     height: 72vh;
-   
-  
   }
   .intro-section .bg-stretch {
     /* background-image: url("../images/finaliphone678.png"); */
     background-image: url("../images/isthis3.png");
     background-size: cover;
     height: 72vh;
-
   }
 
   .intro-section .bg-stretch-2 {
     background-image: url("../images/Untitled-2.png");
     background-size: cover;
     height: 100vh;
-
   }
-  
-
 
   .bg-stretch .slide-frame .text {
-    padding: 15px;    
-  
+    padding: 15px;
   }
-
-
 
   .bg-stretch .slide-frame .text .slide-title {
     font-size: 7.3vw;
@@ -742,13 +927,10 @@ body {
   }
 
   .bg-2-stretch .slide-2-frame .text .slide-title {
-
-  
   }
 
   .bg-2-stretch .slide-2-frame .text {
     padding-top: 25px;
-
   }
 
   .anchor-wrap {
@@ -756,21 +938,14 @@ body {
     position: absolute;
     bottom: 0px;
     left: 0;
-    width: 100%;  
-
+    width: 100%;
   }
-
-
-
-
-
 
   .bg-2-stretch .slide-2-frame .text .slide-title {
     font-size: 8vw;
-
   }
 
-/*   
+  /*   
   .intro-section .slide-frame .text h1 {
     display: none;
   }
@@ -779,35 +954,30 @@ body {
     display:none;
 
   } */
-  
+
   /* .intro-section .slide-frame .text button {
     display:none;
 
   } */
 
-    /* padding-bottom: 100px; */
-
+  /* padding-bottom: 100px; */
 
   .anchor-wrap {
-   	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: column;
-	flex-direction: column;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	position: absolute;
-	bottom: 25px;
-	left: 0;
-	width: 100%;
-}
-
-  
-
-
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: absolute;
+    bottom: 25px;
+    left: 0;
+    width: 100%;
+  }
 }
 
 .jumbo {
@@ -825,7 +995,10 @@ body {
 }
 
 .intro-section .bg-stretch h1 {
-  font-family: 'GTEestiDisplay-Medium',-apple-system,system-ui,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
+  font-family: "GTEestiDisplay-Medium", -apple-system, system-ui,
+    BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+    "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
   font-weight: 500;
   margin: 0;
   color: black;
@@ -886,12 +1059,11 @@ body {
 }
 
 .bg-stretch .slide-frame {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    /* justify-content: center; */
-    /* align-items: center; */
-
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
 }
 
 .bg-2-stretch .slide-2-frame {
@@ -900,8 +1072,6 @@ body {
   display: flex;
   /* justify-content: center; */
   /* align-items: center; */
-
-
 }
 
 .bg-2-stretch .slide-2-frame {
@@ -910,16 +1080,12 @@ body {
   display: flex;
   /* justify-content: center; */
   /* align-items: center; */
-
-
 }
-
 
 .bg-stretch .text {
   padding-top: 0;
   align-items: center;
-  padding:60px;
-
+  padding: 60px;
 }
 /* 
 @media (max-width: 650px) {
@@ -1006,7 +1172,7 @@ body {
 }
 
 .anchor:hover span {
-	/* -webkit-animation-duration: .9s;
+  /* -webkit-animation-duration: .9s;
 	animation-duration: .9s;
 	-webkit-animation-name: bounce;
 	animation-name: bounce;
@@ -1103,26 +1269,22 @@ body {
   }
 
   .anchor span {
-		top: 14px;
-		left: 7px;
-		width: 21px;
-		height: 10px;
+    top: 14px;
+    left: 7px;
+    width: 21px;
+    height: 10px;
   }
-  
-  
 
-	.anchor span:before,
-	.anchor span:after {
-		left: -1px;
-		width: 14px;
-  }
-  
+  .anchor span:before,
   .anchor span:after {
-		left: auto;
-		right: -1px;
-	}
+    left: -1px;
+    width: 14px;
+  }
 
-
+  .anchor span:after {
+    left: auto;
+    right: -1px;
+  }
 }
 
 /*Body*/
@@ -1275,13 +1437,22 @@ body {
   justify-content: space-around;
   flex-wrap: wrap;
   width: 100%;
+  align-items: center;
 }
 
 .tenant-info {
-  border: 1px black solid;
-  padding: 1rem;
-  margin: 1rem;
+  max-width: 600px;
+  padding: 0.5em;
+  margin: 0.5em;
   width: 40%;
+  box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  background-color: white;
+}
+
+.tenant-info h1 {
+  font-size: 1.2em;
 }
 
 .tenant-info form {
@@ -1301,6 +1472,13 @@ body {
 
 .tenantCard-top input {
   margin: 0.5rem;
+  border: none;
+  border-bottom: 1px solid black;
+  padding: 0.3em 0;
+}
+
+.tenantCard-top input:focus {
+  border-bottom: 2px solid #fc766a;
 }
 
 .inputInfo {
@@ -1313,6 +1491,40 @@ body {
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
+  font-size: 0.9em;
+}
+
+input[type="checkbox"] + label {
+  display: block;
+  margin: 0.1em;
+  cursor: pointer;
+  padding: 0.2em;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"] + label:before {
+  content: "\2714";
+  border: 0.1em solid #000;
+  border-radius: 0.2em;
+  display: inline-block;
+  padding: 0 0.2em;
+  margin-right: 0.2em;
+  vertical-align: bottom;
+  color: transparent;
+  transition: 0.2s;
+}
+
+input[type="checkbox"] + label:active:before {
+  transform: scale(0);
+}
+
+input[type="checkbox"]:checked + label:before {
+  background-color: #fc766a;
+  border-color: #fc766a;
+  color: #fff;
 }
 
 .contract-container {
@@ -1369,6 +1581,45 @@ body {
 
 .start-end input:first-child {
   margin-right: 0.5rem;
+}
+
+.tenantAdd {
+  font-family: "Robo";
+  width: 250px;
+  height: 200px;
+  cursor: pointer;
+  border: 1px solid black;
+  margin: 10px;
+  display: flex;
+  font-size: 0.7em;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.tenantAdd:hover {
+  color: black;
+  background: rgba(0, 0, 0, 0.1);
+  transition: all 0.5s;
+}
+
+.tenantAdd h1 {
+  color: black;
+  margin: 0 auto;
+}
+
+.addTenantB-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-top: 0.5em;
+}
+
+.addTenantB-container button {
+  margin: 0 auto;
 }
 
 @media (max-width: 960px) {
