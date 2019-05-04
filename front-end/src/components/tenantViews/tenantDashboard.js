@@ -119,13 +119,15 @@ class tenantDashboard extends Component {
 							}
 						})
 					)
-				// )
-				// .then(
-				// 	// go into alerts and grab each alerts where the houseId matches logged in users residence, set to state
-				// 	axios.get(url).then((res) => {
-				// 		let alertsObj = res.data.filter((alert) => alert.houseId === this.state.houseId);
-				// 		this.setState({ alerts: alertsObj });
-				// 	})
+			)
+			.then(
+				// go into alerts and grab each alerts where the houseId matches logged in users residence, set to state
+				axios.get(url).then((res) => {
+					let alertsObj = res.data.filter((alert) => alert.houseId === this.state.houseId);
+					if (alertsObj.length !== this.state.alerts.length) {
+						this.setState({ alerts: alertsObj });
+					}
+				})
 			);
 	}
 
