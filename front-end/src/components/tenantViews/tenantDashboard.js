@@ -103,7 +103,9 @@ class tenantDashboard extends Component {
 					.get(`https://tenantly-back.herokuapp.com/properties/${this.state.houseId}`)
 					.then((res) => {
 						let property = res.data;
-						this.setState({ residenceOwner: property.owner, address: property.propertyAddress });
+						if (this.state.residenceOwner !== property.owner || this.state.address !== property.propertyAddress) {
+							this.setState({ residenceOwner: property.owner, address: property.propertyAddress });
+						}
 					})
 					// find the owner of logged in users residence to supply contact info for owner
 					.then(
