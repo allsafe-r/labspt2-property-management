@@ -67,6 +67,11 @@ class tenantDashboard extends Component {
 		this.fetchData();
 	}
 
+	componentDidUpdate() {
+		console.log('Did update');
+		this.fetchData();
+	}
+
 	fetchData() {
 		// Stripe Data
 		axios
