@@ -1650,14 +1650,14 @@ button[type="submit"] {
   display:flex;
   padding: 0px;
   margin:0px;
-  flex-direction: column;
+  flex-direction: column-reverse;
 }
 
 .currentOutstanding div {
   display:none;
 }
 
-.currentOutstanding div:nth-of-type(2) {
+.currentOutstanding div:last-child {
   display:block;
 }
 
