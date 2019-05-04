@@ -28,7 +28,7 @@ const axios = require('axios');
 
 const alertURL = `https://tenantly-back.herokuapp.com/alerts`;
 // const url = `http://localhost:9000/alerts`;
-const url2 = 'https://tenantly-back.herokuapp.com/stripe/charges';
+const stripeURL = 'https://tenantly-back.herokuapp.com/stripe/charges';
 
 const styles = {
 	card: {
@@ -75,7 +75,7 @@ class tenantDashboard extends Component {
 	fetchData() {
 		// Stripe Data
 		axios
-			.get(url2)
+			.get(stripeURL)
 			.then((response) => {
 				if (this.state.charges.length !== response.data.length) {
 					this.setState({ charges: response.data });
