@@ -86,10 +86,16 @@ class tenantDashboard extends Component {
 			// .get(`https://tenantly-back.herokuapp.com/users/${id}`)
 			.get(`http://localhost:9000/users/${id}`)
 			.then((user) => {
-				// console.log(user);
-				this.setState({ houseId: user.data.residenceId });
-				this.setState({ user: user.data.firstName });
-				this.setState({ cost: user.data.cost });
+				if (
+					this.state.houseID !== user.data.residenceId ||
+					this.state.user !== user.data.firstName ||
+					this.state.cost !== user.data.cost
+				) {
+					// console.log(user);
+					this.setState({ houseId: user.data.residenceId });
+					this.setState({ user: user.data.firstName });
+					this.setState({ cost: user.data.cost });
+				}
 			})
 			// go into users residence, grab some information and set it to state, grab owner of residence to supply rest of information
 			.then(
