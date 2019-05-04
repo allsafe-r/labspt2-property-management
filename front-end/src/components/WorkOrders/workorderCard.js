@@ -10,12 +10,13 @@ import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormLabel from '@material-ui/core/FormLabel';
+import Button from '@material-ui/core/Button';
 // import red from '@material-ui/core/colors/red';
 import Divider from '@material-ui/core/Divider';
 // import List from '@material-ui/core/List';
 // import ListItem from '@material-ui/core/ListItem';
 // import ListItemText from '@material-ui/core/ListItemText';
-// import Modal from '@material-ui/core/Modal';
+import Modal from '@material-ui/core/Modal';
 // import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 //import './workorders.css';
@@ -29,10 +30,10 @@ const styles = theme =>({
 	root:{
 		display: 'flex',
 		flexDirection: 'column',
-		height: 400,
-		justifyContent: 'space-between',
-		fontSize: '1.5rem',
-		maxWidth:600
+		justifyContent: 'space-around',
+		fontSize: '5rem',
+		maxWidth: '100%',
+		alignItems: 'center',
 	},
 
 
@@ -64,7 +65,8 @@ class Workordercard extends Component {
 			description: props.work.description,
 			phone: props.work.phone,
 			unsupervisedEntry: props.work.unsupervisedEntry,
-			status: props.work.status
+			status: props.work.status,
+			open: false
 		};
 	}
 
@@ -97,13 +99,24 @@ class Workordercard extends Component {
 			});
 	};
 
+	handleOpen = () => {
+		this.setState({ open: true });
+	  };
+	
+	handleClose = () => {
+		this.setState({ open: false });
+	  };
+
 	render() {
 		const { classes } = this.props;
 		return (
 			<Card className={classes.root} raised={true}>
-				
+			
+				<Modal    open={this.state.open}
+						  onClose={this.handleClose}
+				>
 				<CardMedia style={{height:245, width: '100%',}} image={this.props.work.image} />
-				
+				</Modal>
 				
 				<CardHeader>{this.props.work.property}</CardHeader>
 				
@@ -122,16 +135,16 @@ class Workordercard extends Component {
 
 				
 
-					
+				<Typography c variant='title' component='p'>
 					{`Unsupervised Entry is ${this.props.work.unsupervisedEntry ? 'Allowed' : 'Not Allowed'}`} 
-					
+					</Typography>	
 					
 					
 					
 					
 					{/* Radio button form */}
 					<RadioGroup name="workstatus" area-label="Work Status" value={this.state.status}  onChange={this.statushandler} className={classes.radiogroup} row>
-					<FormLabel style={{fontSize: 20}}  component="legend">Work Status</FormLabel>
+					<FormLabel component="legend">Work Status</FormLabel>
 					<div className={classes.radiobuttons}>
 					{this.inputs.map((values, i) => (
 						
@@ -146,7 +159,7 @@ class Workordercard extends Component {
 					</div>
 					</RadioGroup>
 					
-				
+					<Button variant="contained" color="primary" onClick={this.handleOpen}>Show Image</Button>
 					</CardContent>
 			</Card>
 		);

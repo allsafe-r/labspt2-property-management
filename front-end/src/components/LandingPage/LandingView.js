@@ -3,6 +3,8 @@ import Menu from "./Menu";
 import IndexPage from "./IndexPage";
 import Pricing from "./Pricing"
 import SecondHero from "./SecondHero"
+import Newsletter from "./Newsletter"
+import Footer from "./Footer"
 
 // import Body from "./Body";
 
@@ -15,7 +17,10 @@ const LandingView = () => {
       <IndexPage />
       {/* <Body /> */}
       <SecondHero />
-      <Pricing />
+      <Newsletter />
+      {/* <Pricing /> */}
+      <Footer />
+
     </div>
   );
 };
