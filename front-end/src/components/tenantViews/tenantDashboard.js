@@ -111,7 +111,9 @@ class tenantDashboard extends Component {
 					.then(
 						axios.get(`https://tenantly-back.herokuapp.com/users/${this.state.residenceOwner}`).then((res) => {
 							let owner = res.data;
-							this.setState({ contact: owner.phone, contactEmail: owner.email });
+							if (this.state.contact !== owner.phone || this.state.contactEmail !== owner.email) {
+								this.setState({ contact: owner.phone, contactEmail: owner.email });
+							}
 						})
 					)
 			)
