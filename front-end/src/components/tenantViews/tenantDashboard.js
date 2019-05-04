@@ -64,6 +64,10 @@ class tenantDashboard extends Component {
 	};
 
 	componentDidMount() {
+		this.fetchData();
+	}
+
+	fetchData() {
 		// Stripe Data
 		axios.get(url2).then((response) => this.setState({ charges: response.data })).catch((error) => {
 			console.error('Server Error', error);
