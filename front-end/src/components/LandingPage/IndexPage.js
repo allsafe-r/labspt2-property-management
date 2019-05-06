@@ -26,6 +26,19 @@ const SectionCaption = styled.p`
   
 `
 
+const SectionCellGroup = styled.div`
+  max-width: 800px;
+  margin: 0 auto 100px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 20px;
+  padding: 0 20px;
+
+  @media (max-width: 800px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+`
+
 const IndexPage = () => (
   <div className="Hero">
       <div className="intro-section">
@@ -72,7 +85,7 @@ const IndexPage = () => (
     </div>
     <Cells>
      <SectionCaption>Step into the year 2019</SectionCaption>
-  
+
     </Cells>
   </div>
 );
