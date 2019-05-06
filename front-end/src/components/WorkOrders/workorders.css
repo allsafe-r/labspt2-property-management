@@ -98,7 +98,8 @@
 }
 
 .cardfont {
-    align: center;
+    font-size: 5rem;
+    align-items: center;
 }
 
 .workcards {

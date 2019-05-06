@@ -5,7 +5,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -19,19 +19,20 @@ import Divider from '@material-ui/core/Divider';
 import Modal from '@material-ui/core/Modal';
 // import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-//import './workorders.css';
+import './workorders.css';
+import { create } from 'jss';
 //import { CardContent } from '@material-ui/core';
-//import { withStyles } from '@material-ui/core';
+//import { withStyles } from '@material-ui/core/styles';
 
 // const url = process.env.workOrderCard || `http://localhost:9000/workorders/${this.state.id}`;
 // const url = `https://tenantly-back.herokuapp.com/${this.state.id}`;
 
-const styles = theme =>({
-	root:{
+const styles = ({
+	card:{
 		display: 'flex',
 		flexDirection: 'column',
 		justifyContent: 'space-around',
-		//fontSize: '5rem',
+		fontSize: '100%',
 		maxWidth: '100%',
 		alignItems: 'center',
 	},
@@ -39,14 +40,14 @@ const styles = theme =>({
 
 	radiogroup: {
 		flexDirection: 'row',
-		fontSize: '5rem',
+		fontSize: '2rem',
 		width: '100%',
 		
 	},
 	radiobuttons: {
 		display: 'flex',
 		flexDirection: 'row',
-		fontSize: '2rem',
+		//fontSize: '2rem',
 	},
 	image: {
 		height: 100,
@@ -110,32 +111,32 @@ class Workordercard extends Component {
 	render() {
 		const { classes } = this.props;
 		return (
-			<Card className={classes.root} raised={true}>
+			<Card className={classes.card} raised={true}>
 			
 				<Modal    open={this.state.open}
 						  onClose={this.handleClose}
 				>
-				<CardMedia style={{height:245, width: '100%',}} image={this.props.work.image} />
+				<CardMedia image={this.props.work.image} />
 				</Modal>
 				
 				<CardHeader>{this.props.work.property}</CardHeader>
 				
 				<CardContent>
-				<Typography gutterBottom variant="h5" component="h2">
+				<Typography gutterBottom className='cardfont'>
 						{this.props.work.tenant}
 				</Typography>
 				
-				<Typography  variant='body1' component='p'>
+				<Typography component="p">
 						{this.props.work.description}
 				</Typography>
 				
-				<Typography c variant='title' component='p'>
+				<Typography component="p">
 						{this.props.work.phone}
 				</Typography>
 
 				
 
-				<Typography c variant='title' component='p'>
+				<Typography component="p">
 					{`Unsupervised Entry is ${this.props.work.unsupervisedEntry ? 'Allowed' : 'Not Allowed'}`} 
 					</Typography>	
 					
