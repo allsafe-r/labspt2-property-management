@@ -59,6 +59,10 @@ const styles = theme =>({
 	},
 	typography:{
 		margin: '1% 0 1% 0',
+		fontSize: '2.25rem'
+	},
+	formlabel:{
+		fontSize: '2rem'
 	}
 })
 
@@ -128,21 +132,21 @@ class Workordercard extends Component {
 				<CardHeader>{this.props.work.property}</CardHeader>
 				
 				<CardContent>
-				<Typography className={classes.typography} gutterBottom variant="h4" component="p" >
+				<Typography className={classes.typography}>
 						{this.props.work.tenant}
 				</Typography>
 				
-				<Typography className={classes.typography} gutterBottom variant="h4" component="p">
+				<Typography className={classes.typography}>
 						{this.props.work.description}
 				</Typography>
 				
-				<Typography className={classes.typography} gutterBottom  variant="h4" component="p">
+				<Typography className={classes.typography}>
 						{this.props.work.phone}
 				</Typography>
 
 				
 
-				<Typography className={classes.typography} gutterBottom variant="h4" component="p">
+				<Typography className={classes.typography}>
 					{`Unsupervised Entry is ${this.props.work.unsupervisedEntry ? 'Allowed' : 'Not Allowed'}`} 
 					</Typography>	
 					
@@ -151,7 +155,7 @@ class Workordercard extends Component {
 					
 					{/* Radio button form */}
 					<FormControl>
-					<FormLabel>Work Status</FormLabel>
+					<FormLabel className={classes.formlabel}>Work Status</FormLabel>
 					<RadioGroup name="workstatus" area-label="Work Status" value={this.state.status}  onChange={this.statushandler} className={classes.radiogroup} row>
 					
 					<div className={classes.radiobuttons}>
