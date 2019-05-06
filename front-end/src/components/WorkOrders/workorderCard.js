@@ -31,7 +31,7 @@ const styles = theme =>({
 		display: 'flex',
 		flexDirection: 'column',
 		justifyContent: 'space-around',
-		fontSize: '5rem',
+		//fontSize: '5rem',
 		maxWidth: '100%',
 		alignItems: 'center',
 	},
@@ -121,7 +121,7 @@ class Workordercard extends Component {
 				<CardHeader>{this.props.work.property}</CardHeader>
 				
 				<CardContent>
-				<Typography gutterBottom variant='headline' component='p'>
+				<Typography gutterBottom variant="h5" component="h2">
 						{this.props.work.tenant}
 				</Typography>
 				
