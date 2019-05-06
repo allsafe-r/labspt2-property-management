@@ -42,12 +42,13 @@ const styles = theme =>({
 	radiogroup: {
 		flexDirection: 'row',
 		margin: `${theme.spacing.unit}px 0`,
+		fontSize: '2rem'
 		
 	},
 	radiobuttons: {
 		display: 'flex',
 		flexDirection: 'row',
-		fontSize: '2rem',
+		fontSize: '3rem',
 	},
 	image: {
 		height: 100,
@@ -58,7 +59,7 @@ const styles = theme =>({
 		marginBottom: '2%',
 	},
 	typography:{
-		margin: '1% 0 1% 0',
+		margin: '2% 0 2% 0',
 		fontSize: '2.25rem'
 	},
 	formlabel:{
@@ -129,24 +130,26 @@ class Workordercard extends Component {
 				<CardMedia image={this.props.work.image} />
 				</Modal>
 				
-				<CardHeader>{this.props.work.property}</CardHeader>
+				
 				
 				<CardContent>
-				<Typography className={classes.typography}>
+				<Typography className={classes.typography} variant="title">
+						{this.props.work.description}
+				</Typography>
+
+				<Typography className={classes.typography}variant="h1">
 						{this.props.work.tenant}
 				</Typography>
 				
-				<Typography className={classes.typography}>
-						{this.props.work.description}
-				</Typography>
+
 				
-				<Typography className={classes.typography}>
+				<Typography className={classes.typography} variant="h1">
 						{this.props.work.phone}
 				</Typography>
 
 				
 
-				<Typography className={classes.typography}>
+				<Typography className={classes.typography} variant="h1">
 					{`Unsupervised Entry is ${this.props.work.unsupervisedEntry ? 'Allowed' : 'Not Allowed'}`} 
 					</Typography>	
 					
@@ -162,7 +165,7 @@ class Workordercard extends Component {
 					{this.inputs.map((values, i) => (
 						
 						<div key={i}>
-							<FormControlLabel   value={values} control={<Radio  checked={this.state.status === values}/>} label={values}/>
+							<FormControlLabel  className={classes.radiobuttons}  value={values} control={<Radio  checked={this.state.status === values}/>} label={values}/>
 							
 
 							
@@ -174,7 +177,7 @@ class Workordercard extends Component {
 					</FormControl>
 					
 					</CardContent>
-					<Button className={classes.button} variant="contained" color="primary" onClick={this.handleOpen}>Show Image</Button>
+					<Button className={classes.button} variant="contained" color="secondary" onClick={this.handleOpen}>Show Image</Button>
 			</Card>
 		);
 	}
