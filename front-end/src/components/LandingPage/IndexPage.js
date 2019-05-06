@@ -68,7 +68,7 @@ const IndexPage = () => (
           <Card 
             title="Handle Workorders"
             text="Learn More"
-            image={require('../../assets/images/house8.jpg')} />
+            image={require('../../assets/images/workorders2.png')} />
       </div>
       
     </div>
