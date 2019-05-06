@@ -60,11 +60,11 @@ const IndexPage = () => (
           <Card 
             title="Tenant Information"
             text="Learn More"
-            image={require('../../assets/images/house8.jpg')} />
+            image={require('../../assets/images/tenantinfo.png')} />
           <Card 
             title="Collect Payments"
             text="Learn More"
-            image={require('../../assets/images/house8.jpg')} />
+            image={require('../../assets/images/collectpay.png')} />
           <Card 
             title="Handle Workorders"
             text="Learn More"
