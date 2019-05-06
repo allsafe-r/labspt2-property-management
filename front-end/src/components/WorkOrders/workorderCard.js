@@ -53,6 +53,12 @@ const styles = theme =>({
 		height: 100,
 		padding:'56.25%',
 
+	},
+	button:{
+		marginBottom: '2%',
+	},
+	typography:{
+		margin: '1% 0 1% 0',
 	}
 })
 
@@ -122,21 +128,21 @@ class Workordercard extends Component {
 				<CardHeader>{this.props.work.property}</CardHeader>
 				
 				<CardContent>
-				<Typography gutterBottom variant="h2" className='cardfont'>
+				<Typography className={classes.typography} gutterBottom variant="h4" component="p" >
 						{this.props.work.tenant}
 				</Typography>
 				
-				<Typography variant="h3" component="p">
+				<Typography className={classes.typography} gutterBottom variant="h4" component="p">
 						{this.props.work.description}
 				</Typography>
 				
-				<Typography component="p">
+				<Typography className={classes.typography} gutterBottom  variant="h4" component="p">
 						{this.props.work.phone}
 				</Typography>
 
 				
 
-				<Typography component="p">
+				<Typography className={classes.typography} gutterBottom variant="h4" component="p">
 					{`Unsupervised Entry is ${this.props.work.unsupervisedEntry ? 'Allowed' : 'Not Allowed'}`} 
 					</Typography>	
 					
@@ -164,7 +170,7 @@ class Workordercard extends Component {
 					</FormControl>
 					
 					</CardContent>
-					<Button variant="contained" color="primary" onClick={this.handleOpen}>Show Image</Button>
+					<Button className={classes.button} variant="contained" color="primary" onClick={this.handleOpen}>Show Image</Button>
 			</Card>
 		);
 	}
