@@ -14,6 +14,17 @@ const Cells = styled.div`
   background-color: #fce6e6;
 `
 
+const SectionCaption = styled.p`
+  margin: 50px 20px;
+  font-size: 60px;
+  text-align: center;
+  font-weight: 700;
+  background: linear-gradient(104deg, #050a27 0%, #4a548c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+`
 
 const IndexPage = () => (
   <div className="Hero">
@@ -61,7 +72,7 @@ const IndexPage = () => (
     </div>
     <Cells>
      <SectionCaption>Step into the year 2019</SectionCaption>
-
+  
     </Cells>
   </div>
 );
