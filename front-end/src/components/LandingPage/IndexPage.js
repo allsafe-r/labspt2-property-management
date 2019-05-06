@@ -1,33 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import Wave from "./Wave";
+import Wave from "./Wave";
 import Section from './Section'
 import Cell from './Cell'
 import Card from './Card'
+import staticdata from './staticdata.json'
 import styled from 'styled-components'
 import "../../assets/css/general.css";
 
 
-const SectionCaption = styled.p`
-  font-weight: 600;
-  font-size: 18px;
-  text-transform: uppercase;
-  color: #94A4BA;
-  text-align: center;
+const Cells = styled.div`
+  border: 1px solid red;
+  background-color: #fce6e6;
 `
 
-const SectionCellGroup = styled.div`
-  max-width: 800px;
-  margin: 0 auto 100px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-column-gap: 20px;
-  padding: 0 20px;
-
-  @media (max-width: 800px) {
-    grid-template-columns: repeat(1, 1fr);
-  }
-`
 
 const IndexPage = () => (
   <div className="Hero">
@@ -73,8 +59,10 @@ const IndexPage = () => (
             image={require('../../assets/images/workorders2.png')} />
       </div>
     </div>
-    
-    
+    <Cells>
+     <SectionCaption>Step into the year 2019</SectionCaption>
+
+    </Cells>
   </div>
 );
 
