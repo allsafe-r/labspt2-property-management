@@ -9,6 +9,10 @@ const CellGroup = styled.div`
 `
 
 const Cell = props => (
+    <CellGroup>
+
+    </CellGroup>
+
 )
 
 export default Cell
