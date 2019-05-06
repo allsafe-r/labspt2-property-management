@@ -11,7 +11,7 @@ import "../../assets/css/general.css";
 
 const Cells = styled.div`
   /* border: 1px solid red; */
-  background-color: #fce6e6;
+  background-color: #FFBFBA;
 `
 
 const SectionCaption = styled.p`
@@ -23,6 +23,7 @@ const SectionCaption = styled.p`
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  padding-top: 50px;
   
 `
 

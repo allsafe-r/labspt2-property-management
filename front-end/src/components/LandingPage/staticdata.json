@@ -2,15 +2,15 @@
     "cells": [
         {
             "title": "Add and edit properties",
-            "image": "https://i.ibb.co/GMKTqwv/iconhouse.png"
+            "image": "https://i.ibb.co/cDDfWjM/house.png"
         },
 		{
 			"title": "See all properties",
-			"image": "https://i.ibb.co/GMKTqwv/iconhouse.png"
+			"image": "https://i.ibb.co/sWyQMkm/view.png"
 		},
 		{
 			"title": "Create, update, view tenants",
-			"image": "https://i.ibb.co/GMKTqwv/iconhouse.png"
+			"image": "https://i.ibb.co/xgs2Sgk/person.png"
 		},
 		{
 			"title": "Manage work orders",
@@ -18,7 +18,7 @@
 		},
 		{
 			"title": "Send out contracts",
-			"image": "https://i.ibb.co/GMKTqwv/iconhouse.png"
+			"image": "https://i.ibb.co/GpSCW49/send.png"
 		},
 		{
 			"title": "Collect payments",
@@ -27,26 +27,10 @@
 		{
 			"title": "See payment history",
 			"image": "https://i.ibb.co/GMKTqwv/iconhouse.png"
-		},
-		{
-			"title": "Easily Update Settings",
+        },
+        {
+			"title": "See payment history",
 			"image": "https://i.ibb.co/GMKTqwv/iconhouse.png"
-		},
-		{
-			"title": "Properties Map (Coming Soon)",
-			"image": "https://i.ibb.co/GMKTqwv/iconhouse.png"
-		},
-		{
-			"title": "Performance Insights (Coming Soon)",
-			"image": "https://i.ibb.co/GMKTqwv/iconhouse.png"
-		},
-		{
-			"title": "Real time flexible reporting (Coming Soon)",
-			"image": "https://i.ibb.co/GMKTqwv/iconhouse.png"
-		},
-		{
-			"title": "Generate property spreadsheets (Coming Soon)",
-			"image": "https://i.ibb.co/GMKTqwv/iconhouse.png"
-		}
+        }
     ]
 }
