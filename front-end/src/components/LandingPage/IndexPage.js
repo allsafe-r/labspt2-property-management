@@ -10,7 +10,7 @@ import "../../assets/css/general.css";
 
 
 const Cells = styled.div`
-  border: 1px solid red;
+  /* border: 1px solid red; */
   background-color: #fce6e6;
 `
 
@@ -85,7 +85,13 @@ const IndexPage = () => (
     </div>
     <Cells>
      <SectionCaption>Step into the year 2019</SectionCaption>
-
+     <SectionCellGroup>
+      {staticdata.cells.map(cell => (
+        <Cell 
+          title={cell.title}
+          image={cell.image} />
+      ))}
+     </SectionCellGroup>
     </Cells>
   </div>
 );
