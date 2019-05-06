@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 // import Wave from "./Wave";
 import Section from './Section'
+import Cell from './Cell'
 import Card from './Card'
 import styled from 'styled-components'
 import "../../assets/css/general.css";
@@ -72,6 +73,7 @@ const IndexPage = () => (
             image={require('../../assets/images/workorders2.png')} />
       </div>
     </div>
+    
     
   </div>
 );
