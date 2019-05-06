@@ -4,6 +4,14 @@
             "title": "Add and edit properties",
             "image": "https://i.ibb.co/GMKTqwv/iconhouse.png"
         },
-
+		{
+			"title": "See all properties",
+			"image": "https://i.ibb.co/GMKTqwv/iconhouse.png"
+		},
+		{
+			"title": "Create, update, view tenants",
+			"image": "https://i.ibb.co/GMKTqwv/iconhouse.png"
+		}
+	
     ]
 }
