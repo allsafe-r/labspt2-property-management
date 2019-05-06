@@ -11,15 +11,15 @@ import "../../assets/css/general.css";
 
 const Cells = styled.div`
   /* border: 1px solid red; */
-  background-color: #FFBFBA;
+  background-color: #f9a4a0;
 `
 
 const SectionCaption = styled.p`
-  margin: 50px 20px;
-  font-size: 60px;
+  margin-bottom: 70px;
+  font-size: 76px;
   text-align: center;
-  font-weight: 700;
-  background: linear-gradient(104deg, #050a27 0%, #4a548c 100%);
+  font-weight: 600;
+  background: white;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -34,6 +34,8 @@ const SectionCellGroup = styled.div`
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 20px;
   padding: 0 20px;
+  padding-bottom: 50px;
+
 
   @media (max-width: 800px) {
     grid-template-columns: repeat(1, 1fr);

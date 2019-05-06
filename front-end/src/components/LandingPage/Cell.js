@@ -18,9 +18,14 @@ const CellImage = styled.div`
 `
 
 const CellTitle = styled.div`
-    font-size: 24px;
-    border-bottom: 1px solid rgba(0,0,0, 0.1);
+    font-size: 20px;
+    border-bottom: 1px solid rgb(248,248,248);
     padding: 30px 0;
+    color: white;
+    line-height: 28px;
+    letter-spacing: .8px;
+    font-weight: 400;
+
 `
 
 const Cell = props => (
