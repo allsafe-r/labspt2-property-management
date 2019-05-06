@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 // import Wave from "./Wave";
-import ScrollableAnchor from 'react-scrollable-anchor'
+import Card from './Card'
 import styled from 'styled-components'
 import "../../assets/css/general.css";
 
@@ -50,6 +50,13 @@ const IndexPage = () => (
 				</div>
        </div>
         </div>
+        <div className="Cards">
+          <h2>All in one place</h2>
+        <div className="CardGroup">
+    
+      </div>
+      
+    </div>
   </div>
 );
 
