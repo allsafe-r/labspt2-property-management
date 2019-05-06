@@ -53,7 +53,22 @@ const IndexPage = () => (
         <div className="Cards">
           <h2>All in one place</h2>
         <div className="CardGroup">
-    
+          <Card 
+            title="Manage Properties"
+            text="Learn More"
+           image={require('../../assets/images/house8.jpg')} />
+          <Card 
+            title="Tenant Information"
+            text="Learn More"
+            image={require('../../assets/images/house8.jpg')} />
+          <Card 
+            title="Collect Payments"
+            text="Learn More"
+            image={require('../../assets/images/house8.jpg')} />
+          <Card 
+            title="Handle Workorders"
+            text="Learn More"
+            image={require('../../assets/images/compguyipadpro.png')} />
       </div>
       
     </div>
