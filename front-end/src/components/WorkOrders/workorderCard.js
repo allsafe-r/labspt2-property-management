@@ -9,7 +9,7 @@ import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormLabel from '@material-ui/core/FormLabel';
+import FormControl from '@material-ui/core/FormControl';
 import Button from '@material-ui/core/Button';
 // import red from '@material-ui/core/colors/red';
 import Divider from '@material-ui/core/Divider';
@@ -21,18 +21,19 @@ import Modal from '@material-ui/core/Modal';
 import Typography from '@material-ui/core/Typography';
 import './workorders.css';
 import { create } from 'jss';
+import { FormLabel } from '@material-ui/core';
 //import { CardContent } from '@material-ui/core';
 //import { withStyles } from '@material-ui/core/styles';
 
 // const url = process.env.workOrderCard || `http://localhost:9000/workorders/${this.state.id}`;
 // const url = `https://tenantly-back.herokuapp.com/${this.state.id}`;
 
-const styles = ({
+const styles = theme =>({
 	card:{
 		display: 'flex',
 		flexDirection: 'column',
 		justifyContent: 'space-around',
-		fontSize: '100%',
+		fontWeight: 'bold',
 		maxWidth: '100%',
 		alignItems: 'center',
 	},
@@ -40,14 +41,13 @@ const styles = ({
 
 	radiogroup: {
 		flexDirection: 'row',
-		fontSize: '2rem',
-		width: '100%',
+		margin: `${theme.spacing.unit}px 0`,
 		
 	},
 	radiobuttons: {
 		display: 'flex',
 		flexDirection: 'row',
-		//fontSize: '2rem',
+		fontSize: '2rem',
 	},
 	image: {
 		height: 100,
@@ -122,11 +122,11 @@ class Workordercard extends Component {
 				<CardHeader>{this.props.work.property}</CardHeader>
 				
 				<CardContent>
-				<Typography gutterBottom className='cardfont'>
+				<Typography gutterBottom variant="h2" className='cardfont'>
 						{this.props.work.tenant}
 				</Typography>
 				
-				<Typography component="p">
+				<Typography variant="h3" component="p">
 						{this.props.work.description}
 				</Typography>
 				
@@ -144,8 +144,10 @@ class Workordercard extends Component {
 					
 					
 					{/* Radio button form */}
+					<FormControl>
+					<FormLabel>Work Status</FormLabel>
 					<RadioGroup name="workstatus" area-label="Work Status" value={this.state.status}  onChange={this.statushandler} className={classes.radiogroup} row>
-					<FormLabel component="legend">Work Status</FormLabel>
+					
 					<div className={classes.radiobuttons}>
 					{this.inputs.map((values, i) => (
 						
@@ -159,9 +161,10 @@ class Workordercard extends Component {
 					))}
 					</div>
 					</RadioGroup>
+					</FormControl>
 					
-					<Button variant="contained" color="primary" onClick={this.handleOpen}>Show Image</Button>
 					</CardContent>
+					<Button variant="contained" color="primary" onClick={this.handleOpen}>Show Image</Button>
 			</Card>
 		);
 	}
