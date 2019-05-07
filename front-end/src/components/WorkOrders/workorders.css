@@ -16,6 +16,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-height: 300px;
+}
+
+.StripeElement {
+    margin: 10px 0;
 }
 
 .checkoutinput{
@@ -70,18 +75,41 @@
     
 }
 
-.checkoutform .button {
+.form-card .checkoutform .button {
     width: 100%;
     margin-bottom:20px;
+    background-color: #fc766a;
+}
+
+.checkoutform .button:hover {
+    color: #fc766a;
+    background-color: white;
+    border: 1px solid #fc766a;
 }
 
 .checkoutform .button span {
     font-size:14px;
 }
 
+.slider label .css-5qfbhd-Switch {
+    background-color: #fc766a;
+}
 .slider label {
     width:35px;
     height:25px;
+}
+
+.slider {
+    margin-bottom: 10px;
+}
+
+.checkoutinput {
+    margin-bottom: 10px;
+}
+.checkoutinput input {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: slategray;
 }
 
 .carditems {
@@ -141,8 +169,17 @@
     flex-direction: row;
 }
 .slider p{
-    font-size:12px;
+    font-size:16px;
     padding-left: 10px;
+    font-style: italic;
+}
+
+.card-header div span {
+    font-size: 16px;
+}
+
+.flex-component div .payments {
+    font-size: 16px;
 }
 
 @media(max-width: 745px) {
