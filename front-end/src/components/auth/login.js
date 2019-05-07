@@ -21,7 +21,6 @@ class Login extends Component {
 	onSubmit = (e) => {
 		e.preventDefault();
 		const acc = { email: this.state.email, password: this.state.password };
-
 		if (this.state.email.indexOf('@') < 0 || this.state.email.indexOf('@') > this.state.email.indexOf('.com')) {
 			alert('Please enter a proper e-mail');
 		} else {
