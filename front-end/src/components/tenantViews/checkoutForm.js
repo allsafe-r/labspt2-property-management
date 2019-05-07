@@ -61,6 +61,7 @@ class CheckoutForm extends Component {
 				// console.log(user);
         this.setState({ name: user.data.firstName});
         this.setState({ cost: user.data.cost});
+        this.setState({ cost: user.data.cost});
 			})
   }
   
