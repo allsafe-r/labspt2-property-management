@@ -90,7 +90,7 @@ class CheckoutForm extends Component {
       source: token.id,
       currency: 'USD',
       amount: this.state.cost,
-      billing_details: {address: {city:this.state.address}}
+      shipping:this.state.address
       
     })
     .then(this.props.charge)
