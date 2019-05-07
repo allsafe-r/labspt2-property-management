@@ -11,6 +11,7 @@ class Register extends Component {
 		firstName: '',
 		lastName: '',
 		password: '',
+		password2: '',
 		isAdmin: false,
 		email: '',
 		phone: ''
@@ -30,14 +31,28 @@ class Register extends Component {
 
 	onSubmit = (e) => {
 		e.preventDefault();
-		axios
-			.post(url, this.state)
-			.then(() => {
-				this.props.history.push('/login');
-			})
-			.catch((err) => {
-				console.log({ Error: err });
-			});
+		if(this.state.password !== this.state.password2) {
+			alert('Please double check that your passwords match')
+		} else {
+			const reg = {
+				firstName: this.state.firstName,
+				lastName: this.state.lastName,
+				password: this.state.password,
+				isAdmin: this.state.isAdmin,
+				email: this.state.email,
+				phone: this.state.phone
+			}
+
+			axios
+				.post(url, reg)
+				.then(() => {
+					this.props.history.push('/login');
+				})
+				.catch(err => {
+					console.log(err);
+					alert('That e-mail or phone number already exists in our system')
+				})
+		}
 	};
 
 	render() {
@@ -86,11 +101,22 @@ class Register extends Component {
 					</div>
 					<div>
 						<input
+							placeholder="Confirm password"
+							name="password2"
+							value={this.state.password2}
+							onChange={this.onChange}
+							type="password"
+							required
+						/>
+					</div>
+					<div>
+						<input
 							placeholder="E-mail"
 							name="email"
+							type="email"
+							size="30"
 							value={this.state.email}
 							onChange={this.onChange}
-							type="text"
 							required
 						/>
 					</div>

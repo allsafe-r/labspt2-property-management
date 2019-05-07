@@ -43,7 +43,8 @@ class TenantSettings extends Component {
     emailSubscribe: false,
     oldPW: "",
     newPW1: "",
-    newPW2: ""
+    newPW2: "",
+    update: false
   };
 
   componentDidMount() {
@@ -71,6 +72,7 @@ class TenantSettings extends Component {
 
   onSubmit = e => {
     e.preventDefault();
+    this.setState({ update: true });
 
     // grabbing ID off local storage to access specific user info
     const token = localStorage.getItem("jwtToken");
@@ -100,11 +102,13 @@ class TenantSettings extends Component {
         })
         // .put(`http://www.localhost:9000/users/${id}`, { ...this.state, id: parseInt(id) })
         .then(res => {
+          this.setState({ update: false });
           console.log(res);
           alert(res.data.message);
         })
         .catch(err => {
           console.log(err);
+          alert("That e-mail or phone number already exists in our system");
         })
         .then(this.setState({ oldPW: "", newPW1: "", newPW2: "" }));
     }
@@ -150,7 +154,9 @@ class TenantSettings extends Component {
           value={this.state.email}
           onChange={this.onChange}
           className="font"
-          type="text"
+          type="email"
+          // pattern=".+@globex.com"
+          size="30"
           required
         />
         <TextField
@@ -220,14 +226,24 @@ class TenantSettings extends Component {
           type="password"
           className="fonts"
         />
-        <Button
-          variant="outlined"
-          size="large"
-          color="primary"
-          className={classes.margin}
-        >
-          Update
-        </Button>
+
+        {this.state.update ? (
+          <div className="ring-container">
+            <div className="lds-ring">
+              <div />
+            </div>
+          </div>
+        ) : (
+          <Button
+            type="submit"
+            variant="outlined"
+            size="large"
+            color="primary"
+            className={classes.margin}
+          >
+            Update
+          </Button>
+        )}
       </form>
     );
   }
