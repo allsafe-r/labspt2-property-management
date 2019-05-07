@@ -31,6 +31,7 @@ class CheckoutForm extends Component {
       cost: '',
       altCost: '',
       value: 0,
+      address: '',
     };
     this.submit = this.submit.bind(this);
   }
@@ -61,7 +62,7 @@ class CheckoutForm extends Component {
 				// console.log(user);
         this.setState({ name: user.data.firstName});
         this.setState({ cost: user.data.cost});
-        this.setState({ cost: user.data.cost});
+        this.setState({ address: user.data.residence_id});
 			})
   }
   
@@ -88,7 +89,9 @@ class CheckoutForm extends Component {
       description: 'Pay rent now',
       source: token.id,
       currency: 'USD',
-      amount: this.state.cost
+      amount: this.state.cost,
+      billing_details: {address: {city:this.state.address}}
+      
     })
     .then(this.props.charge)
     .then(this.successPayment) 
