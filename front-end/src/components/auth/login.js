@@ -10,7 +10,8 @@ const decode = require("jwt-decode");
 class Login extends Component {
   state = {
     email: "",
-    password: ""
+    password: "",
+    search: false
   };
 
   onChange = e => {
@@ -18,9 +19,11 @@ class Login extends Component {
   };
 
   onSubmit = e => {
+    const acc = { email: this.state.email, password: this.state.password };
+    this.setState({ search: true });
     e.preventDefault();
     axios
-      .post(url, this.state)
+      .post(url, acc)
       .then(res => {
         localStorage.setItem("jwtToken", res.data.token);
         decode(localStorage.getItem("jwtToken")).isAdmin
@@ -31,6 +34,7 @@ class Login extends Component {
       .catch(err => {
         console.log(err);
         alert("This e-mail and/or password does not match our records");
+        this.setState({ search: false });
       });
   };
 
@@ -62,7 +66,13 @@ class Login extends Component {
             />
           </div>
           <div>
-            <button className="form__button">Login</button>
+            {this.state.search ? (
+              <div className="lds-ring">
+                <div />
+              </div>
+            ) : (
+              <button className="form__button ">Login</button>
+            )}
           </div>
           <div className="no-account">
             <p className="login-p">Don't have an account?</p>

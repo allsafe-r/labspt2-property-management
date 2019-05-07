@@ -5,7 +5,7 @@ import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import Button from '@material-ui/core/Button';
 
 const axios = require('axios');
-// const url = process.env.imagePost || 'http://localhost:9000/images';
+//const url = 'http://localhost:9000/images';
 const url = 'https://tenantly-back.herokuapp.com/images';
 
 const styles = (theme) => ({
@@ -59,7 +59,7 @@ class Imageform extends React.Component {
 				<h1>File Upload</h1>
 				{/* <input type="file" name="image" onChange={this.onChange}  style="width:200px"/> */}
 				<label class="custom-file-upload">
-					<input type="file"/>
+				<input type="file" name="image" onChange={this.onChange}/>
 				</label>
 				<Button variant="contained" color="default" className={classes.button}  onClick={this.onFormSubmit}>
 					Upload
