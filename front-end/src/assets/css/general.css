@@ -2046,6 +2046,21 @@ button[type="submit"] {
 }
 
 
+
+.container {
+	/* position: relative;
+	max-width: 1505px;
+	padding: 0 30px;
+  margin: 0 auto;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row; */
+  /* display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1; */
+}
+
 /*Icons*/
 .ring-container {
   margin: 0 auto;
@@ -2085,3 +2100,4 @@ button[type="submit"] {
     transform: rotate(360deg);
   }
 }
+

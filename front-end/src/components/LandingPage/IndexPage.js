@@ -11,7 +11,7 @@ import "../../assets/css/general.css";
 
 const Cells = styled.div`
   /* border: 1px solid red; */
-  background-color: #f9a4a0;
+  background-color: #f99a95;
 `
 
 const SectionCaption = styled.p`
