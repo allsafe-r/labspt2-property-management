@@ -71,6 +71,7 @@ class tenantDashboard extends Component {
 	componentDidUpdate() {
 		console.log('Did update');
 		this.fetchData();
+		s;
 	}
 
 	fetchData() {
