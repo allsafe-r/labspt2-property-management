@@ -1851,6 +1851,7 @@ button[type="submit"] {
 
 /* NEWSLETTER COLUMN */
 .f-email-area{
+  margin-top: 30px;
   border-top:1px solid #191a1a;
   border-bottom:1px solid #191a1a;
   padding:59px 0;
