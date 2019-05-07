@@ -8,6 +8,7 @@ router.post('/register', (req, res, next) => {
 	const creds = req.body;
 	const hash = bcrypt.hashSync(creds.password, 14);
 	creds.password = hash;
+	console.log(req.body);
 	db
 		.createUser(creds)
 		.then((ids) => {

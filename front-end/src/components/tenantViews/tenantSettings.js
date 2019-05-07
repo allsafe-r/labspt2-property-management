@@ -43,7 +43,8 @@ class TenantSettings extends Component {
     emailSubscribe: false,
     oldPW: "",
     newPW1: "",
-    newPW2: ""
+    newPW2: "",
+    update: false
   };
 
   componentDidMount() {
@@ -71,44 +72,46 @@ class TenantSettings extends Component {
 
   onSubmit = e => {
     e.preventDefault();
+    this.setState({ update: true });
 
     // grabbing ID off local storage to access specific user info
     const token = localStorage.getItem("jwtToken");
     const id = decode(token).userId;
 
-      // If the user enters old password without trying to change password, it throws warning
-      if (this.state.oldPW !== "" && this.state.newPW1 === "") {
-        alert(
-          "Only enter in your old password if you want to change your password"
-        );
-      } else if (this.state.oldPW === "" && this.state.newPW1 !== "") {
-        // If they try to create a new password without entering old password
-        alert("Please enter your previous password to update to new password");
-      } else if (
-        this.state.oldPW !== "" &&
-        this.state.newPW1 !== "" &&
-        this.state.newPW1 !== this.state.newPW2
-      ) {
-        // If new passwords do not match it throws error
-        alert("You new passwords do not match");
-      } else {
-        // If old password is entered AND new passwords match, then it continues to attempt update
-        axios
-          .put(`https://tenantly-back.herokuapp.com/users/${id}`, {
-            ...this.state,
-            id: parseInt(id)
-          })
-          // .put(`http://www.localhost:9000/users/${id}`, { ...this.state, id: parseInt(id) })
-          .then(res => {
-            console.log(res);
-            alert(res.data.message);
-          })
-          .catch(err => {
-            console.log(err);
-            alert('That e-mail or phone number already exists in our system')
-          })
-          .then(this.setState({ oldPW: "", newPW1: "", newPW2: "" }));
-      }
+    // If the user enters old password without trying to change password, it throws warning
+    if (this.state.oldPW !== "" && this.state.newPW1 === "") {
+      alert(
+        "Only enter in your old password if you want to change your password"
+      );
+    } else if (this.state.oldPW === "" && this.state.newPW1 !== "") {
+      // If they try to create a new password without entering old password
+      alert("Please enter your previous password to update to new password");
+    } else if (
+      this.state.oldPW !== "" &&
+      this.state.newPW1 !== "" &&
+      this.state.newPW1 !== this.state.newPW2
+    ) {
+      // If new passwords do not match it throws error
+      alert("You new passwords do not match");
+    } else {
+      // If old password is entered AND new passwords match, then it continues to attempt update
+      axios
+        .put(`https://tenantly-back.herokuapp.com/users/${id}`, {
+          ...this.state,
+          id: parseInt(id)
+        })
+        // .put(`http://www.localhost:9000/users/${id}`, { ...this.state, id: parseInt(id) })
+        .then(res => {
+          this.setState({ update: false });
+          console.log(res);
+          alert(res.data.message);
+        })
+        .catch(err => {
+          console.log(err);
+          alert("That e-mail or phone number already exists in our system");
+        })
+        .then(this.setState({ oldPW: "", newPW1: "", newPW2: "" }));
+    }
   };
 
   handleCheckboxChange = e => {
@@ -152,8 +155,8 @@ class TenantSettings extends Component {
           onChange={this.onChange}
           className="font"
           type="email"
-          // pattern=".+@globex.com" 
-					size="30"
+          // pattern=".+@globex.com"
+          size="30"
           required
         />
         <TextField
@@ -223,15 +226,24 @@ class TenantSettings extends Component {
           type="password"
           className="fonts"
         />
-        <Button
-          type="submit"
-          variant="outlined"
-          size="large"
-          color="primary"
-          className={classes.margin}
-        >
-          Update
-        </Button>
+
+        {this.state.update ? (
+          <div className="ring-container">
+            <div className="lds-ring">
+              <div />
+            </div>
+          </div>
+        ) : (
+          <Button
+            type="submit"
+            variant="outlined"
+            size="large"
+            color="primary"
+            className={classes.margin}
+          >
+            Update
+          </Button>
+        )}
       </form>
     );
   }
