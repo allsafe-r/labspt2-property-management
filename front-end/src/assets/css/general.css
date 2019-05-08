@@ -1977,8 +1977,17 @@ button[type="submit"] {
 .tenant-button div .outstanding {
   padding: 0px;
   margin: 0px;
+  text-align: center;
 }
 
+.tenant-button div .outstandingBalance {
+  padding: 10px;
+  margin:0;
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  color: #fc766a;
+}
 /*Fonts*/
 
 .font label {
@@ -1994,12 +2003,27 @@ button[type="submit"] {
   font-size: 0.6em;
 }
 
+
+.paperBorder div.currentOutstanding {
+  display:flex;
+  padding: 0px;
+  margin:0px;
+  flex-direction: column-reverse;
+}
+
+.currentOutstanding div {
+  display:none;
+}
+
+.currentOutstanding div:last-child {
+  display:block;
+}
+
 /* NEWSLETTER COLUMN */
-.f-email-area {
-  border-top: 1px solid #191a1a;
+  /* border-top: 1px solid #191a1a;
   border-bottom: 1px solid #191a1a;
   padding: 59px 0;
-}
+} */
 
 .f-email-area form {
   display: flex;
