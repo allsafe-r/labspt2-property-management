@@ -113,21 +113,39 @@
 .addProperty-container {
   display: flex;
   flex-direction: column;
+  max-width: 1000px;
+  padding: 2em;
+
+  width: 100%;
+  box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  background-color: white;
+  margin: 0 auto;
 }
 
-.addProperty-container form input {
-  padding: 1em;
+.addProperty-container h1 {
+  margin: 0 auto;
+}
+
+.addProperty-container div {
+  margin: 0 auto;
+}
+
+.addProperty-container .form-input {
+  padding: 0.5em 0;
   margin: 0.5em;
+  border: none;
+  border-bottom: solid 1px black;
+  transition: border-bottom 0.2s ease-out;
 }
 
-.addProperty-container form input:hover {
-  border: 2px #fc766a solid;
-}
 .addProperty-container form input:focus {
-  border: 2px #fc766a solid;
+  border-bottom: 2px #fc766a solid;
+  outline: none;
 }
 
-.addProperty-container form button:hover {
+.addProperty-container button:hover {
   background-color: white;
   color: #fc766a;
   border: 1px solid #fc766a;
@@ -136,6 +154,29 @@
 .addProperty-container button[type="submit"] {
   font-family: Roboto;
   font-size: 1em;
+  margin-top: 2em;
+  width: 100%;
+}
+
+.addProperty-container h1 {
+  margin-bottom: 0.5em;
+}
+
+@media (max-width: 450px) {
+  .addProperty-container .form-input {
+    width: 100%;
+  }
+}
+
+@media (min-width: 500px) {
+  .addProperty-container {
+    padding: 1.5em;
+  }
+}
+@media (min-width: 800px) {
+  .addProperty-container {
+    padding: 2em;
+  }
 }
 /*Display Property*/
 .property-display {
@@ -1982,7 +2023,7 @@ button[type="submit"] {
 
 .tenant-button div .outstandingBalance {
   padding: 10px;
-  margin:0;
+  margin: 0;
   text-align: center;
   font-size: 32px;
   font-weight: bold;
@@ -2003,24 +2044,23 @@ button[type="submit"] {
   font-size: 0.6em;
 }
 
-
 .paperBorder div.currentOutstanding {
-  display:flex;
+  display: flex;
   padding: 0px;
-  margin:0px;
+  margin: 0px;
   flex-direction: column-reverse;
 }
 
 .currentOutstanding div {
-  display:none;
+  display: none;
 }
 
 .currentOutstanding div:last-child {
-  display:block;
+  display: block;
 }
 
 /* NEWSLETTER COLUMN */
-  /* border-top: 1px solid #191a1a;
+/* border-top: 1px solid #191a1a;
   border-bottom: 1px solid #191a1a;
   padding: 59px 0;
 } */
