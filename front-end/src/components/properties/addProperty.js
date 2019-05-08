@@ -152,7 +152,9 @@ class AddProperty extends Component {
             className="form-input"
             required
           />
-          <button type="submit">Save</button>
+          <button type="submit" className="filled-button">
+            Save
+          </button>
         </form>
       </div>
     );

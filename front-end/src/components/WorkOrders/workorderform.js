@@ -13,37 +13,27 @@ import PropTypes from 'prop-types';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
-
 // const url = process.env.workorderURL || 'http://localhost:9000/workorders'
 const url = 'https://tenantly-back.herokuapp.com/workorders';
 
-const styles = theme => ({
+const styles = (theme) => ({
 	textField: {
 		marginLeft: theme.spacing.unit,
-		marginRight: theme.spacing.unit,
-			
-	
-	  },
+		marginRight: theme.spacing.unit
+	},
 
-	  innerworkorderform: {
-		 
+	innerworkorderform: {},
+	griditem: {},
 
-	  },
-	  griditem: {
-		  
-	  },
+	container: {
+		padding: 20
+	},
 
-	  container: {
-		padding: 20,
-	  },
-
-	  typo: {
+	typo: {
 		margin: '20px',
 		fontSize: '1.9rem'
-	},
-	
-  });
-
+	}
+});
 
 class Workorderform extends Component {
 	constructor(props) {
@@ -59,7 +49,7 @@ class Workorderform extends Component {
 		};
 	}
 
-	inputhandler = (e) => {
+	inputHandler = (e) => {
 		this.setState({
 			[e.target.name]: e.target.value
 		});
@@ -72,72 +62,71 @@ class Workorderform extends Component {
 		});
 	};
 
-	submithandler = (e) => {
+	submitHandler = (e) => {
 		e.preventDefault();
-  }
+	};
+
 	render() {
 		const { classes } = this.props;
 		return (
 			<Grid container className={classes.innerworkorderform} spacing={24}>
-			<Grid item className={classes.griditem} lg={10}>
-			<Card className="carditems">
-			<Typography className={classes.typo} component="h2" variant="headline" gutterBottom>
-          		Type Your Notes Here:
-        	</Typography>
-				<form className={classes.container}  onSubmit={this.submithandler}>
-					<TextField
-						className={classes.textField}
-						onChange={this.inputhandler}
-						value={this.state.description}
-						name="description"
-						placeholder="Description"
-						className="#"
-						type="text"
-					/>
-					<br />
-					<TextField
-						className={classes.textField}
-						onChange={this.inputhandler}
-						name="phone"
-						value={this.state.phone}
-						placeholder="(555)555-5555"
-						className="#"
-						type="text"
-					/>
-					<br />
-					<FormControlLabel
-						control={
-							<Checkbox
-							name="unsupervisedEntry" 
-							checked={this.state.checkedB}
-							onChange={this.inputhandler}
-							value="checkedB"
-							color="primary"
-							className="#"
-							type="checkbox"
+				<Grid item className={classes.griditem} lg={10}>
+					<Card className="carditems">
+						<Typography className={classes.typo} component="h2" variant="headline" gutterBottom>
+							Type Your Notes Here:
+						</Typography>
+						<form className={classes.container} onSubmit={this.submitHandler}>
+							<TextField
+								className={classes.textField}
+								onChange={this.inputHandler}
+								value={this.state.description}
+								name="description"
+								placeholder="Description"
+								className="#"
+								type="text"
 							/>
-						}
-						label="Permission to enter?"
-						/>
+							<br />
+							<TextField
+								className={classes.textField}
+								onChange={this.inputHandler}
+								name="phone"
+								value={this.state.phone}
+								placeholder="(555)555-5555"
+								className="#"
+								type="text"
+							/>
+							<br />
+							<FormControlLabel
+								control={
+									<Checkbox
+										name="unsupervisedEntry"
+										checked={this.state.checkedB}
+										onChange={this.inputHandler}
+										value="checkedB"
+										color="primary"
+										className="#"
+										type="checkbox"
+									/>
+								}
+								label="Permission to enter?"
+							/>
 
-					<Imageform url={this.urlUpdater} />
-         {/*<input name="attachimage" type='file'/> */}
-					<Button variant='contained' type="submit" className="button-2">
-					<SaveIcon  />
-						Save
-					</Button>
-				</form>
-				</Card>
+							<Imageform url={this.urlUpdater} />
+							{/*<input name="attachimage" type='file'/> */}
+							<Button variant="contained" type="submit" className="button-2">
+								<SaveIcon />
+								Save
+							</Button>
+						</form>
+					</Card>
 				</Grid>
-				</Grid>
+			</Grid>
 		);
 	}
 }
 
-
-
 Workorderform.propTypes = {
-	classes: PropTypes.object.isRequired,
-  };
+	classes: PropTypes.object.isRequired
+};
 
 export default withStyles(styles)(Workorderform);
