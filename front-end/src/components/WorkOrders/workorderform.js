@@ -85,6 +85,29 @@ class Workorderform extends Component {
 
 	submitHandler = (e) => {
 		e.preventDefault();
+		let newWorkOrder = {
+			property: this.state.property,
+			tenant: this.state.tenant,
+			description: this.state.description,
+			phone: this.state.phone,
+			unsupervisedEntry: this.state.unsupervisedEntry,
+			status: this.state.status,
+			image: this.state.url
+			
+		}
+		
+			  axios.post(url, newWorkOrder)
+			  .then( response => {
+				  this.setState({
+					description: '',
+					phone: '',
+					unsupervisedEntry: false,
+					status: '',
+					image: '',					
+					})
+				  })
+				
+				.catch( error => console.log( "we've encountered an error"))		
 	};
 
 	render() {
