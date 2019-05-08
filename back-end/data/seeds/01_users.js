@@ -50,7 +50,7 @@ exports.seed = function(knex, Promise) {
 				emailSubscribe: false,
 				textSubscribe: false,
 				application: '',
-				property: 'The White House',
+				property: 'The White House'
 			}
 		]);
 	});
