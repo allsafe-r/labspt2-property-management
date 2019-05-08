@@ -2015,11 +2015,10 @@ button[type="submit"] {
 }
 
 /* NEWSLETTER COLUMN */
-.f-email-area {
-  border-top: 1px solid #191a1a;
+  /* border-top: 1px solid #191a1a;
   border-bottom: 1px solid #191a1a;
   padding: 59px 0;
-}
+} */
 
 .f-email-area form {
   display: flex;
