@@ -11,6 +11,7 @@ exports.up = function(knex, Promise) {
 		table.boolean('emailSubscribe').notNullable().defaultTo(false);
 		table.boolean('textSubscribe').notNullable().defaultTo(false);
 		table.text('application');
+		table.string('property').notNullable();
 	});
 };
 exports.down = function(knex, Promise) {
