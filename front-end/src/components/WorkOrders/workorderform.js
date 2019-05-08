@@ -12,6 +12,7 @@ import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+const decode = require('jwt-decode');
 
 // const url = process.env.workorderURL || 'http://localhost:9000/workorders'
 const url = 'https://tenantly-back.herokuapp.com/workorders';
@@ -48,12 +49,32 @@ class Workorderform extends Component {
 			url: 'none'
 		};
 	}
+	componentDidMount() {
+		this.fetchData();
+	}
 
 	inputHandler = (e) => {
 		this.setState({
 			[e.target.name]: e.target.value
 		});
 	};
+
+	fetchData() {
+		const token = localStorage.getItem('jwtToken');
+		const id = decode(token).userId;
+		// go into users to find which residence you live at
+		axios
+			.get(`https://tenantly-back.herokuapp.com/users/${id}`)
+			// .get(`http://localhost:9000/users/${id}`)
+			.then((user) => {
+				// console.log(user);
+					this.setState({ property: user.data.residence_id, tenant: id });
+					// console.log(this.state.houseId);
+				
+			})
+	}
+
+
 
 	urlUpdater = (imageurl) => {
 		console.log(imageurl);
