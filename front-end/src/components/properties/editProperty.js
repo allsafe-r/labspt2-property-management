@@ -25,9 +25,12 @@ class EditProperty extends Component {
   }
 
   SingleProperty = () => {
-
     axios
-      .get(`https://tenantly-back.herokuapp.com/properties/${this.props.match.params.id}`)
+      .get(
+        `https://tenantly-back.herokuapp.com/properties/${
+          this.props.match.params.id
+        }`
+      )
       .then(response => {
         this.setState({
           houseId: response.data.houseId,
@@ -58,7 +61,7 @@ class EditProperty extends Component {
       .catch(err => {
         console.log(err);
       });
-    this.props.history.push(`/admin/view-property/${id}`);
+    this.props.history.push(`/view-property/${id}`);
   };
 
   handleInput = e => {
@@ -67,66 +70,105 @@ class EditProperty extends Component {
 
   render() {
     return (
-      <div className="textarea">
+      <div className="edit-property">
         <h1>Edit Note</h1>
         <form onSubmit={this.editNote}>
-          <input
-            name="propertyName"
-            type="text"
-            value={this.state.propertyName}
-            onChange={this.handleInput}
-          />
+          <div className="edit-leftSide">
+            <div className="edit-topInfo">
+              <div className="input-info">
+                <h1>Property Name</h1>
+                <input
+                  name="propertyName"
+                  type="text"
+                  value={this.state.propertyName}
+                  onChange={this.handleInput}
+                />
+              </div>
+              <div className="input-info">
+                <h1>Address</h1>
+                <input
+                  name="propertyAddress"
+                  type="text"
+                  value={this.state.propertyAddress}
+                  onChange={this.handleInput}
+                />
+              </div>
 
-          <input
-            name="propertyAddress"
-            type="text"
-            value={this.state.propertyAddress}
-            onChange={this.handleInput}
-          />
-          <input
-            name="propertyCity"
-            type="text"
-            value={this.state.propertyCity}
-            onChange={this.handleInput}
-          />
-          <input
-            name="propertyState"
-            type="text"
-            value={this.state.propertyState}
-            onChange={this.handleInput}
-          />
-          <input
-            name="propertyZipcode"
-            type="text"
-            value={this.state.propertyZipcode}
-            onChange={this.handleInput}
-          />
-          <input
-            name="sqFt"
-            type="text"
-            value={this.state.sqFt}
-            onChange={this.handleInput}
-          />
-          <input
-            name="bedrooms"
-            type="text"
-            value={this.state.bedrooms}
-            onChange={this.handleInput}
-          />
-          <input
-            name="bathrooms"
-            type="text"
-            value={this.state.bathrooms}
-            onChange={this.handleInput}
-          />
-          <input
-            name="yearBuilt"
-            type="text"
-            value={this.state.yearBuilt}
-            onChange={this.handleInput}
-          />
+              <div className="input-info">
+                <h1>City</h1>
+                <input
+                  name="propertyCity"
+                  type="text"
+                  value={this.state.propertyCity}
+                  onChange={this.handleInput}
+                />
+              </div>
 
-          <button type="submit">Save</button>
+              <div className="input-info">
+                <h1>State</h1>
+                <input
+                  name="propertyState"
+                  type="text"
+                  value={this.state.propertyState}
+                  onChange={this.handleInput}
+                />
+              </div>
+
+              <div className="input-info">
+                <h1>Zip Code</h1>
+                <input
+                  name="propertyZipcode"
+                  type="text"
+                  value={this.state.propertyZipcode}
+                  onChange={this.handleInput}
+                />
+              </div>
+            </div>
+            <div className="edit-botInfo">
+              <div className="input-info">
+                <h1>Sq. Ft.</h1>
+                <input
+                  name="sqFt"
+                  type="text"
+                  value={this.state.sqFt}
+                  onChange={this.handleInput}
+                />
+              </div>
+
+              <div className="input-info">
+                <h1>Bedrooms</h1>
+                <input
+                  name="bedrooms"
+                  type="text"
+                  value={this.state.bedrooms}
+                  onChange={this.handleInput}
+                />
+              </div>
+
+              <div className="input-info">
+                <h1>Bathrooms</h1>
+                <input
+                  name="bathrooms"
+                  type="text"
+                  value={this.state.bathrooms}
+                  onChange={this.handleInput}
+                />
+              </div>
+
+              <div className="input-info">
+                <h1>Year Built</h1>
+                <input
+                  name="yearBuilt"
+                  type="text"
+                  value={this.state.yearBuilt}
+                  onChange={this.handleInput}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="edit-rightSide">
+            <button>Save</button>
+          </div>
         </form>
       </div>
     );
