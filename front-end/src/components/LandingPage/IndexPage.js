@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 // import Wave from "./Wave";
-import ScrollableAnchor from 'react-scrollable-anchor'
+import Card from './Card'
 import styled from 'styled-components'
 import "../../assets/css/general.css";
 
@@ -50,6 +50,28 @@ const IndexPage = () => (
 				</div>
        </div>
         </div>
+        <div className="Cards">
+          <h2>All in one place</h2>
+        <div className="CardGroup">
+          <Card 
+            title="Manage Properties"
+            text="Learn More"
+           image={require('../../assets/images/manageprops.png')} />
+          <Card 
+            title="Tenant Information"
+            text="Learn More"
+            image={require('../../assets/images/tenantinfo.png')} />
+          <Card 
+            title="Collect Payments"
+            text="Learn More"
+            image={require('../../assets/images/collectpay.png')} />
+          <Card 
+            title="Handle Workorders"
+            text="Learn More"
+            image={require('../../assets/images/workorders2.png')} />
+      </div>
+      
+    </div>
   </div>
 );
 

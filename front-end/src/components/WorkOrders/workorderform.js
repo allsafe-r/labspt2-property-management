@@ -64,37 +64,32 @@ class Workorderform extends Component {
 
 	submitHandler = (e) => {
 		e.preventDefault();
-<<<<<<< HEAD
-		let newWorkOrder = {
-			property: this.state.property,
-			tenant: this.state.tenant,
-			description: this.state.description,
-			phone: this.state.phone,
-			unsupervisedEntry: this.state.unsupervisedEntry,
-			status: this.state.status,
-			image: this.state.url
-			
-		}
-		
-			  axios.post(url, newWorkOrder)
-			  .then( response => {
-				  this.setState({
-					description: '',
-					phone: '',
-					unsupervisedEntry: false,
-					})
-				  })
-				
-				.catch( error => console.log( "we've encountered an error"))
-			
-			
-		
-		}
-		 
-=======
 	};
 
->>>>>>> 3d78ba16b2813681af89501fa85e10119406bfff
+	// let newWorkOrder = {
+	// 	property: this.state.property,
+	// 	tenant: this.state.tenant,
+	// 	description: this.state.description,
+	// 	phone: this.state.phone,
+	// 	unsupervisedEntry: this.state.unsupervisedEntry,
+	// 	status: this.state.status,
+	// 	image: this.state.url
+		
+	// }
+	
+	// 	  axios.post(url, newWorkOrder)
+	// 	  .then( response => {
+	// 		  this.setState({
+	// 			description: '',
+	// 			phone: '',
+	// 			unsupervisedEntry: false,
+	// 			})
+	// 		  })
+			
+	// 		.catch( error => console.log( "we've encountered an error"))
+
+	// }
+
 	render() {
 		const { classes } = this.props;
 		return (
@@ -150,7 +145,7 @@ class Workorderform extends Component {
 				</Card>
 				</Grid>
 				</Grid>
-			</Grid>
+		
 		);
 	}
 }
