@@ -1507,7 +1507,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 1rem;
 }
 
 .tenantInfo-container {
@@ -1520,18 +1519,21 @@ body {
 }
 
 .tenant-info {
-  max-width: 600px;
-  padding: 0.5em;
-  margin: 0.5em;
-  width: 40%;
+  display: flex;
+  flex-direction: column;
+  max-width: 850px;
+  padding: 2em;
+  width: 100%;
   box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),
     0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
   border-radius: 4px;
   background-color: white;
+  margin: 0 auto 0.5em auto;
 }
 
 .tenant-info h1 {
   font-size: 1.2em;
+  margin: 0 auto;
 }
 
 .tenant-info form {
@@ -1699,6 +1701,7 @@ input[type="checkbox"]:checked + label:before {
 
 .addTenantB-container button {
   margin: 0 auto;
+  width: 100%;
 }
 
 @media (max-width: 960px) {
