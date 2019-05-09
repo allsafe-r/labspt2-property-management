@@ -31,27 +31,31 @@ class Register extends Component {
 
 	onSubmit = (e) => {
 		e.preventDefault();
-		if(this.state.password !== this.state.password2) {
-			alert('Please double check that your passwords match')
+		if (this.state.email.indexOf('@') < 0 || this.state.email.indexOf('@') > this.state.email.indexOf('.com')) {
+			alert('Please enter a proper e-mail');
 		} else {
-			const reg = {
-				firstName: this.state.firstName,
-				lastName: this.state.lastName,
-				password: this.state.password,
-				isAdmin: this.state.isAdmin,
-				email: this.state.email,
-				phone: this.state.phone
-			}
+			if (this.state.password !== this.state.password2) {
+				alert('Please double check that your passwords match');
+			} else {
+				const reg = {
+					firstName: this.state.firstName,
+					lastName: this.state.lastName,
+					password: this.state.password,
+					isAdmin: this.state.isAdmin,
+					email: this.state.email,
+					phone: this.state.phone
+				};
 
-			axios
-				.post(url, reg)
-				.then(() => {
-					this.props.history.push('/login');
-				})
-				.catch(err => {
-					console.log(err);
-					alert('That e-mail or phone number already exists in our system')
-				})
+				axios
+					.post(url, reg)
+					.then(() => {
+						this.props.history.push('/login');
+					})
+					.catch((err) => {
+						console.log(err);
+						alert('That e-mail or phone number already exists in our system');
+					});
+			}
 		}
 	};
 
