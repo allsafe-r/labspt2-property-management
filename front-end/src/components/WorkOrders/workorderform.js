@@ -113,6 +113,30 @@ class Workorderform extends Component {
 				.catch( error => console.log( "we've encountered an error"))		
 	};
 
+	// let newWorkOrder = {
+	// 	property: this.state.property,
+	// 	tenant: this.state.tenant,
+	// 	description: this.state.description,
+	// 	phone: this.state.phone,
+	// 	unsupervisedEntry: this.state.unsupervisedEntry,
+	// 	status: this.state.status,
+	// 	image: this.state.url
+		
+	// }
+	
+	// 	  axios.post(url, newWorkOrder)
+	// 	  .then( response => {
+	// 		  this.setState({
+	// 			description: '',
+	// 			phone: '',
+	// 			unsupervisedEntry: false,
+	// 			})
+	// 		  })
+			
+	// 		.catch( error => console.log( "we've encountered an error"))
+
+	// }
+
 	render() {
 		const { classes } = this.props;
 		return (
@@ -158,16 +182,17 @@ class Workorderform extends Component {
 								label="Permission to enter?"
 							/>
 
-							<Imageform url={this.urlUpdater} />
-							{/*<input name="attachimage" type='file'/> */}
-							<Button variant="contained" type="submit" className="button-2">
-								<SaveIcon />
-								Save
-							</Button>
-						</form>
-					</Card>
+					<Imageform url={this.urlUpdater} />
+         {/*<input name="attachimage" type='file'/> */}
+					<Button variant='contained' type="submit" className="button-2" onClick={this.submithandler}>
+					<SaveIcon  />
+						Save
+					</Button>
+				</form>
+				</Card>
 				</Grid>
-			</Grid>
+				</Grid>
+		
 		);
 	}
 }

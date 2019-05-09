@@ -5,11 +5,11 @@ import CardMedia from '@material-ui/core/CardMedia';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormLabel from '@material-ui/core/FormLabel';
+import FormControl from '@material-ui/core/FormControl';
 import Button from '@material-ui/core/Button';
 // import red from '@material-ui/core/colors/red';
 import Divider from '@material-ui/core/Divider';
@@ -19,19 +19,21 @@ import Divider from '@material-ui/core/Divider';
 import Modal from '@material-ui/core/Modal';
 // import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-//import './workorders.css';
+import './workorders.css';
+import { create } from 'jss';
+import { FormLabel } from '@material-ui/core';
 //import { CardContent } from '@material-ui/core';
-//import { withStyles } from '@material-ui/core';
+//import { withStyles } from '@material-ui/core/styles';
 
 // const url = process.env.workOrderCard || `http://localhost:9000/workorders/${this.state.id}`;
 // const url = `https://tenantly-back.herokuapp.com/${this.state.id}`;
 
 const styles = theme =>({
-	root:{
+	card:{
 		display: 'flex',
 		flexDirection: 'column',
 		justifyContent: 'space-around',
-		fontSize: '5rem',
+		fontWeight: 'bold',
 		maxWidth: '100%',
 		alignItems: 'center',
 	},
@@ -39,19 +41,29 @@ const styles = theme =>({
 
 	radiogroup: {
 		flexDirection: 'row',
-		fontSize: '5rem',
-		width: '100%',
+		margin: `${theme.spacing.unit}px 0`,
+		fontSize: '2rem'
 		
 	},
 	radiobuttons: {
 		display: 'flex',
 		flexDirection: 'row',
-		fontSize: '2rem',
+		fontSize: '3rem',
 	},
 	image: {
 		height: 100,
 		padding:'56.25%',
 
+	},
+	button:{
+		marginBottom: '2%',
+	},
+	typography:{
+		margin: '2% 0 2% 0',
+		fontSize: '2.25rem'
+	},
+	formlabel:{
+		fontSize: '2rem'
 	}
 })
 
@@ -110,32 +122,34 @@ class Workordercard extends Component {
 	render() {
 		const { classes } = this.props;
 		return (
-			<Card className={classes.root} raised={true}>
+			<Card className={classes.card} raised={true}>
 			
 				<Modal    open={this.state.open}
 						  onClose={this.handleClose}
 				>
-				<CardMedia style={{height:245, width: '100%',}} image={this.props.work.image} />
+				<CardMedia image={this.props.work.image} />
 				</Modal>
 				
-				<CardHeader>{this.props.work.property}</CardHeader>
+				
 				
 				<CardContent>
-				<Typography gutterBottom variant='headline' component='p'>
+				<Typography className={classes.typography} variant="title">
+						{this.props.work.description}
+				</Typography>
+
+				<Typography className={classes.typography}variant="h1">
 						{this.props.work.tenant}
 				</Typography>
 				
-				<Typography  variant='body1' component='p'>
-						{this.props.work.description}
-				</Typography>
+
 				
-				<Typography c variant='title' component='p'>
+				<Typography className={classes.typography} variant="h1">
 						{this.props.work.phone}
 				</Typography>
 
 				
 
-				<Typography c variant='title' component='p'>
+				<Typography className={classes.typography} variant="h1">
 					{`Unsupervised Entry is ${this.props.work.unsupervisedEntry ? 'Allowed' : 'Not Allowed'}`} 
 					</Typography>	
 					
@@ -143,13 +157,15 @@ class Workordercard extends Component {
 					
 					
 					{/* Radio button form */}
+					<FormControl>
+					<FormLabel className={classes.formlabel}>Work Status</FormLabel>
 					<RadioGroup name="workstatus" area-label="Work Status" value={this.state.status}  onChange={this.statushandler} className={classes.radiogroup} row>
-					<FormLabel component="legend">Work Status</FormLabel>
+					
 					<div className={classes.radiobuttons}>
 					{this.inputs.map((values, i) => (
 						
 						<div key={i}>
-							<FormControlLabel   value={values} control={<Radio  checked={this.state.status === values}/>} label={values}/>
+							<FormControlLabel  className={classes.radiobuttons}  value={values} control={<Radio  checked={this.state.status === values}/>} label={values}/>
 							
 
 							
@@ -158,9 +174,10 @@ class Workordercard extends Component {
 					))}
 					</div>
 					</RadioGroup>
+					</FormControl>
 					
-					<Button variant="contained" color="primary" onClick={this.handleOpen}>Show Image</Button>
 					</CardContent>
+					<Button className={classes.button} variant="contained" color="secondary" onClick={this.handleOpen}>Show Image</Button>
 			</Card>
 		);
 	}
