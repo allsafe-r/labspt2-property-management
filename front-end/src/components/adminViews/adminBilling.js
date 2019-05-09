@@ -13,9 +13,19 @@ import { withStyles, withTheme } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import "../../assets/css/general.css";
 import { Button } from "@material-ui/core";
+import {Elements, StripeProvider} from 'react-stripe-elements';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardHeader from '@material-ui/core/CardHeader';
+import Divider from '@material-ui/core/Divider';
+import Paper from '@material-ui/core/Paper';
+import './../WorkOrders/workorders.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+const decode = require('jwt-decode');
 // const url = process.env.properties || 'http://localhost:9000/properties';
 const url = `https://tenantly-back.herokuapp.com/properties`;
 const url2 = `http://localhost:9000/billing`;
+const url3 = 'https://tenantly-back.herokuapp.com/stripe/charges'
 
 const styles = theme => ({
   root: {
@@ -42,7 +52,8 @@ class Billing extends Component {
   state = {
     properties: [],
     billing: [],
-    propertySelected: []
+    propertySelected: [],
+    charges: []
   };
 
   handleInputChange = prop => event => {
@@ -50,18 +61,19 @@ class Billing extends Component {
     console.log(this.state.house_id);
     this.setState({ value: event.target.value });
     axios
-      .get(`https://tenantly-back.herokuapp.com/billing/${this.state.value}`)
+      .get(`https://localhost:9000/billing/${this.state.value}`)
       .then(response => {
         this.setState({ propertySelected: response.data });
       })
       .catch(error => {
         console.error(error);
       });
+      console.log(this.state.propertySelected)
   };
 
   setBilling = () => {
     axios
-      .get(url)
+      .get(url2)
       .then(response =>
         this.setState({ billing: response.data }, function() {
           console.log(this.state.billing);
@@ -84,7 +96,31 @@ class Billing extends Component {
       .catch(err => {
         console.error("Server Error", err);
       });
+
+      axios.get(url3).then((response) => this.setState({ charges: response.data })).catch((error) => {
+        console.error('Server Error', error);
+      });
+      const token = localStorage.getItem('jwtToken');
+      const id = decode(token).userId;
+      axios
+        .get(`https://tenantly-back.herokuapp.com/users/${id}`)
+        .then((user) => {
+          this.setState({ user: user.data.firstName });
+          this.setState({ userLast: user.data.lastName });
+        })
   }
+
+  updatestate =() => {
+		axios.get(url3).then((response) => this.setState({ charges: response.data })).catch((error) => {
+			console.error('Server Error', error);
+		});
+	}
+
+	convertToTime =(e) =>{
+		const d = new Date(e * 1000)
+		return d.toLocaleString();
+}
+
 
   // fetchProperty = (id) => {
   // 	axios
@@ -103,6 +139,7 @@ class Billing extends Component {
 
   render() {
     const { classes } = this.props;
+    const fonts = [{ cssSrc: "https://fonts.googleapis.com/css?family=Podkova:400" }]
     return (
       <div className="billing">
         <div className="billing-left">
@@ -129,8 +166,9 @@ class Billing extends Component {
             </a>
           </div>
         </div>
-        <div className="billing-right">
+        {/* <div className="billing-right">
           <h1>Billing History</h1>
+          
           {this.state.propertySelected.map(bill => (
             <ul>
               <div className="billingHistory-info">
@@ -139,8 +177,44 @@ class Billing extends Component {
               </div>
             </ul>
           ))}
+        </div> */}
+     
+
+<StripeProvider apiKey="pk_test_uGZWgKZiorkYlZ8MsxYEIrA2">
+<div className='payment-container'>
+  <Grid item sm={6} xs={12} >
+
+  <Card>
+        
+      <Paper elevation={1} className="payment-history">
+        {this.state.charges.map((charge) => 
+        <div>
+          {"The White House" == charge.description &&
+        <div>							
+        <CardHeader className="card-header" variant='h1' title={charge.billing_details.name} />
+        <Divider/>
+        <div className='flex-component'>
+    
+        <div>
+        <Typography className="payments" variant='h4' component='h2'>Amount Paid: ${charge.amount / 100}.00</Typography>
+        <Typography className="payments" variant='h4'>Date: {this.convertToTime(charge.created)}</Typography>
         </div>
-      </div>
+
+        <FontAwesomeIcon icon={faCheckCircle} color="slategray" size="2x" />
+        </div>
+                  
+        </div>	
+          }
+          </div>					
+        )}
+      </Paper>
+      
+    </Card>				
+  </Grid>
+
+  </div>	
+  </StripeProvider>
+  </div>
     );
   }
 }
