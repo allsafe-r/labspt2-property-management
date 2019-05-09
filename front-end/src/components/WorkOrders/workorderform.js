@@ -73,7 +73,9 @@ class Workorderform extends Component {
 				
 			})
 	}
-
+	handleCheckboxChange = e => {
+		this.setState({ [e.target.name]: e.target.checked });
+	  };
 
 
 	urlUpdater = (imageurl) => {
@@ -145,9 +147,9 @@ class Workorderform extends Component {
 								control={
 									<Checkbox
 										name="unsupervisedEntry"
-										
-										onChange={this.inputHandler}
-										value="checkedB"
+										checked={this.state.unsupervisedEntry}
+										onChange={this.handleCheckboxChange}
+										value="unsupervisedEntry"
 										color="primary"
 										className="#"
 										type="checkbox"
