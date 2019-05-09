@@ -18,6 +18,8 @@ import CardMedia from '@material-ui/core/CardMedia';
 import CardHeader from '@material-ui/core/CardHeader';
 import Divider from '@material-ui/core/Divider';
 import Paper from '@material-ui/core/Paper';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
 import './../WorkOrders/workorders.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
@@ -84,31 +86,48 @@ class Billing extends Component {
       });
   };
 
-  componentDidMount() {
-    axios
-      .get(url)
-      .then(response =>
-        this.setState({ properties: response.data }, function() {
-          console.log(this.state.billing);
-          this.setBilling();
-        })
-      )
-      .catch(err => {
-        console.error("Server Error", err);
-      });
+  // componentDidMount() {
+  //   axios
+  //     .get(url)
+  //     .then(response =>
+  //       this.setState({ properties: response.data }, function() {
+  //         console.log(this.state.billing);
+  //         this.setBilling();
+  //       })
+  //     )
+  //     .catch(err => {
+  //       console.error("Server Error", err);
+  //     });
 
-      axios.get(url3).then((response) => this.setState({ charges: response.data })).catch((error) => {
-        console.error('Server Error', error);
+  //     axios.get(url3).then((response) => this.setState({ charges: response.data })).catch((error) => {
+  //       console.error('Server Error', error);
+  //     });
+  //     const token = localStorage.getItem('jwtToken');
+  //     const id = decode(token).userId;
+  //     axios
+  //       .get(`https://tenantly-back.herokuapp.com/users/${id}`)
+  //       .then((user) => {
+  //         this.setState({ user: user.data.firstName });
+  //         this.setState({ userLast: user.data.lastName });
+  //       })
+  // }
+
+  componentDidMount() {
+    const url = 'https://randomuser.me/api/?results=4';
+
+    fetch(url)
+      .then(Response => Response.json())
+      .then(findResponse => {
+        console.log(findResponse);
+        console.log(findResponse.results[0].name.first);
+        this.setState({
+          data: findResponse.results,
+          selected: findResponse.results[0].name.first // need to be sure it's exist
+        });
       });
-      const token = localStorage.getItem('jwtToken');
-      const id = decode(token).userId;
-      axios
-        .get(`https://tenantly-back.herokuapp.com/users/${id}`)
-        .then((user) => {
-          this.setState({ user: user.data.firstName });
-          this.setState({ userLast: user.data.lastName });
-        })
   }
+  handleChange(value) {this.setState({ selected: value });}
+
 
   updatestate =() => {
 		axios.get(url3).then((response) => this.setState({ charges: response.data })).catch((error) => {
@@ -121,6 +140,17 @@ class Billing extends Component {
 		return d.toLocaleString();
 }
 
+renderOptions() {
+  return this.state.data.map((dt, i) => {
+    return (
+      <div key={i}>
+        <MenuItem
+          value={dt.name.first}
+          primaryText={dt.name.first} />
+      </div>
+    );
+  });
+}
 
   // fetchProperty = (id) => {
   // 	axios
@@ -143,6 +173,7 @@ class Billing extends Component {
     return (
       <div className="billing">
         <div className="billing-left">
+        <Menu value={this.state.selected} onChange={this.handleChange}>{this.renderOptions}</Menu>
           <form>
             <h1>Select a property to view payment history</h1>
             <div className="input-select">
