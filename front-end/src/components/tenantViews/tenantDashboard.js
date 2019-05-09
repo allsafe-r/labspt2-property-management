@@ -61,6 +61,8 @@ class tenantDashboard extends Component {
 		maintenancePhone: '',
 		charges: [],
 		cost: '',
+		payments: [],
+		total: '',
 		user: ''
 	};
 
@@ -136,8 +138,11 @@ class tenantDashboard extends Component {
 	convertToTime = (e) => {
 		const d = new Date(e * 1000);
 		return d.toLocaleString();
-	};
+	}
 
+	getSum = (total, num) =>{
+		return total + num;
+	}
 	render() {
 		var today = new Date();
 		var priorDate = new Date().setDate(today.getDate() - 30);
@@ -145,53 +150,37 @@ class tenantDashboard extends Component {
 		// console.log('Original data: ', priorDate);
 		priorDate = priorDate.slice(0, -3);
 		priorDate = parseInt(priorDate);
-		// console.log('After truncate: ', priorDate);
+		// console.log('After truncate: ', priorDate)
 
 		return (
 			<div className="tenant-dash">
 				<Grid item sm={12} className="tenant-button">
-					{/* This pulls the stripe info and the Outstanding payments for the user based on payments made in the last 30 days. */}
-					<StripeProvider apiKey="pk_test_uGZWgKZiorkYlZ8MsxYEIrA2">
-						<Paper elevation={1}>
-							<p>{this.state.user}</p>
-							{this.state.charges.map((charge) => (
-								<div>
-									{priorDate < charge.created &&
-									this.state.user === charge.billing_details.name && (
-										<p>
-											{/* Prior date is {priorDate} charge made  {charge.created}. */}
-											{/* Current user {this.state.user} charge made to {charge.billing_details.name}. */}
-											<div className="outstanding">Outstanding Balance</div>
-											<div className="outstanding">${this.state.cost}</div>
-										</p>
-									)}
-								</div>
-							))}
-						</Paper>
+			{/* This pulls the stripe info and the Outstanding payments for the user based on payments made in the last 30 days. */}
+				<StripeProvider apiKey="pk_test_uGZWgKZiorkYlZ8MsxYEIrA2">
+					<Paper elevation={1} className="paperBorder">
+					<div className="outstanding"> Outstanding Balance</div>
+					<div className="currentOutstanding">
+						{this.state.charges.map((charge) => 
+							
+							<div>
+							{priorDate < charge.created && this.state.user === charge.billing_details.name &&
+							  <p>
+								  <p className="hidden">{this.state.payments.push(charge.amount)}</p>
+								{/* Prior date is {priorDate} charge made  {charge.created}. */}
+								{/* Current user {this.state.user} charge made to {charge.billing_details.name}. */}
+								<div className="outstanding"> Outstanding Balance</div>
+									<div className="outstandingBalance">${(this.state.cost/100) - (this.state.payments.reduce(this.getSum)/100)}</div>
+								{console.log(this.state.payments)}
+							  </p>
+							}
+						  </div>
+					
+						)}
+						</div>
+					</Paper>
+
 					</StripeProvider>
 
-					<Card>
-						<Link to="/payments">
-							<Button variant="extended" color="default" className="dash-button">
-								<FontAwesomeIcon icon={faMoneyBillAlt} />&nbsp;&nbsp;Make a Payment
-							</Button>
-						</Link>
-					</Card>
-					<Card>
-						<Link to="/maintenance">
-							<Button variant="extended" color="default" className="dash-button">
-								<FontAwesomeIcon icon={faTools} />&nbsp;&nbsp;Submit a Workorder
-							</Button>
-						</Link>
-					</Card>
-					<Card>
-						<div className="outstanding">Alerts</div>
-						<div>
-							{this.state.alerts.map((alert) => {
-								return <li key={alert.id}>{alert.alert}</li>;
-							})}
-						</div>
-					</Card>
 				</Grid>
 				<Grid item sm={12}>
 					<List>
@@ -225,9 +214,11 @@ class tenantDashboard extends Component {
 					</List>
 				</Grid>
 			</div>
+	
 		);
 	}
-}
+	}
+
 
 tenantDashboard.propTypes = {
 	classes: PropTypes.object.isRequired
