@@ -15,7 +15,6 @@ const LandingView = () => {
       <Menu />
       <IndexPage />
       <SecondHero />
-      <Newsletter />
       <Footer />
 
     </div>
