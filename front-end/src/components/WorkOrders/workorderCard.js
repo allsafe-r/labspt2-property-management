@@ -127,7 +127,7 @@ class Workordercard extends Component {
 				<Modal    open={this.state.open}
 						  onClose={this.handleClose}
 				>
-				<CardMedia image={this.props.work.image} />
+				<CardMedia className={classes.image} image={this.props.work.image} />
 				</Modal>
 				
 				
