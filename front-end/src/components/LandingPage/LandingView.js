@@ -6,7 +6,6 @@ import SecondHero from "./SecondHero"
 import Newsletter from "./Newsletter"
 import Footer from "./Footer"
 
-// import Body from "./Body";
 
 import "../../assets/css/general.css";
 
@@ -15,10 +14,8 @@ const LandingView = () => {
     <div className="landingpage">
       <Menu />
       <IndexPage />
-      {/* <Body /> */}
       <SecondHero />
       <Newsletter />
-      {/* <Pricing /> */}
       <Footer />
 
     </div>
