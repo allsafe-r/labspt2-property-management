@@ -31,7 +31,6 @@ class CheckoutForm extends Component {
       cost: '',
       altCost: '',
       value: 0,
-      address: '',
     };
     this.submit = this.submit.bind(this);
   }
@@ -62,7 +61,8 @@ class CheckoutForm extends Component {
 				// console.log(user);
         this.setState({ name: user.data.firstName});
         this.setState({ cost: user.data.cost});
-        this.setState({ address: user.data.residence_id});
+        this.setState({ property: user.data.property});
+
 			})
   }
   
@@ -72,10 +72,11 @@ class CheckoutForm extends Component {
     let {token} = await this.props.stripe.createToken({name: this.state.name});
     axios
     .post(url, {
-      description: 'Pay rent now',
+      description: this.state.property,
       source: token.id,
       currency: 'USD',
       amount: this.state.altCost * 100
+      
     })
     .then(this.props.charge)
     .then(this.successPayment) 
@@ -86,11 +87,10 @@ class CheckoutForm extends Component {
     let {token} = await this.props.stripe.createToken({name: this.state.name});
     axios
     .post(url, {
-      description: 'Pay rent now',
+      description: this.state.property,
       source: token.id,
       currency: 'USD',
-      amount: this.state.cost,
-      shipping:this.state.address
+      amount: this.state.cost
       
     })
     .then(this.props.charge)
