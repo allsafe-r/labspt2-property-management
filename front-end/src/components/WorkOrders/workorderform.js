@@ -46,7 +46,7 @@ class Workorderform extends Component {
 			phone: '',
 			unsupervisedEntry: false,
 			status: 'Pending',
-			url: 'none'
+			image: 'none'
 		};
 	}
 	componentDidMount() {
@@ -98,6 +98,7 @@ class Workorderform extends Component {
 		
 			  axios.post(url, newWorkOrder)
 			  .then( response => {
+				  console.log(response);
 				  this.setState({
 					description: '',
 					phone: '',
@@ -144,7 +145,7 @@ class Workorderform extends Component {
 								control={
 									<Checkbox
 										name="unsupervisedEntry"
-										checked={this.state.checkedB}
+										
 										onChange={this.inputHandler}
 										value="checkedB"
 										color="primary"
