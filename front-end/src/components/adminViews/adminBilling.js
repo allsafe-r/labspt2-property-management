@@ -22,7 +22,7 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import './../WorkOrders/workorders.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { faCheckCircle, faSt } from '@fortawesome/free-solid-svg-icons';
 const decode = require('jwt-decode');
 // const url = process.env.properties || 'http://localhost:9000/properties';
 const url = `https://tenantly-back.herokuapp.com/properties`;
@@ -32,6 +32,18 @@ const url3 = 'https://tenantly-back.herokuapp.com/stripe/charges'
 
 
 const styles = theme => ({
+  button: {
+    margin: theme.spacing.unit,
+  },
+  leftIcon: {
+    marginRight: theme.spacing.unit,
+  },
+  rightIcon: {
+    marginLeft: theme.spacing.unit,
+  },
+  iconSmall: {
+    fontSize: 20,
+  },
   root: {
     margin: "0 auto",
     width: "100%",
@@ -107,22 +119,7 @@ class Billing extends Component {
         })
   }
 
-  // componentDidMount() {
-  //   const url = 'https://randomuser.me/api/?results=4';
-
-  //   fetch(url)
-  //     .then(Response => Response.json())
-  //     .then(findResponse => {
-  //       console.log(findResponse);
-  //       console.log(findResponse.results[0].name.first);
-  //       this.setState({
-  //         data: findResponse.results,
-  //         selected: findResponse.results[0].name.first // need to be sure it's exist
-  //       });
-  //     });
-  // }
-  // handleChange(value) {this.setState({ selected: value });}
-
+ 
 
   updatestate =() => {
 		axios.get(url3).then((response) => this.setState({ charges: response.data })).catch((error) => {
@@ -153,23 +150,11 @@ class Billing extends Component {
 
   handleChange(value) {this.setState({ selected: value });}
 
-  renderOptions() {
-    return this.state.properties.map((property, i) => {
-      return (
-        <div key={i}>
-          <MenuItem
-            value={property.houseId}
-            primaryText={property.houseId} />
-        </div>
-      );
-    });
-  }
-
   
 
 
   render() {
-    
+  const { classes } = this.props;
   
     return (
 <div className="billing">
@@ -197,10 +182,11 @@ class Billing extends Component {
 						</Select>
 						<FormHelperText>{this.state.selected}</FormHelperText>
 						</FormControl>
-                  </Card>			
-				  <Card>
+                  
 					<a href="https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_Eh0R1RXhYNXEq9z56aVKr04CVDrJvxMc&scope=read_write">
-						<img src={Image} alt="Logo"/>
+          <Button variant="contained" color="primary" className={classes.button}>
+            <FontAwesomeIcon icon={faCheckCircle} color="slategray" size="2x" /> Connect Stripe
+          </Button>
 					</a>
 				  </Card>
 			</div>
