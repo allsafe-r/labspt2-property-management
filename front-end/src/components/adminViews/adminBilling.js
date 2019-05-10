@@ -29,6 +29,8 @@ const url = `https://tenantly-back.herokuapp.com/properties`;
 const url2 = `http://localhost:9000/billing`;
 const url3 = 'https://tenantly-back.herokuapp.com/stripe/charges'
 
+
+
 const styles = theme => ({
   root: {
     margin: "0 auto",
@@ -55,12 +57,12 @@ class Billing extends Component {
     properties: [],
     billing: [],
     propertySelected: [],
-    charges: []
+    charges: [],
+    selected:''
   };
 
   handleInputChange = prop => event => {
-    this.setState({ [prop]: event.target.value });
-    console.log(this.state.house_id);
+    this.setState({ [prop]: event.target.value })
     this.setState({ value: event.target.value });
     axios
       .get(`https://localhost:9000/billing/${this.state.value}`)
@@ -72,6 +74,8 @@ class Billing extends Component {
       });
       console.log(this.state.propertySelected)
   };
+
+  
 
   setBilling = () => {
     axios
@@ -86,47 +90,47 @@ class Billing extends Component {
       });
   };
 
-  // componentDidMount() {
-  //   axios
-  //     .get(url)
-  //     .then(response =>
-  //       this.setState({ properties: response.data }, function() {
-  //         console.log(this.state.billing);
-  //         this.setBilling();
-  //       })
-  //     )
-  //     .catch(err => {
-  //       console.error("Server Error", err);
-  //     });
-
-  //     axios.get(url3).then((response) => this.setState({ charges: response.data })).catch((error) => {
-  //       console.error('Server Error', error);
-  //     });
-  //     const token = localStorage.getItem('jwtToken');
-  //     const id = decode(token).userId;
-  //     axios
-  //       .get(`https://tenantly-back.herokuapp.com/users/${id}`)
-  //       .then((user) => {
-  //         this.setState({ user: user.data.firstName });
-  //         this.setState({ userLast: user.data.lastName });
-  //       })
-  // }
-
   componentDidMount() {
-    const url = 'https://randomuser.me/api/?results=4';
-
-    fetch(url)
-      .then(Response => Response.json())
-      .then(findResponse => {
-        console.log(findResponse);
-        console.log(findResponse.results[0].name.first);
-        this.setState({
-          data: findResponse.results,
-          selected: findResponse.results[0].name.first // need to be sure it's exist
-        });
+    axios
+      .get(url)
+      .then(response =>
+        this.setState({ properties: response.data }, function() {
+          
+          this.setBilling();
+        })
+      )
+      .catch(err => {
+        console.error("Server Error", err);
       });
+
+      axios.get(url3).then((response) => this.setState({ charges: response.data })).catch((error) => {
+        console.error('Server Error', error);
+      });
+      const token = localStorage.getItem('jwtToken');
+      const id = decode(token).userId;
+      axios
+        .get(`https://tenantly-back.herokuapp.com/users/${id}`)
+        .then((user) => {
+          this.setState({ user: user.data.firstName });
+          this.setState({ userLast: user.data.lastName });
+        })
   }
-  handleChange(value) {this.setState({ selected: value });}
+
+  // componentDidMount() {
+  //   const url = 'https://randomuser.me/api/?results=4';
+
+  //   fetch(url)
+  //     .then(Response => Response.json())
+  //     .then(findResponse => {
+  //       console.log(findResponse);
+  //       console.log(findResponse.results[0].name.first);
+  //       this.setState({
+  //         data: findResponse.results,
+  //         selected: findResponse.results[0].name.first // need to be sure it's exist
+  //       });
+  //     });
+  // }
+  // handleChange(value) {this.setState({ selected: value });}
 
 
   updatestate =() => {
@@ -140,112 +144,114 @@ class Billing extends Component {
 		return d.toLocaleString();
 }
 
-renderOptions() {
-  return this.state.data.map((dt, i) => {
-    return (
-      <div key={i}>
-        <MenuItem
-          value={dt.name.first}
-          primaryText={dt.name.first} />
-      </div>
-    );
-  });
-}
 
-  // fetchProperty = (id) => {
-  // 	axios
-  // 		.get(`https://tenantly-back.herokuapp.com/properties/${id}`)
-  // 		.then((response) => {
-  // 			this.setState({ property2: response.data });
-  // 		})
-  // 		.catch((error) => {
-  // 			console.error(error);
-  // 		});
-  // };
+  fetchProperty = (id) => {
+  	axios
+  		.get(`https://tenantly-back.herokuapp.com/properties/${id}`)
+  		.then((response) => {
+  			this.setState({ property2: response.data });
+  		})
+  		.catch((error) => {
+  			console.error(error);
+  		});
+  };
 
-  // clickFunction() {
-  // 	console.log(document.getElementById('property-native-required').selectedIndex)
-  // }
+  clickFunction() {
+  	console.log(document.getElementById('property-native-required').selectedIndex)
+  }
+
+  handleChange(value) {this.setState({ selected: value });}
+
+  renderOptions() {
+    return this.state.properties.map((property, i) => {
+      return (
+        <div key={i}>
+          <MenuItem
+            value={property.houseId}
+            primaryText={property.houseId} />
+        </div>
+      );
+    });
+  }
+
+  
+
 
   render() {
-    const { classes } = this.props;
-    const fonts = [{ cssSrc: "https://fonts.googleapis.com/css?family=Podkova:400" }]
+    
+  
     return (
-      <div className="billing">
-        <div className="billing-left">
-        <Menu value={this.state.selected} onChange={this.handleChange}>{this.renderOptions}</Menu>
-          <form>
-            <h1>Select a property to view payment history</h1>
-            <div className="input-select">
-              <select
-                value={this.state.houseId}
-                onChange={this.handleInputChange(this.value)}
-                name="Property"
-                className="select-billing"
-              >
-                {this.state.properties.map((property, index) => (
-                  <option key={index} value={property.houseId}>
-                    {property.propertyName}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </form>
-          <div className="stripe-button">
-            <a href="https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_Eh0R1RXhYNXEq9z56aVKr04CVDrJvxMc&scope=read_write">
-              <img src={Image} alt="Logo" />
-            </a>
-          </div>
-        </div>
-        {/* <div className="billing-right">
-          <h1>Billing History</h1>
-          
-          {this.state.propertySelected.map(bill => (
-            <ul>
-              <div className="billingHistory-info">
-                <li>{bill.propertyName}</li>
-                <li>{bill.amount}</li>
-              </div>
-            </ul>
-          ))}
-        </div> */}
+<div className="billing">
+<div className="billingColumn1">
+					<Card>
+						<FormControl>
+						<InputLabel htmlFor="property-native-required">
+							Select a property to view payment history
+						</InputLabel>
+						<Select
+							native
+							value="The White House"
+							onChange={this.handleChange(this.value)}
+							name="Property"
+							inputProps={{
+							id: 'property-native-required',
+							}}
+						>
+							<option value={0} />
+							{this.state.properties.map((property, index) => (
+							<option key={index} value={property.houseId} >
+								{property.propertyName}
+							</option>
+							))}
+						</Select>
+						<FormHelperText>Required</FormHelperText>
+						</FormControl>
+                  </Card>			
+				  <Card>
+					<a href="https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_Eh0R1RXhYNXEq9z56aVKr04CVDrJvxMc&scope=read_write">
+						<img src={Image} alt="Logo"/>
+					</a>
+				  </Card>
+			</div>
+
+        
      
 
-<StripeProvider apiKey="pk_test_uGZWgKZiorkYlZ8MsxYEIrA2">
-<div className='payment-container'>
-  <Grid item sm={6} xs={12} >
+            <StripeProvider apiKey="pk_test_uGZWgKZiorkYlZ8MsxYEIrA2">
+            <div className='payment-container'>
+              <Grid item sm={6} xs={12} >
 
-  <Card>
-        
-      <Paper elevation={1} className="payment-history">
-        {this.state.charges.map((charge) => 
-        <div>
-          {"The White House" == charge.description &&
-        <div>							
-        <CardHeader className="card-header" variant='h1' title={charge.billing_details.name} />
-        <Divider/>
-        <div className='flex-component'>
-    
-        <div>
-        <Typography className="payments" variant='h4' component='h2'>Amount Paid: ${charge.amount / 100}.00</Typography>
-        <Typography className="payments" variant='h4'>Date: {this.convertToTime(charge.created)}</Typography>
-        </div>
+              <Card>
+                    
+                  <Paper elevation={1} className="payment-history">
+                    {this.state.charges.map((charge) => 
+                    <div>
+                      {this.state.selected == charge.description &&
+                    <div>							
+                    <CardHeader className="card-header" variant='h1' title={charge.billing_details.name} />
+                    <Divider/>
+                    <div className='flex-component'>
+                
+                    <div>
+                    <Typography className="payments" variant='h4' component='h2'>Amount Paid: ${charge.amount / 100}.00</Typography>
+                    <Typography className="payments" variant='h4'>Date: {this.convertToTime(charge.created)}</Typography>
+                    </div>
 
-        <FontAwesomeIcon icon={faCheckCircle} color="slategray" size="2x" />
-        </div>
+                    <FontAwesomeIcon icon={faCheckCircle} color="slategray" size="2x" />
+                    </div>
+                              
+                    </div>	
+                      }
+                      </div>					
+                    )}
+                  </Paper>
                   
-        </div>	
-          }
-          </div>					
-        )}
-      </Paper>
-      
-    </Card>				
-  </Grid>
+                </Card>				
+              </Grid>
 
-  </div>	
-  </StripeProvider>
-  </div>
+              </div>	
+              </StripeProvider>
+      </div>  
     );
   }
 }
