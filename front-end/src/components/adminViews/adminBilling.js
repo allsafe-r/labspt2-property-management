@@ -63,16 +63,7 @@ class Billing extends Component {
 
   handleInputChange = prop => event => {
     this.setState({ [prop]: event.target.value })
-    this.setState({ value: event.target.value });
-    axios
-      .get(`https://localhost:9000/billing/${this.state.value}`)
-      .then(response => {
-        this.setState({ propertySelected: response.data });
-      })
-      .catch(error => {
-        console.error(error);
-      });
-      console.log(this.state.propertySelected)
+    this.setState({ selected: event.target.value })
   };
 
   
@@ -190,8 +181,8 @@ class Billing extends Component {
 						</InputLabel>
 						<Select
 							native
-							value="The White House"
-							onChange={this.handleChange(this.value)}
+							value={this.state.property}
+							onChange={this.handleInputChange(this.value)}
 							name="Property"
 							inputProps={{
 							id: 'property-native-required',
@@ -199,12 +190,12 @@ class Billing extends Component {
 						>
 							<option value={0} />
 							{this.state.properties.map((property, index) => (
-							<option key={index} value={property.houseId} >
+							<option key={index} value={property.propertyName} >
 								{property.propertyName}
 							</option>
 							))}
 						</Select>
-						<FormHelperText>Required</FormHelperText>
+						<FormHelperText>{this.state.selected}</FormHelperText>
 						</FormControl>
                   </Card>			
 				  <Card>
