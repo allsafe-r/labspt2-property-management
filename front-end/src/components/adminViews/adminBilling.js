@@ -165,7 +165,8 @@ class Billing extends Component {
 							Select a Property to View Payment History
 						</Typography>
 						<Select
-							native
+              native
+              className='DropdownItem'
 							value={this.state.property}
 							onChange={this.handleInputChange(this.value)}
 							name="Property"
@@ -175,7 +176,7 @@ class Billing extends Component {
 						>
 							<option value={0} />
 							{this.state.properties.map((property, index) => (
-							<option key={index} value={property.propertyName} >
+							<option className='DropdownItem' key={index} value={property.propertyName} >
 								{property.propertyName}
 							</option>
 							))}
