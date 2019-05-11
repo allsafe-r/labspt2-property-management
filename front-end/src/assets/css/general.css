@@ -2333,3 +2333,35 @@ button[type="submit"] {
     transform: rotate(360deg);
   }
 }
+
+
+/* Admin Billing Style */
+
+.billing .billingColumn1 .Input-header {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.billing .billingColumn1 .Dropdown {
+  display:flex;
+  justify-content: center;
+}
+
+.billing .billingColumn1 .billing-card1 {
+  padding:1.5rem;
+  margin-bottom: 3.0rem;
+}
+
+.billing .billingColumn1 .billing-card2 button {
+  background-color: #fc7869;
+  color: white;
+  font-size: 1.8rem;
+}
+
+.billing .billing-card2 a {
+  text-decoration: none;
+}
+
+.billing .billing-card2 a button span svg {
+  margin-right: 0.8rem;
+}

@@ -159,11 +159,11 @@ class Billing extends Component {
     return (
 <div className="billing">
 <div className="billingColumn1">
-					<Card>
-						<FormControl>
-						<InputLabel htmlFor="property-native-required">
+					<Card className="billing-card1">
+						<FormControl className='Dropdown'>
+						<Typography className='Input-header'>
 							Select a property to view payment history
-						</InputLabel>
+						</Typography>
 						<Select
 							native
 							value={this.state.property}
@@ -182,12 +182,14 @@ class Billing extends Component {
 						</Select>
 						<FormHelperText>{this.state.selected}</FormHelperText>
 						</FormControl>
-                  
-					<a href="https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_Eh0R1RXhYNXEq9z56aVKr04CVDrJvxMc&scope=read_write">
-          <Button variant="contained" color="primary" className={classes.button}>
-            <FontAwesomeIcon icon={faCheckCircle} color="slategray" size="2x" /> Connect Stripe
-          </Button>
-					</a>
+            </Card>
+            
+          <Card className="billing-card2">      
+            <a href="https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_Eh0R1RXhYNXEq9z56aVKr04CVDrJvxMc&scope=read_write">
+            <Button variant="contained" className={classes.button}>
+              <FontAwesomeIcon icon={faCheckCircle} color="white" size="2x" /> Connect Stripe
+            </Button>
+            </a>
 				  </Card>
 			</div>
 
