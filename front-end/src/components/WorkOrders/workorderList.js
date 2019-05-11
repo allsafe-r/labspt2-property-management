@@ -36,7 +36,7 @@ class Workorderlist extends Component {
 	fetchWorkOrders() {
 		const token = localStorage.getItem('jwtToken');
 		const userId = decode(token).userId;
-		let propArr
+		let propArr = []
 		axios.get(propertiesurl)
 		.then((response) => {
 			propArr = response.data.filter((property) => property.owner === userId)
@@ -48,7 +48,7 @@ class Workorderlist extends Component {
 		.then((response) => {
 			const unfilteredWorkArr = response.data
 			let workArr = []
-			propArr.forEach((prop) => unfilteredWorkArr.forEach((work) => {if(work.property === prop.houseId) {workArr.push(work) }}))
+			propArr.forEach((prop) => unfilteredWorkArr.forEach((work) => {if(work.property === prop.houseId) {workArr.push(work) }}));
 				this.setState({ 
 					workorders: workArr
 				})
