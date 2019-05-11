@@ -2341,7 +2341,11 @@ button[type="submit"] {
 }
 
 .billing .billingColumn2 {
-  width:50%;
+  width:45%;
+}
+
+.billing .billingColumn2 .payment-container {
+  width:100%;
 }
 
 

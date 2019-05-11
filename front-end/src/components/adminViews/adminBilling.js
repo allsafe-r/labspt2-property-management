@@ -196,12 +196,12 @@ class Billing extends Component {
             <div className="billingColumn2">
             <StripeProvider apiKey="pk_test_uGZWgKZiorkYlZ8MsxYEIrA2">
             <div className='payment-container'>
-              <Grid item sm={6} xs={12} >
+              
 
               <Card>
                     
                   <Paper elevation={1} className="payment-history">
-                  <Typography>
+                  <Typography variant="h4" component="h2">
                     Rent History
                   </Typography>
                     {this.state.charges.map((charge) => 
@@ -217,7 +217,7 @@ class Billing extends Component {
                     <Typography className="payments" variant='h4'>Date: {this.convertToTime(charge.created)}</Typography>
                     </div>
 
-                    <FontAwesomeIcon icon={faCheckCircle} color="slategray" size="2x" />
+                    <FontAwesomeIcon icon={faCheckCircle} color="forestgreen" size="1x" />
                     </div>
                               
                     </div>	
@@ -227,7 +227,6 @@ class Billing extends Component {
                   </Paper>
                   
                 </Card>				
-              </Grid>
 
               </div>	
               </StripeProvider>
