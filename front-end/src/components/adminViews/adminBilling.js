@@ -191,9 +191,6 @@ class Billing extends Component {
 				  </Card>
 			</div>
 
-        
-     
-
             <StripeProvider apiKey="pk_test_uGZWgKZiorkYlZ8MsxYEIrA2">
             <div className='payment-container'>
               <Grid item sm={6} xs={12} >
