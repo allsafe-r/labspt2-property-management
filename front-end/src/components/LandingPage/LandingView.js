@@ -17,6 +17,7 @@ const LandingView = () => {
       <SecondHero />
       <Footer />
 
+
     </div>
   );
 };
