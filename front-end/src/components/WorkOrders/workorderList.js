@@ -8,6 +8,7 @@ const decode = require('jwt-decode');
 
 // const url = process.env.getWO || 'https://localhost:9000/workorders';
 const workorderurl = 'https://tenantly-back.herokuapp.com/workorders';
+const propertiesurl = 'https://tenantly-back.herokuapp.com/properties'
 
 const styles = theme =>({
 
