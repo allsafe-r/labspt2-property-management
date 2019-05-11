@@ -62,14 +62,12 @@ class Workorderform extends Component {
 	fetchData() {
 		const token = localStorage.getItem('jwtToken');
 		const id = decode(token).userId;
-		// go into users to find which residence you live at
-		axios
+			axios
 			.get(`https://tenantly-back.herokuapp.com/users/${id}`)
-			// .get(`http://localhost:9000/users/${id}`)
 			.then((user) => {
-				// console.log(user);
+			
 					this.setState({ property: user.data.residence_id, tenant: id });
-					// console.log(this.state.houseId);
+			
 				
 			})
 	}
