@@ -2382,3 +2382,19 @@ button[type="submit"] {
 .Dropdown .DropdownItem {
   font-size: 2.0rem;
 }
+
+@media (max-width: 660px) {
+  .billing .billingColumn1 {
+    width:100%;
+    margin-bottom: 20px;
+  }
+
+  .billing .billingColumn1 .billing-card1 {
+    
+    margin-bottom: 20px;
+  }
+  
+  .billing .billingColumn2 {
+    width:100%;
+  }
+}
