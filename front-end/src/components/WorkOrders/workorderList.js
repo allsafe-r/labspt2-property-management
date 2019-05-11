@@ -4,9 +4,10 @@ import { withStyles } from '@material-ui/core/styles';
 import Workordercard from './workorderCard';
 //import GridList from '@material-ui/core/GridList';
 import Grid from '@material-ui/core/Grid';
+const decode = require('jwt-decode');
 
 // const url = process.env.getWO || 'https://localhost:9000/workorders';
-const url = 'https://tenantly-back.herokuapp.com/workorders';
+const workorderurl = 'https://tenantly-back.herokuapp.com/workorders';
 
 const styles = theme =>({
 
@@ -23,10 +24,40 @@ class Workorderlist extends Component {
 	}
 	//Get all work orders
 	componentDidMount() {
-		axios.get(url).then((response) => this.setState({ workorders: response.data })).catch((error) => {
+		this.fetchWorkOrders()
+	}
+
+	componentDidUpdate() {
+		this.fetchWorkOrders();
+	}
+	
+
+	fetchWorkOrders() {
+		const token = localStorage.getItem('jwtToken');
+		const userId = decode(token).userId;
+		let propArr
+		axios.get(propertiesurl)
+		.then((response) => {
+			propArr = response.data.filter((property) => property.owner === userId)
+		})
+		.catch((error) => {
 			console.error('Server Error', error);
 		});
-	}
+		axios.get(workorderurl)
+		.then((response) => {
+			const unfilteredWorkArr = response.data
+			let workArr = []
+			propArr.forEach((prop) => unfilteredWorkArr.forEach((work) => {if(work.property === prop.houseId) {workArr.push(work) }}))
+				this.setState({ 
+					workorders: workArr
+				})
+			})
+				.catch((error) => {
+	   console.error('Server Error', error);
+   });
+
+	
+}
 	render() {
 		return (
 
