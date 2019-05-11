@@ -2336,10 +2336,19 @@ button[type="submit"] {
 
 
 /* Admin Billing Style */
+.billing .billingColumn1 {
+  width:45%;
+}
+
+.billing .billingColumn2 {
+  width:50%;
+}
+
 
 .billing .billingColumn1 .Input-header {
   font-size: 1.5rem;
   text-align: center;
+  font-weight: 500;
 }
 
 .billing .billingColumn1 .Dropdown {

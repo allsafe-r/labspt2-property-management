@@ -162,7 +162,7 @@ class Billing extends Component {
 					<Card className="billing-card1">
 						<FormControl className='Dropdown'>
 						<Typography className='Input-header'>
-							Select a property to view payment history
+							Select a Property to View Payment History
 						</Typography>
 						<Select
 							native
@@ -191,8 +191,9 @@ class Billing extends Component {
             </Button>
             </a>
 				  </Card>
+       
 			</div>
-
+            <div className="billingColumn2">
             <StripeProvider apiKey="pk_test_uGZWgKZiorkYlZ8MsxYEIrA2">
             <div className='payment-container'>
               <Grid item sm={6} xs={12} >
@@ -200,6 +201,9 @@ class Billing extends Component {
               <Card>
                     
                   <Paper elevation={1} className="payment-history">
+                  <Typography>
+                    Rent History
+                  </Typography>
                     {this.state.charges.map((charge) => 
                     <div>
                       {this.state.selected == charge.description &&
@@ -227,6 +231,7 @@ class Billing extends Component {
 
               </div>	
               </StripeProvider>
+              </div>
       </div>  
     );
   }
