@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Workordercard from './workorderCard';
 //import GridList from '@material-ui/core/GridList';
 import Grid from '@material-ui/core/Grid';
+import workorderCard from './workorderCard';
 const decode = require('jwt-decode');
 
 // const url = process.env.getWO || 'https://localhost:9000/workorders';
@@ -20,7 +21,10 @@ class Workorderlist extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			workorders: []
+			unfilterworkedArr:[],
+			propArr:[],
+			workorders: [],
+			properties: []
 		};
 	}
 	//Get all work orders
@@ -28,34 +32,69 @@ class Workorderlist extends Component {
 		this.fetchWorkOrders()
 	}
 
-	componentDidUpdate() {
-		this.fetchWorkOrders();
-	}
+	//componentDidUpdate() {
+		//this.fetchWorkOrders();
+	//}
 	
 
 	fetchWorkOrders() {
 		const token = localStorage.getItem('jwtToken');
 		const userId = decode(token).userId;
 		let propArr = []
+		let workArr = []
 		axios.get(propertiesurl)
 		.then((response) => {
-			propArr = response.data.filter((property) => property.owner === userId)
+			
+			this.setState({ 
+				propArr: response.data.filter((property) => property.owner === userId)
+			})
+			axios.get(workorderurl)
+
+			.then((res)=> {
+				this.setState({ 
+					unfilterworkedArr: res.data
+				})
+
+				
+
+				for(let i=0; i<this.state.propArr.length; i++){
+					console.log(this.state.propArr[i])
+					for (let x=0; x<this.state.unfilterworkedArr.length; x++){
+						console.log(this.state.unfilterworkedArr[x].property)
+						if(this.state.propArr[i].houseId === this.state.unfilterworkedArr[x].property){
+							workArr.push(this.state.unfilterworkedArr[x]);
+						}
+					}
+				}
+
+				
+				//console.log(unfilterworkedArr[0].property)
+				
+				
+				console.log(this.state.propArr.length)
+				
+				
+				this.setState({
+					workorders: workArr
+				})
+
+
+		
+
+
+
 		})
+
 		.catch((error) => {
 			console.error('Server Error', error);
 		});
-		axios.get(workorderurl)
-		.then((response) => {
-			const unfilteredWorkArr = response.data
-			let workArr = []
-			propArr.forEach((prop) => unfilteredWorkArr.forEach((work) => {if(work.property === prop.houseId) {workArr.push(work) }}));
-				this.setState({ 
-					workorders: workArr
-				})
-			})
-				.catch((error) => {
-	   console.error('Server Error', error);
-   });
+	
+	})
+		.catch((error) => {
+			console.error('Server Error', error);
+		});
+
+
 
 	
 }
