@@ -1633,12 +1633,22 @@ input[type="checkbox"]:checked + label:before {
   flex-direction: row;
 }
 
-.tenantCard-bottom {
-  width: 100%;
+.addApp h1 {
+  text-align: center;
+  margin: 0.3em 0 0.5em 0;
 }
 
-.tenantCard-bottom input {
+.dropzone {
   width: 100%;
+  padding: 3em;
+  text-align: center;
+  outline: none;
+  border: 1px solid #fc766a;
+}
+.dropzone:hover {
+  cursor: pointer;
+  color: lightcoral;
+  opacity: 0.9;
 }
 
 .info-container {
