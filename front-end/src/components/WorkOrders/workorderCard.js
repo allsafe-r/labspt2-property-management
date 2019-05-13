@@ -111,6 +111,23 @@ class Workordercard extends Component {
 			});
 	};
 
+	componentDidMount() {
+		this.tenantname()
+	}
+
+	tenantname = () => {
+		axios
+            .get(`https://tenantly-back.herokuapp.com/users/${this.state.tenant}`)
+			.then((response) => {
+				let tenantworkorder = response.data
+				console.log(tenantworkorder)
+				this.setState({
+					tenant: tenantworkorder.firstName
+				})
+			})
+	}
+
+
 	handleOpen = () => {
 		this.setState({ open: true });
 	  };
@@ -134,17 +151,17 @@ class Workordercard extends Component {
 				
 				<CardContent>
 				<Typography className={classes.typography} variant="title">
-						{this.props.work.description}
+						Description: {this.props.work.description}
 				</Typography>
 
 				<Typography className={classes.typography}variant="h1">
-						{this.props.work.tenant}
+						Name: {this.state.tenant}
 				</Typography>
 				
 
 				
 				<Typography className={classes.typography} variant="h1">
-						{this.props.work.phone}
+						Phone Number: {this.props.work.phone}
 				</Typography>
 
 				
