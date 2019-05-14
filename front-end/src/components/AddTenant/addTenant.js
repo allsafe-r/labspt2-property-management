@@ -9,18 +9,23 @@ class AddTenant extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      newTenant: false
+      newTenant: false,
+      tenantID: "7"
     };
   }
   addAnotherTenant = e => {
     e.preventDefault();
     this.setState({ newTenant: true });
   };
+
+  tenant = id => {
+    this.setState({ tenantID: id });
+  };
   render() {
     return (
       <div className="addTenant-container">
         <div className="tenantInfo-container">
-          <TenantCard />
+          <TenantCard tenant={this.tenant} />
 
           <div
             className="tenantAdd"
@@ -33,7 +38,7 @@ class AddTenant extends Component {
           {this.state.newTenant ? <TenantCard /> : null}
         </div>
         <div className="contract-container">
-          <HousingInfo />
+          <HousingInfo tenantInfo={this.state.tenantID} />
         </div>
       </div>
     );

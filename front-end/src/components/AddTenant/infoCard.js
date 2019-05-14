@@ -5,25 +5,26 @@ export default class HousingInfo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tenant: []
+      tenant1: []
     };
   }
 
-  // componentDidMount() {
-  //   const id = this.props.match.params.id;
-  //   this.fetchApp(id);
-  // }
+  componentDidMount() {
+    const id = this.props.tenantInfo;
+    this.fetchApp(id);
+    console.log("id", id);
+  }
 
-  // fetchApp = id => {
-  //   axios
-  //     .get(`https://tenantly-back.herokuapp.com/users/tenants/${id}`)
-  //     .then(response => {
-  //       this.setState({ tenant: response.data });
-  //     })
-  //     .catch(error => {
-  //       console.error(error);
-  //     });
-  // };
+  fetchApp = id => {
+    axios
+      .get(`https://tenantly-back.herokuapp.com/users/${id}`)
+      .then(response => {
+        this.setState({ tenant1: response.data });
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  };
 
   render() {
     return (

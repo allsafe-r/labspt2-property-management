@@ -35,6 +35,8 @@ class TenantInfo extends Component {
       .post(url, this.state)
       .then(response => {
         console.log(response.data.user);
+        let id = response.data.user;
+        this.props.tenant(id);
         let email = {
           name: this.state.firstName,
           email: this.state.email,
