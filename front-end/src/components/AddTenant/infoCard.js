@@ -19,30 +19,36 @@ export default class HousingInfo extends Component {
   }
 
   fetchApp = id => {
-    if (id) {
-      console.log("fetch", id, this.state.tenant1.id);
-      if (id !== this.state.tenant1.id) {
-        console.log("not same");
-        axios
-          .get(`https://tenantly-back.herokuapp.com/users/${id}`)
-          .then(response => {
-            this.setState({ tenant1: response.data });
-            console.log("worked");
-          })
-          .catch(error => {
-            console.error(error);
-          });
-      } else {
-        axios
-          .get(`https://tenantly-back.herokuapp.com/users/${id}`)
-          .then(response => {
-            this.setState({ tenant2: response.data });
-            console.log("worked");
-          })
-          .catch(error => {
-            console.error(error);
-          });
-      }
+    console.log(
+      "id",
+      id,
+      "tenant1",
+      this.state.tenant1,
+      "tenant2",
+      this.state.tenant2
+    );
+    if (id > this.state.tenant1.id) {
+      console.log(id);
+      console.log(this.state.tenant1.id);
+      axios
+        .get(`https://tenantly-back.herokuapp.com/users/${id}`)
+        .then(response => {
+          this.setState({ tenant2: response.data });
+          console.log("tenant2", this.state.tenant1.id);
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    } else {
+      axios
+        .get(`https://tenantly-back.herokuapp.com/users/${id}`)
+        .then(response => {
+          this.setState({ tenant1: response.data });
+          console.log("tenant1", this.state.tenant2);
+        })
+        .catch(error => {
+          console.error(error);
+        });
     }
   };
 
