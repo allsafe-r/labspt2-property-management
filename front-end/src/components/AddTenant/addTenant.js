@@ -10,7 +10,7 @@ class AddTenant extends Component {
     super(props);
     this.state = {
       newTenant: false,
-      tenantID: "7"
+      tenantID: ""
     };
   }
   addAnotherTenant = e => {
@@ -19,13 +19,16 @@ class AddTenant extends Component {
   };
 
   tenant = id => {
-    this.setState({ tenantID: id });
+    if (id > 0) {
+      console.log(id);
+      this.setState({ tenantID: id });
+    }
   };
   render() {
     return (
       <div className="addTenant-container">
         <div className="tenantInfo-container">
-          <TenantCard tenant={this.tenant} />
+          <TenantCard tenantInfo={this.tenant} />
 
           <div
             className="tenantAdd"

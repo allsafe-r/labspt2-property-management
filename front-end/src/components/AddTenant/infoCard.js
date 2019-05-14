@@ -9,21 +9,25 @@ export default class HousingInfo extends Component {
     };
   }
 
-  componentDidMount() {
+  componentDidUpdate(prevProps) {
     const id = this.props.tenantInfo;
-    this.fetchApp(id);
-    console.log("id", id);
+    if (id !== prevProps.id) {
+      this.fetchApp(id);
+      console.log("id", id);
+    }
   }
 
   fetchApp = id => {
-    axios
-      .get(`https://tenantly-back.herokuapp.com/users/${id}`)
-      .then(response => {
-        this.setState({ tenant1: response.data });
-      })
-      .catch(error => {
-        console.error(error);
-      });
+    if (id) {
+      axios
+        .get(`https://tenantly-back.herokuapp.com/users/${id}`)
+        .then(response => {
+          this.setState({ tenant1: response.data });
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    }
   };
 
   render() {

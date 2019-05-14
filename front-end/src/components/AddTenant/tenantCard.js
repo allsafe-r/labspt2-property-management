@@ -34,9 +34,9 @@ class TenantInfo extends Component {
     axios
       .post(url, this.state)
       .then(response => {
-        console.log(response.data.user);
+        console.log("worked");
         let id = response.data.user;
-        this.props.tenant(id);
+        this.props.tenantInfo(id);
         let email = {
           name: this.state.firstName,
           email: this.state.email,
