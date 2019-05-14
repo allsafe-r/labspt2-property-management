@@ -49,7 +49,8 @@ exports.seed = function(knex, Promise) {
 				cost: 86500,
 				emailSubscribe: false,
 				textSubscribe: false,
-				application: ''
+				application: '',
+				property: 'The White House'
 			}
 		]);
 	});
