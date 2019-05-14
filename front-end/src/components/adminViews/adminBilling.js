@@ -210,7 +210,7 @@ class Billing extends Component {
                       {this.state.selected == charge.description &&
                     <div>							
                     <CardHeader className="card-header" variant='h1' title={charge.billing_details.name} />
-                    <Divider/>
+                    
                     <div className='flex-component'>
                 
                     <div>
