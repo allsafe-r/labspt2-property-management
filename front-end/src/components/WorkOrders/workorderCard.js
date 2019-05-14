@@ -28,6 +28,23 @@ import { FormLabel } from '@material-ui/core';
 // const url = process.env.workOrderCard || `http://localhost:9000/workorders/${this.state.id}`;
 // const url = `https://tenantly-back.herokuapp.com/${this.state.id}`;
 
+function rand() {
+	return Math.round(Math.random() * 20) - 10;
+  }
+  
+  function getModalStyle() {
+	const top = 25;
+	const left = 25;
+  
+	return {
+	  justifyContent:'center',
+	  alignItems: 'center',
+	  top: `${top}%`,
+	  left: `${left}%`,
+	  transform: `translate(-${top}%, -${left}%)`,
+	};
+  }
+
 const styles = theme =>({
 	card:{
 		display: 'flex',
@@ -51,8 +68,11 @@ const styles = theme =>({
 		fontSize: '3rem',
 	},
 	image: {
-		height: 100,
-		padding:'56.25%',
+		alignSelf: 'center',
+		verticalAlign: 'middle',
+		height: '75%',
+		width: '75%',
+		//padding:'56.25%',
 
 	},
 	button:{
@@ -111,6 +131,8 @@ class Workordercard extends Component {
 			});
 	};
 
+	
+
 	componentDidMount() {
 		this.tenantname()
 	}
@@ -120,7 +142,6 @@ class Workordercard extends Component {
             .get(`https://tenantly-back.herokuapp.com/users/${this.state.tenant}`)
 			.then((response) => {
 				let tenantworkorder = response.data
-				console.log(tenantworkorder)
 				this.setState({
 					tenant: tenantworkorder.firstName
 				})
@@ -141,10 +162,10 @@ class Workordercard extends Component {
 		return (
 			<Card className={classes.card} raised={true}>
 			
-				<Modal    open={this.state.open}
+				<Modal  style={getModalStyle()}  open={this.state.open}
 						  onClose={this.handleClose}
 				>
-				<CardMedia image={this.props.work.image} />
+				<CardMedia className={classes.image} image={this.props.work.image} />
 				</Modal>
 				
 				
