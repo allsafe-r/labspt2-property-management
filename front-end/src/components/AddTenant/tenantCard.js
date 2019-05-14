@@ -27,17 +27,14 @@ class TenantInfo extends Component {
     this.setState({
       password: this.state.phone
     });
-    this.setState({
-      cost: this.state.cost
-    });
   };
 
   addTenant = e => {
     e.preventDefault();
     axios
       .post(url, this.state)
-      .then(() => {
-        console.log("working");
+      .then(response => {
+        console.log(response.data.user);
         let email = {
           name: this.state.firstName,
           email: this.state.email,
@@ -58,7 +55,6 @@ class TenantInfo extends Component {
   };
 
   urlUpdater = imageurl => {
-    console.log(imageurl);
     this.setState({
       application: imageurl
     });
