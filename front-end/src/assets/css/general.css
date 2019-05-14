@@ -1528,7 +1528,7 @@ body {
     0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
   border-radius: 4px;
   background-color: white;
-  margin: 0 auto 0.5em auto;
+  margin-bottom: 0.5em;
 }
 
 .tenant-info h1 {
@@ -1645,10 +1645,11 @@ input[type="checkbox"]:checked + label:before {
   outline: none;
   border: 1px solid #fc766a;
 }
+
 .dropzone:hover {
   cursor: pointer;
-  color: lightcoral;
-  opacity: 0.9;
+  color: black;
+  opacity: 0.3;
 }
 
 .info-container {
