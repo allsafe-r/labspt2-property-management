@@ -3,6 +3,7 @@ import Card from "@material-ui/core/Card";
 import { withStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
+import CardContent from "@material-ui/core/CardContent";
 
 const styles = theme => ({
   root: {
@@ -29,7 +30,10 @@ const PropertyCard = props => {
   return (
     <Card className={classes.root}>
       <Link to={`/view-property/${props.id}`} style={{ textDecoration: 'none' }}>
+
+      <img src={require("../../assets/images/homw.png")} alt="Logo" />
       <h1 style={{ textDecoration: 'none', fontSize: '2rem', color: '#fc766a' }}> {props.name}</h1>
+
      <Typography className={classes.h1} variant="h5" component="h2" gutterBottom>
         {props.address}, <br /> {props.city}, {props.state} <br />
         <h1>{props.zipcode}</h1>
