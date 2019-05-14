@@ -98,7 +98,8 @@ class Workordercard extends Component {
 			phone: props.work.phone,
 			unsupervisedEntry: props.work.unsupervisedEntry,
 			status: props.work.status,
-			open: false
+			open: false,
+			button: true,
 		};
 	}
 
@@ -135,6 +136,12 @@ class Workordercard extends Component {
 
 	componentDidMount() {
 		this.tenantname()
+		this.buttonhandler()
+	}
+
+	buttonhandler = () => {
+		const exists=this.props.work.image==='none'? true : false;
+		this.setState({button: exists})
 	}
 
 	tenantname = () => {
@@ -172,7 +179,8 @@ class Workordercard extends Component {
 				
 				<CardContent>
 				<Typography className={classes.typography} variant="title">
-						Description: {this.props.work.description}
+						{this.props.work.description}
+						
 				</Typography>
 
 				<Typography className={classes.typography}variant="h1">
@@ -215,7 +223,7 @@ class Workordercard extends Component {
 					</FormControl>
 					
 					</CardContent>
-					<Button className={classes.button} variant="contained" color="secondary" onClick={this.handleOpen}>Show Image</Button>
+					<Button className={classes.button} disabled={this.state.button} variant="contained" color="secondary" onClick={this.handleOpen}>Show Image</Button>
 			</Card>
 		);
 	}
