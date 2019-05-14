@@ -14,19 +14,23 @@ const styles = theme => ({
     fontSize: "1.5rem",
     width: 250,
     border: "1px solid black",
-    margin: 10
+    margin: 10,
+    textDecoration: 'none'
+  },
+  h1: {
+    textDecoration: 'none'
   }
 });
 const PropertyCard = props => {
   const { classes } = props;
   return (
     <Card className={classes.root}>
-      <Link to={`/view-property/${props.id}`}>
-        <h1>{props.name}</h1>
-        <h1>{props.address}</h1>
-        <h1>{props.city}</h1>
-        <h1>{props.state}</h1>
+      <Link to={`/view-property/${props.id}`} style={{ textDecoration: 'none' }}>
+      <h1 style={{ textDecoration: 'none', fontSize: '2rem' }}> {props.name}</h1>
+     <Typography className={classes.h1} variant="h6" component="h2" gutterBottom>
+        {props.address}, <br /> {props.city}, {props.state} <br />
         <h1>{props.zipcode}</h1>
+				</Typography>
       </Link>
     </Card>
   );
