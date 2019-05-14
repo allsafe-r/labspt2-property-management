@@ -22,22 +22,28 @@ const styles = (theme) => ({
 	heading: {
 		width: '100%',
 		display: 'flex',
-		fontSize: '2rem'
+		justifyContent: 'center',
+		fontSize: '3rem',
+		fontFamily: 'Montserrat'
 	},
 	root: {
 		display: 'flex',
 		flexDirection: 'column',
-		height: 200,
+		height: 400,
 		justifyContent: 'center',
 		alignItems: 'center',
 		fontSize: '1.5rem',
-		width: 250,
-		border: '1px solid black',
-		margin: 10
+		width: 300,
+		border: ".5px solid #fafafa",
+		boxShadow: '0 2px 10px rgba(0, 0, 0, 0.25)',
+		margin: 10,
+		
 	},
 	margin: {
 		margin: theme.spacing.unit,
-		fontSize: ' 1.3rem'
+		fontSize: ' 1.3rem',
+		textDecoration: 'none',
+    	border: '1px solid red',
 	},
 	extendedIcon: {
 		marginRight: theme.spacing.unit
