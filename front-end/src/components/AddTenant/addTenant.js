@@ -38,7 +38,9 @@ class AddTenant extends Component {
             <h1>Add Tenant</h1>
           </div>
 
-          {this.state.newTenant ? <TenantCard /> : null}
+          {this.state.newTenant ? (
+            <TenantCard tenantInfo={this.tenant} />
+          ) : null}
         </div>
         <div className="contract-container">
           <HousingInfo tenantInfo={this.state.tenantID} />
