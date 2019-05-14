@@ -13,11 +13,37 @@ import { withStyles, withTheme } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import "../../assets/css/general.css";
 import { Button } from "@material-ui/core";
+import {Elements, StripeProvider} from 'react-stripe-elements';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardHeader from '@material-ui/core/CardHeader';
+import Divider from '@material-ui/core/Divider';
+import Paper from '@material-ui/core/Paper';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import './../WorkOrders/workorders.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckCircle, faSt } from '@fortawesome/free-solid-svg-icons';
+const decode = require('jwt-decode');
 // const url = process.env.properties || 'http://localhost:9000/properties';
 const url = `https://tenantly-back.herokuapp.com/properties`;
 const url2 = `http://localhost:9000/billing`;
+const url3 = 'https://tenantly-back.herokuapp.com/stripe/charges'
+
+
 
 const styles = theme => ({
+  button: {
+    margin: theme.spacing.unit,
+  },
+  leftIcon: {
+    marginRight: theme.spacing.unit,
+  },
+  rightIcon: {
+    marginLeft: theme.spacing.unit,
+  },
+  iconSmall: {
+    fontSize: 20,
+  },
   root: {
     margin: "0 auto",
     width: "100%",
@@ -42,26 +68,21 @@ class Billing extends Component {
   state = {
     properties: [],
     billing: [],
-    propertySelected: []
+    propertySelected: [],
+    charges: [],
+    selected:''
   };
 
   handleInputChange = prop => event => {
-    this.setState({ [prop]: event.target.value });
-    console.log(this.state.house_id);
-    this.setState({ value: event.target.value });
-    axios
-      .get(`https://tenantly-back.herokuapp.com/billing/${this.state.value}`)
-      .then(response => {
-        this.setState({ propertySelected: response.data });
-      })
-      .catch(error => {
-        console.error(error);
-      });
+    this.setState({ [prop]: event.target.value })
+    this.setState({ selected: event.target.value })
   };
+
+  
 
   setBilling = () => {
     axios
-      .get(url)
+      .get(url2)
       .then(response =>
         this.setState({ billing: response.data }, function() {
           console.log(this.state.billing);
@@ -77,70 +98,134 @@ class Billing extends Component {
       .get(url)
       .then(response =>
         this.setState({ properties: response.data }, function() {
-          console.log(this.state.billing);
+          
           this.setBilling();
         })
       )
       .catch(err => {
         console.error("Server Error", err);
       });
+
+      axios.get(url3).then((response) => this.setState({ charges: response.data })).catch((error) => {
+        console.error('Server Error', error);
+      });
+      const token = localStorage.getItem('jwtToken');
+      const id = decode(token).userId;
+      axios
+        .get(`https://tenantly-back.herokuapp.com/users/${id}`)
+        .then((user) => {
+          this.setState({ user: user.data.firstName });
+          this.setState({ userLast: user.data.lastName });
+        })
   }
 
-  // fetchProperty = (id) => {
-  // 	axios
-  // 		.get(`https://tenantly-back.herokuapp.com/properties/${id}`)
-  // 		.then((response) => {
-  // 			this.setState({ property2: response.data });
-  // 		})
-  // 		.catch((error) => {
-  // 			console.error(error);
-  // 		});
-  // };
+ 
 
-  // clickFunction() {
-  // 	console.log(document.getElementById('property-native-required').selectedIndex)
-  // }
+  updatestate =() => {
+		axios.get(url3).then((response) => this.setState({ charges: response.data })).catch((error) => {
+			console.error('Server Error', error);
+		});
+	}
+
+	convertToTime =(e) =>{
+		const d = new Date(e * 1000)
+		return d.toLocaleString();
+}
+
+
+  fetchProperty = (id) => {
+  	axios
+  		.get(`https://tenantly-back.herokuapp.com/properties/${id}`)
+  		.then((response) => {
+  			this.setState({ property2: response.data });
+  		})
+  		.catch((error) => {
+  			console.error(error);
+  		});
+  };
+
+  clickFunction() {
+  	console.log(document.getElementById('property-native-required').selectedIndex)
+  }
+
+  handleChange(value) {this.setState({ selected: value });}
+
+  
+
 
   render() {
-    const { classes } = this.props;
+  const { classes } = this.props;
+  
     return (
-      <div className="billing">
-        <div className="billing-left">
-          <form>
-            <h1>Select a property to view payment history</h1>
-            <div className="input-select">
-              <select
-                value={this.state.houseId}
-                onChange={this.handleInputChange(this.value)}
-                name="Property"
-                className="select-billing"
-              >
-                {this.state.properties.map((property, index) => (
-                  <option key={index} value={property.houseId}>
-                    {property.propertyName}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </form>
-          <div className="stripe-button">
-            <a href="https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_Eh0R1RXhYNXEq9z56aVKr04CVDrJvxMc&scope=read_write">
-              <img src={Image} alt="Logo" />
-            </a>
-          </div>
-        </div>
-        <div className="billing-right">
-          <h1>Billing History</h1>
-          {this.state.propertySelected.map(bill => (
-            <ul>
-              <div className="billingHistory-info">
-                <li>{bill.propertyName}</li>
-                <li>{bill.amount}</li>
-              </div>
-            </ul>
-          ))}
-        </div>
-      </div>
+<div className="billing">
+<div className="billingColumn1">
+					<Card>
+						<FormControl>
+						<InputLabel htmlFor="property-native-required">
+							Select a property to view payment history
+						</InputLabel>
+						<Select
+							native
+							value={this.state.property}
+							onChange={this.handleInputChange(this.value)}
+							name="Property"
+							inputProps={{
+							id: 'property-native-required',
+							}}
+						>
+							<option value={0} />
+							{this.state.properties.map((property, index) => (
+							<option key={index} value={property.propertyName} >
+								{property.propertyName}
+							</option>
+							))}
+						</Select>
+						<FormHelperText>{this.state.selected}</FormHelperText>
+						</FormControl>
+                  
+					<a href="https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_Eh0R1RXhYNXEq9z56aVKr04CVDrJvxMc&scope=read_write">
+          <Button variant="contained" color="primary" className={classes.button}>
+            <FontAwesomeIcon icon={faCheckCircle} color="slategray" size="2x" /> Connect Stripe
+          </Button>
+					</a>
+				  </Card>
+			</div>
+
+            <StripeProvider apiKey="pk_test_uGZWgKZiorkYlZ8MsxYEIrA2">
+            <div className='payment-container'>
+              <Grid item sm={6} xs={12} >
+
+              <Card>
+                    
+                  <Paper elevation={1} className="payment-history">
+                    {this.state.charges.map((charge) => 
+                    <div>
+                      {this.state.selected == charge.description &&
+                    <div>							
+                    <CardHeader className="card-header" variant='h1' title={charge.billing_details.name} />
+                    <Divider/>
+                    <div className='flex-component'>
+                
+                    <div>
+                    <Typography className="payments" variant='h4' component='h2'>Amount Paid: ${charge.amount / 100}.00</Typography>
+                    <Typography className="payments" variant='h4'>Date: {this.convertToTime(charge.created)}</Typography>
+                    </div>
+
+                    <FontAwesomeIcon icon={faCheckCircle} color="slategray" size="2x" />
+                    </div>
+                              
+                    </div>	
+                      }
+                      </div>					
+                    )}
+                  </Paper>
+                  
+                </Card>				
+              </Grid>
+
+              </div>	
+              </StripeProvider>
+      </div>  
     );
   }
 }

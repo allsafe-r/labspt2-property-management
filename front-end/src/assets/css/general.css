@@ -803,14 +803,6 @@ body {
     background-image: url("../images/finalhero_ipad3.png");
   }
 
-  .f-area-holder .box:nth-child(3) .f-nav li {
-    padding: 0 0 3px;
-  }
-
-  .intro-section .bg-2-stretch {
-    background-image: url("../images/compguys.png");
-  }
-
   .intro-section .bg-2-stretch {
     display: flex;
     align-items: flex-start;
@@ -2058,6 +2050,10 @@ button[type="submit"] {
 
 .fonts label {
   font-size: 0.6em;
+}
+
+.hidden {
+  display: none;
 }
 
 /* NEWSLETTER COLUMN */
