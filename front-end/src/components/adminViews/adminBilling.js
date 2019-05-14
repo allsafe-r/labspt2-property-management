@@ -159,13 +159,14 @@ class Billing extends Component {
     return (
 <div className="billing">
 <div className="billingColumn1">
-					<Card>
-						<FormControl>
-						<InputLabel htmlFor="property-native-required">
-							Select a property to view payment history
-						</InputLabel>
+					<Card className="billing-card1">
+						<FormControl className='Dropdown'>
+						<Typography className='Input-header'>
+							Select a Property to View Payment History
+						</Typography>
 						<Select
-							native
+              native
+              className='DropdownItem'
 							value={this.state.property}
 							onChange={this.handleInputChange(this.value)}
 							name="Property"
@@ -175,29 +176,35 @@ class Billing extends Component {
 						>
 							<option value={0} />
 							{this.state.properties.map((property, index) => (
-							<option key={index} value={property.propertyName} >
+							<option className='DropdownItem' key={index} value={property.propertyName} >
 								{property.propertyName}
 							</option>
 							))}
 						</Select>
 						<FormHelperText>{this.state.selected}</FormHelperText>
 						</FormControl>
-                  
-					<a href="https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_Eh0R1RXhYNXEq9z56aVKr04CVDrJvxMc&scope=read_write">
-          <Button variant="contained" color="primary" className={classes.button}>
-            <FontAwesomeIcon icon={faCheckCircle} color="slategray" size="2x" /> Connect Stripe
-          </Button>
-					</a>
+            </Card>
+            
+          <Card className="billing-card2">      
+            <a href="https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_Eh0R1RXhYNXEq9z56aVKr04CVDrJvxMc&scope=read_write">
+            <Button variant="contained" className={classes.button}>
+              <FontAwesomeIcon icon={faCheckCircle} color="white" size="2x" /> Connect Stripe
+            </Button>
+            </a>
 				  </Card>
+       
 			</div>
-
+            <div className="billingColumn2">
             <StripeProvider apiKey="pk_test_uGZWgKZiorkYlZ8MsxYEIrA2">
             <div className='payment-container'>
-              <Grid item sm={6} xs={12} >
+              
 
               <Card>
                     
                   <Paper elevation={1} className="payment-history">
+                  <Typography variant="h4" component="h2">
+                    Rent History
+                  </Typography>
                     {this.state.charges.map((charge) => 
                     <div>
                       {this.state.selected == charge.description &&
@@ -211,7 +218,7 @@ class Billing extends Component {
                     <Typography className="payments" variant='h4'>Date: {this.convertToTime(charge.created)}</Typography>
                     </div>
 
-                    <FontAwesomeIcon icon={faCheckCircle} color="slategray" size="2x" />
+                    <FontAwesomeIcon icon={faCheckCircle} color="forestgreen" size="1x" />
                     </div>
                               
                     </div>	
@@ -221,10 +228,10 @@ class Billing extends Component {
                   </Paper>
                   
                 </Card>				
-              </Grid>
 
               </div>	
               </StripeProvider>
+              </div>
       </div>  
     );
   }
