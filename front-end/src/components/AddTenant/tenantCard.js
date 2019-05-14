@@ -74,12 +74,14 @@ class TenantInfo extends Component {
           <div className="tenantCard-top">
             <div className="inputInfo">
               <div className="name-input">
+                <h1>First Name</h1>
                 <input
                   type="text"
                   name="firstName"
                   placeholder="First Name"
                   onChange={this.inputHandler}
                 />
+                <h1>Last Name</h1>
                 <input
                   type="text"
                   name="lastName"
@@ -88,26 +90,33 @@ class TenantInfo extends Component {
                 />
               </div>
               <div className="eN-input">
-                <input
-                  type="text"
-                  name="email"
-                  placeholder="Email"
-                  onChange={this.inputHandler}
-                />
-
-                <input
-                  type="text"
-                  name="phone"
-                  placeholder="Mobile #"
-                  onChange={this.inputHandler}
-                />
-
-                <input
-                  type="text"
-                  name="cost"
-                  placeholder="Per Month"
-                  onChange={this.inputHandler}
-                />
+                <div>
+                  <h1>Email</h1>
+                  <input
+                    type="text"
+                    name="email"
+                    placeholder="Email"
+                    onChange={this.inputHandler}
+                  />
+                </div>
+                <div>
+                  <h1>Mobile #</h1>
+                  <input
+                    type="text"
+                    name="phone"
+                    placeholder="Mobile #"
+                    onChange={this.inputHandler}
+                  />
+                </div>
+                <div>
+                  <h1>Per Month Name</h1>
+                  <input
+                    type="text"
+                    name="cost"
+                    placeholder="Per Month"
+                    onChange={this.inputHandler}
+                  />
+                </div>
               </div>
             </div>
             <div className="flex-row">

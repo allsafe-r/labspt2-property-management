@@ -1567,6 +1567,14 @@ body {
   flex-grow: 2;
 }
 
+.inputInfo h1 {
+  font-size: 0.7em;
+}
+
+.inputInfo input {
+  outline: none;
+}
+
 .flex-row {
   display: flex;
   flex-direction: row;
@@ -1648,8 +1656,7 @@ input[type="checkbox"]:checked + label:before {
 
 .dropzone:hover {
   cursor: pointer;
-  color: black;
-  opacity: 0.3;
+  background-color: rgb(252, 118, 106, 0.2);
 }
 
 .info-container {
