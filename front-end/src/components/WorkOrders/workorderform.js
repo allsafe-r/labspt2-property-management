@@ -12,6 +12,7 @@ import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+const decode = require('jwt-decode');
 
 // const url = process.env.workorderURL || 'http://localhost:9000/workorders'
 const url = 'https://tenantly-back.herokuapp.com/workorders';
@@ -45,8 +46,11 @@ class Workorderform extends Component {
 			phone: '',
 			unsupervisedEntry: false,
 			status: 'Pending',
-			url: 'none'
+			image: 'none'
 		};
+	}
+	componentDidMount() {
+		this.fetchData();
 	}
 
 	inputHandler = (e) => {
@@ -54,6 +58,23 @@ class Workorderform extends Component {
 			[e.target.name]: e.target.value
 		});
 	};
+
+	fetchData() {
+		const token = localStorage.getItem('jwtToken');
+		const id = decode(token).userId;
+			axios
+			.get(`https://tenantly-back.herokuapp.com/users/${id}`)
+			.then((user) => {
+			
+					this.setState({ property: user.data.residence_id, tenant: id });
+			
+				
+			})
+	}
+	handleCheckboxChange = e => {
+		this.setState({ [e.target.name]: e.target.checked });
+	  };
+
 
 	urlUpdater = (imageurl) => {
 		console.log(imageurl);
@@ -64,6 +85,30 @@ class Workorderform extends Component {
 
 	submitHandler = (e) => {
 		e.preventDefault();
+		let newWorkOrder = {
+			property: this.state.property,
+			tenant: this.state.tenant,
+			description: this.state.description,
+			phone: this.state.phone,
+			unsupervisedEntry: this.state.unsupervisedEntry,
+			status: this.state.status,
+			image: this.state.url
+			
+		}
+		
+			  axios.post(url, newWorkOrder)
+			  .then( response => {
+				  console.log(response);
+				  this.setState({
+					description: '',
+					phone: '',
+					unsupervisedEntry: false,
+					status: '',
+					image: '',					
+					})
+				  })
+				
+				.catch( error => console.log( "we've encountered an error"))		
 	};
 
 	// let newWorkOrder = {
@@ -124,9 +169,9 @@ class Workorderform extends Component {
 								control={
 									<Checkbox
 										name="unsupervisedEntry"
-										checked={this.state.checkedB}
-										onChange={this.inputHandler}
-										value="checkedB"
+										checked={this.state.unsupervisedEntry}
+										onChange={this.handleCheckboxChange}
+										value="unsupervisedEntry"
 										color="primary"
 										className="#"
 										type="checkbox"
