@@ -23,17 +23,22 @@ const styles = theme => ({
     textDecoration: 'none',
     border: '1px solid red',
     paddingTop: '20px',
-  }
+  },
+  cardcontent: {
+    border: '1px solid red',
+    display: 'flex',
+    marginBottom: '50px'
+    }
 });
 const PropertyCard = props => {
   const { classes } = props;
   return (
     <Card className={classes.root}>
       <Link to={`/view-property/${props.id}`} style={{ textDecoration: 'none' }}>
-
+        <CardContent className={classes.cardcontent}>
       <img src={require("../../assets/images/homw.png")} alt="Logo" />
       <h1 style={{ textDecoration: 'none', fontSize: '2rem', color: '#fc766a' }}> {props.name}</h1>
-
+      </CardContent>
      <Typography className={classes.h1} variant="h5" component="h2" gutterBottom>
         {props.address}, <br /> {props.city}, {props.state} <br />
         <h1>{props.zipcode}</h1>
