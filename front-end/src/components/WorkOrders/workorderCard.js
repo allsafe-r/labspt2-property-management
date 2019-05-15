@@ -100,6 +100,7 @@ class Workordercard extends Component {
 			status: props.work.status,
 			open: false,
 			button: true,
+			tenantname:''
 		};
 	}
 
@@ -119,7 +120,7 @@ class Workordercard extends Component {
 			description: this.state.description,
 			phone: this.state.phone,
 			unsupervisedEntry: this.state.unsupervisedEntry,
-			status: e.target.value
+			status: this.state.value
 		};
 
 		axios
@@ -150,7 +151,7 @@ class Workordercard extends Component {
 			.then((response) => {
 				let tenantworkorder = response.data
 				this.setState({
-					tenant: tenantworkorder.firstName
+					tenantname: tenantworkorder.firstName
 				})
 			})
 	}
@@ -184,7 +185,7 @@ class Workordercard extends Component {
 				</Typography>
 
 				<Typography className={classes.typography}variant="h1">
-						Name: {this.state.tenant}
+						Name: {this.state.tenantname}
 				</Typography>
 				
 

@@ -61,7 +61,7 @@ class Workorderlist extends Component {
 					console.log(this.state.propArr[i])
 					for (let x=0; x<this.state.unfilterworkedArr.length; x++){
 						console.log(this.state.unfilterworkedArr[x].property)
-						if(this.state.propArr[i].houseId === this.state.unfilterworkedArr[x].property){
+						if(this.state.propArr[i].houseId === this.state.unfilterworkedArr[x].property && this.state.unfilterworkedArr.status !== 'Completed'){
 							workArr.push(this.state.unfilterworkedArr[x]);
 						}
 					}
