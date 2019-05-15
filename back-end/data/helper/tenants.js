@@ -14,7 +14,7 @@ function create(tenant) {
 }
 
 function getByEmail(email) {
-	return db('tenants').where({ email });
+	return db('tenants').where({ email }).first();
 }
 
 function getById(id) {

@@ -23,15 +23,14 @@ function authenticate(req, res, next) {
 }
 
 function generateToken(user) {
-	// console.log(user)
 	const payload = {
-		userId: user.id,
-		isAdmin: user.isAdmin,
-		username: user.username,
+		id: user.id,
 		password: user.password
-	};
+  };
+
 	const options = {
 		expiresIn: '600m'
-	};
+  }
+
 	return jwt.sign(payload, jwtKey, options);
 }

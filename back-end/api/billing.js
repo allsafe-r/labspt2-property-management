@@ -12,7 +12,7 @@ router.get("/", (req, res) => {
 // Get a property
 router.get("/:id", (req, res) => {
   const { id } = req.params;
-  db.findBId(id)
+  db.getById(id)
     .then(property => {
       if (property) {
         res.status(200).json(property);
