@@ -28,6 +28,23 @@ import { FormLabel } from '@material-ui/core';
 // const url = process.env.workOrderCard || `http://localhost:9000/workorders/${this.state.id}`;
 // const url = `https://tenantly-back.herokuapp.com/${this.state.id}`;
 
+function rand() {
+	return Math.round(Math.random() * 20) - 10;
+  }
+  
+  function getModalStyle() {
+	const top = 25;
+	const left = 25;
+  
+	return {
+	  justifyContent:'center',
+	  alignItems: 'center',
+	  top: `${top}%`,
+	  left: `${left}%`,
+	  transform: `translate(-${top}%, -${left}%)`,
+	};
+  }
+
 const styles = theme =>({
 	card:{
 		display: 'flex',
@@ -51,8 +68,11 @@ const styles = theme =>({
 		fontSize: '3rem',
 	},
 	image: {
-		height: 100,
-		padding:'56.25%',
+		alignSelf: 'center',
+		verticalAlign: 'middle',
+		height: '75%',
+		width: '75%',
+		//padding:'56.25%',
 
 	},
 	button:{
@@ -78,7 +98,9 @@ class Workordercard extends Component {
 			phone: props.work.phone,
 			unsupervisedEntry: props.work.unsupervisedEntry,
 			status: props.work.status,
-			open: false
+			open: false,
+			button: true,
+			tenantname:''
 		};
 	}
 
@@ -111,6 +133,30 @@ class Workordercard extends Component {
 			});
 	};
 
+	
+
+	componentDidMount() {
+		this.tenantname()
+		this.buttonhandler()
+	}
+
+	buttonhandler = () => {
+		const exists=this.props.work.image==='none'? true : false;
+		this.setState({button: exists})
+	}
+
+	tenantname = () => {
+		axios
+            .get(`https://tenantly-back.herokuapp.com/users/${this.state.tenant}`)
+			.then((response) => {
+				let tenantworkorder = response.data
+				this.setState({
+					tenantname: tenantworkorder.firstName
+				})
+			})
+	}
+
+
 	handleOpen = () => {
 		this.setState({ open: true });
 	  };
@@ -124,7 +170,7 @@ class Workordercard extends Component {
 		return (
 			<Card className={classes.card} raised={true}>
 			
-				<Modal    open={this.state.open}
+				<Modal  style={getModalStyle()}  open={this.state.open}
 						  onClose={this.handleClose}
 				>
 				<CardMedia className={classes.image} image={this.props.work.image} />
@@ -135,16 +181,17 @@ class Workordercard extends Component {
 				<CardContent>
 				<Typography className={classes.typography} variant="title">
 						{this.props.work.description}
+						
 				</Typography>
 
 				<Typography className={classes.typography}variant="h1">
-						{this.props.work.tenant}
+						Name: {this.state.tenantname}
 				</Typography>
 				
 
 				
 				<Typography className={classes.typography} variant="h1">
-						{this.props.work.phone}
+						Phone Number: {this.props.work.phone}
 				</Typography>
 
 				
@@ -177,7 +224,7 @@ class Workordercard extends Component {
 					</FormControl>
 					
 					</CardContent>
-					<Button className={classes.button} variant="contained" color="secondary" onClick={this.handleOpen}>Show Image</Button>
+					<Button className={classes.button} disabled={this.state.button} variant="contained" color="secondary" onClick={this.handleOpen}>Show Image</Button>
 			</Card>
 		);
 	}
