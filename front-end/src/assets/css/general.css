@@ -2398,3 +2398,9 @@ button[type="submit"] {
     width:100%;
   }
 }
+
+@font-face {
+  font-family: 'Bodoni';
+  src: url('https://github.com/leeformento/prelaunch-fonts/blob/master/Bodoni%20Regular.otf');
+
+}

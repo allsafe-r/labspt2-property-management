@@ -29,7 +29,7 @@ const styles = (theme) => ({
 	root: {
 		display: 'flex',
 		flexDirection: 'column',
-		height: 400,
+		height: 240,
 		justifyContent: 'center',
 		alignItems: 'center',
 		fontSize: '1.5rem',
@@ -95,7 +95,9 @@ class propertyList extends Component {
 						state={property.propertyState}
 						zipcode={property.propertyZipcode}
 						id={property.houseId}
+						
 					/>
+					
 				))}
 				<Card className={classes.root}>
 					<Link to="/add-property">
