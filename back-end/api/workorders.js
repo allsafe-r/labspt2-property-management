@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const db = require("../data/helper/workOrderModal");
+const db = require("../data/helper/workorders");
 
 //GET all workorders
 

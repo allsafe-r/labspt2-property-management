@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
-const db = require('../data/helper/usersModal');
+const db = require('../data/helper/tenants');
 const { generateToken } = require('../auth/bcrypt');
 
 router.post('/register', (req, res, next) => {

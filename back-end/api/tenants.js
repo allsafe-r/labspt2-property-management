@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../data/helper/usersModal');
+const db = require('../data/helper/tenants');
 const bcrypt = require('bcryptjs');
 
 router.get('/', (req, res) => {
