@@ -120,7 +120,7 @@ class Workordercard extends Component {
 			description: this.state.description,
 			phone: this.state.phone,
 			unsupervisedEntry: this.state.unsupervisedEntry,
-			status: this.state.value
+			status: e.target.value
 		};
 
 		axios
