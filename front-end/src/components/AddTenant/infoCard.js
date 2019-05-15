@@ -1,40 +1,58 @@
 import React, { Component } from "react";
 import axios from "axios";
 
+const decode = require("jwt-decode");
+const url = `https://tenantly-back.herokuapp.com/properties`;
+
 export default class HousingInfo extends Component {
   constructor(props) {
     super(props);
     this.state = {
       tenant1: [],
-      tenant2: []
+      tenant2: [],
+      properties: [],
+      startDate: "",
+      endDate: ""
     };
   }
-
+  componentDidMount() {
+    this.fetchProperties();
+  }
+  /* Checking if TenantID is the same*/
   componentDidUpdate(prevProps) {
-    console.log("id", prevProps);
-    const id = this.props.tenantInfo;
-    if (id !== prevProps.tenantInfo) {
+    const id = this.props.tenantID;
+    if (id !== prevProps.tenantID) {
       this.fetchApp(id);
     }
   }
+  fetchProperties() {
+    const token = localStorage.getItem("jwtToken");
+    const userId = decode(token).userId;
+
+    axios
+      .get(url)
+      .then(response => {
+        let propArr = response.data.filter(
+          property => property.owner === userId
+        );
+        if (propArr.length !== this.state.properties.length) {
+          this.setState({
+            properties: propArr
+          });
+        }
+      })
+      .catch(err => {
+        console.error("Server Error", err);
+      });
+  }
 
   fetchApp = id => {
-    console.log(
-      "id",
-      id,
-      "tenant1",
-      this.state.tenant1,
-      "tenant2",
-      this.state.tenant2
-    );
+    /* If ID coming in is lower then the ID from tenant (starts with none) then it goes into Array 1, if the ID is higher then it goes to Array 2 (tenant2) */
     if (id > this.state.tenant1.id) {
-      console.log(id);
-      console.log(this.state.tenant1.id);
       axios
         .get(`https://tenantly-back.herokuapp.com/users/${id}`)
         .then(response => {
           this.setState({ tenant2: response.data });
-          console.log("tenant2", this.state.tenant1.id);
         })
         .catch(error => {
           console.error(error);
@@ -44,7 +62,6 @@ export default class HousingInfo extends Component {
         .get(`https://tenantly-back.herokuapp.com/users/${id}`)
         .then(response => {
           this.setState({ tenant1: response.data });
-          console.log("tenant1", this.state.tenant2);
         })
         .catch(error => {
           console.error(error);
@@ -57,6 +74,8 @@ export default class HousingInfo extends Component {
       <div className="info-container">
         <h1>Housing Info</h1>
         <div className="housing-info ">
+          <h1>{this.state.tenant1.id}</h1>
+          <h1>{this.state.tenant2.id}</h1>
           <div className="start-end">
             <input type="date" name="start" />
             <input type="date" name="end" />

@@ -6,6 +6,8 @@ import HouseApp from "./houseApp";
 const url = "https://tenantly-back.herokuapp.com/api/register";
 const mail = "https://tenantly-back.herokuapp.com/send";
 
+/*Creating Tenant */
+
 class TenantInfo extends Component {
   constructor(props) {
     super(props);
@@ -34,9 +36,10 @@ class TenantInfo extends Component {
     axios
       .post(url, this.state)
       .then(response => {
-        console.log("worked");
+        /*Sending id back to parent (AddTenant) */
         let id = response.data.user;
         this.props.tenantInfo(id);
+        /* */
         let email = {
           name: this.state.firstName,
           email: this.state.email,
@@ -109,7 +112,7 @@ class TenantInfo extends Component {
                   />
                 </div>
                 <div>
-                  <h1>Per Month Name</h1>
+                  <h1>Per Month</h1>
                   <input
                     type="text"
                     name="cost"
@@ -127,7 +130,7 @@ class TenantInfo extends Component {
                 onChange={this.handleCheckboxChange}
                 value={this.state.emailSubscribe}
               />
-              <label for="emailSubscribe">Email? </label>
+              <label htmlFor="emailSubscribe">Email? </label>
 
               <input
                 id="textSubscribe"
@@ -136,7 +139,7 @@ class TenantInfo extends Component {
                 value={this.state.textSubscribe}
                 onChange={this.handleCheckboxChange}
               />
-              <label for="textSubscribe">Texts?</label>
+              <label htmlFor="textSubscribe">Texts?</label>
             </div>
           </div>
           <div className="tenantCard-bottom">

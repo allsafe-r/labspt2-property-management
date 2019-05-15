@@ -4,6 +4,8 @@ import axios from "axios";
 
 const url = "https://tenantly-back.herokuapp.com/images";
 
+/*House Application */
+
 class HouseApp extends Component {
   constructor(props) {
     super(props);

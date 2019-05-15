@@ -5,6 +5,8 @@ import HousingInfo from "./infoCard";
 
 import "../../assets/css/general.css";
 
+/*parent*/
+
 class AddTenant extends Component {
   constructor(props) {
     super(props);
@@ -17,7 +19,7 @@ class AddTenant extends Component {
     e.preventDefault();
     this.setState({ newTenant: true });
   };
-
+  /*grabbing the tenant ID*/
   tenant = id => {
     if (id > 0) {
       console.log(id);
@@ -42,8 +44,9 @@ class AddTenant extends Component {
             <TenantCard tenantInfo={this.tenant} />
           ) : null}
         </div>
+        {/*Sending tenantID (infoCard)*/}
         <div className="contract-container">
-          <HousingInfo tenantInfo={this.state.tenantID} />
+          <HousingInfo tenantID={this.state.tenantID} />
         </div>
       </div>
     );
