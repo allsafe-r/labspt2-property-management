@@ -78,17 +78,20 @@ export default class tenantPayments extends Component {
 						{this.state.charges.map((charge) => 
 						<div>
 							{this.state.user === charge.billing_details.name &&
-						<div>							
+						<div>		
+												
 						<CardHeader className="card-header" variant='h1' title={charge.billing_details.name} />
-						<Divider/>
+						
 						<div className='flex-component'>
 				
 						<div>
 						<Typography className="payments" variant='h4' component='h2'>Amount Paid: ${charge.amount / 100}.00</Typography>
 						<Typography className="payments" variant='h4'>Date: {this.convertToTime(charge.created)}</Typography>
+						
 						</div>
 		
-						<FontAwesomeIcon icon={faCheckCircle} color="slategray" size="2x" />
+						<FontAwesomeIcon icon={faCheckCircle} color="forestgreen" size="x" />
+						
 						</div>
 											
 						</div>	
