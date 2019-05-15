@@ -74,8 +74,11 @@ export default class HousingInfo extends Component {
       <div className="info-container">
         <h1>Housing Info</h1>
         <div className="housing-info ">
-          <h1>{this.state.tenant1.id}</h1>
-          <h1>{this.state.tenant2.id}</h1>
+          <div className="tenant-names">
+            <h1>{this.state.tenant1.firstName}</h1>
+            <h1>{this.state.tenant2.firstName}</h1>
+          </div>
+
           <div className="start-end">
             <input type="date" name="start" />
             <input type="date" name="end" />
