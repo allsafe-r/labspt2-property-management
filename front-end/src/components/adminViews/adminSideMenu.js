@@ -54,8 +54,7 @@ const styles = (theme) => ({
 	},
 	menuButton: {
 		marginLeft: 12,
-		marginRight: 36,
-		color: 'white'
+		marginRight: 36
 	},
 	hide: {
 		display: 'none'
@@ -137,7 +136,7 @@ class SideMenu extends Component {
 					>
 						<Toolbar disableGutters={!this.state.open} className="Toolbar">
 							<IconButton
-								color="white"
+								color="#FFFFF"
 								aria-label="Open drawer"
 								onClick={this.handleDrawerOpen}
 								className={classNames(classes.menuButton, {

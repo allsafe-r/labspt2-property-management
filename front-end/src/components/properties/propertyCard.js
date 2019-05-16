@@ -30,8 +30,7 @@ const styles = theme => ({
     padding: '16px',
   },
   icon: {
-    backgroundColor: 'white',
-    border: '.5px solid #fc766a',
+    backgroundColor: '#fc766a',
   },
   h1: {
     textDecoration: 'none',
@@ -60,7 +59,8 @@ const styles = theme => ({
   },
   listItemText:{
     fontSize:'1.3rem',
-  }
+  },
+
 });
 const PropertyCard = props => {
   const { classes } = props;
