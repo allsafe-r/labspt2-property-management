@@ -21,7 +21,7 @@ const styles = theme => ({
     justifyContent: "center",
     // alignItems: "center",
     fontSize: "1.9rem",
-    width: '28%',
+    width: '300px',
     border: ".5px solid #fafafa",
     margin: 10,
     boxShadow: '0 2px 10px rgba(0, 0, 0, 0.25)',
