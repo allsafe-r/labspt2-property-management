@@ -10,25 +10,25 @@ module.exports = {
 };
 
 function create(landlord) {
-	return db('landlords').insert(landlord);
+	return db('landlord').insert(landlord);
 }
 
 function getByEmail(email) {
-	return db('landlords').where({ email });
+	return db('landlord').where({ email });
 }
 
 function getById(id) {
-	return db('landlords').where({ id }).first();
+	return db('landlord').where({ id }).first();
 }
 
 function editById(id, landlord) {
-	return db('landlords').where({ id }).update(landlord);
+	return db('landlord').where({ id }).update(landlord);
 }
 
 function get() {
-	return db('landlords');
+	return db('landlord');
 }
 
 function deleteById(id) {
-	return db('landlords').where({ id }).first().del();
+	return db('landlord').where({ id }).first().del();
 }

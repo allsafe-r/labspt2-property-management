@@ -4,7 +4,7 @@ const db = require('../data/helper/landlords');
 const bcrypt = require('bcryptjs');
 
 router.get('/', (req, res) => {
-	db.get().then((landslords) => res.status(200).json(users)).catch((err) => {
+	db.get().then((landlord) => res.status(200).json(landlord)).catch((err) => {
 		res.status(500).json({ error: `${err}` });
 	});
 });
@@ -38,9 +38,9 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res, next) => {
-	const newUser = req.body;
+	const landlord = req.body;
 	db
-		.createUser(newUser)
+		.create(landlord)
 		.then((ids) => {
 			db
 				.findByUserId(ids[0])

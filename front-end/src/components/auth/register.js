@@ -3,8 +3,8 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/images/logo.png';
 import '../../assets/css/general.css';
-// const url = 'http://localhost:9000/api/register';
-const url = 'https://tenantly-back.herokuapp.com/api/register';
+const url = 'http://localhost:9000/api/register';
+//const url = 'https://tenantly-back.herokuapp.com/api/register';
 
 class Register extends Component {
 	state = {
@@ -12,7 +12,7 @@ class Register extends Component {
 		lastName: '',
 		password: '',
 		password2: '',
-		isAdmin: false,
+		type: "landlord",
 		email: '',
 		phone: ''
 	};
@@ -22,11 +22,11 @@ class Register extends Component {
 	};
 
 	isAdmin = () => {
-		this.setState({ isAdmin: true });
+		this.setState({ type: "landlord"  });
 	};
 
 	isNotAdmin = () => {
-		this.setState({ isAdmin: false });
+		this.setState({ type: "tenant"  });
 	};
 
 	onSubmit = (e) => {
@@ -41,9 +41,9 @@ class Register extends Component {
 					firstName: this.state.firstName,
 					lastName: this.state.lastName,
 					password: this.state.password,
-					isAdmin: this.state.isAdmin,
 					email: this.state.email,
-					phone: this.state.phone
+					phone: this.state.phone,
+					type: this.state.type
 				};
 
 				axios

@@ -4,7 +4,7 @@ const db = require('../data/helper/tenants');
 const bcrypt = require('bcryptjs');
 
 router.get('/', (req, res) => {
-	db.getUsers().then((users) => res.status(200).json(users)).catch((err) => {
+	db.get().then((users) => res.status(200).json(users)).catch((err) => {
 		res.status(500).json({ error: `${err}` });
 	});
 });

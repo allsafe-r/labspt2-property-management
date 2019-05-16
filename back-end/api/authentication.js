@@ -16,17 +16,29 @@ function validate(req, res, next) {
 
 router.post('/register', validate, (req, res) => {
 	const creds = req.body;
+	console.log(creds)
 	const hash = bcrypt.hashSync(creds.password, 14);
-	creds.password = hash;
+	let user = {
+		firstName: creds.firstName,
+		lastName: creds.lastName,
+		password: hash,
+		email: creds.email,
+		phone: creds.phone,
+			
+	}
+	//console.log(user)
+
   if(creds.type === "tenant"){
+		console.log("inside if", user)
   dbt
     .getByEmail(creds.email)
     .then(tenant => {
+			
       if (tenant) {
         res.status(400).json('Email already exists.')
       } else {
-        db
-        .create(creds)
+        dbt
+        .create(user)
         .then(() => {
           res.status(201).json('Tenant has been created successfully.');
         })
@@ -35,21 +47,24 @@ router.post('/register', validate, (req, res) => {
     })
 		.catch(err => res.status(500).json({ error: err }));
 	} else {
+		console.log("landlord", user)
 		dbl
     .getByEmail(creds.email)
     .then(landlord => {
-      if (landlord) {
+			console.log(landlord)
+
+      if (!landlord) {
         res.status(400).json('Email already exists.')
       } else {
-        db
-        .create(creds)
+        dbl
+        .create(user)
         .then(() => {
           res.status(201).json('Tenant has been created successfully.');
         })
-        .catch(err => res.status(500).json({ error: err }));
+        .catch(err => res.status(500).json({ error: "else" }));
       }
     })
-		.catch(err => res.status(500).json({ error: err }));
+		.catch(err => res.status(500).json({ error: "then" }));
 	}
 })
 
