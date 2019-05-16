@@ -33,7 +33,7 @@ const styles = (theme) => ({
 		justifyContent: 'center',
 		alignItems: 'center',
 		fontSize: '1.5rem',
-		width: 300,
+		width: 350,
 		border: ".5px solid #fafafa",
 		boxShadow: '0 2px 10px rgba(0, 0, 0, 0.25)',
 		margin: 10,
@@ -43,7 +43,6 @@ const styles = (theme) => ({
 		margin: theme.spacing.unit,
 		fontSize: ' 1.3rem',
 		textDecoration: 'none',
-    	border: '1px solid red',
 	},
 	extendedIcon: {
 		marginRight: theme.spacing.unit
