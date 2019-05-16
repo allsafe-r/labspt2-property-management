@@ -172,10 +172,15 @@
   .addProperty-container {
     padding: 1.5em;
   }
+  .propertyBody-right {
+    margin-left:-50px;
+
+  }
 }
 @media (min-width: 800px) {
   .addProperty-container {
     padding: 2em;
+
   }
 }
 /*Display Property*/
@@ -194,7 +199,14 @@
   height:100%;
 }
 
-.propertyBody-left {}
+.propertyBody-right {
+  padding-left:50px;
+}
+
+.propertyBody-right {
+
+}
+
 
 .property-body {
   margin: 0 auto;
@@ -202,7 +214,20 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  border: 1px solid red;
+}
+
+.propertyBody-info h1 {
+  font-family: 'Roboto';
+  padding-right: 20px;
+  color: gray;
+  font-family: 'Work Sans', sans-serif;
+
+
+  
+
+}
+
+.propertyBody-info p {
 }
 
 .property-body h1 {
@@ -279,7 +304,7 @@
   border: none;
   background-color: white;
   border: 1px solid #fc766a;
-  color: black;
+  color: #fc766a;
 
   border-radius: 10px;
   outline: none;

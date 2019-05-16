@@ -25,7 +25,7 @@ const styles = (theme) => ({
 		justifyContent: 'flex-start',
 		paddingLeft:'10px',
 		fontSize: '30px',
-		fontFamily: 'Montserrat',
+		fontFamily: 'Work Sans',
 		alignItems: 'center',
 
 	},
