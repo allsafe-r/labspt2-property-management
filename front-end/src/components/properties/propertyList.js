@@ -38,7 +38,7 @@ const styles = (theme) => ({
 		fontSize: '1.5rem',
 		width: 140,
 		boxShadow: '0 2px 10px rgba(0, 0, 0, 0.25)',
-		marginLeft: '50px',
+		marginLeft: '30px',
 		textDecoration: 'none',
 		backgroundColor: '#fc766a'
 
