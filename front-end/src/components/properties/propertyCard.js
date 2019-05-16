@@ -20,35 +20,35 @@ const styles = theme => ({
     height: 240,
     justifyContent: "center",
     // alignItems: "center",
-    fontSize: "1.7rem",
-    width: '350px',
+    fontSize: "1.9rem",
+    width: '28%',
     border: ".5px solid #fafafa",
     margin: 10,
     boxShadow: '0 2px 10px rgba(0, 0, 0, 0.25)',
     textDecoration: 'none',
     overflow: 'hidden',
     padding: '16px',
+
   },
   icon: {
     backgroundColor: '#fc766a',
   },
   h1: {
     textDecoration: 'none',
-    fontSize: '1.2rem',
+    fontSize: '1.3rem',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'flex-end',
     width: '100%',
-    color: 'gray',
-    // paddingTop:'100px',
+    color: '#fc766a',
+    paddingTop:'5px',
 
   },
   cardcontent: {
     textDecoration: 'none',
     display: 'flex',
-    marginBottom: '10px',
     justifyContent: 'center',
-    fontSize: '1.9rem',
+    fontSize: '2.3rem',
     color: '#fc766a',
     padding:'10px',
     fontFamily: 'Montserrat',
@@ -58,7 +58,7 @@ const styles = theme => ({
     maxWidth: 400,
   },
   listItemText:{
-    fontSize:'1.3rem',
+    fontSize:'1.5rem',
   },
 
 });

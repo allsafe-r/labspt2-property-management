@@ -27,7 +27,6 @@ const styles = (theme) => ({
 		fontSize: '30px',
 		fontFamily: 'Montserrat',
 		alignItems: 'center',
-		
 
 	},
 	root: {
@@ -38,7 +37,7 @@ const styles = (theme) => ({
 		fontSize: '1.5rem',
 		width: 140,
 		boxShadow: '0 2px 10px rgba(0, 0, 0, 0.25)',
-		marginLeft: '30px',
+		marginLeft: '20px',
 		textDecoration: 'none',
 		backgroundColor: '#fc766a'
 
