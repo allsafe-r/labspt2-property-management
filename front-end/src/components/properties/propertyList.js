@@ -22,27 +22,26 @@ const styles = (theme) => ({
 	heading: {
 		width: '100%',
 		display: 'flex',
-		justifyContent: 'center',
+		justifyContent: 'flex-start',
+		paddingLeft:'10px',
 		fontSize: '30px',
 		fontFamily: 'Montserrat',
 		alignItems: 'center',
-		position: 'relative'
-
+		
 
 	},
 	root: {
 		display: 'flex',
-		// flexDirection: 'column',
 		height: 30,
-		justifyContent: 'center',
+		justifyContent: 'flex-start',
 		alignItems: 'center',
 		fontSize: '1.5rem',
-		width: 190,
+		width: 140,
 		boxShadow: '0 2px 10px rgba(0, 0, 0, 0.25)',
-		position: 'absolute',
-		right:0,
-		/* vertically center the icon */
-		top: '50%; transform: translateY(-50%)',
+		marginLeft: '10px',
+		textDecoration: 'none',
+		backgroundColor: '#fc766a'
+
 
 		
 	},
@@ -50,6 +49,8 @@ const styles = (theme) => ({
 		margin: theme.spacing.unit,
 		fontSize: ' 1.3rem',
 		textDecoration: 'none',
+		backgroundColor: '#fc766a'
+	
 	},
 	extendedIcon: {
 		marginRight: theme.spacing.unit
@@ -89,12 +90,12 @@ class propertyList extends Component {
 		const { classes } = this.props;
 		return (
 			<Grid container spacing={24} style={{ padding: 20 }}>
-				<Typography className={classes.heading} variant="h5" component="h2" gutterBottom>
+				<Typography className={classes.heading}style={{textDecoration: 'none'}} variant="h5" component="h2" gutterBottom>
 					Properties:
 				<Card className={classes.root}>
 					<Link to="/add-property">
 						<Button size="medium" className={classes.margin}>
-							+ Add New Property
+							<p>+ Add Property</p>
 						</Button>
 					</Link>
 				</Card>
