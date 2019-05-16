@@ -12,7 +12,9 @@ export default class HousingInfo extends Component {
       tenant2: [],
       properties: [],
       startDate: "",
-      endDate: ""
+      endDate: "",
+      selectedProp: "",
+      propertyNames: []
     };
   }
   componentDidMount() {
@@ -36,8 +38,18 @@ export default class HousingInfo extends Component {
           property => property.owner === userId
         );
         if (propArr.length !== this.state.properties.length) {
+          let names = propArr.map(a => {
+            return {
+              value: a.houseId,
+              display: a.propertyName
+            };
+          });
+          console.log(names);
           this.setState({
-            properties: propArr
+            properties: propArr,
+            propertyNames: [{ value: "", display: "Select Property" }].concat(
+              names
+            )
           });
         }
       })
@@ -69,6 +81,10 @@ export default class HousingInfo extends Component {
     }
   };
 
+  handelChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
   render() {
     return (
       <div className="info-container">
@@ -80,19 +96,39 @@ export default class HousingInfo extends Component {
           </div>
 
           <div className="start-end">
-            <input type="date" name="start" />
-            <input type="date" name="end" />
+            <div>
+              <label for="start"> Start Date </label>
+              <input
+                id="start"
+                type="date"
+                name="startDate"
+                onChange={this.handelChange}
+              />
+            </div>
+            <div>
+              <label for="end">End Date</label>
+              <input
+                id="end"
+                type="date"
+                name="endDate"
+                onChange={this.handelChange}
+              />
+            </div>
           </div>
-          <div className="option-properties yes">
-            <select>
-              <option value="property-1">property 1</option>
-              <option value="property-2">property 2</option>
-              <option value="property-3">property 3</option>
-              <option value="property-4">property 4</option>
+          <div className="option-properties">
+            <select
+              value={this.state.selectedProp}
+              onChange={e => this.setState({ selectedProp: e.target.value })}
+            >
+              {this.state.propertyNames.map(property => (
+                <option key={property.value} value={property.value}>
+                  {property.display}
+                </option>
+              ))}
             </select>
           </div>
-          <div className="info-button yes">
-            <button>Send Contract</button>
+          <div className="send-contract">
+            <button className="filled-button">Send Contract</button>
           </div>
         </div>
       </div>
