@@ -172,19 +172,10 @@
   .addProperty-container {
     padding: 1.5em;
   }
-  .propertyBody-right {
-    margin-left:-50px;
-
-  }
-  .propertyBody-info h1 {
-    margin-right:-10px;
-
-  }
 }
 @media (min-width: 800px) {
   .addProperty-container {
     padding: 2em;
-
   }
 }
 /*Display Property*/
@@ -203,9 +194,7 @@
   height:100%;
 }
 
-.propertyBody-right {
-  padding-left:50px;
-}
+.propertyBody-left {}
 
 .propertyBody-right {
 
@@ -224,8 +213,6 @@
   font-family: 'Roboto';
   padding-right: 20px;
   color: gray;
-  font-family: 'Work Sans', sans-serif;
-
 
   
 
