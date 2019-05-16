@@ -185,13 +185,13 @@ class Billing extends Component {
 						</FormControl>
             </Card>
             
-          <Card className="billing-card2">      
+          {/* <Card className="billing-card2">      
             <a href="https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_Eh0R1RXhYNXEq9z56aVKr04CVDrJvxMc&scope=read_write">
             <Button variant="contained" className={classes.button}>
               <FontAwesomeIcon icon={faCheckCircle} color="white" size="2x" /> Connect Stripe
             </Button>
             </a>
-				  </Card>
+				  </Card> */}
        
 			</div>
             <div className="billingColumn2">
