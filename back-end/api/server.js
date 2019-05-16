@@ -1,7 +1,8 @@
 const express = require('express');
 const helmet = require('helmet');
 const cors = require('cors');
-const users = require('./tenants.js');
+const tenants = require('./tenants.js');
+const landlords = require('./landlords.js');
 const properties = require('./properties.js');
 const workOrders = require('./workorders.js');
 const stripe = require('./stripe.js');
@@ -15,7 +16,8 @@ const alerts = require('./alerts');
 
 server.use(express.json(), cors(), helmet());
 server.use(errorHandler);
-server.use('/users', users);
+server.use('/tenants', tenants);
+server.use('/landlords', landlords);
 server.use('/workorders', workOrders);
 server.use('/properties', properties);
 server.use('/stripe', stripe);
