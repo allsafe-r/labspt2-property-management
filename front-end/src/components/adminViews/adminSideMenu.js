@@ -92,6 +92,9 @@ const styles = (theme) => ({
 	content: {
 		flexGrow: 1,
 		padding: theme.spacing.unit * 3
+	},
+	Toolbar: {
+		backgroundColor: 'pink',
 	}
 });
 
@@ -151,7 +154,7 @@ class SideMenu extends Component {
 
 									<Link to={'/'} className="log-out">
 										<ListItem button onClick={this.props.logOut}>
-											<FontAwesomeIcon icon={faSignOutAlt} color="slategray" size="2x" />
+											<FontAwesomeIcon icon={faSignOutAlt} color="white" size="2x" />
 										</ListItem>
 									</Link>
 								</div>

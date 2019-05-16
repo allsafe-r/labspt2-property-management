@@ -48,7 +48,7 @@
 /* Side Menu */
 
 .Toolbar {
-  background-color: white;
+  background-color: #fc766a;
 }
 
 .MuiSvgIcon-root-60 {
@@ -1994,6 +1994,7 @@ button[type="submit"] {
   flex-direction: space-between;
   max-height: 50px;
 }
+
 .log-out {
   position: fixed;
   top: 8px;
