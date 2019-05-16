@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../../assets/css/general.css';
-import Logo from './../../assets/images/logo.png';
+import Logo from './../../assets/images/logowhite.png';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Route } from 'react-router-dom';
@@ -35,7 +35,7 @@ const drawerWidth = 200;
 
 const styles = (theme) => ({
 	root: {
-		display: 'flex'
+		display: 'flex',
 	},
 	appBar: {
 		zIndex: theme.zIndex.drawer + 1,
@@ -54,7 +54,8 @@ const styles = (theme) => ({
 	},
 	menuButton: {
 		marginLeft: 12,
-		marginRight: 36
+		marginRight: 36,
+		color: 'white'
 	},
 	hide: {
 		display: 'none'
@@ -136,7 +137,7 @@ class SideMenu extends Component {
 					>
 						<Toolbar disableGutters={!this.state.open} className="Toolbar">
 							<IconButton
-								color="#FC7869"
+								color="white"
 								aria-label="Open drawer"
 								onClick={this.handleDrawerOpen}
 								className={classNames(classes.menuButton, {
@@ -148,7 +149,6 @@ class SideMenu extends Component {
 							<Typography variant="h6" color="inherit" noWrap>
 								<div className="flex-top-bar">
 									<img src={Logo} className="dashboardLogo" alt="Dash logo" />
-
 									<Link to={'/'} className="log-out">
 										<ListItem button onClick={this.props.logOut}>
 											<FontAwesomeIcon icon={faSignOutAlt} color="white" size="2x" />

@@ -48,11 +48,12 @@
 /* Side Menu */
 
 .Toolbar {
-  background-color: #ffbfbb;
+  background-color: #fc766a;;
+
 }
 
 .MuiSvgIcon-root-60 {
-  color: #fc7869;
+  color: white;
 }
 .sideMenu-container {
   border: 1px solid blue;
