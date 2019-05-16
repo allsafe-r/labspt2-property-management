@@ -23,20 +23,27 @@ const styles = (theme) => ({
 		width: '100%',
 		display: 'flex',
 		justifyContent: 'center',
-		fontSize: '3rem',
-		fontFamily: 'Montserrat'
+		fontSize: '30px',
+		fontFamily: 'Montserrat',
+		alignItems: 'center',
+		position: 'relative'
+
+
 	},
 	root: {
 		display: 'flex',
-		flexDirection: 'column',
-		height: 240,
+		// flexDirection: 'column',
+		height: 30,
 		justifyContent: 'center',
 		alignItems: 'center',
 		fontSize: '1.5rem',
-		width: 350,
-		border: ".5px solid #fafafa",
+		width: 190,
 		boxShadow: '0 2px 10px rgba(0, 0, 0, 0.25)',
-		margin: 10,
+		position: 'absolute',
+		right:0,
+		/* vertically center the icon */
+		top: '50%; transform: translateY(-50%)',
+
 		
 	},
 	margin: {
@@ -84,6 +91,13 @@ class propertyList extends Component {
 			<Grid container spacing={24} style={{ padding: 20 }}>
 				<Typography className={classes.heading} variant="h5" component="h2" gutterBottom>
 					Properties:
+				<Card className={classes.root}>
+					<Link to="/add-property">
+						<Button size="medium" className={classes.margin}>
+							+ Add New Property
+						</Button>
+					</Link>
+				</Card>
 				</Typography>
 				{this.state.properties.map((property) => (
 					<PropertyCard
@@ -98,13 +112,6 @@ class propertyList extends Component {
 					/>
 					
 				))}
-				<Card className={classes.root}>
-					<Link to="/add-property">
-						<Button size="medium" className={classes.margin}>
-							+ Add New Property
-						</Button>
-					</Link>
-				</Card>
 			</Grid>
 		);
 	}
