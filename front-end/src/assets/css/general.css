@@ -2405,3 +2405,9 @@ button[type="submit"] {
   src: url('https://github.com/leeformento/prelaunch-fonts/blob/master/Bodoni%20Regular.otf');
 
 }
+
+/* NEW STYLEZ */
+.property-button {
+  color:white;
+  text-decoration: none;
+}

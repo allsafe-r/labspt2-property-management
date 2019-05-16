@@ -93,9 +93,9 @@ class propertyList extends Component {
 				<Typography className={classes.heading}style={{textDecoration: 'none'}} variant="h5" component="h2" gutterBottom>
 					Properties:
 				<Card className={classes.root}>
-					<Link to="/add-property">
+					<Link to="/add-property" style={{ textDecoration: 'none' }}>
 						<Button size="medium" className={classes.margin}>
-							<p>+ Add Property</p>
+							<p className="property-button">+ Add Property</p>
 						</Button>
 					</Link>
 				</Card>
