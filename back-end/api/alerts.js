@@ -1,10 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../data/helper/alertsModal');
+const db = require('../data/helper/alerts');
 
 // Get all alerts
 router.get('/', (req, res) => {
-	db.getAlerts().then((alerts) => res.status(200).json(alerts)).catch((err) => {
+  db.get()
+    .then(alerts => res.status(200).json(alerts))
+    .catch((err) => {
 		res.status(500).json({ error: `${err}` });
 	});
 });
@@ -13,10 +15,10 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
 	const { id } = req.params;
 	db
-		.getAlert(id)
-		.then((alerts) => {
-			if (alerts) {
-				res.status(200).json(alerts);
+		.getById(id)
+		.then(alert => {
+			if (alert) {
+				res.status(200).json(alert);
 			} else {
 				res.status(404).json({ error: 'The specified alert does not exist.' });
 			}

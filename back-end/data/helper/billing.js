@@ -1,14 +1,14 @@
 const db = require('../../knex');
 
 module.exports = {
-	getBilling,
-	findByBillingId
+	get,
+	getById
 };
 
-function getBilling() {
+function get() {
 	return db('billing');
 }
 
-function findByBillingId(propertyId) {
+function getById(propertyId) {
 	return db('billing').where({ propertyId });
 }
