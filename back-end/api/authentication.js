@@ -53,9 +53,11 @@ router.post('/register', validate, (req, res) => {
     .then(landlord => {
 			console.log(landlord)
 
-      if (landlord) {
-        res.status(400).json('Email already exists.')
+      if (landlord.email === creds.email) {
+				res.status(400).json('Email already exists.')
+				console.log(landlord, "register")
       } else {
+				console.log(user)
         dbl
         .create(user)
         .then(() => {
