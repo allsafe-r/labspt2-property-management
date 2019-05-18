@@ -12,7 +12,8 @@ const billing = require('./billing.js');
 const errorHandler = require('../errorHandler/errors.js');
 const mail = require('./nodemailer.js');
 const server = express();
-const alerts = require('./alerts');
+const alerts = require("./alerts");
+const contracts = require("./contracts.js");
 
 server.use(express.json(), cors(), helmet());
 server.use(errorHandler);
@@ -27,8 +28,8 @@ server.use('/alerts', alerts);
 server.use('/billing', billing);
 server.use('/send', mail);
 
-server.get('/', (req, res) => {
-	res.status(200).send('Hi');
+server.get("/", (req, res) => {
+  res.status(200).send("Hi");
 });
 
 module.exports = server;
