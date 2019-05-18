@@ -79,11 +79,13 @@ router.get("/name/:id", (req, res) => {
 
 router.post("/", (req, res, next) => {
   const newWorkorder = req.body;
+  console.log(newWorkorder)
   db.create(newWorkorder)
     .then(ids => {
-      db.getById(ids[0])
+      console.log(ids)
+      db.getById(ids)
         .then(newWorkorder => {
-          res.status(201).json({ newWorkorder: newWorkorder.id });
+          res.status(201).json("success");
         })
         .catch(err => {
           res.status(500).json({ error: `${err}` });

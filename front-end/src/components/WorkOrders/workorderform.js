@@ -15,7 +15,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 const decode = require('jwt-decode');
 
 // const url = process.env.workorderURL || 'http://localhost:9000/workorders'
-const url = 'https://tenantly-back.herokuapp.com/workorders';
+const url = 'http://localhost:9000/workorders';
 
 const styles = (theme) => ({
 	textField: {
@@ -40,11 +40,12 @@ class Workorderform extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			property: 1,
-			tenant: 2,
+			property: null,
+			landlord_id: null,
+			tenant_id: 2,
 			description: '',
 			phone: '',
-			unsupervisedEntry: false,
+			entry: false,
 			status: 'Pending',
 			image: 'none'
 		};
@@ -61,12 +62,13 @@ class Workorderform extends Component {
 
 	fetchData() {
 		const token = localStorage.getItem('jwtToken');
-		const id = decode(token).userId;
+		const id = decode(token).id;
 			axios
-			.get(`https://tenantly-back.herokuapp.com/users/${id}`)
+			.get(`http://localhost:9000/tenants/${id}`)
 			.then((user) => {
+				console.log(user)
 			
-					this.setState({ property: user.data.residence_id, tenant: id });
+					this.setState({ landlord_id: user.data.landlord_id, tenant_id: user.data.id, property: user.data.property_id });
 			
 				
 			})
@@ -83,14 +85,20 @@ class Workorderform extends Component {
 		});
 	};
 
+	fetchPropertyId = () => {
+		axios
+		.get(`http://localhost:9000/properties/${this.state.property}`)
+	}
+
 	submitHandler = (e) => {
 		e.preventDefault();
 		let newWorkOrder = {
-			property: this.state.property,
-			tenant: this.state.tenant,
+			landlord_id: this.state.landlord_id,
+			property_id: this.state.property,
+			tenant_id: this.state.tenant_id,
 			description: this.state.description,
 			phone: this.state.phone,
-			unsupervisedEntry: this.state.unsupervisedEntry,
+			entry: this.state.entry,
 			status: this.state.status,
 			image: this.state.url
 			

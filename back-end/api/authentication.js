@@ -32,7 +32,8 @@ router.post('/register', validate, (req, res) => {
 		lastName: creds.lastName,
 		password: hash,
 		email: creds.email,
-	  landlord_id: creds.landlord_id,
+		landlord_id: creds.landlord_id,
+		property_id: creds.property_id,
 		phone: creds.phone
 
 	}
