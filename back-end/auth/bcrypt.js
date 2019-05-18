@@ -23,6 +23,7 @@ function authenticate(req, res, next) {
 }
 
 function generateToken(user) {
+	console.log("token user", user)
 	const payload = {
 		id: user.id,
 		password: user.password

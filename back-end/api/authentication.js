@@ -79,9 +79,9 @@ router.post('/login', (req, res, next) => {
 			tenant = tenants[0];
 
 			console.log(tenant);
-			if (tenant && bcrypt.compareSync(creds.password, landlord.password)) {
+			if (tenant && bcrypt.compareSync(creds.password, tenant.password)) {
 				const token = generateToken(tenant);
-				// console.log(token);
+				console.log(token);
 				res.json({
 					Welcome: tenant.firstName,
 					userId: tenant.id,
@@ -102,11 +102,12 @@ router.post('/login', (req, res, next) => {
 		.then((landlords) => {
 			landlord = landlords[0];
 
-			console.log(landlord);
-			
-			if (landlord && bcrypt.compareSync(creds.password, user.password)) {
-				const token = generateToken(landlord);
-				 console.log("madeit");
+			console.log('before if', landlords );
+			console.log("bycrypt result" , landlord.id && bcrypt.compareSync(creds.password, landlord.password))
+			if (landlord.id && bcrypt.compareSync(creds.password, landlord.password)) {
+				console.log("madeit",  landlord );
+				const token = generateToken(landlord)
+				console.log("token", token);
 				res.json({
 					Welcome: landlord.firstName,
 					userId: landlord.id,
@@ -118,6 +119,7 @@ router.post('/login', (req, res, next) => {
 			}
 		})
 		.catch((err) => {
+			console.log("500" , err)
 			next('h500', err);
 		});
 	}
