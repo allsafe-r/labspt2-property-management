@@ -30,8 +30,8 @@ library.add(faEnvelope, faKey);
 
 // const url = process.env.home || 'http://localhost:9000';
 
-// const url = 'http://localhost:9000';
-const url = "https://tenantly-back.herokuapp.com";
+const url = 'http://localhost:9000';
+//const url = "https://tenantly-back.herokuapp.com";
 const axios = require("axios");
 const decode = require("jwt-decode");
 
@@ -70,7 +70,8 @@ class App extends Component {
   };
 
   isAdmin() {
-    return decode(localStorage.getItem("jwtToken")).isAdmin;
+    console.log(decode(localStorage.getItem("jwtToken")).isLandlord)
+    return decode(localStorage.getItem("jwtToken")).isLandlord;
   }
 
   logOut = () => {

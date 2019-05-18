@@ -12,6 +12,7 @@ import ListItem from '@material-ui/core/ListItem';
 import Avatar from '@material-ui/core/Avatar';
 import CardHeader from '@material-ui/core/CardHeader';
 import Paper from '@material-ui/core/Paper';
+import Workordercard from '../WorkOrders/workorderCard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
 	faMapMarkerAlt,
@@ -29,6 +30,8 @@ const axios = require('axios');
 const alertURL = `https://tenantly-back.herokuapp.com/alerts`;
 // const url = `http://localhost:9000/alerts`;
 const stripeURL = 'https://tenantly-back.herokuapp.com/stripe/charges';
+const url = 'https://tenantly-back.herokuapp.com/workorders/';
+
 
 const styles = {
 	card: {
@@ -63,11 +66,20 @@ class tenantDashboard extends Component {
 		cost: '',
 		payments: [],
 		total: '',
-		user: ''
+		user: '',
+		workorders: []
 	};
 
 	componentDidMount() {
 		this.fetchData();
+		const token = localStorage.getItem('jwtToken');
+		const id = decode(token).userId;
+		axios.get(`https://tenantly-back.herokuapp.com/workorders/${id}`)
+		.then((response) => this.setState({ workorders: response.data }))
+		.catch((error) => {
+			console.error('Server Error', error);
+		});
+		
 	}
 
 	componentDidUpdate() {
@@ -91,8 +103,8 @@ class tenantDashboard extends Component {
 		const id = decode(token).userId;
 		// go into users to find which residence you live at
 		axios
-			.get(`https://tenantly-back.herokuapp.com/users/${id}`)
-			// .get(`http://localhost:9000/users/${id}`)
+			//.get(`https://tenantly-back.herokuapp.com/users/${id}`)
+		    .get(`http://localhost:9000/users/${id}`)
 			.then((user) => {
 				// console.log(user);
 				if (
@@ -143,6 +155,8 @@ class tenantDashboard extends Component {
 	getSum = (total, num) =>{
 		return total + num;
 	}
+
+
 	render() {
 		var today = new Date();
 		var priorDate = new Date().setDate(today.getDate() - 30);
@@ -154,6 +168,8 @@ class tenantDashboard extends Component {
 
 		return (
 			<div className="tenant-dash">
+			
+			
 				<Grid item sm={12} className="tenant-button">
 			{/* This pulls the stripe info and the Outstanding payments for the user based on payments made in the last 30 days. */}
 				<StripeProvider apiKey="pk_test_uGZWgKZiorkYlZ8MsxYEIrA2">
@@ -170,7 +186,7 @@ class tenantDashboard extends Component {
 								{/* Current user {this.state.user} charge made to {charge.billing_details.name}. */}
 								<div className="outstanding"> Outstanding Balance</div>
 									<div className="outstandingBalance">${(this.state.cost/100) - (this.state.payments.reduce(this.getSum)/100)}</div>
-								{console.log(this.state.payments)}
+								{/* {console.log(this.state.payments)} */}
 							  </p>
 							}
 						  </div>
@@ -180,6 +196,23 @@ class tenantDashboard extends Component {
 					</Paper>
 
 					</StripeProvider>
+
+					<Card>
+						<Link to="/payments">
+							<Button variant="extended" color="default" className="dash-button">
+							<FontAwesomeIcon icon={faMoneyBillAlt} />&nbsp;&nbsp;Make a Payment
+      						</Button>
+						</Link>
+					</Card>
+					<Card>
+						<Link to="/maintenance">
+							<Button variant="extended" color="default" className="dash-button">
+							<FontAwesomeIcon icon={faTools} />&nbsp;&nbsp;Submit a Workorder
+      						</Button>
+						</Link>
+					</Card>
+					
+
 
 				</Grid>
 				<Grid item sm={12}>

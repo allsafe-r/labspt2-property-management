@@ -29,6 +29,21 @@ router.get("/property/:id", (req, res) => {
     });
 });
 
+router.get("/landlord/:id", (req, res) => {
+  const { id } = req.params;
+  db.getByLandlordId(id)
+    .then(workorder => {
+      if (workorder) {
+        res.status(200).json(workorder);
+      } else {
+        res.status(404).json({ error: "workorder not found" });
+      }
+    })
+    .catch(err => {
+      res.status(500).json({ error: `${err}` });
+    });
+});
+
 router.get("/:id", (req, res) => {
   const { id } = req.params;
   db.findByWorkOrderId(id)
@@ -44,15 +59,33 @@ router.get("/:id", (req, res) => {
     });
 });
 
+router.get("/name/:id", (req, res) => {
+  const { id } = req.params;
+  db.getName(id)
+    .then(workorder => {
+      console.log(workorder)
+      if (workorder) {
+        res.status(200).json(workorder);
+      } else {
+        res.status(404).json({ error: "workorder not found" });
+      }
+    })
+    .catch(err => {
+      res.status(500).json({ error: `${err}` });
+    });
+});
+
 //POST new workorder
 
 router.post("/", (req, res, next) => {
   const newWorkorder = req.body;
+  console.log(newWorkorder)
   db.create(newWorkorder)
     .then(ids => {
-      db.getById(ids[0])
+      console.log(ids)
+      db.getById(ids)
         .then(newWorkorder => {
-          res.status(201).json({ newWorkorder: newWorkorder.id });
+          res.status(201).json("success");
         })
         .catch(err => {
           res.status(500).json({ error: `${err}` });

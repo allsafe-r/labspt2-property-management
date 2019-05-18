@@ -49,10 +49,10 @@ class TenantSettings extends Component {
 
   componentDidMount() {
     const token = localStorage.getItem("jwtToken");
-    const id = decode(token).userId;
+    const id = decode(token).id;
     axios
-      .get(`https://tenantly-back.herokuapp.com/users/${id}`)
-      // .get(`http://localhost:9000/users/${id}`)
+      //.get(`https://tenantly-back.herokuapp.com/tenants/${id}`)
+      .get(`http://localhost:9000/tenants/${id}`)
       .then(user => {
         this.setState({
           firstName: user.data.firstName,
@@ -76,7 +76,7 @@ class TenantSettings extends Component {
 
     // grabbing ID off local storage to access specific user info
     const token = localStorage.getItem("jwtToken");
-    const id = decode(token).userId;
+    const id = decode(token).id;
 
     // If the user enters old password without trying to change password, it throws warning
     if (this.state.oldPW !== "" && this.state.newPW1 === "") {
@@ -96,7 +96,7 @@ class TenantSettings extends Component {
     } else {
       // If old password is entered AND new passwords match, then it continues to attempt update
       axios
-        .put(`https://tenantly-back.herokuapp.com/users/${id}`, {
+        .put(`http://localhost:9000/tenants/${id}`, {
           ...this.state,
           id: parseInt(id)
         })

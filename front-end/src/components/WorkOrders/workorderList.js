@@ -8,8 +8,8 @@ import workorderCard from './workorderCard';
 const decode = require('jwt-decode');
 
 // const url = process.env.getWO || 'https://localhost:9000/workorders';
-const workorderurl = 'https://tenantly-back.herokuapp.com/workorders';
-const propertiesurl = 'https://tenantly-back.herokuapp.com/properties'
+const url = `http://localhost:9000/workorders/`;
+
 
 const styles = theme =>({
 
@@ -21,15 +21,15 @@ class Workorderlist extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			unfilterworkedArr:[],
-			propArr:[],
+			
 			workorders: [],
-			properties: []
+
 		};
 	}
 	//Get all work orders
 	componentDidMount() {
 		this.fetchWorkOrders()
+
 	}
 
 	//componentDidUpdate() {
@@ -39,57 +39,23 @@ class Workorderlist extends Component {
 
 	fetchWorkOrders() {
 		const token = localStorage.getItem('jwtToken');
-		const userId = decode(token).userId;
-		let propArr = []
+		const userId = decode(token).id;
+		console.log(userId)
 		let workArr = []
-		axios.get(propertiesurl)
+		axios.get(`http://localhost:9000/workorders/landlord/${userId}`)
 		.then((response) => {
 			
 			this.setState({ 
-				propArr: response.data.filter((property) => property.owner === userId)
+				workorders: response.data
+				
 			})
-			axios.get(workorderurl)
 
-			.then((res)=> {
-				this.setState({ 
-					unfilterworkedArr: res.data
-				})
-
-				
-
-				for(let i=0; i<this.state.propArr.length; i++){
-					console.log(this.state.propArr[i])
-					for (let x=0; x<this.state.unfilterworkedArr.length; x++){
-						console.log(this.state.unfilterworkedArr[x].property)
-						if(this.state.propArr[i].houseId === this.state.unfilterworkedArr[x].property && this.state.unfilterworkedArr[x].status !== 'Completed'){
-							workArr.push(this.state.unfilterworkedArr[x]);
-						}
-					}
-				}
-
-				
-				//console.log(unfilterworkedArr[0].property)
-				
-				
-				console.log(this.state.propArr.length)
-				
-				
-				this.setState({
-					workorders: workArr
-				})
-
-
-		
-
-
+			console.log(response.data)
 
 		})
 
-		.catch((error) => {
-			console.error('Server Error', error);
-		});
-	
-	})
+
+
 		.catch((error) => {
 			console.error('Server Error', error);
 		});

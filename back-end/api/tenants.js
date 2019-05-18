@@ -24,7 +24,7 @@ router.get('/tenants', (req, res) => {
 router.get('/:id', (req, res) => {
 	const { id } = req.params;
 	db
-		.findByUserId(id)
+		.getById(id)
 		.then((user) => {
 			if (user) {
 				res.status(200).json(user);
@@ -57,7 +57,7 @@ router.post('/', (req, res, next) => {
 });
 
 router.put('/:id', (req, res, next) => {
-	db.findByUserId(req.body.id || req.params.id).then((user) => {
+	db.getById(req.body.id || req.params.id).then((user) => {
 		const id = user.id;
 
 		//this code runs IF they type in the old password
@@ -73,12 +73,13 @@ router.put('/:id', (req, res, next) => {
 					phone: req.body.phone,
 					textSubscribe: req.body.textSubscribe,
 					emailSubscribe: req.body.emailSubscribe,
+					property:req.body.property,
 					password: hash
 				};
 
 				// calls database function to update user
 				db
-					.editUser(id, edit)
+					.editById(id, edit)
 					.then((updated) => {
 						if (updated) {
 							res.status(200).json({
@@ -106,7 +107,7 @@ router.put('/:id', (req, res, next) => {
 				residence_id: req.body.residence_id
 			};
 			db
-				.editUser(id, edit)
+				.editById(id, edit)
 				.then((updated) => {
 					if (updated) {
 						res.status(200).json({
@@ -126,7 +127,7 @@ router.put('/:id', (req, res, next) => {
 router.delete('/:id', (req, res) => {
 	const { id } = req.params;
 	db
-		.deleteUser(id)
+		.deleteById(id)
 		.then((user) => {
 			if (user) {
 				res.status(202).json({ message: 'User deleted' });

@@ -25,6 +25,16 @@ router.post("/register", validate, (req, res) => {
     email: creds.email,
     phone: creds.phone
   };
+
+  let regtenant = {
+    firstName: creds.firstName,
+    lastName: creds.lastName,
+    password: hash,
+    email: creds.email,
+    landlord_id: creds.landlord_id,
+    property_id: creds.property_id,
+    phone: creds.phone
+  };
   //console.log(user)
 
   if (creds.isLandlord === false) {
@@ -36,7 +46,7 @@ router.post("/register", validate, (req, res) => {
           res.status(400).json("Email already exists.");
         } else {
           dbt
-            .create(user)
+            .create(regtenant)
             .then(() => {
               res.status(201).json("Tenant has been created successfully.");
             })
@@ -51,7 +61,7 @@ router.post("/register", validate, (req, res) => {
       .then(landlord => {
         console.log(landlord);
 
-        if (landlord.email === creds.email) {
+        if (landlord) {
           res.status(400).json("Email already exists.");
           console.log(landlord, "register");
         } else {
@@ -74,17 +84,20 @@ router.post("/login", (req, res, next) => {
     dbt
       .getByEmail(creds.email)
       .then(tenants => {
-        tenant = tenants[0];
-
+        tenant = tenants;
         console.log(tenant);
-        if (tenant && bcrypt.compareSync(creds.password, landlord.password)) {
-          const token = generateToken(tenant);
-          // console.log(token);
+        console.log(
+          "bycrypt result",
+          tenant.id && bcrypt.compareSync(creds.password, tenant.password)
+        );
+        if (tenant.id && bcrypt.compareSync(creds.password, tenant.password)) {
+          const token = generateToken(tenant, creds.isLandlord);
+          console.log(token);
           res.json({
             Welcome: tenant.firstName,
             userId: tenant.id,
             token,
-            type: creds.isLandlord
+            isLandlord: creds.isLandlord
           });
         } else {
           res.status(401).json({ message: "Not Authorized" });
@@ -97,24 +110,31 @@ router.post("/login", (req, res, next) => {
     dbl
       .getByEmail(creds.email)
       .then(landlords => {
-        landlord = landlords[0];
+        landlord = landlords;
 
-        console.log(landlord);
+        console.log("before if", landlords);
+        console.log(
+          "bycrypt result",
+          landlord.id && bcrypt.compareSync(creds.password, landlord.password)
+        );
+        if (
+          landlord.id &&
+          bcrypt.compareSync(creds.password, landlord.password)
+        ) {
+          const token = generateToken(landlord, creds.isLandlord);
 
-        if (landlord && bcrypt.compareSync(creds.password, user.password)) {
-          const token = generateToken(landlord);
-          console.log("madeit");
           res.json({
             Welcome: landlord.firstName,
             userId: landlord.id,
             token,
-            type: creds.isLandlord
+            isLandlord: creds.isLandlord
           });
         } else {
           res.status(401).json({ message: "Not Authorized" });
         }
       })
       .catch(err => {
+        console.log("500", err);
         next("h500", err);
       });
   }
