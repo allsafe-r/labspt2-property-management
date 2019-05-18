@@ -1,11 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const db = require("../data/helper/workOrderModal");
+const db = require("../data/helper/workorders");
 
 //GET all workorders
 
 router.get("/", (req, res) => {
-  db.getWorkOrders()
+  db.get()
     .then(workorders => res.status(200).json(workorders))
     .catch(err => {
       res.status(500).json({ error: `${err}` });
@@ -13,6 +13,21 @@ router.get("/", (req, res) => {
 });
 
 //GET work orders by order of ID
+
+router.get("/property/:id", (req, res) => {
+  const { id } = req.params;
+  db.getByPropertyId(id)
+    .then(workorder => {
+      if (workorder) {
+        res.status(200).json(workorder);
+      } else {
+        res.status(404).json({ error: "workorder not found" });
+      }
+    })
+    .catch(err => {
+      res.status(500).json({ error: `${err}` });
+    });
+});
 
 router.get("/:id", (req, res) => {
   const { id } = req.params;
@@ -33,9 +48,9 @@ router.get("/:id", (req, res) => {
 
 router.post("/", (req, res, next) => {
   const newWorkorder = req.body;
-  db.createWorkOrder(newWorkorder)
+  db.create(newWorkorder)
     .then(ids => {
-      db.findByWorkOrderId(ids[0])
+      db.getById(ids[0])
         .then(newWorkorder => {
           res.status(201).json({ newWorkorder: newWorkorder.id });
         })
