@@ -102,12 +102,6 @@ router.post('/login', (req, res, next) => {
 		.then((landlords) => {
 			landlord = landlords;
 
-<<<<<<< HEAD
-			console.log(landlord, 'landlord');
-			if (landlord && bcrypt.compareSync(creds.password, landlord.password)) {
-				const token = generateToken(landlord);
-				// console.log(token);
-=======
 			console.log('before if', landlords );
 			console.log("bycrypt result" , landlord.id && bcrypt.compareSync(creds.password, landlord.password))
 			if (landlord.id && bcrypt.compareSync(creds.password, landlord.password)) {
@@ -116,7 +110,6 @@ router.post('/login', (req, res, next) => {
 				
 				const token = generateToken(landlord, creds.isLandlord)
 				
->>>>>>> 2b53239ecd01ddf4e0cf41b806918f3da309c1ea
 				res.json({
 					Welcome: landlord.firstName,
 					userId: landlord.id,
