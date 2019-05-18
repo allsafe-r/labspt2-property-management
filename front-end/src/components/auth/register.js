@@ -12,7 +12,7 @@ class Register extends Component {
 		lastName: '',
 		password: '',
 		password2: '',
-		type: "landlord",
+		isLandlord: true,
 		email: '',
 		phone: ''
 	};
@@ -22,11 +22,11 @@ class Register extends Component {
 	};
 
 	isAdmin = () => {
-		this.setState({ type: "landlord"  });
+		this.setState({ isLandlord: true  });
 	};
 
 	isNotAdmin = () => {
-		this.setState({ type: "tenant"  });
+		this.setState({ isLandlord: false  });
 	};
 
 	onSubmit = (e) => {
@@ -43,7 +43,7 @@ class Register extends Component {
 					password: this.state.password,
 					email: this.state.email,
 					phone: this.state.phone,
-					type: this.state.type
+					isLandlord: this.state.isLandlord
 				};
 
 				axios

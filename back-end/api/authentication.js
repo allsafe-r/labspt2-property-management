@@ -28,7 +28,7 @@ router.post('/register', validate, (req, res) => {
 	}
 	//console.log(user)
 
-  if(creds.type === "tenant"){
+  if(creds.isLandlord === false){
 		console.log("inside if", user)
   dbt
     .getByEmail(creds.email)
@@ -53,9 +53,11 @@ router.post('/register', validate, (req, res) => {
     .then(landlord => {
 			console.log(landlord)
 
-      if (!landlord) {
-        res.status(400).json('Email already exists.')
+      if (landlord.email === creds.email) {
+				res.status(400).json('Email already exists.')
+				console.log(landlord, "register")
       } else {
+				console.log(user)
         dbl
         .create(user)
         .then(() => {
@@ -70,21 +72,21 @@ router.post('/register', validate, (req, res) => {
 
 router.post('/login', (req, res, next) => {
 	const creds = req.body;
-	if(creds.type==="tenant"){
+	if(creds.isLandlord === false){
 	dbt
 		.getByEmail(creds.email)
 		.then((tenants) => {
-			tenant = tenants[0];
-
-			console.log(user);
-			if (tenant && bcrypt.compareSync(creds.password, user.password)) {
-				const token = generateToken(tenant);
-				// console.log(token);
+			tenant = tenants;
+			console.log(tenant)
+			console.log("bycrypt result" , tenant.id && bcrypt.compareSync(creds.password, tenant.password))
+			if (tenant.id && bcrypt.compareSync(creds.password, tenant.password)) {
+				const token = generateToken(tenant, creds.isLandlord);
+				console.log(token);
 				res.json({
 					Welcome: tenant.firstName,
 					userId: tenant.id,
 					token,
-					isAdmin: tenant.isAdmin
+					isLandlord: creds.isLandlord
 				});
 			} else {
 				res.status(401).json({ message: 'Not Authorized' });
@@ -98,23 +100,35 @@ router.post('/login', (req, res, next) => {
 		dbl
 		.getByEmail(creds.email)
 		.then((landlords) => {
-			landlord = landlords[0];
+			landlord = landlords;
 
+<<<<<<< HEAD
 			console.log(landlord, 'landlord');
 			if (landlord && bcrypt.compareSync(creds.password, landlord.password)) {
 				const token = generateToken(landlord);
 				// console.log(token);
+=======
+			console.log('before if', landlords );
+			console.log("bycrypt result" , landlord.id && bcrypt.compareSync(creds.password, landlord.password))
+			if (landlord.id && bcrypt.compareSync(creds.password, landlord.password)) {
+				
+				
+				
+				const token = generateToken(landlord, creds.isLandlord)
+				
+>>>>>>> 2b53239ecd01ddf4e0cf41b806918f3da309c1ea
 				res.json({
 					Welcome: landlord.firstName,
 					userId: landlord.id,
 					token,
-					isAdmin: landlord.isAdmin
-				});
+					isLandlord: creds.isLandlord		
+					});
 			} else {
 				res.status(401).json({ message: 'Not Authorized' });
 			}
 		})
 		.catch((err) => {
+			console.log("500" , err)
 			next('h500', err);
 		});
 	}
