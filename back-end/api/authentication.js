@@ -72,7 +72,7 @@ router.post('/login', (req, res, next) => {
 	const creds = req.body;
 	if(creds.type==="tenant"){
 	dbt
-		.findByEmail(creds.email)
+		.getByEmail(creds.email)
 		.then((tenants) => {
 			tenant = tenants[0];
 
@@ -96,11 +96,11 @@ router.post('/login', (req, res, next) => {
 
 	} else {
 		dbl
-		.findByEmail(creds.email)
+		.getByEmail(creds.email)
 		.then((landlords) => {
 			landlord = landlords[0];
 
-			console.log(landlord);
+			console.log(landlord, 'landlord');
 			if (landlord && bcrypt.compareSync(creds.password, landlord.password)) {
 				const token = generateToken(landlord);
 				// console.log(token);

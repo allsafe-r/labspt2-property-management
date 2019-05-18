@@ -78,11 +78,6 @@ class Workorderlist extends Component {
 					workorders: workArr
 				})
 
-
-		
-
-
-
 		})
 
 		.catch((error) => {
@@ -93,17 +88,11 @@ class Workorderlist extends Component {
 		.catch((error) => {
 			console.error('Server Error', error);
 		});
-
-
-
-	
 }
 	render() {
 		return (
 
 			<Grid container spacing={24} style={{padding: 24}}>
-
-
 
 				{/* display work order cards */}
 				
