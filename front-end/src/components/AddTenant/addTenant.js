@@ -5,22 +5,32 @@ import HousingInfo from "./infoCard";
 
 import "../../assets/css/general.css";
 
+/*parent*/
+
 class AddTenant extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      newTenant: false
+      newTenant: false,
+      tenantID: ""
     };
   }
   addAnotherTenant = e => {
     e.preventDefault();
     this.setState({ newTenant: true });
   };
+  /*grabbing the tenant ID*/
+  tenant = id => {
+    if (id > 0) {
+      console.log(id);
+      this.setState({ tenantID: id });
+    }
+  };
   render() {
     return (
       <div className="addTenant-container">
         <div className="tenantInfo-container">
-          <TenantCard />
+          <TenantCard tenantInfo={this.tenant} />
 
           <div
             className="tenantAdd"
@@ -30,10 +40,13 @@ class AddTenant extends Component {
             <h1>Add Tenant</h1>
           </div>
 
-          {this.state.newTenant ? <TenantCard /> : null}
+          {this.state.newTenant ? (
+            <TenantCard tenantInfo={this.tenant} />
+          ) : null}
         </div>
+        {/*Sending tenantID (infoCard)*/}
         <div className="contract-container">
-          <HousingInfo />
+          <HousingInfo tenantID={this.state.tenantID} />
         </div>
       </div>
     );

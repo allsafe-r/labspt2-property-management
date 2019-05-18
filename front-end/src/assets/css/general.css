@@ -1499,7 +1499,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 1rem;
 }
 
 .tenantInfo-container {
@@ -1512,18 +1511,21 @@ body {
 }
 
 .tenant-info {
-  max-width: 600px;
-  padding: 0.5em;
-  margin: 0.5em;
-  width: 40%;
+  display: flex;
+  flex-direction: column;
+  max-width: 850px;
+  padding: 2em;
+  width: 100%;
   box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),
     0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
   border-radius: 4px;
   background-color: white;
+  margin-bottom: 0.5em;
 }
 
 .tenant-info h1 {
   font-size: 1.2em;
+  margin: 0 auto;
 }
 
 .tenant-info form {
@@ -1537,12 +1539,8 @@ body {
   flex-wrap: wrap;
 }
 
-.tenantCard-top h1 {
-  margin: 0.5rem;
-}
-
 .tenantCard-top input {
-  margin: 0.5rem;
+  margin: 0.2em, 0, 0.2em, 0;
   border: none;
   border-bottom: 1px solid black;
   padding: 0.3em 0;
@@ -1555,6 +1553,15 @@ body {
 .inputInfo {
   width: 50%;
   flex-grow: 2;
+}
+
+.inputInfo h1 {
+  font-size: 0.7em;
+  margin: 0.2em 0 0.2em 0;
+}
+
+.inputInfo input {
+  outline: none;
 }
 
 .flex-row {
@@ -1599,8 +1606,13 @@ input[type="checkbox"]:checked + label:before {
 }
 
 .contract-container {
-  margin: 0 auto;
-  margin-top: 8rem;
+  margin: 3em auto 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+  align-items: center;
 }
 
 .name-input {
@@ -1614,6 +1626,10 @@ input[type="checkbox"]:checked + label:before {
   flex-wrap: wrap;
 }
 
+.eN-input div {
+  margin-right: 0.2em;
+}
+
 .name-input input {
   width: 100%;
 }
@@ -1623,35 +1639,22 @@ input[type="checkbox"]:checked + label:before {
   flex-direction: row;
 }
 
-.tenantCard-bottom {
+.addApp h1 {
+  text-align: center;
+  margin: 0.3em 0 0.5em 0;
+}
+
+.dropzone {
   width: 100%;
+  padding: 3em;
+  text-align: center;
+  outline: none;
+  border: 1px solid #fc766a;
 }
 
-.tenantCard-bottom input {
-  width: 100%;
-}
-
-.info-container {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  width: 100%;
-  border: 1px solid black;
-  padding: 1rem;
-}
-
-.housing-info {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-.housing-info .yes {
-  margin: 0 1rem;
-}
-
-.start-end input:first-child {
-  margin-right: 0.5rem;
+.dropzone:hover {
+  cursor: pointer;
+  background-color: rgb(252, 118, 106, 0.2);
 }
 
 .tenantAdd {
@@ -1691,11 +1694,130 @@ input[type="checkbox"]:checked + label:before {
 
 .addTenantB-container button {
   margin: 0 auto;
+  width: 100%;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 850px;
+  padding: 2em;
+  width: 100%;
+  box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  background-color: white;
+  margin-bottom: 0.5em;
+}
+.info-container h1 {
+  width: 100%;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.housing-info {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.housing-info {
+  margin: 0 1rem;
+}
+
+.tenant-names {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.tenant-names h1 {
+  font-size: 1em;
+}
+
+.start-end {
+  margin: 1em auto 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.start-end input:first-child {
+  margin-right: 0.5rem;
+}
+
+.start-end input:hover {
+  cursor: pointer;
+}
+
+.start-end label {
+  font-size: 1em;
+}
+
+.start-end div {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.start-end input[type="date"] {
+  border: 1px solid red;
+  padding: 1em;
+}
+
+.option-properties select {
+  background: transparent;
+  width: 100%;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.7em;
+  color: black;
+  letter-spacing: 0.3em;
+  border: 0;
+  border-radius: 0;
+  padding: 1em;
+  -webkit-appearance: none;
+}
+
+.option-properties :hover {
+  cursor: pointer;
+}
+
+.option-properties {
+  width: 70%;
+  overflow: hidden;
+  background-color: rgb(252, 118, 106, 0.2);
+  border: 1px solid #fc766a;
+  margin: 1.2em auto 0.7em auto;
+  border-radius: 4px 4px 4px 4px;
+
+  box-shadow: 0px;
+}
+
+.send-contract {
+  margin: 1em auto 0 auto;
 }
 
 @media (max-width: 960px) {
   .tenant-info {
     width: 100%;
+  }
+}
+@media (max-width: 650px) {
+  .start-end {
+    flex-direction: column;
+  }
+  .start-end div {
+    width: 100%;
+    margin: 0.5em auto;
+  }
+  .option-properties select {
+    letter-spacing: 0;
   }
 }
 
@@ -2334,20 +2456,18 @@ button[type="submit"] {
   }
 }
 
-
 /* Admin Billing Style */
 .billing .billingColumn1 {
-  width:45%;
+  width: 45%;
 }
 
 .billing .billingColumn2 {
-  width:45%;
+  width: 45%;
 }
 
 .billing .billingColumn2 .payment-container {
-  width:100%;
+  width: 100%;
 }
-
 
 .billing .billingColumn1 .Input-header {
   font-size: 1.5rem;
@@ -2356,13 +2476,13 @@ button[type="submit"] {
 }
 
 .billing .billingColumn1 .Dropdown {
-  display:flex;
+  display: flex;
   justify-content: center;
 }
 
 .billing .billingColumn1 .billing-card1 {
-  padding:1.5rem;
-  margin-bottom: 3.0rem;
+  padding: 1.5rem;
+  margin-bottom: 3rem;
 }
 
 .billing .billingColumn1 .billing-card2 button {
@@ -2380,22 +2500,21 @@ button[type="submit"] {
 }
 
 .Dropdown .DropdownItem {
-  font-size: 2.0rem;
+  font-size: 2rem;
 }
 
 @media (max-width: 660px) {
   .billing .billingColumn1 {
-    width:100%;
+    width: 100%;
     margin-bottom: 20px;
   }
 
   .billing .billingColumn1 .billing-card1 {
-    
     margin-bottom: 20px;
   }
-  
+
   .billing .billingColumn2 {
-    width:100%;
+    width: 100%;
   }
 }
 
