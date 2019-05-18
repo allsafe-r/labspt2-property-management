@@ -42,3 +42,4 @@ function deleteById(id) {
 function getByLandlordId(landlord_id) {
 	return db('workorders').where({ landlord_id })
 }
+

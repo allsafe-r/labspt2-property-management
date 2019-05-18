@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-//import Dropzone from "react-dropzone";
+import Dropzone from "react-dropzone";
 import axios from "axios";
 
 const url = "https://tenantly-back.herokuapp.com/images";
@@ -43,7 +43,7 @@ class HouseApp extends Component {
     return (
       <div className="addApp">
         <h1>Housing Application</h1>
-        {/*this.state.imgSrc !== null ? (
+        {this.state.imgSrc !== null ? (
           <div
             onClick={() => {
               this.setState({ imgSrc: null });
@@ -62,7 +62,7 @@ class HouseApp extends Component {
               </div>
             )}
           </Dropzone>
-            )*/}
+            )}
       </div>
     );
   }
