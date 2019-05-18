@@ -76,9 +76,9 @@ router.post('/login', (req, res, next) => {
 	dbt
 		.getByEmail(creds.email)
 		.then((tenants) => {
-			tenant = tenants[0];
-
-			console.log(tenant);
+			tenant = tenants;
+			console.log(tenant)
+			console.log("bycrypt result" , tenant.id && bcrypt.compareSync(creds.password, tenant.password))
 			if (tenant.id && bcrypt.compareSync(creds.password, tenant.password)) {
 				const token = generateToken(tenant, creds.isLandlord);
 				console.log(token);
@@ -100,7 +100,7 @@ router.post('/login', (req, res, next) => {
 		dbl
 		.getByEmail(creds.email)
 		.then((landlords) => {
-			landlord = landlords[0];
+			landlord = landlords;
 
 			console.log('before if', landlords );
 			console.log("bycrypt result" , landlord.id && bcrypt.compareSync(creds.password, landlord.password))
