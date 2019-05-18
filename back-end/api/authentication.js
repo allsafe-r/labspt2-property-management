@@ -79,14 +79,14 @@ router.post('/login', (req, res, next) => {
 			tenant = tenants[0];
 
 			console.log(tenant);
-			if (tenant && bcrypt.compareSync(creds.password, tenant.password)) {
-				const token = generateToken(tenant);
+			if (tenant.id && bcrypt.compareSync(creds.password, tenant.password)) {
+				const token = generateToken(tenant, creds.isLandlord);
 				console.log(token);
 				res.json({
 					Welcome: tenant.firstName,
 					userId: tenant.id,
 					token,
-					type: creds.isLandlord
+					isLandlord: creds.isLandlord
 				});
 			} else {
 				res.status(401).json({ message: 'Not Authorized' });
@@ -105,14 +105,16 @@ router.post('/login', (req, res, next) => {
 			console.log('before if', landlords );
 			console.log("bycrypt result" , landlord.id && bcrypt.compareSync(creds.password, landlord.password))
 			if (landlord.id && bcrypt.compareSync(creds.password, landlord.password)) {
-				console.log("madeit",  landlord );
-				const token = generateToken(landlord)
-				console.log("token", token);
+				
+				
+				
+				const token = generateToken(landlord, creds.isLandlord)
+				
 				res.json({
 					Welcome: landlord.firstName,
 					userId: landlord.id,
 					token,
-					type: creds.isLandlord		
+					isLandlord: creds.isLandlord		
 					});
 			} else {
 				res.status(401).json({ message: 'Not Authorized' });

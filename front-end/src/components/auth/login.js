@@ -30,7 +30,7 @@ class Login extends Component {
 
 	onSubmit = (e) => {
 		e.preventDefault();
-		const acc = { email: this.state.email, password: this.state.password, type: this.state.type };
+		const acc = { email: this.state.email, password: this.state.password, isLandlord: this.state.isLandlord };
 		if (this.state.email.indexOf('@') < 0 || this.state.email.indexOf('@') > this.state.email.indexOf('.com')) {
 			alert('Please enter a proper e-mail');
 		} else {
@@ -39,6 +39,7 @@ class Login extends Component {
 				.post(url, acc)
 				.then((res) => {
 					localStorage.setItem('jwtToken', res.data.token);
+					
 					decode(localStorage.getItem('jwtToken')).isLandlord
 						? this.props.history.push('/properties')
 						: this.props.history.push('/dashboard');
