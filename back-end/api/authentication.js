@@ -28,7 +28,7 @@ router.post('/register', validate, (req, res) => {
 	}
 	//console.log(user)
 
-  if(creds.type === "tenant"){
+  if(creds.isLandlord === false){
 		console.log("inside if", user)
   dbt
     .getByEmail(creds.email)
@@ -53,7 +53,7 @@ router.post('/register', validate, (req, res) => {
     .then(landlord => {
 			console.log(landlord)
 
-      if (!landlord) {
+      if (landlord) {
         res.status(400).json('Email already exists.')
       } else {
         dbl
@@ -70,21 +70,21 @@ router.post('/register', validate, (req, res) => {
 
 router.post('/login', (req, res, next) => {
 	const creds = req.body;
-	if(creds.type==="tenant"){
+	if(creds.isLandlord === false){
 	dbt
-		.findByEmail(creds.email)
+		.getByEmail(creds.email)
 		.then((tenants) => {
 			tenant = tenants[0];
 
-			console.log(user);
-			if (tenant && bcrypt.compareSync(creds.password, user.password)) {
+			console.log(tenant);
+			if (tenant && bcrypt.compareSync(creds.password, landlord.password)) {
 				const token = generateToken(tenant);
 				// console.log(token);
 				res.json({
 					Welcome: tenant.firstName,
 					userId: tenant.id,
 					token,
-					isAdmin: tenant.isAdmin
+					type: creds.isLandlord
 				});
 			} else {
 				res.status(401).json({ message: 'Not Authorized' });
@@ -96,20 +96,21 @@ router.post('/login', (req, res, next) => {
 
 	} else {
 		dbl
-		.findByEmail(creds.email)
+		.getByEmail(creds.email)
 		.then((landlords) => {
 			landlord = landlords[0];
 
 			console.log(landlord);
-			if (landlord && bcrypt.compareSync(creds.password, landlord.password)) {
+			
+			if (landlord && bcrypt.compareSync(creds.password, user.password)) {
 				const token = generateToken(landlord);
-				// console.log(token);
+				 console.log("madeit");
 				res.json({
 					Welcome: landlord.firstName,
 					userId: landlord.id,
 					token,
-					isAdmin: landlord.isAdmin
-				});
+					type: creds.isLandlord		
+					});
 			} else {
 				res.status(401).json({ message: 'Not Authorized' });
 			}

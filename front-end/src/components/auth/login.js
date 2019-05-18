@@ -12,19 +12,19 @@ class Login extends Component {
 		email: '',
 		password: '',
 		search: false,
-		type: "landlord",
+		isLandlord: true,
 	};
 
 	onChange = (e) => {
 		this.setState({ [e.target.name]: e.target.value });
 	};
 
-	isAdmin = () => {
-		this.setState({ type: "landlord" });
+	isLandlord = () => {
+		this.setState({ isLandlord: true });
 	};
 
-	isNotAdmin = () => {
-		this.setState({ type: "tenant" });
+	isNotLandlord = () => {
+		this.setState({ isLandlord: false });
 	};
 
 
@@ -39,7 +39,7 @@ class Login extends Component {
 				.post(url, acc)
 				.then((res) => {
 					localStorage.setItem('jwtToken', res.data.token);
-					decode(localStorage.getItem('jwtToken')).isAdmin
+					decode(localStorage.getItem('jwtToken')).isLandlord
 						? this.props.history.push('/properties')
 						: this.props.history.push('/dashboard');
 					this.props.authenticate();
@@ -60,9 +60,9 @@ class Login extends Component {
 						<img className="logo-login" src={logo} alt="Logo" />
 					</Link>
 					<div className="register-radio-container">
-						<input type="radio" onClick={this.isAdmin} value="LANDLORD" name="account" />{' '}
+						<input type="radio" onClick={this.isLandlord} value="LANDLORD" name="account" />{' '}
 						<p className="radio-p">Landlord</p>
-						<input type="radio" onClick={this.isNotAdmin} value="TENANT" name="account" />{' '}
+						<input type="radio" onClick={this.isNotLandlord} value="TENANT" name="account" />{' '}
 						<p className="radio-p">Tenant</p>
 					</div>
 					<div className="user-container">
