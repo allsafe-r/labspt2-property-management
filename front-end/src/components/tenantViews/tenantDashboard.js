@@ -103,8 +103,8 @@ class tenantDashboard extends Component {
 		const id = decode(token).userId;
 		// go into users to find which residence you live at
 		axios
-			.get(`https://tenantly-back.herokuapp.com/users/${id}`)
-			// .get(`http://localhost:9000/users/${id}`)
+			//.get(`https://tenantly-back.herokuapp.com/users/${id}`)
+		    .get(`http://localhost:9000/users/${id}`)
 			.then((user) => {
 				// console.log(user);
 				if (

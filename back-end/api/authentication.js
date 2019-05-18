@@ -23,8 +23,18 @@ router.post('/register', validate, (req, res) => {
 		lastName: creds.lastName,
 		password: hash,
 		email: creds.email,
-		phone: creds.phone,
+		phone: creds.phone
 			
+	}
+
+	let regtenant = {
+		firstName: creds.firstName,
+		lastName: creds.lastName,
+		password: hash,
+		email: creds.email,
+	  landlord_id: creds.landlord_id,
+		phone: creds.phone
+
 	}
 	//console.log(user)
 
@@ -38,7 +48,7 @@ router.post('/register', validate, (req, res) => {
         res.status(400).json('Email already exists.')
       } else {
         dbt
-        .create(user)
+        .create(regtenant)
         .then(() => {
           res.status(201).json('Tenant has been created successfully.');
         })
@@ -53,7 +63,7 @@ router.post('/register', validate, (req, res) => {
     .then(landlord => {
 			console.log(landlord)
 
-      if (landlord.email === creds.email) {
+      if (landlord) {
 				res.status(400).json('Email already exists.')
 				console.log(landlord, "register")
       } else {
