@@ -5,16 +5,16 @@ exports.up = function(knex, Promise) {
       .integer("tenant")
       .notNullable()
       .references("id")
-      .inTable("users");
+      .inTable("tenants");
     table
       .string("tenantEmail")
       .notNullable()
       .references("email")
-      .inTable("users");
+      .inTable("tenants");
     table
       .integer("property")
       .notNullable()
-      .references("houseId")
+      .references("id")
       .inTable("properties");
     table.string("startDate").notNullable();
     table.text("endDate").notNullable();
