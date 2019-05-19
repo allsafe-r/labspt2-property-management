@@ -43,7 +43,7 @@ class AdminSettings extends Component {
 
     axios
       //.get(`https://tenantly-back.herokuapp.com/users/${id}`)
-      .get(`http://localhost:9000/landlords/${id}`)
+      .get(`https://tenantly-back.herokuapp.com/landlords/${id}`)
       .then(user => {
         this.setState({
           firstName: user.data.firstName,
@@ -95,7 +95,7 @@ class AdminSettings extends Component {
     } else {
       // If old password is entered AND new passwords match, then it continues to attempt update
       axios
-        .put(`http://www.localhost:9000/landlords/${id}`, {
+        .put(`https://tenantly-back.herokuapp.com/landlords/${id}`, {
           ...this.state,
           id: parseInt(id)
         })

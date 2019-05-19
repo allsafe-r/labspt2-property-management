@@ -126,7 +126,7 @@ class Workordercard extends Component {
 		};
 
 		axios
-			.put(`http://localhost:9000/workorders/${this.state.id}`, updatedworkorder)
+			.put(`https://tenantly-back.herokuapp.com/workorders/${this.state.id}`, updatedworkorder)
 			.then((response) => {
 				console.log('success');
 			})
@@ -149,7 +149,7 @@ class Workordercard extends Component {
 
 	tenantname = () => {
 		axios
-      .get(`http://localhost:9000/tenants/${this.state.tenant}`)
+      .get(`https://tenantly-back.herokuapp.com/tenants/${this.state.tenant}`)
 			.then((response) => {
 				let tenantworkorder = response.data
 				this.setState({

@@ -8,7 +8,7 @@ import workorderCard from './workorderCard';
 const decode = require('jwt-decode');
 
 // const url = process.env.getWO || 'https://localhost:9000/workorders';
-const url = `http://localhost:9000/workorders/`;
+const url = `https://tenantly-back.herokuapp.com/workorders/`;
 
 
 const styles = theme =>({
@@ -42,7 +42,7 @@ class Workorderlist extends Component {
 		const userId = decode(token).id;
 		console.log(userId)
 		let workArr = []
-		axios.get(`http://localhost:9000/workorders/landlord/${userId}`)
+		axios.get(`https://tenantly-back.herokuapp.com/workorders/landlord/${userId}`)
 		.then((response) => {
 			
 			this.setState({ 
