@@ -24,7 +24,7 @@ router.get('/tenants', (req, res) => {
 router.get('/:id', (req, res) => {
 	const { id } = req.params;
 	db
-		.findByUserId(id)
+		.getById(id)
 		.then((user) => {
 			if (user) {
 				res.status(200).json(user);

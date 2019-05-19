@@ -104,7 +104,7 @@ class tenantDashboard extends Component {
 		// go into users to find which residence you live at
 		axios
 			//.get(`https://tenantly-back.herokuapp.com/users/${id}`)
-		    .get(`http://localhost:9000/users/${id}`)
+		    .get(`http://localhost:9000/tenants/${id}`)
 			.then((user) => {
 				// console.log(user);
 				if (
@@ -119,7 +119,7 @@ class tenantDashboard extends Component {
 			// go into users residence, grab some information and set it to state, grab owner of residence to supply rest of information
 			.then(
 				axios
-					.get(`https://tenantly-back.herokuapp.com/properties/${this.state.houseId}`)
+					.get(`http://localhost:9000/properties/${this.state.houseId}`)
 					.then((res) => {
 						let property = res.data;
 						if (this.state.residenceOwner !== property.owner || this.state.address !== property.propertyAddress) {
@@ -128,7 +128,7 @@ class tenantDashboard extends Component {
 					})
 					// 		// find the owner of logged in users residence to supply contact info for owner
 					.then(
-						axios.get(`https://tenantly-back.herokuapp.com/users/${this.state.residenceOwner}`).then((res) => {
+						axios.get(`http://localhost:9000/tenants/${this.state.residenceOwner}`).then((res) => {
 							let owner = res.data;
 							if (this.state.contact !== owner.phone || this.state.contactEmail !== owner.email) {
 								this.setState({ contact: owner.phone, contactEmail: owner.email });
