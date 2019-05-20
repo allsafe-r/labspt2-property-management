@@ -35,14 +35,15 @@ router.post("/register", validate, (req, res) => {
     property_id: creds.property_id,
     phone: creds.phone
   };
-  //console.log(user)
+  console.log(user);
 
   if (creds.isLandlord === false) {
-    console.log("inside if", user);
+    console.log("tenant", user);
     dbt
       .getByEmail(creds.email)
       .then(tenant => {
         if (tenant) {
+          console.log(tenant);
           res.status(400).json("Email already exists.");
         } else {
           dbt

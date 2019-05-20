@@ -97,7 +97,7 @@ export default class HousingInfo extends Component {
 
           <div className="start-end">
             <div>
-              <label for="start"> Start Date </label>
+              <label htmlFor="start"> Start Date </label>
               <input
                 id="start"
                 type="date"
@@ -106,7 +106,7 @@ export default class HousingInfo extends Component {
               />
             </div>
             <div>
-              <label for="end">End Date</label>
+              <label htmlFor="end">End Date</label>
               <input
                 id="end"
                 type="date"

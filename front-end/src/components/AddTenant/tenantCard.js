@@ -3,7 +3,7 @@ import axios from "axios";
 
 import HouseApp from "./houseApp";
 
-const url = "https://tenantly-back.herokuapp.com/api/register";
+const url = "http://localhost:9000/api/register";
 const mail = "https://tenantly-back.herokuapp.com/send";
 
 /*Creating Tenant */
@@ -12,16 +12,18 @@ class TenantInfo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
+      landlord_id: "",
+      property_id: "",
       password: "",
       firstName: "",
       lastName: "",
-      isAdmin: false,
+      email: "",
       phone: "",
       cost: "",
       emailSubscribe: false,
       textSubscribe: false,
-      application: null
+      application: null,
+      isLandlord: false
     };
   }
   inputHandler = e => {
