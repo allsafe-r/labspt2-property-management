@@ -10,7 +10,6 @@ exports.up = function(knex, Promise) {
 		table.boolean('emailSubscribe').notNullable().defaultTo(false);
 		table.boolean('textSubscribe').notNullable().defaultTo(false);
 		table.text('application');
-		
 	});
 };
 exports.down = function(knex, Promise) {

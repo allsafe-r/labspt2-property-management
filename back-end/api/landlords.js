@@ -62,7 +62,7 @@ router.post("/", (req, res, next) => {
   const landlord = req.body;
   db.create(landlord)
     .then(ids => {
-      db.findByUserId(ids[0])
+      db.getById(ids[0])
         .then(newUser => {
           res.status(201).json({ newUser: newUser.id });
         })
