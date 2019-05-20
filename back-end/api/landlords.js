@@ -24,7 +24,7 @@ router.get('/tenants', (req, res) => {
 router.get('/:id', (req, res) => {
 	const { id } = req.params;
 	db
-		.findByUserId(id)
+		.getById(id)
 		.then((user) => {
 			if (user) {
 				res.status(200).json(user);
@@ -43,7 +43,7 @@ router.post('/', (req, res, next) => {
 		.create(landlord)
 		.then((ids) => {
 			db
-				.findByUserId(ids[0])
+				.getById(ids[0])
 				.then((newUser) => {
 					res.status(201).json({ newUser: newUser.id });
 				})

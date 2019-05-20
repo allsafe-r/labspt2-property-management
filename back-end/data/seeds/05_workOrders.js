@@ -1,20 +1,22 @@
 exports.seed = function(knex, promise) {
-	return knex('workOrders').del().then(function() {
-		return knex('workOrders').insert([
+	return knex('workorders').del().then(function() {
+		return knex('workorders').insert([
 			{
-				property: 1,
-				tenant: 2,
+				property_id: 1,
+				tenant_id: 1,
+				landlord_id: 1,
 				description: 'Air conditioner does not blow cold air!',
 				phone: '415-555-6132',
-				unsupervisedEntry: true,
+				entry: true,
 				status: 'Pending'
 			},
 			{
-				property: 2,
-				tenant: 3,
+				property_id: 2,
+				tenant_id: 1,
+				landlord_id: 1,
 				description: 'None of the toilets flush!',
 				phone: '202-555-6132',
-				unsupervisedEntry: true,
+				entry: true,
 				status: 'Pending'
 			}
 		]);
