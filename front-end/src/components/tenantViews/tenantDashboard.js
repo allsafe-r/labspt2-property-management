@@ -73,7 +73,7 @@ class tenantDashboard extends Component {
 	componentDidMount() {
 		this.fetchData();
 		const token = localStorage.getItem('jwtToken');
-		const id = decode(token).userId;
+		const id = decode(token).id;
 		axios.get(`https://tenantly-back.herokuapp.com/workorders/${id}`)
 		.then((response) => this.setState({ workorders: response.data }))
 		.catch((error) => {
@@ -100,7 +100,7 @@ class tenantDashboard extends Component {
 				console.error('Server Error', error);
 			});
 		const token = localStorage.getItem('jwtToken');
-		const id = decode(token).userId;
+		const id = decode(token).id;
 		// go into users to find which residence you live at
 		axios
 			//.get(`https://tenantly-back.herokuapp.com/users/${id}`)

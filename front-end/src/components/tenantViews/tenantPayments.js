@@ -31,7 +31,7 @@ export default class tenantPayments extends Component {
 			console.error('Server Error', error);
 		});
 		const token = localStorage.getItem('jwtToken');
-		const id = decode(token).userId;
+		const id = decode(token).id;
 		axios
 			.get(`https://tenantly-back.herokuapp.com/users/${id}`)
 			.then((user) => {
