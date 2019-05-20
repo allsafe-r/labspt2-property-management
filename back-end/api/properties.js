@@ -13,8 +13,8 @@ router.get("/", (req, res) => {
 
 // Get a property
 router.get("/:id", (req, res) => {
-  const { houseId } = req.params;
-  db.findById(houseId)
+  const { id } = req.params;
+  db.getById(id)
     .then(properties => {
       if (properties) {
         res.status(200).json(properties);
@@ -29,9 +29,28 @@ router.get("/:id", (req, res) => {
     });
 });
 
+//By landlord
+
+router.get("/landlord/:id", (req, res) => {
+  const { id } = req.params;
+
+  db.getByLandlordId(id)
+    .then(properties => {
+      if (properties) {
+        res.status(200).json(properties);
+      } else {
+        res.status(404).json({ error: "no properties were found" });
+      }
+    })
+    .catch(err => {
+      res.status(500).json({ error: `${err}` });
+    });
+});
+
 // create property
 router.post("/", (req, res, next) => {
   const property = req.body;
+  console.log("create", property);
   db.create(property)
     .then(property => {
       res.status(201).json({ property });
@@ -39,14 +58,14 @@ router.post("/", (req, res, next) => {
     .catch(err => {
       console.log("error", err);
       res.status(500).json({ error: `${err}` });
-    })
-})
+    });
+});
 
 // edit property
 router.put("/:id", (req, res, next) => {
   const { id } = req.params;
   const property = req.body;
-
+  console.log("edit", id, property);
   db.editById(id, property)
     .then(property => {
       if (property) {

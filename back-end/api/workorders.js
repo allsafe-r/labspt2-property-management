@@ -63,7 +63,7 @@ router.get("/name/:id", (req, res) => {
   const { id } = req.params;
   db.getName(id)
     .then(workorder => {
-      console.log(workorder)
+      console.log(workorder);
       if (workorder) {
         res.status(200).json(workorder);
       } else {
@@ -79,10 +79,10 @@ router.get("/name/:id", (req, res) => {
 
 router.post("/", (req, res, next) => {
   const newWorkorder = req.body;
-  console.log(newWorkorder)
+  console.log(newWorkorder);
   db.create(newWorkorder)
     .then(ids => {
-      console.log(ids)
+      console.log(ids);
       db.getById(ids)
         .then(newWorkorder => {
           res.status(201).json("success");
