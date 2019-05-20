@@ -20,6 +20,7 @@ class TenantInfo extends Component {
       lastName: "",
       isLandlord: false,
       landlord_id:null,
+      property_id:null,
       phone: "",
       cost: "",
       emailSubscribe: false,
