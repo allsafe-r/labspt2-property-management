@@ -3,8 +3,8 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import '../../assets/css/general.css';
 import logo from '../../assets/images/logo.png';
-//const url = 'https://tenantly-back.herokuapp.com/api/login';
- const url = 'http://localhost:9000/api/login';
+const url = 'https://tenantly-back.herokuapp.com/api/login';
+// const url = 'http://localhost:9000/api/login';
 const decode = require('jwt-decode');
 
 class Login extends Component {

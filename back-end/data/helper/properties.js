@@ -2,7 +2,7 @@ const db = require("../../knex");
 
 module.exports = {
   getByLandlordId,
-  getByTenantId,
+
   get,
   getById,
   create,
@@ -20,14 +20,8 @@ function getById(id) {
     .first();
 }
 
-function getByTenantId(tenant_id) {
-  return db("proptenants")
-    .where({ tenant_id })
-    .first();
-}
-
 function getByLandlordId(owner) {
-  console.log(owner);
+  console.log("landlord", owner);
   return db("properties").where({ owner });
 }
 

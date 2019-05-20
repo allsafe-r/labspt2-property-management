@@ -15,7 +15,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 const decode = require('jwt-decode');
 
 // const url = process.env.workorderURL || 'http://localhost:9000/workorders'
-const url = 'http://localhost:9000/workorders';
+const url = 'https://tenantly-back.herokuapp.com/workorders';
 
 const styles = (theme) => ({
 	textField: {
@@ -64,7 +64,7 @@ class Workorderform extends Component {
 		const token = localStorage.getItem('jwtToken');
 		const id = decode(token).id;
 			axios
-			.get(`http://localhost:9000/tenants/${id}`)
+			.get(`https://tenantly-back.herokuapp.com/tenants/${id}`)
 			.then((user) => {
 				console.log(user)
 			
@@ -87,7 +87,7 @@ class Workorderform extends Component {
 
 	fetchPropertyId = () => {
 		axios
-		.get(`http://localhost:9000/properties/${this.state.property}`)
+		.get(`https://tenantly-back.herokuapp.com/properties/${this.state.property}`)
 	}
 
 	submitHandler = (e) => {

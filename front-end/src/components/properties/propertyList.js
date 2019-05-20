@@ -15,8 +15,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import NavigationIcon from "@material-ui/icons/Navigation";
 const decode = require("jwt-decode");
 
-const url = "http://localhost:9000/properties";
-// const url = `https://tenantly-back.herokuapp.com/properties`;
+const url = `https://tenantly-back.herokuapp.com/properties`;
 
 const styles = theme => ({
   heading: {

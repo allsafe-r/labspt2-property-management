@@ -26,7 +26,6 @@ class TenantInfo extends Component {
       application: null,
       isLandlord: false,
       properties: [],
-      selectedProp: "",
       propertyNames: []
     };
   }
@@ -56,9 +55,9 @@ class TenantInfo extends Component {
         });
         this.setState({
           properties: response.data,
+          landlord_id: userId,
           propertyNames: [
             {
-              landlord_id: userId,
               value: "",
               display: "Select Property"
             }
@@ -71,10 +70,12 @@ class TenantInfo extends Component {
   }
 
   addTenant = e => {
+    const tenant = {};
     e.preventDefault();
     axios
       .post(url, this.state)
       .then(response => {
+        console.log("response", response);
         /*Sending id back to parent (AddTenant) */
         let id = response.data;
         this.props.tenantInfo(id);
@@ -184,8 +185,8 @@ class TenantInfo extends Component {
           <div className="tenantCard-bottom">
             <div className="option-properties">
               <select
-                value={this.state.selectedProp}
-                onChange={e => this.setState({ selectedProp: e.target.value })}
+                value={this.state.property_id}
+                onChange={e => this.setState({ property_id: e.target.value })}
               >
                 {this.state.propertyNames.map(property => (
                   <option key={property.value} value={property.value}>
