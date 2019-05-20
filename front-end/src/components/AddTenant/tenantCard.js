@@ -3,6 +3,8 @@ import axios from "axios";
 
 import HouseApp from "./houseApp";
 
+const decode = require('jwt-decode');
+
 const url = "https://tenantly-back.herokuapp.com/api/register";
 const mail = "https://tenantly-back.herokuapp.com/send";
 
@@ -16,7 +18,8 @@ class TenantInfo extends Component {
       password: "",
       firstName: "",
       lastName: "",
-      isAdmin: false,
+      isLandlord: false,
+      landlord_id:null,
       phone: "",
       cost: "",
       emailSubscribe: false,
@@ -24,6 +27,21 @@ class TenantInfo extends Component {
       application: null
     };
   }
+
+  componentDidMount() {
+
+    const token = localStorage.getItem('jwtToken');
+    const id = decode(token).id;
+    
+  this.setState({
+    landlord_id: id
+  })
+
+  }
+
+
+  
+
   inputHandler = e => {
     this.setState({ [e.target.name]: e.target.value });
     this.setState({
