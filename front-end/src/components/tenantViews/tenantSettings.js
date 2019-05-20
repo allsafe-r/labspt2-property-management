@@ -52,7 +52,7 @@ class TenantSettings extends Component {
     const id = decode(token).id;
     axios
       //.get(`https://tenantly-back.herokuapp.com/tenants/${id}`)
-      .get(`http://localhost:9000/tenants/${id}`)
+      .get(`https://tenantly-back.herokuapp.com/tenants/${id}`)
       .then(user => {
         this.setState({
           firstName: user.data.firstName,
