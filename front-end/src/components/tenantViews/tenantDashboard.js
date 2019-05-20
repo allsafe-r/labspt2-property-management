@@ -73,7 +73,7 @@ class tenantDashboard extends Component {
 	componentDidMount() {
 		this.fetchData();
 		const token = localStorage.getItem('jwtToken');
-		const id = decode(token).userId;
+		const id = decode(token).id;
 		axios.get(`https://tenantly-back.herokuapp.com/workorders/${id}`)
 		.then((response) => this.setState({ workorders: response.data }))
 		.catch((error) => {
@@ -100,19 +100,20 @@ class tenantDashboard extends Component {
 				console.error('Server Error', error);
 			});
 		const token = localStorage.getItem('jwtToken');
-		const id = decode(token).userId;
+		const id = decode(token).id;
+		console.log(id)
 		// go into users to find which residence you live at
 		axios
-			.get(`https://tenantly-back.herokuapp.com/tenants/${id}`)
-		   // .get(`http://localhost:9000/tenants/${id}`)
+			//.get(`https://tenantly-back.herokuapp.com/users/${id}`)
+		    .get(`https://tenantly-back.herokuapp.com/tenants/${id}`)
 			.then((user) => {
-				// console.log(user);
+				console.log(user);
 				if (
-					this.state.houseID !== user.data.residenceId ||
+					this.state.houseID !== user.data.property_id ||
 					this.state.user !== user.data.firstName ||
 					this.state.cost !== user.data.cost
 				) {
-					this.setState({ houseId: user.data.residence_id, user: user.data.firstName, cost: user.data.cost });
+					this.setState({ houseId: user.data.property_id, user: user.data.firstName, cost: user.data.cost });
 					// console.log(this.state.houseId);
 				}
 			})
@@ -122,8 +123,8 @@ class tenantDashboard extends Component {
 					.get(`https://tenantly-back.herokuapp.com/properties/${this.state.houseId}`)
 					.then((res) => {
 						let property = res.data;
-						if (this.state.residenceOwner !== property.owner || this.state.address !== property.propertyAddress) {
-							this.setState({ residenceOwner: property.owner, address: property.propertyAddress });
+						if (this.state.residenceOwner !== property.owner || this.state.address !== property.address) {
+							this.setState({ residenceOwner: property.owner, address: property.address });
 						}
 					})
 					// 		// find the owner of logged in users residence to supply contact info for owner
@@ -139,7 +140,7 @@ class tenantDashboard extends Component {
 			.then(
 				// go into alerts and grab each alerts where the houseId matches logged in users residence, set to state
 				axios.get(alertURL).then((res) => {
-					let alertsObj = res.data.filter((alert) => alert.houseId === this.state.houseId);
+					let alertsObj = res.data.filter((alert) => alert.property_id === this.state.houseId);
 					if (alertsObj.length !== this.state.alerts.length) {
 						this.setState({ alerts: alertsObj });
 					}
