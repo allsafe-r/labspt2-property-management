@@ -27,20 +27,33 @@ router.get("/:id", (req, res) => {
 });
 
 router.post("/", (req, res, next) => {
-  const newUser = req.body;
-  db.createUser(newUser)
+  const tenant = req.body;
+  db.create(tenant)
     .then(ids => {
-      db.findByUserId(ids[0])
-        .then(newUser => {
-          res.status(201).json({ newUser: newUser.id });
+      console.log(ids);
+      db.getById(ids[0])
+        .then(user => {
+          res.status(201).json({ user: user.id });
         })
         .catch(err => {
-          res.status(500).json({ error: `${err}` });
+          res.status(500).json({ err });
         });
     })
     .catch(err => {
-      next("h500", err);
+      console.log(err);
     });
+});
+
+router.get("/tenants/:id", (req, res) => {
+  const { id } = req.params;
+
+  db.getByLandlordid(id).then(tenants => {
+    if (tenants) {
+      res.status(200).json(tenants);
+    } else {
+      res.status(400).json({ error: "no properties were found" });
+    }
+  });
 });
 
 router.put("/:id", (req, res, next) => {
