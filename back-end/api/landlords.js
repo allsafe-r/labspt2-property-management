@@ -43,6 +43,38 @@ router.post("/", (req, res, next) => {
     });
 });
 
+router.get("/:id", (req, res) => {
+  const { id } = req.params;
+  db.getById(id)
+    .then(user => {
+      if (user) {
+        res.status(200).json(user);
+      } else {
+        res.status(404).json({ error: "User not found" });
+      }
+    })
+    .catch(err => {
+      res.status(500).json({ error: `${err}` });
+    });
+});
+
+router.post("/", (req, res, next) => {
+  const landlord = req.body;
+  db.create(landlord)
+    .then(ids => {
+      db.findByUserId(ids[0])
+        .then(newUser => {
+          res.status(201).json({ newUser: newUser.id });
+        })
+        .catch(err => {
+          res.status(500).json({ error: `${err}` });
+        });
+    })
+    .catch(err => {
+      next("h500", err);
+    });
+});
+
 router.put("/:id", (req, res, next) => {
   db.getById(req.body.id || req.params.id).then(user => {
     const id = user.id;
