@@ -16,7 +16,7 @@ function validate(req, res, next) {
 
 router.post("/register", validate, (req, res) => {
   const creds = req.body;
-  console.log(creds);
+
   const hash = bcrypt.hashSync(creds.password, 14);
   let user = {
     firstName: creds.firstName,
@@ -35,7 +35,6 @@ router.post("/register", validate, (req, res) => {
     property_id: creds.property_id,
     phone: creds.phone
   };
-  console.log(user);
 
   if (creds.isLandlord === false) {
     console.log("tenant", user);
@@ -48,7 +47,7 @@ router.post("/register", validate, (req, res) => {
         } else {
           dbt
             .create(regtenant)
-            .then(() => {
+            .then(res => {
               res.status(201).json("Tenant has been created successfully.");
             })
             .catch(err => res.status(500).json({ error: err }));
@@ -56,7 +55,6 @@ router.post("/register", validate, (req, res) => {
       })
       .catch(err => res.status(500).json({ error: err }));
   } else {
-    console.log("landlord", user);
     dbl
       .getByEmail(creds.email)
       .then(landlord => {
@@ -69,8 +67,8 @@ router.post("/register", validate, (req, res) => {
           console.log(user);
           dbl
             .create(user)
-            .then(() => {
-              res.status(201).json("Tenant has been created successfully.");
+            .then(res => {
+              res.status(201).json("Landlord has been created successfully.");
             })
             .catch(err => res.status(500).json({ error: "else" }));
         }

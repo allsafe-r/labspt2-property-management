@@ -3,6 +3,7 @@ import axios from "axios";
 
 import HouseApp from "./houseApp";
 
+const decode = require("jwt-decode");
 const url = "http://localhost:9000/api/register";
 const mail = "https://tenantly-back.herokuapp.com/send";
 
@@ -23,9 +24,17 @@ class TenantInfo extends Component {
       emailSubscribe: false,
       textSubscribe: false,
       application: null,
-      isLandlord: false
+      isLandlord: false,
+      properties: [],
+      selectedProp: "",
+      propertyNames: []
     };
   }
+
+  componentDidMount() {
+    this.fetchProperties();
+  }
+
   inputHandler = e => {
     this.setState({ [e.target.name]: e.target.value });
     this.setState({
@@ -33,13 +42,41 @@ class TenantInfo extends Component {
     });
   };
 
+  fetchProperties() {
+    const token = localStorage.getItem("jwtToken");
+    const userId = decode(token).id;
+    axios
+      .get(`http://localhost:9000/properties/landlord/${userId}`)
+      .then(response => {
+        let names = response.data.map(a => {
+          return {
+            value: a.id,
+            display: a.name
+          };
+        });
+        this.setState({
+          properties: response.data,
+          propertyNames: [
+            {
+              landlord_id: userId,
+              value: "",
+              display: "Select Property"
+            }
+          ].concat(names)
+        });
+      })
+      .catch(err => {
+        console.error("Server Error", err);
+      });
+  }
+
   addTenant = e => {
     e.preventDefault();
     axios
       .post(url, this.state)
       .then(response => {
         /*Sending id back to parent (AddTenant) */
-        let id = response.data.user;
+        let id = response.data;
         this.props.tenantInfo(id);
         /* */
         let email = {
@@ -145,6 +182,18 @@ class TenantInfo extends Component {
             </div>
           </div>
           <div className="tenantCard-bottom">
+            <div className="option-properties">
+              <select
+                value={this.state.selectedProp}
+                onChange={e => this.setState({ selectedProp: e.target.value })}
+              >
+                {this.state.propertyNames.map(property => (
+                  <option key={property.value} value={property.value}>
+                    {property.display}
+                  </option>
+                ))}
+              </select>
+            </div>
             <HouseApp url={this.urlUpdater} />
           </div>
         </form>
