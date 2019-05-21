@@ -74,14 +74,6 @@ class tenantDashboard extends Component {
 		this.fetchData();
 		const token = localStorage.getItem('jwtToken');
 		const id = decode(token).id;
-<<<<<<< HEAD
-		axios.get(`https://tenantly-back.herokuapp.com/workorders/tenant/${id}`)
-		.then((response) => this.setState({ workorders: response.data }))
-		.catch((error) => {
-			console.error('Server Error', error);
-		});
-		
-=======
 		axios
 			.get(`https://tenantly-back.herokuapp.com/workorders/tenant/${id}`)
 			.then(
@@ -95,7 +87,6 @@ class tenantDashboard extends Component {
 			.catch((error) => {
 				console.error('Server Error', error);
 			});
->>>>>>> add6ab6c6f5bdd671336816568f391b6b24c14a1
 	}
 
 	componentDidUpdate() {
@@ -203,7 +194,7 @@ class tenantDashboard extends Component {
 												{/* Current user {this.state.user} charge made to {charge.billing_details.name}. */}
 												<div className="outstanding"> Outstanding Balance</div>
 												{/* <div className="outstandingBalance">${this.state.balance}</div> */}
-												//trying to get it on didMount
+												
 												<div className="outstandingBalance">
 													${this.state.cost / 100 - this.state.payments.reduce(this.getSum) / 100}
 												</div>
