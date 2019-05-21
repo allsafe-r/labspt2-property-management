@@ -194,7 +194,7 @@ class tenantDashboard extends Component {
 												{/* Current user {this.state.user} charge made to {charge.billing_details.name}. */}
 												<div className="outstanding"> Outstanding Balance</div>
 												{/* <div className="outstandingBalance">${this.state.balance}</div> */}
-												//trying to get it on didMount
+												
 												<div className="outstandingBalance">
 													${this.state.cost / 100 - this.state.payments.reduce(this.getSum) / 100}
 												</div>

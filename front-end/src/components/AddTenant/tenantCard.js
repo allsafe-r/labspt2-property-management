@@ -3,8 +3,9 @@ import axios from "axios";
 
 import HouseApp from "./houseApp";
 
-const decode = require("jwt-decode");
-const url = "http://localhost:9000/api/register";
+const decode = require('jwt-decode');
+
+const url = "https://tenantly-back.herokuapp.com/api/register";
 const mail = "https://tenantly-back.herokuapp.com/send";
 
 /*Creating Tenant */
@@ -31,8 +32,18 @@ class TenantInfo extends Component {
   }
 
   componentDidMount() {
-    this.fetchProperties();
+
+    const token = localStorage.getItem('jwtToken');
+    const id = decode(token).id;
+    
+  this.setState({
+    landlord_id: id
+  })
+
   }
+
+
+  
 
   inputHandler = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -45,7 +56,7 @@ class TenantInfo extends Component {
     const token = localStorage.getItem("jwtToken");
     const userId = decode(token).id;
     axios
-      .get(`http://localhost:9000/properties/landlord/${userId}`)
+      .get(`https://tenantly-back.herokuapp.com/properties/landlord/${userId}`)
       .then(response => {
         let names = response.data.map(a => {
           return {
