@@ -90,7 +90,7 @@ class CheckoutForm extends Component {
       description: this.state.property,
       source: token.id,
       currency: 'USD',
-      amount: this.state.cost
+      amount: this.state.cost * 100
       
     })
     .then(this.props.charge)
