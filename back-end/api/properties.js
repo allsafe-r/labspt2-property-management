@@ -50,7 +50,6 @@ router.get("/landlord/:id", (req, res) => {
 // create property
 router.post("/", (req, res, next) => {
   const property = req.body;
-  console.log("create", property);
   db.create(property)
     .then(property => {
       res.status(201).json({ property });
