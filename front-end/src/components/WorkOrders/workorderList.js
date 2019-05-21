@@ -12,7 +12,7 @@ const url = `https://tenantly-back.herokuapp.com/workorders/`;
 
 const styles = (theme) => ({});
 
-const styles = (theme) => ({});
+// const styles = (theme) => ({});
 
 class Workorderlist extends Component {
 	constructor(props) {
