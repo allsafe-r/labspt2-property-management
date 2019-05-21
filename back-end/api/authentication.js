@@ -33,44 +33,44 @@ router.post("/register", validate, (req, res) => {
     email: creds.email,
     landlord_id: creds.landlord_id,
     property_id: creds.property_id,
-    phone: creds.phone
+    phone: creds.phone,
+    cost: creds.cost,
+    emailSubscribe: creds.emailSubscribe,
+    textSubscribe: creds.textSubscribe,
+    application: creds.application
   };
 
   if (creds.isLandlord === false) {
-    console.log("tenant", user);
+    console.log(creds.email);
     dbt
       .getByEmail(creds.email)
       .then(tenant => {
         if (tenant) {
-          console.log(tenant);
           res.status(400).json("Email already exists.");
         } else {
           dbt
             .create(regtenant)
-            .then(res => {
-              res.status(201).json("Tenant has been created successfully.");
+            .then(response => {
+              res.status(201).json({ userId: response[0] });
             })
-            .catch(err => res.status(500).json({ error: err }));
+            .catch(err => res.status(500).json({ error: "in" }));
         }
       })
-      .catch(err => res.status(500).json({ error: err }));
+      .catch(err => res.status(500).json({ error: "out" }));
   } else {
     dbl
       .getByEmail(creds.email)
       .then(landlord => {
-        console.log(landlord);
-
         if (landlord) {
           res.status(400).json("Email already exists.");
           console.log(landlord, "register");
         } else {
-          console.log(user);
           dbl
             .create(user)
-            .then(res => {
-              res.status(201).json("Landlord has been created successfully.");
+            .then(response => {
+              res.status(201).json({ userId: response[0] });
             })
-            .catch(err => res.status(500).json({ error: "else" }));
+            .catch(err => res.status(500).json({ error: "line 76" }));
         }
       })
       .catch(err => res.status(500).json({ error: "then" }));

@@ -4,7 +4,6 @@ import axios from "axios";
 import HouseApp from "./houseApp";
 
 const decode = require("jwt-decode");
-
 const url = "http://localhost:9000/api/register";
 const mail = "https://tenantly-back.herokuapp.com/send";
 
@@ -99,7 +98,6 @@ class TenantInfo extends Component {
     axios
       .post(url, tenant)
       .then(response => {
-        /*Sending id back to parent (AddTenant) */
         let id = response.data.userId;
         console.log("before contract", id);
         let contract = {

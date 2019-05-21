@@ -28,6 +28,7 @@ server.use("/images", images);
 server.use("/alerts", alerts);
 server.use("/billing", billing);
 server.use("/send", mail);
+server.use("/contracts", contracts);
 
 server.get("/", (req, res) => {
   res.status(200).send("Hi");

@@ -14,6 +14,7 @@ function create(landlord) {
 }
 
 function getByEmail(email) {
+  console.log(email);
   return db("landlords")
     .where({ email })
     .first();
