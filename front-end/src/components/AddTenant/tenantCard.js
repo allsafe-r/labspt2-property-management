@@ -4,7 +4,7 @@ import axios from "axios";
 import HouseApp from "./houseApp";
 
 const decode = require("jwt-decode");
-const url = "http://localhost:9000/api/register";
+const url = "https://tenantly-back.herokuapp.com/register";
 const mail = "https://tenantly-back.herokuapp.com/send";
 
 /*Creating Tenant */
@@ -45,9 +45,10 @@ class TenantInfo extends Component {
     const token = localStorage.getItem("jwtToken");
     const userId = decode(token).id;
     axios
-      .get(`http://localhost:9000/properties/landlord/${userId}`)
+      .get(`https://tenantly-back.herokuapp.com/properties/landlord/${userId}`)
       .then(response => {
         let names = response.data.map(a => {
+          console.log(a.id);
           return {
             value: a.id,
             display: a.name
@@ -70,10 +71,24 @@ class TenantInfo extends Component {
   }
 
   addTenant = e => {
-    const tenant = {};
+    const tenant = {
+      landlord_id: this.state.landlord_id,
+      property_id: parseInt(this.state.property_id),
+      password: this.state.password,
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      email: this.state.email,
+      phone: this.state.phone,
+      cost: this.state.cost,
+      emailSubscribe: this.state.emailSubscribe,
+      textSubscribe: this.state.textSubscribe,
+      application: this.state.application,
+      isLandlord: this.state.isLandlord
+    };
+    console.log(tenant);
     e.preventDefault();
     axios
-      .post(url, this.state)
+      .post(url, tenant)
       .then(response => {
         console.log("response", response);
         /*Sending id back to parent (AddTenant) */

@@ -23,7 +23,7 @@ export default class DisplayProperty extends Component {
 
   fetchProperty = id => {
     axios
-      .get(`http://localhost:9000/properties/${id}`)
+      .get(`https://tenantly-back.herokuapp.com/properties/${id}`)
       .then(response => {
         this.setState({ property: response.data });
       })
@@ -36,7 +36,7 @@ export default class DisplayProperty extends Component {
     let id = this.state.property.id;
 
     axios
-      .delete(`http://localhost:9000/properties/${id}`)
+      .delete(`https://tenantly-back.herokuapp.com/properties/${id}`)
       .then(response => {
         console.log("in here", response);
       })

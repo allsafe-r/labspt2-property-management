@@ -27,7 +27,11 @@ class EditProperty extends Component {
 
   SingleProperty = () => {
     axios
-      .get(`http://localhost:9000/properties/${this.props.match.params.id}`)
+      .get(
+        `https://tenantly-back.herokuapp.com/properties/${
+          this.props.match.params.id
+        }`
+      )
       .then(response => {
         this.setState({
           id: response.data.id,

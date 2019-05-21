@@ -9,8 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import "../../assets/css/general.css";
 
 const decode = require("jwt-decode");
-const url = "http://localhost:9000/properties";
-// const url = "https://tenantly-back.herokuapp.com/properties/";
+const url = "https://tenantly-back.herokuapp.com/properties";
 
 class AddProperty extends Component {
   constructor(props) {

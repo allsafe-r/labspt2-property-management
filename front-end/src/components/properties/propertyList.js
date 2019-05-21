@@ -55,7 +55,7 @@ class propertyList extends Component {
     const token = localStorage.getItem("jwtToken");
     const userId = decode(token).id;
     axios
-      .get(`http://localhost:9000/properties/landlord/${userId}`)
+      .get(`https://tenantly-back.herokuapp.com/properties/landlord/${userId}`)
       .then(response => {
         this.setState({ properties: response.data });
         console.log(this.state.properties);
