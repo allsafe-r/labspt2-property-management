@@ -176,8 +176,8 @@ class Billing extends Component {
 						>
 							<option value={0} />
 							{this.state.properties.map((property, index) => (
-							<option className='DropdownItem' key={index} value={property.propertyName} >
-								{property.propertyName}
+							<option className='DropdownItem' key={index} value={property.name} >
+								{property.name}
 							</option>
 							))}
 						</Select>
