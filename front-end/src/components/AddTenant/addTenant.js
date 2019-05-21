@@ -44,10 +44,6 @@ class AddTenant extends Component {
             <TenantCard tenantInfo={this.tenant} />
           ) : null}
         </div>
-        {/*Sending tenantID (infoCard)*/}
-        <div className="contract-container">
-          <HousingInfo tenantID={this.state.tenantID} />
-        </div>
       </div>
     );
   }

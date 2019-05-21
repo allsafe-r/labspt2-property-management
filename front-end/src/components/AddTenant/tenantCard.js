@@ -5,7 +5,7 @@ import HouseApp from "./houseApp";
 
 const decode = require("jwt-decode");
 
-const url = "https://tenantly-back.herokuapp.com/api/register";
+const url = "http://localhost:9000/api/register";
 const mail = "https://tenantly-back.herokuapp.com/send";
 
 /*Creating Tenant */
@@ -27,14 +27,16 @@ class TenantInfo extends Component {
       application: null,
       isLandlord: false,
       properties: [],
-      propertyNames: []
+      propertyNames: [],
+      startDate: "",
+      endDate: ""
     };
   }
 
   componentDidMount() {
     const token = localStorage.getItem("jwtToken");
     const id = decode(token).id;
-
+    this.fetchProperties();
     this.setState({
       landlord_id: id
     });
@@ -50,6 +52,7 @@ class TenantInfo extends Component {
   fetchProperties() {
     const token = localStorage.getItem("jwtToken");
     const userId = decode(token).id;
+    console.log(userId);
     axios
       .get(`https://tenantly-back.herokuapp.com/properties/landlord/${userId}`)
       .then(response => {
@@ -91,32 +94,43 @@ class TenantInfo extends Component {
       application: this.state.application,
       isLandlord: this.state.isLandlord
     };
-    console.log(tenant);
     e.preventDefault();
+    console.log(tenant);
     axios
       .post(url, tenant)
       .then(response => {
-        console.log("response", response);
         /*Sending id back to parent (AddTenant) */
-        let id = response.data;
-        this.props.tenantInfo(id);
-        /* */
-        let email = {
-          name: this.state.firstName,
-          email: this.state.email,
-          password: this.state.phone
+        let id = response.data.userId;
+        console.log("before contract", id);
+        let contract = {
+          tenant: id,
+          tenantEmail: this.state.email,
+          property: this.state.property_id,
+          startDate: this.state.startDate,
+          endDate: this.state.endDate,
+          rent: this.state.cost
         };
+        console.log("contract", contract);
         axios
-          .post(mail, email)
-          .then(() => {
-            console.log("sent");
-          })
-          .catch(err => {
-            console.log({ Error: err });
-          });
+          .post("http://localhost:9000/contracts", contract)
+          .then(console.log("created contract"));
+        /* */
+        // let email = {
+        //   name: this.state.firstName,
+        //   email: this.state.email,
+        //   password: this.state.phone
+        // };
+        // axios
+        //   .post(mail, email)
+        //   .then(() => {
+        //     console.log("sent");
+        //   })
+        //   .catch(err => {
+        //     console.log({ Error: "here" });
+        //   });
       })
       .catch(err => {
-        console.log({ Error: err });
+        console.log({ Error: "out here" });
       });
   };
 
@@ -215,6 +229,26 @@ class TenantInfo extends Component {
                   </option>
                 ))}
               </select>
+            </div>
+            <div className="start-end">
+              <div>
+                <label htmlFor="start"> Start Date </label>
+                <input
+                  id="start"
+                  type="date"
+                  name="startDate"
+                  onChange={this.inputHandler}
+                />
+              </div>
+              <div>
+                <label htmlFor="end">End Date</label>
+                <input
+                  id="end"
+                  type="date"
+                  name="endDate"
+                  onChange={this.inputHandler}
+                />
+              </div>
             </div>
             <HouseApp url={this.urlUpdater} />
           </div>
