@@ -8,111 +8,58 @@ import workorderCard from './workorderCard';
 const decode = require('jwt-decode');
 
 // const url = process.env.getWO || 'https://localhost:9000/workorders';
-const workorderurl = 'https://tenantly-back.herokuapp.com/workorders';
-const propertiesurl = 'https://tenantly-back.herokuapp.com/properties'
+const url = `https://tenantly-back.herokuapp.com/workorders/`;
 
-const styles = theme =>({
+const styles = (theme) => ({});
 
-
-})
-
+// const styles = (theme) => ({});
 
 class Workorderlist extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			unfilterworkedArr:[],
-			propArr:[],
-			workorders: [],
-			properties: []
+			workorders: []
 		};
 	}
 	//Get all work orders
 	componentDidMount() {
-		this.fetchWorkOrders()
+		this.fetchWorkOrders();
 	}
 
 	//componentDidUpdate() {
-		//this.fetchWorkOrders();
+	//this.fetchWorkOrders();
 	//}
-	
 
 	fetchWorkOrders() {
 		const token = localStorage.getItem('jwtToken');
-		const userId = decode(token).userId;
-		let propArr = []
-		let workArr = []
-		axios.get(propertiesurl)
-		.then((response) => {
-			
-			this.setState({ 
-				propArr: response.data.filter((property) => property.owner === userId)
-			})
-			axios.get(workorderurl)
-
-			.then((res)=> {
-				this.setState({ 
-					unfilterworkedArr: res.data
-				})
-
-				
-
-				for(let i=0; i<this.state.propArr.length; i++){
-					console.log(this.state.propArr[i])
-					for (let x=0; x<this.state.unfilterworkedArr.length; x++){
-						console.log(this.state.unfilterworkedArr[x].property)
-						if(this.state.propArr[i].houseId === this.state.unfilterworkedArr[x].property && this.state.unfilterworkedArr[x].status !== 'Completed'){
-							workArr.push(this.state.unfilterworkedArr[x]);
-						}
-					}
-				}
-
-				
-				//console.log(unfilterworkedArr[0].property)
-				
-				
-				console.log(this.state.propArr.length)
-				
-				
+		const userId = decode(token).id;
+		console.log(userId);
+		let workArr = [];
+		axios
+			.get(`https://tenantly-back.herokuapp.com/workorders/landlord/${userId}`)
+			.then((response) => {
 				this.setState({
-					workorders: workArr
-				})
+					workorders: response.data
+				});
 
-
-		
-
-
-
-		})
-
-		.catch((error) => {
-			console.error('Server Error', error);
-		});
-	
-	})
-		.catch((error) => {
-			console.error('Server Error', error);
-		});
-
-
-
-	
-}
+				console.log(response.data);
+			})
+			.catch((error) => {
+				console.error('Server Error', error);
+			});
+	}
 	render() {
 		return (
-
-			<Grid container spacing={24} style={{padding: 24}}>
-
-
-
+			<Grid container spacing={24} style={{ padding: 24 }}>
 				{/* display work order cards */}
-				
-				{this.state.workorders.map((work) => <Grid item justify='center' sm={12} lg={6}> <Workordercard key={work.id} work={work} /> </Grid>)}
 
+				{this.state.workorders.map((work) => (
+					<Grid item justify="center" sm={12} lg={6}>
+						{' '}
+						<Workordercard key={work.id} work={work} />{' '}
+					</Grid>
+				))}
 			</Grid>
-
-
-
 		);
 	}
 }

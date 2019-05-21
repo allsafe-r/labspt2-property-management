@@ -26,7 +26,7 @@ import { faCheckCircle, faSt } from '@fortawesome/free-solid-svg-icons';
 const decode = require('jwt-decode');
 // const url = process.env.properties || 'http://localhost:9000/properties';
 const url = `https://tenantly-back.herokuapp.com/properties`;
-const url2 = `http://localhost:9000/billing`;
+const url2 = `https://tenantly-back.herokuapp.com/billing`;
 const url3 = 'https://tenantly-back.herokuapp.com/stripe/charges'
 
 
@@ -110,9 +110,9 @@ class Billing extends Component {
         console.error('Server Error', error);
       });
       const token = localStorage.getItem('jwtToken');
-      const id = decode(token).userId;
+      const id = decode(token).id;
       axios
-        .get(`https://tenantly-back.herokuapp.com/users/${id}`)
+        .get(`https://tenantly-back.herokuapp.com/landlord/${id}`)
         .then((user) => {
           this.setState({ user: user.data.firstName });
           this.setState({ userLast: user.data.lastName });

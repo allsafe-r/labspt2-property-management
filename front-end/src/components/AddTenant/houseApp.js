@@ -62,7 +62,7 @@ class HouseApp extends Component {
               </div>
             )}
           </Dropzone>
-        )}
+            )}
       </div>
     );
   }

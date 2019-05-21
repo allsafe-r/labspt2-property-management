@@ -3,7 +3,8 @@ import axios from "axios";
 
 import HouseApp from "./houseApp";
 
-const url = "https://tenantly-back.herokuapp.com/api/register";
+const decode = require("jwt-decode");
+const url = "http://localhost:9000/api/register";
 const mail = "https://tenantly-back.herokuapp.com/send";
 
 /*Creating Tenant */
@@ -12,18 +13,27 @@ class TenantInfo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
+      landlord_id: "",
+      property_id: "",
       password: "",
       firstName: "",
       lastName: "",
-      isAdmin: false,
+      email: "",
       phone: "",
       cost: "",
       emailSubscribe: false,
       textSubscribe: false,
-      application: null
+      application: null,
+      isLandlord: false,
+      properties: [],
+      propertyNames: []
     };
   }
+
+  componentDidMount() {
+    this.fetchProperties();
+  }
+
   inputHandler = e => {
     this.setState({ [e.target.name]: e.target.value });
     this.setState({
@@ -31,13 +41,43 @@ class TenantInfo extends Component {
     });
   };
 
+  fetchProperties() {
+    const token = localStorage.getItem("jwtToken");
+    const userId = decode(token).id;
+    axios
+      .get(`http://localhost:9000/properties/landlord/${userId}`)
+      .then(response => {
+        let names = response.data.map(a => {
+          return {
+            value: a.id,
+            display: a.name
+          };
+        });
+        this.setState({
+          properties: response.data,
+          landlord_id: userId,
+          propertyNames: [
+            {
+              value: "",
+              display: "Select Property"
+            }
+          ].concat(names)
+        });
+      })
+      .catch(err => {
+        console.error("Server Error", err);
+      });
+  }
+
   addTenant = e => {
+    const tenant = {};
     e.preventDefault();
     axios
       .post(url, this.state)
       .then(response => {
+        console.log("response", response);
         /*Sending id back to parent (AddTenant) */
-        let id = response.data.user;
+        let id = response.data;
         this.props.tenantInfo(id);
         /* */
         let email = {
@@ -143,6 +183,18 @@ class TenantInfo extends Component {
             </div>
           </div>
           <div className="tenantCard-bottom">
+            <div className="option-properties">
+              <select
+                value={this.state.property_id}
+                onChange={e => this.setState({ property_id: e.target.value })}
+              >
+                {this.state.propertyNames.map(property => (
+                  <option key={property.value} value={property.value}>
+                    {property.display}
+                  </option>
+                ))}
+              </select>
+            </div>
             <HouseApp url={this.urlUpdater} />
           </div>
         </form>

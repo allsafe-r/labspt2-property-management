@@ -1,21 +1,21 @@
 const express = require("express");
 const router = express.Router();
-const db = require("../data/helper/billingHistory");
+const db = require("../data/helper/billing");
 
 // Get all properties
 router.get("/", (req, res) => {
-  db.getBilling()
+  db.get()
     .then(billing => res.status(200).json(billing))
     
 });
 
 // Get a property
-router.get("/:propertyId", (req, res) => {
-  const { propertyId } = req.params;
-  db.findByBillingId(propertyId)
-    .then(properties => {
-      if (properties) {
-        res.status(200).json(properties);
+router.get("/:id", (req, res) => {
+  const { id } = req.params;
+  db.getById(id)
+    .then(property => {
+      if (property) {
+        res.status(200).json(property);
       } else {
         res
           .status(404)

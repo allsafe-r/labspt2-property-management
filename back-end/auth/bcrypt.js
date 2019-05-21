@@ -1,6 +1,6 @@
 require('dotenv').config();
 const jwt = require('jsonwebtoken');
-const jwtKey = process.env.secret;
+const jwtKey = "whatever" || process.env.secret;
 
 module.exports = {
 	authenticate,
@@ -22,16 +22,18 @@ function authenticate(req, res, next) {
 	}
 }
 
-function generateToken(user) {
-	// console.log(user)
+function generateToken(user, type) {
+	console.log("token user", user)
 	const payload = {
-		userId: user.id,
-		isAdmin: user.isAdmin,
-		username: user.username,
-		password: user.password
-	};
+		id: user.id,
+		password: user.password,
+		isLandlord: type
+		
+  };
+
 	const options = {
 		expiresIn: '600m'
-	};
+  }
+
 	return jwt.sign(payload, jwtKey, options);
 }

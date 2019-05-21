@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const db = require("../data/helper/propertiesModal");
+const db = require("../data/helper/properties");
 
 // Get all properties
 router.get("/", (req, res) => {
-  db.getProperties()
+  db.get()
     .then(properties => res.status(200).json(properties))
     .catch(err => {
       res.status(500).json({ error: `${err}` });
@@ -12,9 +12,9 @@ router.get("/", (req, res) => {
 });
 
 // Get a property
-router.get("/:houseId", (req, res) => {
-  const { houseId } = req.params;
-  db.findByPropertyId(houseId)
+router.get("/:id", (req, res) => {
+  const { id } = req.params;
+  db.getById(id)
     .then(properties => {
       if (properties) {
         res.status(200).json(properties);
@@ -29,37 +29,47 @@ router.get("/:houseId", (req, res) => {
     });
 });
 
-// create property
-router.post("/", (req, res, next) => {
-  const newProperty = req.body;
-  db.createProperty(newProperty)
-    .then(houseIds => {
-      db.findByPropertyId(houseIds[0])
-        .then(newProperty => {
-          res.status(201).json({ newProperty: newProperty.houseId });
-        })
-        .catch(err => {
-          console.log("error1", err);
-          res.status(500).json({ error: `${err}` });
-        });
+//By landlord
+
+router.get("/landlord/:id", (req, res) => {
+  const { id } = req.params;
+
+  db.getByLandlordId(id)
+    .then(properties => {
+      if (properties) {
+        res.status(200).json(properties);
+      } else {
+        res.status(404).json({ error: "no properties were found" });
+      }
     })
     .catch(err => {
-      console.log("error2", err);
-      next("h500", err);
+      res.status(500).json({ error: `${err}` });
+    });
+});
+
+// create property
+router.post("/", (req, res, next) => {
+  const property = req.body;
+  console.log("create", property);
+  db.create(property)
+    .then(property => {
+      res.status(201).json({ property });
+    })
+    .catch(err => {
+      console.log("error", err);
+      res.status(500).json({ error: `${err}` });
     });
 });
 
 // edit property
-router.put("/:houseId", (req, res, next) => {
-  const { houseId } = req.params;
-  const edit = req.body;
-
-  db.editProperty(houseId, edit)
-    .then(updated => {
-      if (updated) {
-        res.status(200).json({
-          message: "Property updated."
-        });
+router.put("/:id", (req, res, next) => {
+  const { id } = req.params;
+  const property = req.body;
+  console.log("edit", id, property);
+  db.editById(id, property)
+    .then(property => {
+      if (property) {
+        res.status(200).json({ message: "Property updated." });
       } else {
         res.status(404).json({ error: "No property found." });
       }
@@ -70,9 +80,9 @@ router.put("/:houseId", (req, res, next) => {
 });
 
 // delete property
-router.delete("/:houseId", (req, res) => {
-  const { houseId } = req.params;
-  db.deleteProperty(houseId)
+router.delete("/:id", (req, res) => {
+  const { id } = req.params;
+  db.deleteById(id)
     .then(property => {
       if (property) {
         res.status(202).json({ message: "Property deleted." });

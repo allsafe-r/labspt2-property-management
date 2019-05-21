@@ -11,16 +11,26 @@ class Login extends Component {
 	state = {
 		email: '',
 		password: '',
-		search: false
+		search: false,
+		isLandlord: true,
 	};
 
 	onChange = (e) => {
 		this.setState({ [e.target.name]: e.target.value });
 	};
 
+	isLandlord = () => {
+		this.setState({ isLandlord: true });
+	};
+
+	isNotLandlord = () => {
+		this.setState({ isLandlord: false });
+	};
+
+
 	onSubmit = (e) => {
 		e.preventDefault();
-		const acc = { email: this.state.email, password: this.state.password };
+		const acc = { email: this.state.email, password: this.state.password, isLandlord: this.state.isLandlord };
 		if (this.state.email.indexOf('@') < 0 || this.state.email.indexOf('@') > this.state.email.indexOf('.com')) {
 			alert('Please enter a proper e-mail');
 		} else {
@@ -29,7 +39,8 @@ class Login extends Component {
 				.post(url, acc)
 				.then((res) => {
 					localStorage.setItem('jwtToken', res.data.token);
-					decode(localStorage.getItem('jwtToken')).isAdmin
+					
+					decode(localStorage.getItem('jwtToken')).isLandlord
 						? this.props.history.push('/properties')
 						: this.props.history.push('/dashboard');
 					this.props.authenticate();
@@ -49,6 +60,12 @@ class Login extends Component {
 					<Link to={'/'}>
 						<img className="logo-login" src={logo} alt="Logo" />
 					</Link>
+					<div className="register-radio-container">
+						<input type="radio" onClick={this.isLandlord} value="LANDLORD" name="account" />{' '}
+						<p className="radio-p">Landlord</p>
+						<input type="radio" onClick={this.isNotLandlord} value="TENANT" name="account" />{' '}
+						<p className="radio-p">Tenant</p>
+					</div>
 					<div className="user-container">
 						<input
 							placeholder="email"
