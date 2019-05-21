@@ -75,7 +75,7 @@ class tenantDashboard extends Component {
 		const token = localStorage.getItem('jwtToken');
 		const id = decode(token).id;
 		axios
-			.get(`https://tenantly-back.herokuapp.com/tenant/${id}`)
+			.get(`https://tenantly-back.herokuapp.com/workorders/tenant/${id}`)
 			.then(
 				(response) =>
 					this.setState({
@@ -193,7 +193,11 @@ class tenantDashboard extends Component {
 												{/* Prior date is {priorDate} charge made  {charge.created}. */}
 												{/* Current user {this.state.user} charge made to {charge.billing_details.name}. */}
 												<div className="outstanding"> Outstanding Balance</div>
-												<div className="outstandingBalance">${this.state.balance}</div>
+												{/* <div className="outstandingBalance">${this.state.balance}</div> */}
+												//trying to get it on didMount
+												<div className="outstandingBalance">
+													${this.state.cost / 100 - this.state.payments.reduce(this.getSum) / 100}
+												</div>
 												{/* {console.log(this.state.payments)} */}
 											</p>
 										)}
