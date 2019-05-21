@@ -74,7 +74,7 @@ class tenantDashboard extends Component {
 		this.fetchData();
 		const token = localStorage.getItem('jwtToken');
 		const id = decode(token).id;
-		axios.get(`https://tenantly-back.herokuapp.com/workorders/${id}`)
+		axios.get(`https://tenantly-back.herokuapp.com/workorders/tenant/${id}`)
 		.then((response) => this.setState({ workorders: response.data }))
 		.catch((error) => {
 			console.error('Server Error', error);
@@ -109,7 +109,7 @@ class tenantDashboard extends Component {
 			.then((user) => {
 				console.log(user);
 				if (
-					this.state.houseID !== user.data.property_id ||
+					this.state.houseId !== user.data.property_id ||
 					this.state.user !== user.data.firstName ||
 					this.state.cost !== user.data.cost
 				) {
