@@ -5,6 +5,8 @@ import DeleteModal from "./deleteModal";
 // const url = process.env.getProperty || `http://localhost:9000/properties/${id}`;
 //aconst url = `https://tenantly-back.herokuapp.com/properties/${id}`;
 
+const decode = require("jwt-decode");
+
 export default class DisplayProperty extends Component {
   constructor(props) {
     super(props);
@@ -21,7 +23,7 @@ export default class DisplayProperty extends Component {
 
   fetchProperty = id => {
     axios
-      .get(`https://tenantly-back.herokuapp.com/properties/${id}`)
+      .get(`http://localhost:9000/properties/${id}`)
       .then(response => {
         this.setState({ property: response.data });
       })
@@ -31,9 +33,10 @@ export default class DisplayProperty extends Component {
   };
 
   deleteProperty = () => {
-    let id = this.state.property.houseId;
+    let id = this.state.property.id;
+
     axios
-      .delete(`https://tenantly-back.herokuapp.com/properties/${id}`)
+      .delete(`http://localhost:9000/properties/${id}`)
       .then(response => {
         console.log("in here", response);
       })
@@ -81,29 +84,29 @@ export default class DisplayProperty extends Component {
           <div className="propertyBody-left">
             <div className="propertyBody-info">
               <h1>Name </h1>
-              <p>{this.state.property.propertyName}</p>
+              <p>{this.state.property.name}</p>
             </div>
             <div className="propertyBody-info">
               <h1>Address</h1>
-              <p>{this.state.property.propertyAddress}</p>
+              <p>{this.state.property.address}</p>
             </div>
             <div className="propertyBody-info">
               <h1>City </h1>
-              <p>{this.state.property.propertyCity}</p>
+              <p>{this.state.property.city}</p>
             </div>
             <div className="propertyBody-info">
               <h1>Zipcode </h1>
-              <p>{this.state.property.propertyZipcode}</p>
+              <p>{this.state.property.zip}</p>
             </div>
           </div>
           <div className="propertyBody-right">
             <div className="propertyBody-info">
               <h1>Sq. Ft. </h1>
-              <p>{this.state.property.sqFt}</p>
+              <p>{this.state.property.sqft}</p>
             </div>
             <div className="propertyBody-info">
               <h1>Beds </h1>
-              <p>{this.state.property.bedrooms}</p>
+              <p>{this.state.property.rooms}</p>
             </div>
             <div className="propertyBody-info">
               <h1>Baths</h1>
@@ -111,7 +114,11 @@ export default class DisplayProperty extends Component {
             </div>
             <div className="propertyBody-info">
               <h1>Year Built </h1>
-              <p>{this.state.property.yearBuilt}</p>
+              <p>{this.state.property.year}</p>
+            </div>
+            <div className="propertyBody-info">
+              <h1>Max </h1>
+              <p>{this.state.property.max}</p>
             </div>
           </div>
         </div>

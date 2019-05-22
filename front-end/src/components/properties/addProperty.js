@@ -9,31 +9,32 @@ import Typography from "@material-ui/core/Typography";
 import "../../assets/css/general.css";
 
 const decode = require("jwt-decode");
-// const url = process.env.properties || 'http://localhost:9000/properties';
-const url = "https://tenantly-back.herokuapp.com/properties/";
+const url = "http://localhost:9000/properties";
+// const url = "https://tenantly-back.herokuapp.com/properties/";
 
 class AddProperty extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      propertyName: "",
-      propertyAddress: "",
-      propertyCity: "",
-      propertyState: "",
-      propertyZipcode: "",
-      sqFt: "",
-      bedrooms: "",
+      name: "",
+      address: "",
+      city: "",
+      state: "",
+      zip: "",
+      sqft: "",
+      rooms: "",
       bathrooms: "",
-      yearBuilt: "",
-      maxOccupants: "",
-      tenant1: ""
+      year: "",
+      max: ""
     };
   }
 
   addProperty = e => {
     e.preventDefault();
     const token = localStorage.getItem("jwtToken");
-    const userId = decode(token).userId;
+    const userId = decode(token).id;
+    console.log(userId);
+
     axios
       .post(url, { ...this.state, owner: userId })
       .then(response => {
@@ -58,16 +59,16 @@ class AddProperty extends Component {
           <div>
             <input
               type="text"
-              name="propertyName"
-              value={this.state.propertyName}
+              name="name"
+              value={this.state.name}
               placeholder="Property Name"
               onChange={this.inputHandler}
               className="form-input"
             />
             <input
               type="text"
-              name="propertyAddress"
-              value={this.state.propertyAddress}
+              name="address"
+              value={this.state.address}
               placeholder="Address"
               onChange={this.inputHandler}
               className="form-input"
@@ -75,8 +76,8 @@ class AddProperty extends Component {
             />
             <input
               type="text"
-              name="propertyCity"
-              value={this.state.propertyCity}
+              name="city"
+              value={this.state.city}
               placeholder="City"
               onChange={this.inputHandler}
               className="form-input"
@@ -84,8 +85,8 @@ class AddProperty extends Component {
             />
             <input
               type="text"
-              name="propertyState"
-              value={this.state.propertyState}
+              name="state"
+              value={this.state.state}
               placeholder="State"
               onChange={this.inputHandler}
               className="form-input"
@@ -93,8 +94,8 @@ class AddProperty extends Component {
             />
             <input
               type="text"
-              name="propertyZipcode"
-              value={this.state.propertyZipcode}
+              name="zip"
+              value={this.state.zip}
               placeholder="Zipcode"
               onChange={this.inputHandler}
               className="form-input"
@@ -104,26 +105,16 @@ class AddProperty extends Component {
           <div>
             <input
               type="text"
-              name="tenant1"
-              value={this.state.tenant1}
-              placeholder="Tenant ID"
-              onChange={this.inputHandler}
-              className="form-input"
-              required
-            />
-
-            <input
-              type="text"
-              name="sqFt"
-              value={this.state.sqFt}
+              name="sqft"
+              value={this.state.sqft}
               placeholder="SqFt"
               onChange={this.inputHandler}
               className="form-input"
             />
             <input
               type="text"
-              name="bedrooms"
-              value={this.state.bedrooms}
+              name="rooms"
+              value={this.state.rooms}
               placeholder="Bedrooms"
               onChange={this.inputHandler}
               className="form-input"
@@ -140,8 +131,8 @@ class AddProperty extends Component {
             />
             <input
               type="text"
-              name="yearBuilt"
-              value={this.state.yearBuilt}
+              name="year"
+              value={this.state.year}
               placeholder="Year"
               onChange={this.inputHandler}
               className="form-input"
@@ -149,8 +140,8 @@ class AddProperty extends Component {
             />
             <input
               type="text"
-              name="maxOccupants"
-              value={this.state.maxOccupants}
+              name="max"
+              value={this.state.max}
               placeholder="maxOccupants"
               onChange={this.inputHandler}
               className="form-input"

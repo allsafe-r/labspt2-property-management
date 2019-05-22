@@ -7,16 +7,17 @@ class EditProperty extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      houseId: "",
-      propertyName: "",
-      propertyAddress: "",
-      propertyCity: "",
-      propertyState: "",
-      propertyZipcode: "",
-      sqFt: "",
-      bedrooms: "",
+      id: "",
+      name: "",
+      address: "",
+      city: "",
+      state: "",
+      zip: "",
+      sqft: "",
+      rooms: "",
       bathrooms: "",
-      yearBuilt: ""
+      year: "",
+      max: ""
     };
   }
 
@@ -26,23 +27,20 @@ class EditProperty extends Component {
 
   SingleProperty = () => {
     axios
-      .get(
-        `https://tenantly-back.herokuapp.com/properties/${
-          this.props.match.params.id
-        }`
-      )
+      .get(`http://localhost:9000/properties/${this.props.match.params.id}`)
       .then(response => {
         this.setState({
-          houseId: response.data.houseId,
-          propertyName: response.data.propertyName,
-          propertyAddress: response.data.propertyAddress,
-          propertyCity: response.data.propertyCity,
-          propertyState: response.data.propertyState,
-          propertyZipcode: response.data.propertyZipcode,
-          sqFt: response.data.sqFt,
-          bedrooms: response.data.bedrooms,
+          id: response.data.id,
+          name: response.data.name,
+          address: response.data.address,
+          city: response.data.city,
+          state: response.data.state,
+          zip: response.data.zip,
+          sqft: response.data.sqft,
+          rooms: response.data.rooms,
           bathrooms: response.data.bathrooms,
-          yearBuilt: response.data.yearBuilt
+          year: response.data.year,
+          max: response.data.max
         });
       })
       .catch(err => {
@@ -50,11 +48,11 @@ class EditProperty extends Component {
       });
   };
 
-  editNote = e => {
+  editProperty = e => {
     e.preventDefault();
-    let id = this.state.houseId;
+    let id = this.state.id;
     axios
-      .put(`https://tenantly-back.herokuapp.com/properties/${id}`, this.state)
+      .put(`http://localhost:9000/properties/${id}`, this.state)
       .then(response => {
         console.log("in here", response);
       })
@@ -72,24 +70,24 @@ class EditProperty extends Component {
     return (
       <div className="edit-property">
         <h1>Edit Note</h1>
-        <form onSubmit={this.editNote}>
+        <form onSubmit={this.editProperty}>
           <div className="edit-leftSide">
             <div className="edit-topInfo">
               <div className="input-info">
                 <h1>Property Name</h1>
                 <input
-                  name="propertyName"
+                  name="name"
                   type="text"
-                  value={this.state.propertyName}
+                  value={this.state.name}
                   onChange={this.handleInput}
                 />
               </div>
               <div className="input-info">
                 <h1>Address</h1>
                 <input
-                  name="propertyAddress"
+                  name="address"
                   type="text"
-                  value={this.state.propertyAddress}
+                  value={this.state.address}
                   onChange={this.handleInput}
                 />
               </div>
@@ -97,9 +95,9 @@ class EditProperty extends Component {
               <div className="input-info">
                 <h1>City</h1>
                 <input
-                  name="propertyCity"
+                  name="city"
                   type="text"
-                  value={this.state.propertyCity}
+                  value={this.state.city}
                   onChange={this.handleInput}
                 />
               </div>
@@ -107,9 +105,9 @@ class EditProperty extends Component {
               <div className="input-info">
                 <h1>State</h1>
                 <input
-                  name="propertyState"
+                  name="state"
                   type="text"
-                  value={this.state.propertyState}
+                  value={this.state.state}
                   onChange={this.handleInput}
                 />
               </div>
@@ -117,9 +115,9 @@ class EditProperty extends Component {
               <div className="input-info">
                 <h1>Zip Code</h1>
                 <input
-                  name="propertyZipcode"
+                  name="zip"
                   type="text"
-                  value={this.state.propertyZipcode}
+                  value={this.state.zip}
                   onChange={this.handleInput}
                 />
               </div>
@@ -128,9 +126,9 @@ class EditProperty extends Component {
               <div className="input-info">
                 <h1>Sq. Ft.</h1>
                 <input
-                  name="sqFt"
+                  name="sqft"
                   type="text"
-                  value={this.state.sqFt}
+                  value={this.state.sqft}
                   onChange={this.handleInput}
                 />
               </div>
@@ -138,9 +136,9 @@ class EditProperty extends Component {
               <div className="input-info">
                 <h1>Bedrooms</h1>
                 <input
-                  name="bedrooms"
+                  name="rooms"
                   type="text"
-                  value={this.state.bedrooms}
+                  value={this.state.rooms}
                   onChange={this.handleInput}
                 />
               </div>
@@ -154,13 +152,21 @@ class EditProperty extends Component {
                   onChange={this.handleInput}
                 />
               </div>
-
+              <div className="input-info">
+                <h1>Max</h1>
+                <input
+                  name="max"
+                  type="text"
+                  value={this.state.max}
+                  onChange={this.handleInput}
+                />
+              </div>
               <div className="input-info">
                 <h1>Year Built</h1>
                 <input
-                  name="yearBuilt"
+                  name="year"
                   type="text"
-                  value={this.state.yearBuilt}
+                  value={this.state.year}
                   onChange={this.handleInput}
                 />
               </div>

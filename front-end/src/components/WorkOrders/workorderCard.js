@@ -92,15 +92,16 @@ class Workordercard extends Component {
 		super(props);
 		this.state = {
 			id: props.work.id,
-			property: props.work.property,
-			tenant: props.work.tenant,
+			property: props.work.property_id,
+			tenant: props.work.tenant_id,
 			description: props.work.description,
 			phone: props.work.phone,
-			unsupervisedEntry: props.work.unsupervisedEntry,
+			unsupervisedEntry: props.work.entry,
 			status: props.work.status,
 			open: false,
 			button: true,
-			tenantname:''
+			tenantname:'',
+			
 		};
 	}
 
@@ -115,11 +116,12 @@ class Workordercard extends Component {
 		});
 
 		let updatedworkorder = {
-			property: this.state.property,
-			tenant: this.state.tenant,
+			property_id: this.state.property,
+			tenant_id: this.state.tenant,
+			landlord_id:'',
 			description: this.state.description,
 			phone: this.state.phone,
-			unsupervisedEntry: this.state.unsupervisedEntry,
+			entry: this.state.entry,
 			status: e.target.value
 		};
 
@@ -147,7 +149,7 @@ class Workordercard extends Component {
 
 	tenantname = () => {
 		axios
-            .get(`https://tenantly-back.herokuapp.com/users/${this.state.tenant}`)
+      .get(`https://tenantly-back.herokuapp.com/tenants/${this.state.tenant}`)
 			.then((response) => {
 				let tenantworkorder = response.data
 				this.setState({
@@ -197,7 +199,7 @@ class Workordercard extends Component {
 				
 
 				<Typography className={classes.typography} variant="h1">
-					{`Unsupervised Entry is ${this.props.work.unsupervisedEntry ? 'Allowed' : 'Not Allowed'}`} 
+					{`Unsupervised Entry is ${this.props.work.entry ? 'Allowed' : 'Not Allowed'}`} 
 					</Typography>	
 					
 					

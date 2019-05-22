@@ -32,7 +32,6 @@ const alertURL = `https://tenantly-back.herokuapp.com/alerts`;
 const stripeURL = 'https://tenantly-back.herokuapp.com/stripe/charges';
 const url = 'https://tenantly-back.herokuapp.com/workorders/';
 
-
 const styles = {
 	card: {
 		minWidth: 275
@@ -67,19 +66,27 @@ class tenantDashboard extends Component {
 		payments: [],
 		total: '',
 		user: '',
-		workorders: []
+		workorders: [],
+		balance: ''
 	};
 
 	componentDidMount() {
 		this.fetchData();
 		const token = localStorage.getItem('jwtToken');
-		const id = decode(token).userId;
-		axios.get(`https://tenantly-back.herokuapp.com/workorders/${id}`)
-		.then((response) => this.setState({ workorders: response.data }))
-		.catch((error) => {
-			console.error('Server Error', error);
-		});
-		
+		const id = decode(token).id;
+		axios
+			.get(`https://tenantly-back.herokuapp.com/workorders/tenant/${id}`)
+			.then(
+				(response) =>
+					this.setState({
+						workorders: response.data,
+						balance: this.state.cost / 100 - this.state.payments.reduce(this.getSum) / 100
+					}),
+				console.log('yooooo', this.state.balance)
+			)
+			.catch((error) => {
+				console.error('Server Error', error);
+			});
 	}
 
 	componentDidUpdate() {
@@ -100,19 +107,20 @@ class tenantDashboard extends Component {
 				console.error('Server Error', error);
 			});
 		const token = localStorage.getItem('jwtToken');
-		const id = decode(token).userId;
+		const id = decode(token).id;
+		console.log(id);
 		// go into users to find which residence you live at
 		axios
-			.get(`https://tenantly-back.herokuapp.com/users/${id}`)
-			// .get(`http://localhost:9000/users/${id}`)
+			//.get(`https://tenantly-back.herokuapp.com/users/${id}`)
+			.get(`https://tenantly-back.herokuapp.com/tenants/${id}`)
 			.then((user) => {
 				// console.log(user);
 				if (
-					this.state.houseID !== user.data.residenceId ||
+					this.state.houseId !== user.data.property_id ||
 					this.state.user !== user.data.firstName ||
 					this.state.cost !== user.data.cost
 				) {
-					this.setState({ houseId: user.data.residence_id, user: user.data.firstName, cost: user.data.cost });
+					this.setState({ houseId: user.data.property_id, user: user.data.firstName, cost: user.data.cost });
 					// console.log(this.state.houseId);
 				}
 			})
@@ -122,14 +130,16 @@ class tenantDashboard extends Component {
 					.get(`https://tenantly-back.herokuapp.com/properties/${this.state.houseId}`)
 					.then((res) => {
 						let property = res.data;
-						if (this.state.residenceOwner !== property.owner || this.state.address !== property.propertyAddress) {
-							this.setState({ residenceOwner: property.owner, address: property.propertyAddress });
+						// console.log(this.state.residenceOwner === property.owner, this.state.address === property.address);
+						if (this.state.residenceOwner !== property.owner || this.state.address !== property.address) {
+							this.setState({ residenceOwner: property.owner, address: property.address });
 						}
 					})
 					// 		// find the owner of logged in users residence to supply contact info for owner
 					.then(
-						axios.get(`https://tenantly-back.herokuapp.com/users/${this.state.residenceOwner}`).then((res) => {
+						axios.get(`https://tenantly-back.herokuapp.com/tenants/${this.state.residenceOwner}`).then((res) => {
 							let owner = res.data;
+							// console.log(this.state.contact === owner.phone, this.state.contactEmail === owner.email);
 							if (this.state.contact !== owner.phone || this.state.contactEmail !== owner.email) {
 								this.setState({ contact: owner.phone, contactEmail: owner.email });
 							}
@@ -139,7 +149,8 @@ class tenantDashboard extends Component {
 			.then(
 				// go into alerts and grab each alerts where the houseId matches logged in users residence, set to state
 				axios.get(alertURL).then((res) => {
-					let alertsObj = res.data.filter((alert) => alert.houseId === this.state.houseId);
+					let alertsObj = res.data.filter((alert) => alert.property_id === this.state.houseId);
+					// console.log(alertsObj.length === this.state.alerts.length);
 					if (alertsObj.length !== this.state.alerts.length) {
 						this.setState({ alerts: alertsObj });
 					}
@@ -150,12 +161,11 @@ class tenantDashboard extends Component {
 	convertToTime = (e) => {
 		const d = new Date(e * 1000);
 		return d.toLocaleString();
-	}
+	};
 
-	getSum = (total, num) =>{
+	getSum = (total, num) => {
 		return total + num;
-	}
-
+	};
 
 	render() {
 		var today = new Date();
@@ -168,52 +178,49 @@ class tenantDashboard extends Component {
 
 		return (
 			<div className="tenant-dash">
-			
-			
 				<Grid item sm={12} className="tenant-button">
-			{/* This pulls the stripe info and the Outstanding payments for the user based on payments made in the last 30 days. */}
-				<StripeProvider apiKey="pk_test_uGZWgKZiorkYlZ8MsxYEIrA2">
-					<Paper elevation={1} className="paperBorder">
-					<div className="outstanding"> Outstanding Balance</div>
-					<div className="currentOutstanding">
-						{this.state.charges.map((charge) => 
-							
-							<div>
-							{priorDate < charge.created && this.state.user === charge.billing_details.name &&
-							  <p>
-								  <p className="hidden">{this.state.payments.push(charge.amount)}</p>
-								{/* Prior date is {priorDate} charge made  {charge.created}. */}
-								{/* Current user {this.state.user} charge made to {charge.billing_details.name}. */}
-								<div className="outstanding"> Outstanding Balance</div>
-									<div className="outstandingBalance">${(this.state.cost/100) - (this.state.payments.reduce(this.getSum)/100)}</div>
-								{/* {console.log(this.state.payments)} */}
-							  </p>
-							}
-						  </div>
-					
-						)}
-						</div>
-					</Paper>
-
+					{/* This pulls the stripe info and the Outstanding payments for the user based on payments made in the last 30 days. */}
+					<StripeProvider apiKey="pk_test_uGZWgKZiorkYlZ8MsxYEIrA2">
+						<Paper elevation={1} className="paperBorder">
+							<div className="outstanding"> Outstanding Balance</div>
+							<div className="currentOutstanding">
+								{this.state.charges.map((charge) => (
+									<div>
+										{priorDate < charge.created &&
+										this.state.user === charge.billing_details.name && (
+											<p>
+												<p className="hidden">{this.state.payments.push(charge.amount)}</p>
+												{/* Prior date is {priorDate} charge made  {charge.created}. */}
+												{/* Current user {this.state.user} charge made to {charge.billing_details.name}. */}
+												<div className="outstanding"> Outstanding Balance</div>
+												{/* <div className="outstandingBalance">${this.state.balance}</div> */}
+												
+												<div className="outstandingBalance">
+													${this.state.cost / 100 - this.state.payments.reduce(this.getSum) / 100}
+												</div>
+												{/* {console.log(this.state.payments)} */}
+											</p>
+										)}
+									</div>
+								))}
+							</div>
+						</Paper>
 					</StripeProvider>
 
 					<Card>
 						<Link to="/payments">
 							<Button variant="extended" color="default" className="dash-button">
-							<FontAwesomeIcon icon={faMoneyBillAlt} />&nbsp;&nbsp;Make a Payment
-      						</Button>
+								<FontAwesomeIcon icon={faMoneyBillAlt} />&nbsp;&nbsp;Make a Payment
+							</Button>
 						</Link>
 					</Card>
 					<Card>
 						<Link to="/maintenance">
 							<Button variant="extended" color="default" className="dash-button">
-							<FontAwesomeIcon icon={faTools} />&nbsp;&nbsp;Submit a Workorder
-      						</Button>
+								<FontAwesomeIcon icon={faTools} />&nbsp;&nbsp;Submit a Workorder
+							</Button>
 						</Link>
 					</Card>
-					
-
-
 				</Grid>
 				<Grid item sm={12}>
 					<List>
@@ -247,11 +254,9 @@ class tenantDashboard extends Component {
 					</List>
 				</Grid>
 			</div>
-	
 		);
 	}
-	}
-
+}
 
 tenantDashboard.propTypes = {
 	classes: PropTypes.object.isRequired

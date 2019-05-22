@@ -6,8 +6,8 @@ module.exports = {
 	getById,
 	get,
 	editById,
-  getByPropertyId,
-  getByLandlordId,
+	getByPropertyId,
+	getByLandlordId,
 	deleteById
 };
 
@@ -16,11 +16,11 @@ function create(workorder) {
 }
 
 function getByPropertyId(property_id) {
-	return db('workorders').where({ property_id })
+	return db('workorders').where({ property_id });
 }
 
-function getByTenantId(tenant_id) {
-	return db('workorders').where({ tenant_id })
+function getByTenantId(id) {
+	return db('workorders').where({ tenant_id: id });
 }
 
 function getById(id) {
@@ -40,5 +40,5 @@ function deleteById(id) {
 }
 
 function getByLandlordId(landlord_id) {
-	return db('workorders').where({ landlord_id })
+	return db('workorders').where({ landlord_id });
 }

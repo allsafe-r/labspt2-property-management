@@ -52,16 +52,16 @@ class CheckoutForm extends Component {
   
   componentDidMount() {
     const token = localStorage.getItem('jwtToken');
-		const id = decode(token).userId;
+		const id = decode(token).id;
     axios
     // ****Please change to public url when deploying
       // .get(`https://tenantly-back.herokuapp.com/users/${id}`)
-      .get(`http://localhost:9000/users/${id}`)
+      .get(`https://tenantly-back.herokuapp.com/tenants/${id}`)
 			.then((user) => {
-				// console.log(user);
+				console.log(user);
         this.setState({ name: user.data.firstName});
         this.setState({ cost: user.data.cost});
-        this.setState({ property: user.data.property});
+        this.setState({ property: user.data.property_id});
 
 			})
   }
@@ -90,7 +90,7 @@ class CheckoutForm extends Component {
       description: this.state.property,
       source: token.id,
       currency: 'USD',
-      amount: this.state.cost
+      amount: this.state.cost * 100
       
     })
     .then(this.props.charge)
