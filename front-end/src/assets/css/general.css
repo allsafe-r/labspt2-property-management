@@ -1232,7 +1232,7 @@ body {
   vertical-align: top;
   width: 56px;
   height: 56px;
-  background: white;
+  /* background: white; */
   border-radius: 50%;
   box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.1);
   -webkit-animation-duration: 4s;
@@ -1280,10 +1280,11 @@ body {
   left: -3px;
   width: 18px;
   height: 2px;
-  background: #fc766a;
+  background: white;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+  font-size: 3rem;
 }
 
 .anchor span:after {
@@ -1317,14 +1318,16 @@ body {
 
 .anchor-wrap > span {
   font-size: 1.3rem;
-  margin-bottom: 15px;
+  /* margin-bottom: 15px; */
 }
-
+/* HERE */
 .anchor-wrap {
   position: absolute;
-  bottom: 29px;
+  /* bottom: 29px; */
   left: 0;
   width: 100%;
+  height: 100px;
+  border: 1px solid red;
 }
 
 @media (max-width: 1023px) {
@@ -1775,6 +1778,10 @@ input[type="checkbox"]:checked + label:before {
   transition: 0.3s;
   outline: none;
   transition: 0.3s;
+}
+
+a {
+  text-decoration: none;
 }
 
 ::placeholder {
