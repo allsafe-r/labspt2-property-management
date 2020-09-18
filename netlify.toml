@@ -1,7 +1,7 @@
 
 [build]
   base    = "./front-end"
-  publish = "./front-end/build"
+  publish = "./build"
   command = "CI= npm run build"
 
 [[redirects]]
