@@ -87,7 +87,7 @@ const IndexPage = () => (
       </div>
     </div>
     <Cells>
-     <SectionCaption>Step into the year 2019</SectionCaption>
+     <SectionCaption>Step into the year 2021</SectionCaption>
      <SectionCellGroup>
       {staticdata.cells.map(cell => (
         <Cell 
