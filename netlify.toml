@@ -2,7 +2,7 @@
 [build]
   base    = "./front-end"
   publish = "./front-end/build"
-  
+  command = "npm run-script build"
 
 [[redirects]]
 from = "/*"
